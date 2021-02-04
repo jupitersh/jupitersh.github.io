@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>简易智能精神状态检查量表(MMSE)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>简易智能精神状态检查量表(MMSE)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<tr>
+                        <th>检查项目</th>
+                        <th colspan="2">操作说明</th>
+                        <th>评分项目</th>
+                        <th>正确记分</th>
+                    </tr>
+                </thead>
+				<tbody>
+                    <tr>
+                    	<th rowspan="10">定向力</th>
+                        <td colspan="2" rowspan="5">现在是（星期几）（几号）（几月）（什么季节）（哪一年）？</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox1" />
+                            <label for="checkbox1">今天是星期几?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox2" />
+                            <label for="checkbox2">今天是几号?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox3" />
+                            <label for="checkbox3">现在是几月份?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox4" />
+                            <label for="checkbox4">现在是什么季节?</label>	
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox5" />
+                            <label for="checkbox5">今年的年份?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="5">现在我们在哪里：（省市）（区或县）（街道或乡）（什么地方）（第几层楼）</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox6" />
+                            <label for="checkbox6">现在我们在哪里(省、市)?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox7" />
+                            <label for="checkbox7">现在我们在什么地方(区、县)?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox8" />
+                            <label for="checkbox8">现在我们在什么街道(乡、村)?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox9" />
+                            <label for="checkbox9">这里是什么地方(地址名称)?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox10" />
+                            <label for="checkbox10">现在我们在第几层楼?</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">记忆力</th>
+                        <td colspan="2" rowspan="3">现在我要说三样东西的名称，在我讲完以后，请您重复说一遍。（请仔细说清楚，每样东西一秒钟）。<br /><strong style="font-size:18px;">"皮球""国旗""树木"</strong><br />请您把这三样东西说一遍（以第一次的答案记分）</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox11" />
+                            <label for="checkbox11">复述：皮球</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox12" />
+                            <label for="checkbox12">复述：国旗</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox13" />
+                            <label for="checkbox13">复述：树木</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">注意力和计算力</th>
+                        <td colspan="2" rowspan="5">请您算一算100减7，然后从所得的数目再减去7，如此一直计算下去，请您将每减一个7后的答案告诉我，直到我说停为止。（若某一答案错误，但下一答案正确，只记一次错误）</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox14" />
+                            <label for="checkbox14">100-7=93</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox15" />
+                            <label for="checkbox15">93-7=86</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox16" />
+                            <label for="checkbox16">86-7=79</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox17" />
+                            <label for="checkbox17">79-7=72</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox18" />
+                            <label for="checkbox18">72-7=65</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">回忆能力</th>
+                        <td colspan="2" rowspan="3">现在请您说出刚才我让您记住的三样东西？<br /><strong style="font-size:18px;">"皮球""国旗""树木"</strong></td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox19" />
+                            <label for="checkbox19">回忆：皮球</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox20" />
+                            <label for="checkbox20">回忆：国旗</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox21" />
+                            <label for="checkbox21">回忆：树木</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="9">语言能力</th>
+                        <td rowspan="2">命名能力</td>
+                        <td>（出示手表）这个东西叫什么？</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox22" />
+                            <label for="checkbox22">辨认：手表</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>（出示钢笔）这个东西叫什么？</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox23" />
+                            <label for="checkbox23">辨认：钢笔</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<td>复述能力</td>
+                        <td>现在我要说一句话，请您跟着我清楚的重复一遍。<br /><strong style="font-size:18px;">"四十四只石狮子"</strong></td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox24" />
+                            <label for="checkbox24">复述：四十四只石狮子</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<td>阅读能力</td>
+                        <td>请您念一念这句话，并且按它的意思去做。<br /><strong style="font-size:26px;">闭上你的眼睛</strong></td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox25" />
+                            <label for="checkbox25">按纸上指令做动作：闭上你的眼睛</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">执行命令能力</td>
+                        <td rowspan="3">我给您一张纸请您按我说的去做，现在开始：<strong style="font-size:18px;">"用右手拿着这张纸，用两只手将它对折起来，放在您的大腿上"</strong>。（不要重复说明，也不要示范）</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox26" />
+                            <label for="checkbox26">按口头指令动作：用右手拿纸</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox27" />
+                            <label for="checkbox27">按口头指令动作：将纸对折</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox28" />
+                            <label for="checkbox28">按口头指令动作：将纸放在自己大腿上</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>书写能力</td>
+                        <td>您给我写一句完整的句子。</td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox29" />
+                            <label for="checkbox29">能够写一句完整句子(含主语、谓语、宾语)</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>结构能力</td>
+                        <td>这是一张图，请您在纸上照样画出来<br /><img src="Pub/images/tuxing.jpg" /></td>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox30" />
+                            <label for="checkbox30">按样画图</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+              <tbody>
+                    <tr>
+                        <th>结果解读</th>
+                        <td>简易智能精神状态检查量表(MMSE)，又称为简易智力状况检查法(mini-mental state examination)，该量表简单易行，国内外广泛应用，是痴呆筛选的首选量表。共30题，每项正确回答得1分，回答错误或者不知道得0分，量表总分范围为0-30分。<br />评分参考：<br />27-30分：认知功能正常；<br />＜27分：认知功能障碍；<br />21-26分：轻度认知功能障碍；<br />10-20分：中度认知功能障碍；<br />0-9分：重度认知功能障碍。</td>
+                    </tr>
+                    <tr>
+                        <th>相关解释</th>
+                        <td>测量成绩与文化水平密切相关，正常界值划分标准为：文盲＞17分，小学＞20分，初中及以上＞24分。得分低于按受教育程度分组的分界值提示存在认知功能缺损。</td>
+                    </tr>
+                    <tr>
+                        <th>参考来源</th>
+                        <td>吴江主编.《神经病学》（八年制）[M] . 人民卫生出版社.2010年</td>
+                    </tr>
+                </tbody>
+            </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu(){
+		var n=allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu();
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>小儿体表面积公式</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<style type="text/css">
+.tr_end {display:none;}
+</style>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+        	<tr>
+            	<th>请选择体重范围：</th>
+            	<td class="text_wrap">
+                	<select id="sele">
+                    	<option value="0">请选择</option>
+                    	<option value="1">30kg以下</option>
+                    	<option value="2">35kg</option>
+                    	<option value="3">40kg</option>
+                    	<option value="4">45kg</option>
+                    	<option value="5">50kg</option>
+                    	<option value="6">60kg</option>
+                    	<option value="7">70kg</option>
+                    </select>
+                </td>
+            	<td></td>
+            </tr>
+			<tr class="tr_end">
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>kg</td>
+			</tr>
+			<tr class="tr_end">
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr class="tr_end">
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>30kg以下：小儿体表面积=体重×0.035+0.1<br />30~50kg：35kg为1.2m<sup>2</sup><br />40kg为1.3m<sup>2</sup><br />45kg为1.4m<sup>2</sup><br />50kg为1.5m<sup>2</sup><br />60kg为1.6m<sup>2</sup><br />70kg为1.7m<sup>2</sup></td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>一、体重30公斤以下的小儿：小儿体表面积m2=体重×0.035+0.1<br />二、体重30~50公斤的儿童为估算，体重每增加5公斤，体表面积增加0.1m<sup>2</sup>，即：35公斤为1.1+0.1=1.2m<sup>2</sup>，40公斤为1.1+0.2=1.3m<sup>2</sup>，50公斤为1.1+0.4=1.5m<sup>2</sup><br />三、60公斤体表面积为1.6m<sup>2</sup>，70公斤体表面积为1.7m<sup>2</sup></td>
+            </tr>
+		</tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>小儿体表面积=<em id="end"></em>m<sup>2</sup></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#sele').change(function(){
+		if( $('#sele').val() == '1' ){
+			$('.tr_end').show();
+			$("#textPop").css("display","none");
+		}else if( $('#sele').val() == '2' ){
+			$('.tr_end').hide();
+			var end = 1.2;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}else if( $('#sele').val() == '3' ){
+			$('.tr_end').hide();
+			var end = 1.3;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}else if( $('#sele').val() == '4' ){
+			$('.tr_end').hide();
+			var end = 1.4;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}else if( $('#sele').val() == '5' ){
+			$('.tr_end').hide();
+			var end = 1.5;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}else if( $('#sele').val() == '6' ){
+			$('.tr_end').hide();
+			var end = 1.6;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}else if( $('#sele').val() == '7' ){
+			$('.tr_end').hide();
+			var end = 1.7;
+			$("#textPop").css("display","block");
+			$("#end").text(end.toFixed(2));
+		}
+	});
+});
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的体重");
+	}else if(num1 > 30){
+		alert("请填写不大于30kg的体重");
+	}else{
+		var end = num1*0.035+0.1;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>锌缺乏：餐后血清锌浓度反应试验</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+			<tr>
+				<th>A<sub>0</sub>：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>μg/L</td>
+			</tr>
+			<tr>
+				<th>A<sub>2</sub>：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>μg/L</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>PICR=(A0-A2)/A0×100%</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>正常值应＜15%</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>测空腹血清锌浓度A0为基础水平，然后给予标准饮食（按全天总热量20%计算，其中蛋白质10%~15%，脂肪30%~35%,糖类50%~60%），2小时后复查血清锌A2，按公式计算，若PICR＞15%则提示缺锌。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>薛辛东主编. 《儿科学》（八年制）[M]. 人民卫生出版社.2005年</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>PICR=<em id="end"></em>%</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的空腹血清锌浓度");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的标准饮食2小时后血清锌浓度");
+	}else{
+		var end = (num1-num2)/num1*100;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

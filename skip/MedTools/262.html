@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>终末期肝病MELD评分</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="danwei">
+					<div style="float:right; width:160px;"><span class="radio su checked">常用</span><span class="radio si">国际</span></div>
+				</td>
+			</tr>
+            <tr>
+            	<th>过去一周接受透析治疗：</th>
+            	<td>
+                	<select id="sele2">
+                        <option value="0" class="op1">少于两次</option>
+                    	<option value="1">至少两次</option>
+                    </select>
+                </td>
+            	<td></td>
+            </tr>
+			<tr>
+				<th>总胆红素：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span class="s1">mg/dl</span><span class="s2">μmol/L</span></td>
+			</tr>
+			<tr>
+				<th>血肌酐：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td><span class="s1">mg/dl</span><span class="s2">μmol/L</span></td>
+			</tr>
+			<tr>
+				<th>国际标准化比值：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td></td>
+			</tr>
+            <tr>
+            	<th>病因：</th>
+            	<td>
+                	<select id="sele1">
+                    	<option value="0" class="op1">胆汁性或酒精性</option>
+                        <option value="1">其他</option>
+                    </select>
+                </td>
+            	<td></td>
+            </tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Model for End-Stage Liver Disease score</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>MELD=3.78*Ln（总胆红素）+11.2*Ln（INR）+9.57*Ln（血肌酐）+6.43*（胆汁性或酒精性0，其他1）<br />注：若患者在过去一周接受至少两次透析治疗，则血肌酐自动设置为4mg/dl；任何小于1的数值默认为1，以防评分为负数；适用于≥12岁的患者，＜12岁请使用PELD评分</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>MELD评分＞18分，高危；<br />MELD评分15~18分，中危；<br />MELD评分≤14分，低危。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>MELD评分主要用于对非肝移植的终末期肝病短期、中期死亡率进行预测；同时可用于评价肝移植前患者等待供肝期间的死亡率及预测患者移植术后的存活率（自2002年开始，美国以MELD评分取代Child分级作为肝源分配的依据）。
+MELD评分越高，提示预后越差，住院患者3个月的死亡率如下：<br />MELD≥40，71.3%<br />MELD 30~39，52.6%<br />MELD 20~29，19.6%<br />MELD 10~19，6.0%<br />MELD ＜9，1.9%</td>
+			</tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1. Kamath PS,Wiesner RH,Malinchoc M,et al. A model to predict survival in patients with end-stage liver disease Hepatology.2001;33(2):464-70.<br />2. Kamath PS, Kim WR. "The model for end-stage liver disease (MELD)". Hepatology .2007;45 (3): 797–805.<br />3. http://en.wikipedia.org/wiki/Model_for_End-Stage_Liver_Disease</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>MELD=<em id="end"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(function(){
+	$('.danwei, #reset').click(function(){
+		$('#num2').removeAttr('disabled');
+		$('.op1').attr('selected','selected')
+	});
+	
+	$('#sele2').change(function(){
+		if( $('#sele2').val() == 1){
+			if($(".si").hasClass("checked")){
+				var n = (4/0.01131).toFixed(2);
+				$('#num2').attr('disabled','disabled').val(n);
+			}else{
+				$('#num2').attr('disabled','disabled').val('4');
+			}
+		}else{
+			$('#num2').removeAttr('disabled').val('');
+		}
+	});
+});
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = $('#sele1').val();
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的总胆红素，数值为大于0的数");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的血肌酐，数值为大于0的数");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的国际标准化比值，数值为大于0的数");
+	}else{
+		if($(".si").hasClass("checked")){
+			if((num2*0.01131) > 1){
+				var end = 3.78*Math.log(num1*0.05848)+11.2*Math.log(num3)+9.57*Math.log(num2*0.01131)+6.43*num4;
+			}else if((num2*0.01131) < 1){
+				num2 = 1/0.01131;
+				var end = 3.78*Math.log(num1*0.05848)+11.2*Math.log(num3)+9.57*Math.log(num2*0.01131)+6.43*num4;
+			}
+		}else{
+			if(num2 > 1){
+				var end = 3.78*Math.log(num1)+11.2*Math.log(num3)+9.57*Math.log(num2)+6.43*num4;
+			}else if(num2 < 1){
+				num2 = 1;
+				var end = 3.78*Math.log(num1)+11.2*Math.log(num3)+9.57*Math.log(num2)+6.43*num4;
+			}
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

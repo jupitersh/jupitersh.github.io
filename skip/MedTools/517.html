@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>烧伤补液（Brooke公式）</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<th>烧伤占体表面积百分数：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>%</td>
+			</tr>
+			<tr>
+				<th>烧伤后时长：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>hr</td>
+			</tr>
+			<tr>
+				<th>目前补液量：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>ml</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Fluid Repletion For Burns（Brooke formula）</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>烧伤首日：<br />
+Qty=tbsa*体重*2+2000<br />
+等渗林格乳酸钠溶液量=tbsa*体重*1.5<br />
+胶体溶液量= tbsa×体重×0.5<br />
+每日正常需水量（5%葡萄糖注射液）=2000<br />
+烧伤首日前8小时：<br />
+起始补液量=Qty/2-目前补液量<br />
+起始补液速度=起始补液量/(8-烧伤后时间)<br />
+烧伤首日后16小时：<br />
+追加补液量=Qty/2<br />
+追加补液速度=Qty/2/16</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>伤后第一个24h内，成人每1%Ⅱ度、Ⅲ度烧伤面积补给等渗乳酸钠林格溶液1.5ml，胶体0.5ml，同时补给基础水分2000ml。此公式按实际烧伤面积计算输液量，并用乳酸钠林格溶液代替生理盐水，较符合生理需要。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>杨宗城主编.《烧伤治疗学》（第3版）[M].人民卫生出版社.2006.</td>
+            </tr>
+            <tr>
+            	<th>备注：</th>
+            </tr>
+            <tr>
+            	<td>该公式于1953年由美军Brook医学中心外科研究所在Evans公式基础上改良而成。</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>烧伤首日：</p>
+        <p>1.静脉补液总量=<em id="end"></em>ml</p>
+        <p>2.等渗林格乳酸钠溶液量=<em id="end2"></em>ml</p>
+        <p>3.胶体溶液量=<em id="end3"></em>ml</p>
+        <p>4.每日正常需水量（5%葡萄糖注射液）=<em id="end4"></em>ml</p>
+        <p>烧伤首日前8小时：</p>
+        <p>1.起始补液量（前<em class="e1"></em>hr）=<em id="end5"></em>ml</p>
+        <p>2.起始补液速度（前<em class="e1"></em>hr）=<em id="end6"></em>ml/h</p>
+        <p>烧伤首日后16小时：</p>
+        <p>1.追加补液量（后16h）=<em id="end7"></em>ml</p>
+        <p>2.追加补液速度（后16h）=<em id="end8"></em>ml/h</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的体重");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的烧伤占体表面积百分数");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的烧伤后时长");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的目前补液量");
+	}else{
+		var end = num1*num2*2+2000;
+		var end2 = num1*num2*1.5;
+		var end3 = num1*num2*0.5;
+		var end4 = 2000;
+		var end5 = end/2-num4;
+		var end6 = end5/(8-num3);
+		var end7 = end/2;
+		var end8 = end/2/16;
+		var e1 = num3;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+		$("#end2").text(end2.toFixed());
+		$("#end3").text(end3.toFixed());
+		$("#end4").text(end4.toFixed());
+		$("#end5").text(end5.toFixed());
+		$("#end6").text(end6.toFixed());
+		$("#end7").text(end7.toFixed());
+		$("#end8").text(end8.toFixed());
+		$(".e1").text(e1.toFixed());
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

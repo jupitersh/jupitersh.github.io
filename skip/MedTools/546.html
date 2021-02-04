@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>短暂性脑缺血发作(TIA)的ABCD评分系统</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<style>
+th,td {word-break:break-all;}
+</style>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>短暂性脑缺血发作(TIA)的ABCD评分系统</h1>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+        	<thead>
+            	<tr>
+                	<th colspan="2">项目</th>
+                	<th>ABCD分值</th>
+                	<th>ABCD 2分值</th>
+                	<th>ABCD 3分值</th>
+                	<th>ABCD 3-I分值</th>
+                </tr>
+            </thead>
+        	<tbody>
+                <tr>
+                	<td>年龄(A)</td>
+                	<td>
+                    	<input type="checkbox" value="1111" id="checkbox1" />
+                        <label for="checkbox1">＞60岁</label></td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                </tr>
+                <tr>
+                	<td>血压(B)</td>
+                	<td>
+                    	<input type="checkbox" value="1111" id="checkbox2" />
+                        <label for="checkbox2">收缩压＞140mmHg或舒张压＞90mmHg(1mmHg=0.133kPa)</label></td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                </tr>
+                <tr>
+                	<td rowspan="2">临床症状(C)</td>
+                	<td>
+                    	<input type="radio" name="radio1" value="2222" id="checkbox3" />
+                        <label for="checkbox3">单侧无力</label></td>
+                	<td>2</td>
+                	<td>2</td>
+                	<td>2</td>
+                	<td>2</td>
+                </tr>
+                <tr>
+                	<td>
+                    	<input type="radio" name="radio1" value="1111" id="checkbox4" />
+                        <label for="checkbox4">不伴无力的言语障碍</label></td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                </tr>
+                <tr>
+                	<td rowspan="2">症状持续时间(D)</td>
+                	<td>
+                    	<input type="radio" name="radio2" value="2222" id="checkbox5" />
+                        <label for="checkbox5">＞60min</label></td>
+                	<td>2</td>
+                	<td>2</td>
+                	<td>2</td>
+                	<td>2</td>
+                </tr>
+                <tr>
+                	<td>
+                    	<input type="radio" name="radio2" value="1111" id="checkbox6" />
+                        <label for="checkbox6">10~59min</label></td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                </tr>
+                <tr>
+                	<td>糖尿病(D)</td>
+                	<td>
+                    	<input type="checkbox" value="0111" id="checkbox7" />
+                        <label for="checkbox7">有</label></td>
+                	<td>-</td>
+                	<td>1</td>
+                	<td>1</td>
+                	<td>1</td>
+                </tr>
+                <tr>
+                	<td>双重(7d内)短暂性脑缺血发作(D)</td>
+                	<td>
+                    	<input type="checkbox" value="0022" id="checkbox8" />
+                        <label for="checkbox8">有</label></td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>2</td>
+                	<td>2</td>
+                </tr>
+                <tr>
+                	<td rowspan="2">影像检查(I)</td>
+                	<td>
+                    	<input type="radio" name="radio3" value="0002" id="checkbox9" />
+                        <label for="checkbox9">同侧颈动脉狭窄≥50%</label></td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>2</td>
+                </tr>
+                <tr>
+                	<td>
+                    	<input type="radio" name="radio3" value="0002" id="checkbox10" />
+                        <label for="checkbox10">DWI检查出现高信号</label></td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>2</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="count">评分</th>
+                    <td><span><em class="num1">0</em></span></td>
+                    <td><span><em class="num2">0</em></span></td>
+                    <td><span><em class="num3">0</em></span></td>
+                    <td><span><em class="num4">0</em></span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+		<table class="countTabResult">
+        	<thead>
+            	<tr>
+                	<th colspan="4">结果解读</th>
+                </tr>
+            </thead>
+			<tbody>
+            	<tr>
+                	<td colspan="4">不同ABCD分级方法所采用的不同风险分层界值(分)</td>
+                </tr>
+				<tr>
+					<td>ABCD评分系统</td>
+					<td>低危</td>
+					<td>中危</td>
+					<td>高危</td>
+				</tr>
+                <tr>
+                	<td>ABCD分值</td>
+                	<td>0~2</td>
+                	<td>3~4</td>
+                	<td>5~6</td>
+                </tr>
+                <tr>
+                	<td>ABCD 2分值</td>
+                	<td>0~3</td>
+                	<td>4~5</td>
+                	<td>6~7</td>
+                </tr>
+                <tr>
+                	<td>ABCD 3分值</td>
+                	<td>0~3</td>
+                	<td>4~5</td>
+                	<td>6~9</td>
+                </tr>
+                <tr>
+                	<td>ABCD 3-I分值</td>
+                	<td>0~3</td>
+                	<td>4~7</td>
+                	<td>8~13</td>
+                </tr>
+            </tbody>
+        </table>
+        
+		<table class="countTabResult">
+			<tbody>
+				<tr>
+					<th>相关解释</th>
+					<td>常用的TIA危险分层工具为ABCD评分系统，其中ABCD 2评分能很好的预测短期卒中的风险，应用最为广泛。ABCD 2评分结果为低危、中危和高危组在TIA后7天内发生脑梗死的比例分别为1.2%、5.9%和11.7%。最新的研究表明，在ABCD 2评分基础上增加TIA发作频率与影像学检查(ABCD 3和 ABCD 3-I)，能更有效的评估TIA患者的早期卒中风险。</td>
+				</tr>
+				<tr>
+					<th>参考来源</th>
+					<td>短暂性脑缺血发作中国专家共识组. 短暂性脑缺血发作的中国专家共识更新版(2011年). 中华内科杂志2011年6月第50卷第6期.</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu(){
+		$('.num1').text(ch()[0]);
+		$('.num2').text(ch()[1]);
+		$('.num3').text(ch()[2]);
+		$('.num4').text(ch()[3]);
+	}
+	
+	function ch()
+	{
+		var i0=0;
+		var i1=0;
+		var i2=0;
+		var i3=0;
+		$('input:checked').each(function(){
+			var v0 = parseInt( $(this).val()[0] );
+			var v1 = parseInt( $(this).val()[1] );
+			var v2 = parseInt( $(this).val()[2] );
+			var v3 = parseInt( $(this).val()[3] );
+			var n0=v0;
+			var n1=v1;
+			var n2=v2;
+			var n3=v3;
+			i0 = i0+n0;
+			i1 = i1+n1;
+			i2 = i2+n2;
+			i3 = i3+n3;
+			end = [i0,i1,i2,i3];
+		});
+		return end;
+	}
+	
+	$('input').click(function(){  
+		shuchu();
+	});
+});
+</script>
+</body>
+</html>

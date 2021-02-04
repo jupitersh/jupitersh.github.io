@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>急性胰腺炎评分Ranson标准</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>急性胰腺炎评分Ranson标准</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table border="0" cellpadding="0" cellspacing="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>要求</th>
+						<th>项目</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th rowspan="5">入院时</th>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox1" />
+							<label for="checkbox1">年龄&gt;55岁</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox2" />
+							<label for="checkbox2">血糖&gt;11mmol/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox3" />
+							<label for="checkbox3">白细胞&gt;16×10<sup>9</sup>/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox4" />
+							<label for="checkbox4">AST&gt;250U/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox5" />
+							<label for="checkbox5">LDH&gt;350U/L</label>
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="6">入院48小时后</th>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox6" />
+							<label for="checkbox6">血细胞比容下降&gt;10%</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox7" />
+							<label for="checkbox7">尿素氮上升&gt;1mmol/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox8" />
+							<label for="checkbox8">PaO<sub>2</sub>&lt;60mmHg</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox9" />
+							<label for="checkbox9">血钙&lt;2mmol/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox10" />
+							<label for="checkbox10">碱缺乏&gt;4mmol/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="checkbox" id="checkbox11" />
+							<label for="checkbox11">体液丢失&gt;6L</label>
+						</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td><span>您已选择 <em class="num">0</em> 项</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="0" cellpadding="0" cellspacing="0" class="countTabResult">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>在这11项中，阳性指标越多越能肯定病变的严重性，而且预后越差。具备11项指标中的1～2项为轻型，具备6项以上者为重症，病死率超过50％，若达到8项则病死率达100％。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>急性胰腺炎有多种评分系统，以 APACHE‐II 和 Ranson 为多用，前者较复杂，但准确，后者临床较实用。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>王吉耀主编. 《内科学》（八年制）[M]. 人民卫生出版社.2005年</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input:checkbox').click(function(){
+		var n=$('input:checkbox:checked').length;
+		$('.num').text(n);
+	});
+});
+</script>
+</body>
+</html>

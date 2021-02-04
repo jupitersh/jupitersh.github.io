@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>酸碱紊乱判断</title>
+<link type="text/css" rel="stylesheet" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="danwei"><div style="float:right; width:160px;"><span class="radio jx checked">急性</span><span class="radio mx">慢性</span></div></td>
+			</tr>
+			<tr>
+				<th>pH：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>PaCO<sub>2</sub>：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>mmHg(8.9kPa)</td>
+			</tr>
+			<tr>
+				<th>HCO<sub>3</sub>-：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>mmol/L</td>
+			</tr>
+			<tr>
+				<th>Na+：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>mmol/L</td>
+			</tr>
+			<tr>
+				<th>Cl-：</th>
+				<td class="text_wrap"><input type="text" value="" id="num5" class="text num5"></td>
+				<td>mmol/L</td>
+			</tr>
+			<tr>
+				<th>(血白蛋白)：</th>
+				<td class="text_wrap"><input type="text" value="" id="num6" class="text num6"></td>
+				<td>g/dl</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p><span id="end"></span></p>
+        <p><span id="end2"></span></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	var num5 = parseFloat(document.getElementById("num5").value);
+	var num6 = parseFloat(document.getElementById("num6").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的pH");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的PaCO2");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的HCO3-");
+	}else{
+		
+		var jsHCO3 = 24*num2*(Math.pow(10,-9))/(Math.pow(10,-num1));
+		
+		var tiaojian = Math.abs(jsHCO3-num3);
+		
+		if( !isNaN(num4) && !isNaN(num5) ){
+			//填写了非必须选
+			var AG = num4-(num3+num5);
+			
+			if( !isNaN(num6) ){
+				var JZ_AG = AG+(4-num6)*2.5;
+				AG = JZ_AG;
+			}
+			
+			if(tiaojian>3 ){
+				alert('该血气分析数值不合理，建议重新测定');
+			}else{
+				//合理，继续计算
+				
+				if( AG<8 ){
+					//AG<8
+					alert('低白蛋白血症、卤化物中毒、多发性骨髓瘤、严重高血脂症（化验误差）');
+				}else if( AG>16 ){
+					//AG型代谢性酸中毒
+					if( num1<7.35 ){
+						if( num2>45 ){
+							//高AG型代酸合并呼酸
+							var YC_HCO3 = 24+0.35*(num2-40)+5.58;
+							if( (num3+16)>YC_HCO3 ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸TABD（呼酸合并高Cl代酸+代碱）；请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('高AG型代酸合并呼酸；请注意结合病史综合判断');
+							}
+						}
+						if( num3<22 ){
+							//代谢性酸中毒
+							var D_PaCO2 = 1.25*(24-num3);
+							if( num2<(35-D_PaCO2) ){
+								$("#textPop").css("display","block");
+								$("#end").text('代酸合并呼碱；请注意结合病史综合判断');
+							}else if( num2>(35-D_PaCO2) &&  num2<(45-D_PaCO2)  ){
+								if( num5>=96 && num5<=108 ){
+									$("#textPop").css("display","block");
+									$("#end").text('高AG型代酸；请注意结合病史综合判断');
+								}else if( num5>108 && (num3-24)==(num5-102+AG-12) ){
+									$("#textPop").css("display","block");
+									$("#end").text('高AG型代酸合并高Cl代酸；请注意结合病史综合判断');
+								}
+							}
+						}
+					}else if( num1>7.45 ){
+						if( num2<35 ){
+							//代酸合并呼碱
+							var YC_HCO3 = 24+0.49*(num2-40)+1.72;
+							if( (num3+AG-12)>YC_HCO3 ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱TABD（呼碱合并高Cl代酸+代碱）；请注意结合病史综合判断');
+							}else if( (num3+AG-12)<=YC_HCO3 ){
+								$("#textPop").css("display","block");
+								$("#end").text('高AG型代酸合并呼碱；请注意结合病史综合判断');
+							}
+						}
+					}else if( num1>=7.35 && num1<=7.45 ){
+						if( num2<35 || num2>45 ){
+							var YC_HCO3 = 24+0.49*(num2-40)+1.72;
+							if( (num3+AG-12)>YC_HCO3 ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱TABD（呼碱合并高Cl代酸+代碱）；请注意结合病史综合判断');
+							}else if( (num3+AG-12)<=YC_HCO3 ){
+								$("#textPop").css("display","block");
+								$("#end").text('高AG型代酸合并呼碱；请注意结合病史综合判断');
+							}
+						}else if( num2>=35 && num2<=45 ){
+							if( (num3-24) == (AG-12) ){
+								$("#textPop").css("display","block");
+								$("#end").text('高AG型代酸合并代碱；请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('代酸合并代碱；请注意结合病史综合判断');
+							}
+						}
+					}
+				}else{
+					//AG正常
+					alert('AG正常');
+					if( num1<7.35 ){
+						if( num2>45 ){
+							//呼吸性酸中毒
+							if( $('.jx').hasClass('checked') ){
+								//急性
+								var U_HCO3 = 0.1*(num2-40);
+								if( num3>(27+U_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('呼酸合并代碱；请注意结合病史综合判断');
+								}else if( num3>=(22+U_HCO3) && num3<=(27+U_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('呼酸代偿；请注意结合病史综合判断');
+								}
+							}else{
+								//慢性
+								var U_HCO3 = 0.4*(num2-40);
+								if( num3>(27+U_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('呼酸合并代碱；请注意结合病史综合判断');
+								}else if( num3>=(22+U_HCO3) && num3<=(27+U_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('呼酸代偿；请注意结合病史综合判断');
+								}
+							}
+						}
+						if( num3<22 ){
+							var U_CL = num5-108;
+							if( num5>108 && U_CL==(num3-24) ){
+								$("#textPop").css("display","block");
+								$("#end").text('高Cl型代酸；请注意结合病史综合判断');
+							}
+						}
+					}else if( num1>7.45 ){
+						//num1>7.45
+						if( num2<35 ){
+							//呼吸性碱中毒
+							if( $('.jx').hasClass('checked') ){
+								var D_HCO3 = 0.2*(40-num2);
+								if( num2>(27+D_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('高Cl型代酸；请注意结合病史综合判断');
+								}else if( num2>=(22+D_HCO3) && num2<=(27+D_HCO3)  ){
+									$("#textPop").css("display","block");
+									$("#end").text('高Cl型代酸；请注意结合病史综合判断');
+								}
+							}else{
+								var D_HCO3 = 0.4*(num2-40);
+								if( num2>(27+D_HCO3) ){
+									$("#textPop").css("display","block");
+									$("#end").text('高Cl型代酸；请注意结合病史综合判断');
+								}else if( num2>=(22+D_HCO3) && num2<=(27+D_HCO3)  ){
+									$("#textPop").css("display","block");
+									$("#end").text('高Cl型代酸；请注意结合病史综合判断');
+								}
+							}
+						}
+						if( num3>27 ){
+							//代谢性碱中毒
+							var U_PaCO2 = 0.75*(num3-24);
+							if( num2<(35+U_PaCO2) ){
+								$("#textPop").css("display","block");
+								$("#end").text('代碱合并呼碱；请注意结合病史综合判断');
+							}else if( num2>(45+U_PaCO2) ){
+								$("#textPop").css("display","block");
+								$("#end").text('代碱合并呼酸；请注意结合病史综合判断');
+							}else if( num2>=(35+U_PaCO2) && num2<=(45+U_PaCO2) ){
+								$("#textPop").css("display","block");
+								$("#end").text('代碱代偿；请注意结合病史综合判断');
+							}
+						}
+					}else if( num1>=7.35 && num1<=7.45 ){
+						//num1=7.35~7.45
+						if( num2>45 && num3>27 ){
+							$("#textPop").css("display","block");
+							$("#end").text('呼酸合并代碱；请注意结合病史综合判断');
+						}else if( num2>=35 && num2<=45 && num3>=22 && num3<=27 ){
+							$("#textPop").css("display","block");
+							$("#end").text('无酸碱平衡紊乱；请注意结合病史综合判断');
+						}
+					}
+				}
+			}
+		}else{
+			//未填写非必须项
+			
+			if( tiaojian>3 ){
+				alert('该血气分析数值不合理，建议重新测定');
+			}else{
+				//合理，继续计算
+				
+				//呼酸
+				if(num1<7.35){
+					if(num2>45){
+						if( $('.jx').hasClass('checked') ){
+							//急性
+							var U_HCO3 = 0.1*(num2-40);
+							if( num3<(U_HCO3+22) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸合并代酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else if( num3>(U_HCO3+27) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}
+						}else{
+							//慢性
+							var U_HCO3 = 0.4*(num2-40);
+							if( num3<(U_HCO3+22) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸合并代酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else if( num3>(U_HCO3+27) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('呼酸代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}
+						}
+					}
+					if(num3<22){
+						//代酸
+						var D_PaCO2 = 1.25*(24-num3);
+						if( num2<(35-D_PaCO2) ){
+							$("#textPop").css("display","block");
+							$("#end").text('代酸合并呼碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}else if( num2>(45-D_PaCO2) ){
+							$("#textPop").css("display","block");
+							$("#end").text('代酸合并呼碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}else{
+							$("#textPop").css("display","block");
+							$("#end").text('代酸代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}
+					}
+				}else if(num1>7.35){
+					if(num2<35){
+						//呼碱
+						if( $('.jx').hasClass('checked') ){
+							var D_HCO3 = 0.2*(40-num2);
+							if( num3<(22-D_HCO3) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱合并代酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else if( num3>(27-D_HCO3) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}
+						}else{
+							//慢性
+							var D_HCO3 = 0.4*(num2-40);
+							if( num3<(22-D_HCO3) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱合并代酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else if( num3>(27-D_HCO3) ){
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}else{
+								$("#textPop").css("display","block");
+								$("#end").text('呼碱代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+							}
+						}
+					}
+					if(num3>27){
+						//代碱
+						var U_PaCO2 = 0.75*(num3-24);
+						if( num2<(35+U_PaCO2) ){
+							$("#textPop").css("display","block");
+							$("#end").text('代碱合并呼碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}else if( num2>(45+U_PaCO2) ){
+							$("#textPop").css("display","block");
+							$("#end").text('代碱合并呼酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}else{
+							$("#textPop").css("display","block");
+							$("#end").text('代碱代偿；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+						}
+					}
+				}else if( num1>=7.35 && num1<=7.45 ){
+					//pH=7.35~7.45
+					if( num2>45 && num3>27 ){
+						$("#textPop").css("display","block");
+						$("#end").text('呼酸合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+					}else if( num2<35 && num3<22 ){
+						$("#textPop").css("display","block");
+						$("#end").text('呼碱合并代酸；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+					}else if( num2>35 && num2<45 && num3>22 && num3<27 ){
+						$("#textPop").css("display","block");
+						$("#end").text('无酸碱紊乱或代酸合并代碱；化验检查项目录入信息较少，无法计算AG值，请注意结合病史综合判断');
+					}
+				}
+			}
+		}
+		
+	}
+}
+
+
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+$(function(){
+	$(".jx").click(function(){
+		$(this).addClass("checked").siblings("span").removeClass("checked");
+	});
+	$(".mx").click(function(){
+		$(this).addClass("checked").siblings("span").removeClass("checked");
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  <title>饥荒『荒野求生』服务器说明 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d5789316175edf52298e98f64043f39b","google":"UA-172924260-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI","app_key":"lh77VzmHrjLqi9khKQgEneGy","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>辣椒手记</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post_background/dst.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="饥荒『荒野求生』服务器说明">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-18 11:30" pubdate>
+        2019-09-18 11:30
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">饥荒『荒野求生』服务器说明</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021-01-27 23:55
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><font size=5><strong>欢迎各位加入荒野求生服</strong></font></p>
+<a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th><strong>直达</strong></th>
+<th><strong>直达</strong></th>
+<th><strong>直达</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/rules/"><strong><em>服务器规定</em></strong></a></td>
+<td><a href="/chest/"><strong><em>箱子记录</em></strong></a></td>
+<td><a href="/2020/03/chesthistory/"><strong><em>箱子历史记录</em></strong></a></td>
+</tr>
+<tr>
+<td><a href="/repo/"><strong><em>面板仓库物品统计</em></strong></a></td>
+<td><a href="/shoprecord/"><strong><em>服务器交易记录</em></strong></a></td>
+<td><a href="http://cloud.peppernotes.top:2020/" target="_blank" rel="noopener"><strong><em>(旧版实体)仓库控制器</em></strong></a></td>
+</tr>
+</tbody></table>
+<p>我们的服务器：荒野求生多层档、荒野求生挂机档</p>
+<p>我们的QQ群：<strong>457300968</strong> <strong><code>荒野求生云服</code></strong></p>
+<p>服务器问题可在群内反馈 比如有人<strong>烧家</strong>、<strong>服务器崩了</strong>什么的</p>
+<p><strong>荒野求生多层档</strong>养老，玩家存档永不重置</p>
+<p><strong>荒野求生挂机档</strong>咸鱼挂机</p>
+<p>多层世界设定为<code>4</code><strong>地面</strong><code>3</code><strong>地洞</strong><code>1</code><strong>冒险世界</strong><code>1</code>迷你家园<code>1</code>角斗场，玩家天数小于<code>100天</code>只能在<strong>萌新天堂</strong>（地面）、<strong>萌新地洞</strong>、<strong>冒险世界</strong>及<strong>角斗场</strong>之间跳跃，超过<code>100天</code>后可在<code>10</code>个世界之间跳跃</p>
+<p>👻 <strong>世界设置</strong> <em>Boss多，地下荧光果多，陨石频率大量，地洞地图小；冒险世界：敌对怪多，BOSS大量</em></p>
+<p>推荐我们服务器的<strong>直连模组</strong>，创意工坊搜索：<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=496330801" target="_blank" rel="noopener"><strong>荒野求生直连</strong></a></p>
+<p><strong>模组效果如图：</strong></p>
+<p><img src="https://steamuserimages-a.akamaihd.net/ugc/787499023186318172/38054047F8FAB55F490F43AFD79DC8C57DD1A17D/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" srcset="/img/loading.gif" alt=""></p>
+<h2 id="服务器模组说明"><a href="#服务器模组说明" class="headerlink" title="服务器模组说明"></a>服务器模组说明</h2><p>服务器做了如下修改，请仔细阅读，具体如下：</p>
+<ul>
+<li>除<strong>萌新天堂</strong>及<strong>冒险世界</strong>外，其他世界关闭树木、草、树枝、燧石及浆果再生功能</li>
+<li><strong>萌新天堂</strong><ul>
+<li>死亡复活无生命值上限下降的惩罚，</li>
+<li>狗最多为每人3只</li>
+<li>换人只能在<strong>萌新天堂</strong></li>
+</ul>
+</li>
+<li><strong>冒险世界</strong><ul>
+<li>在每周五晚上21点重置，请勿在这个世界下线，否则可能导致玩家存档丢失</li>
+<li>Boss 掉落化石碎片(20%)、冬季盛宴的灯(33%)及其他活动的科技蓝图蓝图（10%），</li>
+<li>怪物可以再生</li>
+<li>在<strong>冒险世界</strong>，玩家每天天亮会扣除0.5个金币</li>
+<li>只有<strong>冒险世界</strong>可以读鸟书</li>
+</ul>
+</li>
+<li><strong>建家世界</strong><ul>
+<li>可以随意建家</li>
+<li>不能读书</li>
+<li>不能建猪房、兔房、鱼人房和蜂巢</li>
+<li>植物移植过于密集会自动删除</li>
+<li>萤火虫会自动删除</li>
+<li>没有定期的猎狗袭击</li>
+</ul>
+</li>
+<li><strong>迷你家园</strong><ul>
+<li>每人有一个免费的迷你家园</li>
+<li>进入迷你家园世界后，右击打开影灯，放置你的建筑，再右击关闭影灯，即可隐藏你的家园，以后想要显示家园，右击影灯即可</li>
+<li>每人的家园最多只能有1000个实体(实体为直接在地面上可以互动的物体，容器里的物品不计入实体)，超过1000个实体会随机删除至1000个</li>
+<li>为了防止卡顿，迷你家园会自动删除猪人、兔人、鱼人、蜜蜂、杀人蜂、蜘蛛</li>
+<li>具体见下面<a href="/dst/#迷你家园演示">介绍视频</a></li>
+</ul>
+</li>
+<li><strong>角斗场</strong> 有<a href="/dst/#角斗场挑战赛说明">挑战赛</a>（可以获得<strong>金币奖励</strong>，每天五次）及<a href="/dst/#角斗场PVP说明">PVP模式</a><ul>
+<li>龙鳞箱子可上锁：站在箱子旁在聊天窗口输入 <code>+lockc</code> 可锁定箱子（只有你能打开，有效期 120min，每次输入有效期自动延迟到 120min），输入 <code>+unlockc</code> 可解锁箱子，按 <code>Alt</code> + <code>鼠标左键点击箱子</code> 可以显示箱子主人</li>
+</ul>
+</li>
+<li>世界人数超过8人时，会触发传送机制，480s后传送天数最高的人到角斗场，防止人数超标</li>
+<li>玩家交易系统，详情请看游戏内说明（游戏商店面板的提示按钮）</li>
+<li>玩家私人仓库，详见<a href="/dst/#仓库说明">仓库说明</a></li>
+<li>每个容器（箱子、龙鳞箱子、冰箱、烟盒、蘑菇灯等）内物品变化后会记录，详见 <a href="/2020/03/chesthistory/">箱子历史记录</a></li>
+<li>小偷包锁：<ul>
+<li>小偷包背在身上时，私聊输入 <code>+lock</code> 可以锁定小偷包，其他玩家无法背起上锁的小偷包，私聊输入 <code>+unlock</code> 可以解锁小偷包</li>
+<li>空的小偷包即使上锁别人也能背起来</li>
+<li><code>Alt</code> + <code>鼠标左键</code> 点击地上的小偷包可以查看其主人</li>
+</ul>
+</li>
+<li>怪物击杀公告、猎犬来袭提示和蚁狮发怒提示功能</li>
+<li>无草蜥</li>
+<li>地洞入口无蝙蝠</li>
+<li>芦苇不可燃</li>
+<li>包裹显示：按 <code>Alt</code> + <code>鼠标左键</code> 可显示包裹内容</li>
+<li>初始物品：以免冬夏进来的小伙伴惨死</li>
+<li>自动堆叠</li>
+<li>玩家砸建筑和烧东西提示（防熊）</li>
+<li>禁用投票重置世界</li>
+<li>服务器自动清理：除冒险世界和角斗场外都有清理功能</li>
+<li>管理者：某些常驻玩家拥有回档、封禁权限，帮忙管理服务器</li>
+<li>杀普通的无眼鹿有50%的概率掉落鹿角</li>
+<li>扫把可以换花及盆栽的样式</li>
+<li>木牌用锤子砸了之后可以变成打人的木牌</li>
+<li>眼球塔之间不会再互相攻击</li>
+<li>驯牛系统，详见<a href="/dst/#驯牛系统视频介绍">视频</a></li>
+<li>骑牛下线：如果玩家下线时骑着牛，并且牛的驯服度&gt;30%，牛会自动变成牛角，放到玩家的物品栏中</li>
+<li>下线停船：如果玩家下线时在船上，并且船上只有该玩家时，会自动下锚和收帆(如果有锚和帆的话)</li>
+<li>回收船，详见<a href="/dst/#回收船演示">视频</a></li>
+</ul>
+<h2 id="迷你家园演示"><a href="#迷你家园演示" class="headerlink" title="迷你家园演示"></a>迷你家园演示</h2>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=373615978&bvid=BV1do4y1d7xU&cid=277940248&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+<h2 id="驯牛系统视频介绍"><a href="#驯牛系统视频介绍" class="headerlink" title="驯牛系统视频介绍"></a>驯牛系统视频介绍</h2>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=243148149&bvid=BV1ge411W7np&cid=196465353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+<h2 id="回收船演示"><a href="#回收船演示" class="headerlink" title="回收船演示"></a>回收船演示</h2>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=586225122&bvid=BV1jz4y1S7Xy&cid=281674440&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+<h2 id="角斗场挑战赛说明"><a href="#角斗场挑战赛说明" class="headerlink" title="角斗场挑战赛说明"></a>角斗场挑战赛说明</h2><p>分为单人模式和双人模式，单人模式怪物血量是正常的一半，伤害是正常值的1.5倍，双人模式怪物的血量是单人的两倍，怪物的攻击是单人的1.5倍</p>
+<p>每过一关就会获得对应的金币奖励，一共15关，奖励的金币分别为 <code>2</code> <code>2</code> <code>2</code> <code>2</code> <code>3</code> <code>2</code> <code>2</code> <code>2</code> <code>2</code> <code>3</code> <code>2</code> <code>2</code> <code>2</code> <code>2</code> <code>20</code></p>
+<p>双人模式当有一个玩家死亡，下一关会自动回落到单人模式，并且死亡的玩家不会获得奖励</p>
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=797577618&bvid=BV12y4y1r736&cid=250225495&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+<h2 id="角斗场PVP说明"><a href="#角斗场PVP说明" class="headerlink" title="角斗场PVP说明"></a>角斗场PVP说明</h2><h3 id="开启PVP的方式"><a href="#开启PVP的方式" class="headerlink" title="开启PVP的方式"></a>开启PVP的方式</h3><p>在游戏内聊天窗口输入：</p>
+<p><code>/pvp on</code>：开启 PVP 模式<br><code>/pvp off</code>：关闭 PVP 模式</p>
+<p>按组合键：</p>
+<p><code>左Ctrl</code>+<code>Home</code>：把一个地皮范围内的所有玩家随机分为两组<br><code>左Ctrl</code>+<code>Insert</code>：把一个地皮范围内的所有玩家都加为好，机按 <code>Ctrl</code> + <code>F</code> 将不会再攻击这些玩家<br><code>左Ctrl</code>+<code>Delete</code>：清空所有好友</p>
+<p><em>注意</em>：好友列表不会保存，每次重进游戏或者跳世界会自动清空列表</p>
+<h3 id="PVP机制"><a href="#PVP机制" class="headerlink" title="PVP机制"></a>PVP机制</h3><ul>
+<li>在远古灯柱围成的正方形区域内才能攻击其他玩家</li>
+<li>右击影灯开始每局决斗，决斗开始时，会在四个角落生成远古宝箱，箱子每隔 30s 会随机刷新物资，刷新物资的数量根据场地内的玩家数</li>
+<li>再次右击影灯会提前解锁比赛并清空场地内物品</li>
+<li>决斗开始3分钟后会在周围生成一圈极光（无法作祟），5 分钟往内再生成一圈（类似吃鸡游戏的缩圈机制），7 分钟时远古宝箱会消失。另外比赛过程中场地内会随机生成多汁浆果丛</li>
+<li>进入场地的方法是通过虫洞，玩家进入虫洞前会自动掉落身上所有装备，请提前放到外围箱子里</li>
+<li>玩家进入场地后会获得一个草甲和长矛，玩家不管什么角色，其三维会被设定到 200/200/200，并加满三维</li>
+<li>进入虫洞后所有食物附加buff，如羊角冻和糖豆的 buff，都会取消</li>
+<li>进入虫洞后获得 30s 的无敌时间</li>
+<li>场地内地上的物品 30s 会自动消失</li>
+<li>该世界内懒人法杖，紫法杖，懒人护符会失效，恶魔的灵魂会自动消失</li>
+<li>作祟木牌可以直接复活</li>
+<li>该 PVP 世界内没有影怪</li>
+<li>角色平衡：<ol>
+<li>wx78无加速效果，死亡后升级及过载时间均保留</li>
+<li>女武神攻击变为1倍，无减伤，攻击无加血</li>
+<li>鱼妹可以吃肉，女武神可以吃素，恶魔人吃东西效果不减半</li>
+<li>虫木和火女的火焰伤害和其他角色一样，火女的冰冻伤害和其他角色一样</li>
+<li>维斯和温蒂的攻击变为1倍</li>
+<li>全角色都可读书</li>
+</ol>
+</li>
+<li>物品平衡<ol>
+<li>排箫使用数次为2次，睡眠时间3s</li>
+<li>睡书使用数次为1次，睡眠时间3s</li>
+<li>旋风的耐久为4次</li>
+<li>触手30s会自动清除</li>
+</ol>
+</li>
+</ul>
+<h3 id="PVP-视频演示"><a href="#PVP-视频演示" class="headerlink" title="PVP 视频演示"></a>PVP 视频演示</h3>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=498068471&bvid=BV1dK41157Rw&cid=187502646&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+<h2 id="仓库说明"><a href="#仓库说明" class="headerlink" title="仓库说明"></a>仓库说明</h2><p><strong>私人仓库</strong>：</p>
+<p>旧版实体仓库已停止开放，目前私人仓库为面板仓库</p>
+<p>开启方法：游戏内右小角点击仓库按钮，在弹出的面板中点击充值按钮即可消耗300游戏内的金币购买30天(现实)的仓库使用时间，如果金币不够，可以联系服主用现金购买，现金购买的价格为20元/半年，或者40元/年</p>
+<p>仓库到期后仓库内的物品不会删除，只是冻结，无法取出及放入，续期后可继续使用</p>
+<p>只有靠近地洞才能打开仓库面板，要将东西放入仓库，请使用魔法一本</p>
+<h2 id="服务器清理"><a href="#服务器清理" class="headerlink" title="服务器清理"></a>服务器清理</h2><h3 id="清理机制"><a href="#清理机制" class="headerlink" title="清理机制"></a>清理机制</h3><p>每10天检查一次地面的物品。地面的物品第一次被检查，会添加标记；被添加标记的物品在第二次检查时会被清理。这意味着地面物品至少10天以上才会被清理。</p>
+<p>只会清理地面且不包含在<strong>白名单</strong>的物品，另外散落在海上的物品都会被清理</p>
+<p>玩家身上及箱子里的，白名单里的，或者茶几附近（要很靠近）的物品不会被清理</p>
+<h3 id="白名单"><a href="#白名单" class="headerlink" title="白名单"></a>白名单</h3><ul>
+<li>小动物：兔子、鼹鼠、萤火虫之类</li>
+<li>唯一的物件：远古钥匙、切斯特眼骨、天体灵球之类</li>
+<li>雕像</li>
+<li>打包好的包裹和礼物</li>
+<li>鹿角</li>
+<li>陷阱、狗牙陷阱、海星</li>
+<li>书</li>
+<li>月眼</li>
+<li>鞍</li>
+<li>芝士蛋糕</li>
+<li>南瓜灯</li>
+<li>海带</li>
+<li>浮木</li>
+<li>排箫</li>
+<li>触手棒和触手皮</li>
+<li>影刀</li>
+<li>影甲</li>
+<li>骨盔</li>
+<li>骨甲</li>
+<li>暗影香炉</li>
+<li>化石碎片</li>
+<li>暗影心脏</li>
+<li>生命护符</li>
+<li>救赎之心</li>
+<li>暖石</li>
+<li>唤星法杖、喚月法杖</li>
+<li>步行手杖、瞬移手杖</li>
+<li>格罗姆燃料</li>
+<li>食人花种子</li>
+<li>蜂王帽</li>
+<li>……</li>
+</ul>
+<p>另外：全新触手棒、影刀和影甲在白名单内，用过的则会被清理</p>
+<h3 id="船清理"><a href="#船清理" class="headerlink" title="船清理"></a>船清理</h3><p>船如果连续1260天（游戏天数，即现实7天）无人踩上去过，就会被清理</p>
+<h2 id="回档、踢人及封禁权限"><a href="#回档、踢人及封禁权限" class="headerlink" title="回档、踢人及封禁权限"></a>回档、踢人及封禁权限</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p><strong>聊天窗口</strong>输入如下<em>指令</em> <strong><em>(不是控制台)</em></strong></p>
+<p>📌 <strong>保存并重启</strong> <code>+reset</code></p>
+<p>用于模组修改后软重启</p>
+<p>📌 <strong>回档</strong> <code>+rollback数字</code></p>
+<p>举个例子，比如往前回<code>2</code>天就用<code>+rollback2</code></p>
+<p><code>+rollback</code>回到当天开始时</p>
+<p><code>+rollback1</code>回到昨天开始时</p>
+<p>数字最大为<code>5</code></p>
+<p>📌 <strong>杀人</strong> <code>+kill名字</code></p>
+<p>把<code>名字</code>替换为要杀的玩家的名字的一部分，不用全名，只需名字的<strong>关键字</strong>，比如要封禁<code>辣椒小皇纸</code>，输入<code>+kban辣椒</code>或者<code>+kban小皇纸</code>或者<code>+kban皇</code>都可以，但是<strong>可能封掉名字也包含关键字的人</strong></p>
+<p>📌 <strong>踢人</strong> <code>+kick名字</code></p>
+<p>方法同上</p>
+<p>📌 <strong>封禁</strong> <code>+ban名字</code></p>
+<p>方法同上</p>
+<p>📌 <strong>先掉落所有物品再封禁</strong> <code>+kban名字</code></p>
+<p>🚫 <strong>注意</strong></p>
+<p>命令不要加<strong>额外空格</strong>或者<strong>其他字符</strong>，否则无法识别</p>
+<p>🚫 <strong>特别强调</strong></p>
+<p>如果发现因发生口角或其他私人矛盾而踢人封禁别人的，一律<strong>收回</strong>权限，<strong>请勿滥用</strong>权限</p>
+<p><strong><em>欢迎大家一起加入</em></strong></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/dstserverlinux/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux 搭建饥荒服务器指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI",
+          app_key: "lh77VzmHrjLqi9khKQgEneGy",
+          placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+          path: window.location.pathname,
+          avatar: "wavatar",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20025824号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33032202000176"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>浙公网安备33032202000176号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d5789316175edf52298e98f64043f39b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-172924260-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

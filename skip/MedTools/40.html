@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>残余肾功能</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>透析间期尿量<br/>
+          IDUV：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <th>尿液尿素浓度 <br/>
+          UUC：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>mg/dL</td>
+      </tr>
+      <tr>
+        <th>透析间期 <br/>
+          ID Period：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td>min</td>
+      </tr>
+      <tr>
+        <th>平均尿素氮含量 <br/>
+          MeanBUN：</th>
+        <td><input type="number" value="" id="num4" class="text num4"></td>
+        <td>mg/dL</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Residual Renal Function(RRF)</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>RRF = (IDUV * UUC) / (ID Period * MeanBUN)</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>残余肾功能是指慢性肾衰竭患者，到了终末期，肾脏仍然保留的部分肾功能，尽管这些残余的肾功能已经很少（少于正常功能的10%以下），甚至于不足以维持生命，但它对患者体内毒素和多余水份的清除，以及营养的维持和血压的控制仍有很大的作用.</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Daugirdas JT, Ing TS. Handbook of Dialysis. Second Edition (1994) pp 92-107.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>RRF=<em id="end"> </em>ml/min</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //IDUV
+	var num2 = parseFloat(document.getElementById("num2").value); //UUC
+	var num3 = parseFloat(document.getElementById("num3").value); //ID Period
+	var num4 = parseFloat(document.getElementById("num4").value); //MeanBUN
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的IDUV");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的UUC");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的ID Period");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的MeanBUN");
+	}else{
+		var end = (num1*num2)/(num3*num4);
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

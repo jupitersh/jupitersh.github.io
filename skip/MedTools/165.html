@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>儿童补液</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Maintenance Fluid Calculation for Children</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>FluidRate=日补液量/24；日补液量：3.5-10kg的婴儿100ml/kg，11-20kg的儿童为1000ml+50ml/kg(超过10kg的部分)，20kg以上的儿童为1500ml+20ml/kg(超过20kg的部分)，最多不能超过2400ml/day。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>儿童补液需要注意不同体重区间对应的公式，最多不能超过2400ml。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics. Vol. 19, 1957 823-832.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>FluidRate=<em id="end"></em>ml/hr</p>
+        <p>日补液量=<em id="end2"></em>ml</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的随机尿蛋白");
+	}else if(num1 < 3.5){
+			alert('请输入不小于3.5的数值');
+	}else{
+		if(num1 >= 3.5 && num1 <= 10){
+			var end = num1*100/24;
+			var end2 = num1*100;
+		}else if(num1 > 10 && num1 <=20 ){
+			var end = (1000+50*(num1-10))/24;
+			var end2 = (1000+50*(num1-10));
+		}else if(num1 > 20 ){
+			if( (1500+20*(num1-20)) > 2400 ){
+				var end = 2400/24;
+				var end2 = 2400;
+			}else{
+				var end = (1500+20*(num1-20))/24;
+				var end2 = (1500+20*(num1-20));
+			}
+		}
+		
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed());
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

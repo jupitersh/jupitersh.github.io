@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>△脉压-补液试验反应预测</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>最大收缩压：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>mmHg</td>
+			</tr>
+			<tr>
+				<th>最小收缩压：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>mmHg</td>
+			</tr>
+			<tr>
+				<th>最大舒张压：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>mmHg</td>
+			</tr>
+			<tr>
+				<th>最小舒张压：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>mmHg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Delta Pulse Pressure</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>PPmax=收缩压max-舒张压max<br />PPmin=收缩压min-舒张压min<br />△PP=（PPmax-PPmin）/[（PPmax+PPmin）/2]%</td>
+            </tr>
+            <tr>
+            	<th>正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>≥13%提示补液试验阳性</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>补液试验反应预测。对于机械通气的患者，△PP≥13%提示患者对补液试验有反应；反之若△PP＜13%则提示无反应。该方法敏感性94%，特异性96%。</td>
+            </tr>
+            <tr>
+            	<th>参考来源：</th>
+            </tr>
+            <tr>
+            	<td>Michard F. Am J Respir Crit Care Med. 2000 Jul;162(1):134-8.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>△PP=<em id="end"></em>%</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的最大收缩压");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的最小收缩压");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的最大舒张压");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的最小舒张压");
+	}else{
+		var end = ((num1-num3)-(num2-num4))/(((num1-num3)+(num2-num4))/2)*100;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

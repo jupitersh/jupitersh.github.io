@@ -1,0 +1,97 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>体重指数</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>身高：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>cm</td>
+      </tr>
+      <tr>
+        <th>体重：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>kg</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Body Mass Index(BMI)</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>BMI=体重/身高<sup>2</sup></td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>超重BMI：24-27.9；肥胖：BMI>=28。过高的体重指数常常会增加相关疾病的发生率和死亡风险。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Khosla T, Lowe CR. Indices of obesity derived from body weight and height. Br J Prev Soc Med. 1967; 21: 122-128.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>BMI=<em id="end"> </em>kg/m<sup>2</sup></p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的身高,单位是m");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的体重,单位是kg");
+	}else{
+		var end = num2*10000/(num1*num1);
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

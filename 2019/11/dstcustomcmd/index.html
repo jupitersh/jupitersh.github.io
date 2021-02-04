@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  <title>自定义饥荒服务器后台命令 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d5789316175edf52298e98f64043f39b","google":"UA-172924260-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI","app_key":"lh77VzmHrjLqi9khKQgEneGy","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>辣椒手记</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post_background/dst.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="自定义饥荒服务器后台命令">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-18 00:13" pubdate>
+        2019-11-18 00:13
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      47
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">自定义饥荒服务器后台命令</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020-05-24 18:46
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>本教程适用Linux、Windows及Mac OS创建的专属服务器(Dedicated Server)，也适用于客户端</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>饥荒自带了很多命令，比如：<code>c_save()</code>、<code>c_rollback()</code>、<code>TheNet:Ban()</code>等等，详情请参见<a href="https://dontstarve.fandom.com/wiki/Console/Don%27t_Starve_Together_Commands" target="_blank" rel="noopener"><strong>Console/Don’t Starve Together Commands</strong></a></p>
+<p>但是这些命令并不能满足我们的需求，这里我介绍一种不需要mod而添加自定义命令的方法，特别适用于纯净服</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>找到饥荒的存档目录，找到对应<code>Cluster</code>下的<code>Master</code>及<code>Caves</code>文件夹</li>
+<li>在<code>Master</code>及<code>Caves</code>文件夹下分别创建<code>customcommands.lua</code></li>
+<li>在<code>customcommands.lua</code>内写入你想要添加的命令</li>
+</ul>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><h3 id="复活所有玩家"><a href="#复活所有玩家" class="headerlink" title="复活所有玩家"></a>复活所有玩家</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">res</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(AllPlayers) <span class="hljs-keyword">do</span> v:PushEvent(<span class="hljs-string">'respawnfromghost'</span>) <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>你在服务器后台或者游戏内控制台输入<code>res()</code>即可复活当前世界的所有玩家<br>注意：地面和地洞是分开的两个世界，在地面世界输入命令只对地面有效，地洞的玩家不会复活</p>
+</blockquote>
+<h3 id="清理一半的物品"><a href="#清理一半的物品" class="headerlink" title="清理一半的物品"></a>清理一半的物品</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rmhalf</span><span class="hljs-params">(name)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == name <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>() &lt; <span class="hljs-number">0.5</span> <span class="hljs-keyword">then</span><br>                v:Remove()<br>                count = count + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, name)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>比如，输入<code>rmhalf(&quot;beefalo&quot;)</code>，就可以清理一半的牛群</p>
+</blockquote>
+<h3 id="按百分比清理物品"><a href="#按百分比清理物品" class="headerlink" title="按百分比清理物品"></a>按百分比清理物品</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rmpart</span><span class="hljs-params">(name,percent)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == name <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>() &lt; percent <span class="hljs-keyword">or</span> <span class="hljs-number">0</span> <span class="hljs-keyword">then</span><br>                v:Remove()<br>                count = count + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, name)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>比如，输入<code>rmhalf(&quot;evergreen&quot;,0.8)</code>，就可以清理80%的常青树</p>
+</blockquote>
+<h3 id="清理地面的物品"><a href="#清理地面的物品" class="headerlink" title="清理地面的物品"></a>清理地面的物品</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rmog</span><span class="hljs-params">(name)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == name <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> v.components.inventoryitem <span class="hljs-keyword">then</span><br>                <span class="hljs-keyword">if</span> v.components.inventoryitem.owner == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                    v:Remove()<br>                    count = count + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">else</span><br>                    v:Remove()<br>                    count = count + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, name)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>比如，输入<code>rmog(&quot;spoiled_food&quot;)</code>，就可以清理地面上所有的腐烂的食物</p>
+</blockquote>
+<h3 id="清理烧毁的建筑及植物"><a href="#清理烧毁的建筑及植物" class="headerlink" title="清理烧毁的建筑及植物"></a>清理烧毁的建筑及植物</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rmbt</span><span class="hljs-params">(name)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == name <span class="hljs-keyword">and</span> v:HasTag(<span class="hljs-string">"burnt"</span>) <span class="hljs-keyword">then</span><br>            v:Remove()<br>            count = count + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, <span class="hljs-string">"burnt"</span>, name)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>比如，输入<code>rmbt(&quot;treasurechest&quot;)</code>即可清理所有烧毁的箱子</p>
+</blockquote>
+<h3 id="清理虫木种在地上的作物腐烂后及枯萎后"><a href="#清理虫木种在地上的作物腐烂后及枯萎后" class="headerlink" title="清理虫木种在地上的作物腐烂后及枯萎后"></a>清理虫木种在地上的作物腐烂后及枯萎后</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rmcrop</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == <span class="hljs-string">"plant_normal_ground"</span> <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> v:HasTag(<span class="hljs-string">"rotten"</span>) <span class="hljs-keyword">or</span> v:HasTag(<span class="hljs-string">"withered"</span>) <span class="hljs-keyword">then</span><br>                v:Remove()<br>                count = count + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, <span class="hljs-string">"plant_normal_ground"</span>)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>直接输入<code>rmcrop()</code>即可</p>
+</blockquote>
+<h3 id="显示当前世界的玩家"><a href="#显示当前世界的玩家" class="headerlink" title="显示当前世界的玩家"></a>显示当前世界的玩家</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">list</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(AllPlayers) <span class="hljs-keyword">do</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"[%d] (%s) %s &lt;%s&gt;"</span>, i, v.userid, v.name, v.prefab))<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>list()</code>即可，注意：地面与地洞分开</p>
+</blockquote>
+<h3 id="显示当前服务器的所有玩家"><a href="#显示当前服务器的所有玩家" class="headerlink" title="显示当前服务器的所有玩家"></a>显示当前服务器的所有玩家</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">local</span> index = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(TheNet:GetClientTable()) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> index ~= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span><br>            <span class="hljs-comment">--print(' ['..index..'] &#123;'..string.format('%03d', v.playerage)..'&#125; ('..v.userid..') '..v.name..' &lt;'..v.prefab..'&gt;')</span><br>            <span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"[%d] &#123;%s&#125; (%s) %s &lt;%s&gt;"</span>, index, <span class="hljs-built_in">string</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">'%03d'</span>, v.playerage), v.userid, v.name, v.prefab))<br>        <span class="hljs-keyword">end</span><br>        index = index + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>show()</code>即可，输出结果<code>[]</code>内的为玩家的存活天数</p>
+</blockquote>
+<h3 id="服务器宣告"><a href="#服务器宣告" class="headerlink" title="服务器宣告"></a>服务器宣告</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span><span class="hljs-params">(msg, interval, category)</span></span><br>    <span class="hljs-keyword">if</span> msg == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>        <span class="hljs-keyword">if</span> TheWorld.__announcementtask ~= <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>            TheWorld.__announcementtask:Cancel()<br>            TheWorld.__announcementtask = <span class="hljs-literal">nil</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">elseif</span> interval == <span class="hljs-literal">nil</span> <span class="hljs-keyword">or</span> interval &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span><br>        <span class="hljs-keyword">if</span> category == <span class="hljs-string">"system"</span> <span class="hljs-keyword">then</span><br>            TheNet:SystemMessage(msg)<br>        <span class="hljs-keyword">else</span><br>            TheNet:Announce(msg, <span class="hljs-literal">nil</span>, <span class="hljs-literal">nil</span>, category)<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">if</span> TheWorld.__announcementtask ~= <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>            TheWorld.__announcementtask:Cancel()<br>        <span class="hljs-keyword">end</span><br>        TheWorld.__announcementtask =<br>            TheWorld:DoPeriodicTask(<br>                interval,<br>                category == <span class="hljs-string">"system"</span> <span class="hljs-keyword">and</span><br>                <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> TheNet:SystemMessage(msg) <span class="hljs-keyword">end</span> <span class="hljs-keyword">or</span><br>                <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> TheNet:Announce(msg, <span class="hljs-literal">nil</span>, <span class="hljs-literal">nil</span>, category) <span class="hljs-keyword">end</span>,<br>                <span class="hljs-number">0</span><br>            )<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>say(&quot;欢迎加入&quot;)</code>即可发出相应内容的公告</p>
+</blockquote>
+<h3 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">count</span><span class="hljs-params">(prefab, noprint)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == prefab <span class="hljs-keyword">then</span><br>            count = count + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> noprint <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"There are "</span>, count, prefab..<span class="hljs-string">"s in the world."</span>)<br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">return</span> count<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>count(&quot;flint&quot;)</code>即可打印出碎石的数量</p>
+</blockquote>
+<h3 id="计数所有物品"><a href="#计数所有物品" class="headerlink" title="计数所有物品"></a>计数所有物品</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">countall</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">local</span> total = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">local</span> unk = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">local</span> counted = &#123;&#125;<br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab ~= <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> counted[v.prefab] == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                counted[v.prefab] = <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span><br>                counted[v.prefab] = counted[v.prefab] + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>            total = total + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span><br>            unk = unk + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pairsByKeys</span> <span class="hljs-params">(t, f)</span></span><br>      <span class="hljs-keyword">local</span> a = &#123;&#125;<br>      <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(t) <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(a, n) <span class="hljs-keyword">end</span><br>      <span class="hljs-built_in">table</span>.<span class="hljs-built_in">sort</span>(a, f)<br>      <span class="hljs-keyword">local</span> i = <span class="hljs-number">0</span>      <span class="hljs-comment">-- iterator variable</span><br>      <span class="hljs-keyword">local</span> iter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>   <span class="hljs-comment">-- iterator function</span><br>        i = i + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> a[i] == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> a[i], t[a[i]]<br>        <span class="hljs-keyword">end</span><br>      <span class="hljs-keyword">end</span><br>      <span class="hljs-keyword">return</span> iter<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> pairsByKeys(counted) <span class="hljs-keyword">do</span><br>        <span class="hljs-built_in">print</span>(k, v)<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"There are %d different prefabs in the world, %d total (and %d unknown)"</span>, GetTableSize(counted), total, unk))<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>countall()</code>即可</p>
+</blockquote>
+<h3 id="计数所有在地面的物品"><a href="#计数所有在地面的物品" class="headerlink" title="计数所有在地面的物品"></a>计数所有在地面的物品</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">countog</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">local</span> total = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">local</span> unk = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">local</span> counted = &#123;&#125;<br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab ~= <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> v.components.inventoryitem <span class="hljs-keyword">then</span><br>                <span class="hljs-keyword">if</span> v.components.inventoryitem.owner == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                    <span class="hljs-keyword">if</span> counted[v.prefab] == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                        counted[v.prefab] = <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">else</span><br>                        counted[v.prefab] = counted[v.prefab] + <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">end</span><br>                    total = total + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">else</span><br>                    <span class="hljs-keyword">if</span> counted[v.prefab] == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                        counted[v.prefab] = <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">else</span><br>                        counted[v.prefab] = counted[v.prefab] + <span class="hljs-number">1</span><br>                    <span class="hljs-keyword">end</span><br>                    total = total + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">else</span><br>            unk = unk + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pairsByKeys</span> <span class="hljs-params">(t, f)</span></span><br>      <span class="hljs-keyword">local</span> a = &#123;&#125;<br>      <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(t) <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(a, n) <span class="hljs-keyword">end</span><br>      <span class="hljs-built_in">table</span>.<span class="hljs-built_in">sort</span>(a, f)<br>      <span class="hljs-keyword">local</span> i = <span class="hljs-number">0</span>      <span class="hljs-comment">-- iterator variable</span><br>      <span class="hljs-keyword">local</span> iter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>   <span class="hljs-comment">-- iterator function</span><br>        i = i + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> a[i] == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> a[i], t[a[i]]<br>        <span class="hljs-keyword">end</span><br>      <span class="hljs-keyword">end</span><br>      <span class="hljs-keyword">return</span> iter<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> pairsByKeys(counted) <span class="hljs-keyword">do</span><br>        <span class="hljs-built_in">print</span>(k, v)<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"There are %d different prefabs on the ground, %d total (and %d unknown)"</span>, GetTableSize(counted), total, unk))<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>countog()</code>即可打印所有在地面的物品、建筑及动植物（即不包括箱子里和玩家身上的物品）</p>
+</blockquote>
+<h3 id="显示世界天数即季节"><a href="#显示世界天数即季节" class="headerlink" title="显示世界天数即季节"></a>显示世界天数即季节</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">day</span><span class="hljs-params">()</span></span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'World Day:'</span>, TheWorld.state.cycles + <span class="hljs-number">1</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Season:'</span>, TheWorld.state.season)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Days Left in the Season:'</span>,TheWorld.state.remainingdaysinseason)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>day()</code>即可</p>
+</blockquote>
+<h3 id="按照自定义设置清理服务器"><a href="#按照自定义设置清理服务器" class="headerlink" title="按照自定义设置清理服务器"></a>按照自定义设置清理服务器</h3><blockquote>
+<p>这条命令比较复杂，实现了类似其他服务器清理mod的功能，故不需要再订阅服务器清理mod</p>
+</blockquote>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">count_current</span><span class="hljs-params">(prefab)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == prefab <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> v.components.inventoryitem <span class="hljs-keyword">then</span><br>                <span class="hljs-keyword">if</span> v.components.inventoryitem.owner == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span><br>                    count = count + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">else</span><br>                    count = count + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">return</span> count<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">s_rmognum</span><span class="hljs-params">(name,maxnum)</span></span><br>    <span class="hljs-keyword">local</span> count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(Ents) <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> v.prefab == name <span class="hljs-keyword">then</span><br>            <span class="hljs-keyword">if</span> v.components.inventoryitem <span class="hljs-keyword">then</span><br>                <span class="hljs-keyword">if</span> v.components.inventoryitem.owner == <span class="hljs-literal">nil</span> <span class="hljs-keyword">and</span> count_current(name) &gt; maxnum <span class="hljs-keyword">then</span><br>                    v:Remove()<br>                    count = count + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-keyword">if</span> count_current(name) &gt; maxnum <span class="hljs-keyword">then</span><br>                    v:Remove()<br>                    count = count + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">if</span> count ~= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"removed"</span>, count, name)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">local</span> rmlist = &#123;<br>    <span class="hljs-comment">------------------------  动      物  ------------------------</span><br>    &#123;<span class="hljs-string">"hound"</span>, <span class="hljs-number">30</span>&#125;,                                      <span class="hljs-comment">-- 狗</span><br>    &#123;<span class="hljs-string">"firehound"</span>, <span class="hljs-number">10</span>&#125;,                                  <span class="hljs-comment">-- 火狗</span><br>    &#123;<span class="hljs-string">"icehound"</span>, <span class="hljs-number">10</span>&#125;,                                   <span class="hljs-comment">-- 冰狗</span><br>    &#123;<span class="hljs-string">"spider_warrior"</span>, <span class="hljs-number">10</span>&#125;,                             <span class="hljs-comment">-- 蜘蛛战士</span><br>    &#123;<span class="hljs-string">"spider"</span>, <span class="hljs-number">10</span>&#125;,                                     <span class="hljs-comment">-- 蜘蛛</span><br>    &#123;<span class="hljs-string">"flies"</span>, <span class="hljs-number">10</span>&#125;,                                      <span class="hljs-comment">-- 苍蝇</span><br>    &#123;<span class="hljs-string">"mosquito"</span>, <span class="hljs-number">10</span>&#125;,                                   <span class="hljs-comment">-- 蚊子</span><br>    &#123;<span class="hljs-string">"bee"</span>, <span class="hljs-number">10</span>&#125;,                                        <span class="hljs-comment">-- 蜜蜂</span><br>    &#123;<span class="hljs-string">"killerbee"</span>, <span class="hljs-number">10</span>&#125;,                                  <span class="hljs-comment">-- 杀人蜂</span><br>    &#123;<span class="hljs-string">"frog"</span>, <span class="hljs-number">20</span>&#125;,                                       <span class="hljs-comment">-- 青蛙</span><br>    &#123;<span class="hljs-string">"beefalo"</span>, <span class="hljs-number">50</span>&#125;,                                    <span class="hljs-comment">-- 牛</span><br>    &#123;<span class="hljs-string">"grassgekko"</span>, <span class="hljs-number">15</span>&#125;,                                 <span class="hljs-comment">-- 草蜥蜴</span><br>    &#123;<span class="hljs-string">"lightninggoat"</span>, <span class="hljs-number">50</span>&#125;,                              <span class="hljs-comment">-- 羊</span><br>    &#123;<span class="hljs-string">"deer"</span>, <span class="hljs-number">50</span>&#125;,                                       <span class="hljs-comment">-- 鹿</span><br>    <span class="hljs-comment">------------------------  地面  物体  ------------------------</span><br>    &#123;<span class="hljs-string">"evergreen_sparse"</span>, <span class="hljs-number">250</span>&#125;,                          <span class="hljs-comment">-- 常青树</span><br>    &#123;<span class="hljs-string">"twiggytree"</span>, <span class="hljs-number">150</span>&#125;,                                <span class="hljs-comment">-- 树枝树</span><br>    &#123;<span class="hljs-string">"marsh_tree"</span>, <span class="hljs-number">100</span>&#125;,                                <span class="hljs-comment">-- 针刺树</span><br>    &#123;<span class="hljs-string">"rock_petrified_tree"</span>, <span class="hljs-number">1000</span>&#125;,                      <span class="hljs-comment">-- 石化树</span><br>    &#123;<span class="hljs-string">"skeleton_player"</span>, <span class="hljs-number">50</span>&#125;,                            <span class="hljs-comment">-- 玩家尸体</span><br>    &#123;<span class="hljs-string">"spiderden"</span>, <span class="hljs-number">80</span>&#125;,                                  <span class="hljs-comment">-- 蜘蛛巢</span><br>    &#123;<span class="hljs-string">"burntground"</span>, <span class="hljs-number">50</span>&#125;,                                <span class="hljs-comment">-- 陨石痕跡</span><br>    <span class="hljs-comment">------------------------  可拾取物品  ------------------------</span><br>    <span class="hljs-comment">--&#123;"seeds", 0&#125;,                                     -- 种子</span><br>    <span class="hljs-comment">--&#123;"log", 0&#125;,                                       -- 木头</span><br>    <span class="hljs-comment">--&#123;"pinecone", 0&#125;,                                  -- 松果</span><br>    <span class="hljs-comment">--&#123;"twiggy_nut", 0&#125;,                                -- 多枝树的果实</span><br>    <span class="hljs-comment">--&#123;"cutgrass", 0&#125;,                                  -- 草</span><br>    <span class="hljs-comment">--&#123;"twigs", 0&#125;,                                     -- 树枝</span><br>    <span class="hljs-comment">--&#123;"rocks", 100&#125;,                                   -- 石头</span><br>    <span class="hljs-comment">--&#123;"nitre", 100&#125;,                                   -- 硝石</span><br>    <span class="hljs-comment">--&#123;"flint", 100&#125;,                                   -- 燧石</span><br>    &#123;<span class="hljs-string">"poop"</span>, <span class="hljs-number">0</span>&#125;,                                        <span class="hljs-comment">-- 屎</span><br>    &#123;<span class="hljs-string">"guano"</span>, <span class="hljs-number">0</span>&#125;,                                       <span class="hljs-comment">-- 鸟屎</span><br>    &#123;<span class="hljs-string">"manrabbit_tail"</span>, <span class="hljs-number">0</span>&#125;,                              <span class="hljs-comment">-- 兔毛</span><br>    &#123;<span class="hljs-string">"silk"</span>, <span class="hljs-number">50</span>&#125;,                                       <span class="hljs-comment">-- 蜘蛛丝</span><br>    &#123;<span class="hljs-string">"spidergland"</span>, <span class="hljs-number">50</span>&#125;,                                <span class="hljs-comment">-- 蜘蛛腺体</span><br>    &#123;<span class="hljs-string">"stinger"</span>, <span class="hljs-number">0</span>&#125;,                                     <span class="hljs-comment">-- 蜂刺</span><br>    &#123;<span class="hljs-string">"houndstooth"</span>, <span class="hljs-number">0</span>&#125;,                                 <span class="hljs-comment">-- 狗牙</span><br>    &#123;<span class="hljs-string">"mosquitosack"</span>, <span class="hljs-number">0</span>&#125;,                                <span class="hljs-comment">-- 蚊子血袋</span><br>    <span class="hljs-comment">--&#123;"glommerfuel", 0&#125;,                               -- 格罗姆粘液</span><br>    &#123;<span class="hljs-string">"slurtleslime"</span>, <span class="hljs-number">0</span>&#125;,                                <span class="hljs-comment">-- 鼻涕虫粘液</span><br>    &#123;<span class="hljs-string">"slurtle_shellpieces"</span>, <span class="hljs-number">0</span>&#125;,                         <span class="hljs-comment">-- 鼻涕虫壳碎片</span><br>    &#123;<span class="hljs-string">"charcoal"</span>, <span class="hljs-number">0</span>&#125;,                                    <span class="hljs-comment">-- 炭</span><br>    &#123;<span class="hljs-string">"rottenegg"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 坏蛋</span><br>    &#123;<span class="hljs-string">"horn"</span>, <span class="hljs-number">5</span>&#125;,                                        <span class="hljs-comment">-- 牛角</span><br>    &#123;<span class="hljs-string">"beardhair"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 胡须</span><br>    &#123;<span class="hljs-string">"beefalowool"</span>, <span class="hljs-number">0</span>&#125;,                                 <span class="hljs-comment">-- 牛毛</span><br>    &#123;<span class="hljs-string">"feather_crow"</span>, <span class="hljs-number">0</span>&#125;,                                <span class="hljs-comment">-- 羽毛</span><br>    &#123;<span class="hljs-string">"feather_robin"</span>, <span class="hljs-number">0</span>&#125;,                               <span class="hljs-comment">-- 羽毛</span><br>    &#123;<span class="hljs-string">"feather_robin_winter"</span>, <span class="hljs-number">0</span>&#125;,                        <span class="hljs-comment">-- 羽毛</span><br>    &#123;<span class="hljs-string">"spoiled_food"</span>, <span class="hljs-number">0</span>&#125;,                                <span class="hljs-comment">-- 腐烂食物</span><br>    &#123;<span class="hljs-string">"sketch"</span>, <span class="hljs-number">0</span>&#125;,                                      <span class="hljs-comment">-- 草图</span><br>    &#123;<span class="hljs-string">"blueprint"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 蓝图</span><br>    &#123;<span class="hljs-string">"backpack"</span>, <span class="hljs-number">0</span>&#125;,                                    <span class="hljs-comment">-- 背包</span><br>    &#123;<span class="hljs-string">"piggyback"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 小猪包</span><br>    &#123;<span class="hljs-string">"candybag"</span>, <span class="hljs-number">0</span>&#125;,                                    <span class="hljs-comment">-- 糖果包</span><br>    &#123;<span class="hljs-string">"compass"</span>, <span class="hljs-number">0</span>&#125;,                                     <span class="hljs-comment">-- 指南針</span><br>    &#123;<span class="hljs-string">"bedroll_furry"</span>, <span class="hljs-number">0</span>&#125;,                               <span class="hljs-comment">-- 兔毛席子            </span><br>    &#123;<span class="hljs-string">"bedroll_straw"</span>, <span class="hljs-number">0</span>&#125;,                               <span class="hljs-comment">-- 草席            </span><br>    &#123;<span class="hljs-string">"axe"</span>, <span class="hljs-number">3</span>&#125;,                                         <span class="hljs-comment">-- 斧子</span><br>    &#123;<span class="hljs-string">"goldenaxe"</span>, <span class="hljs-number">3</span>&#125;,                                   <span class="hljs-comment">-- 黄金斧子</span><br>    &#123;<span class="hljs-string">"torch"</span>, <span class="hljs-number">0</span>&#125;,                                       <span class="hljs-comment">-- 火炬</span><br>    &#123;<span class="hljs-string">"pickaxe"</span>, <span class="hljs-number">3</span>&#125;,                                     <span class="hljs-comment">-- 镐子</span><br>    &#123;<span class="hljs-string">"goldenpickaxe"</span>, <span class="hljs-number">3</span>&#125;,                               <span class="hljs-comment">-- 黄金镐子</span><br>    &#123;<span class="hljs-string">"hammer"</span>, <span class="hljs-number">3</span>&#125;,                                      <span class="hljs-comment">-- 锤子</span><br>    &#123;<span class="hljs-string">"shovel"</span>, <span class="hljs-number">3</span>&#125;,                                      <span class="hljs-comment">-- 铲子</span><br>    &#123;<span class="hljs-string">"goldenshovel"</span>, <span class="hljs-number">3</span>&#125;,                                <span class="hljs-comment">-- 黄金铲子</span><br>    &#123;<span class="hljs-string">"razor"</span>, <span class="hljs-number">1</span>&#125;,                                       <span class="hljs-comment">-- 剃刀</span><br>    &#123;<span class="hljs-string">"pitchfork"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 草叉</span><br>    &#123;<span class="hljs-string">"bugnet"</span>, <span class="hljs-number">0</span>&#125;,                                      <span class="hljs-comment">-- 捕虫网</span><br>    &#123;<span class="hljs-string">"fishingrod"</span>, <span class="hljs-number">0</span>&#125;,                                  <span class="hljs-comment">-- 鱼竿</span><br>    &#123;<span class="hljs-string">"umbrella"</span>, <span class="hljs-number">0</span>&#125;,                                    <span class="hljs-comment">-- 雨伞</span><br>    &#123;<span class="hljs-string">"earmuffshat"</span>, <span class="hljs-number">0</span>&#125;,                                 <span class="hljs-comment">-- 兔耳罩</span><br>    &#123;<span class="hljs-string">"winterhat"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 冬帽</span><br>    <span class="hljs-comment">--&#123;"heatrock", 5&#125;,                                  -- 热能石</span><br>    &#123;<span class="hljs-string">"strawhat"</span>, <span class="hljs-number">0</span>&#125;,                                    <span class="hljs-comment">-- 草帽</span><br>    &#123;<span class="hljs-string">"tophat"</span>, <span class="hljs-number">0</span>&#125;,                                      <span class="hljs-comment">-- 高礼帽</span><br>    &#123;<span class="hljs-string">"featherhat"</span>, <span class="hljs-number">0</span>&#125;,                                  <span class="hljs-comment">-- 羽毛帽</span><br>    &#123;<span class="hljs-string">"beehat"</span>, <span class="hljs-number">0</span>&#125;,                                      <span class="hljs-comment">-- 蜜蜂帽</span><br>    &#123;<span class="hljs-string">"spiderhat"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 女王帽</span><br>    &#123;<span class="hljs-string">"bushhat"</span>, <span class="hljs-number">0</span>&#125;,                                     <span class="hljs-comment">-- 浆果丛帽</span><br>    &#123;<span class="hljs-string">"trap"</span>, <span class="hljs-number">10</span>&#125;,                                       <span class="hljs-comment">-- 动物陷阱</span><br>    &#123;<span class="hljs-string">"birdtrap"</span>, <span class="hljs-number">3</span>&#125;,                                    <span class="hljs-comment">-- 鸟陷阱</span><br>    &#123;<span class="hljs-string">"spear"</span>, <span class="hljs-number">0</span>&#125;,                                       <span class="hljs-comment">-- 矛</span><br>    &#123;<span class="hljs-string">"boomerang"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 回旋镖</span><br>    <span class="hljs-comment">--&#123;"nightsword", 10&#125;,                               -- 影刀</span><br>    &#123;<span class="hljs-string">"ruins_bat"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 铥矿棒</span><br>    <span class="hljs-comment">--&#123;"spear_wathgrithr", 0&#125;,                          -- 女武神长矛</span><br>    &#123;<span class="hljs-string">"armorgrass"</span>, <span class="hljs-number">0</span>&#125;,                                  <span class="hljs-comment">-- 草甲</span><br>    &#123;<span class="hljs-string">"armormarble"</span>, <span class="hljs-number">0</span>&#125;,                                 <span class="hljs-comment">-- 大理石甲</span><br>    <span class="hljs-comment">--&#123;"armor_sanity", 10&#125;,                             -- 影甲</span><br>    &#123;<span class="hljs-string">"armorsnurtleshell"</span>, <span class="hljs-number">0</span>&#125;,                           <span class="hljs-comment">-- 蜗牛甲</span><br>    &#123;<span class="hljs-string">"armorwood"</span>, <span class="hljs-number">0</span>&#125;,                                   <span class="hljs-comment">-- 木甲</span><br>    &#123;<span class="hljs-string">"armordragonfly"</span>, <span class="hljs-number">0</span>&#125;,                              <span class="hljs-comment">-- 蜻蜓甲</span><br>    &#123;<span class="hljs-string">"armor_bramble"</span>, <span class="hljs-number">0</span>&#125;,                               <span class="hljs-comment">-- 荆棘甲</span><br>    &#123;<span class="hljs-string">"footballhat"</span>, <span class="hljs-number">0</span>&#125;,                                 <span class="hljs-comment">-- 猪皮帽</span><br>    &#123;<span class="hljs-string">"slurtlehat"</span>, <span class="hljs-number">0</span>&#125;,                                  <span class="hljs-comment">-- 蜗牛帽</span><br>    <span class="hljs-comment">--&#123;"wathgrithrhat", 0&#125;,                             -- 女武神头盔</span><br>    <span class="hljs-comment">--&#123;"firestaff", 0&#125;,                                 -- 火魔杖</span><br>    <span class="hljs-comment">--&#123;"icestaff", 0&#125;,                                  -- 冰魔杖</span><br>    &#123;<span class="hljs-string">"chesspiece_deerclops_sketch"</span>, <span class="hljs-number">0</span>&#125;,                 <span class="hljs-comment">-- 四季 boss 棋子图</span><br>    &#123;<span class="hljs-string">"chesspiece_bearger_sketch"</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-string">"chesspiece_moosegoose_sketch"</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-string">"chesspiece_dragonfly_sketch"</span>, <span class="hljs-number">0</span>&#125;,<br>    <span class="hljs-comment">--&#123;"shadowheart", 3&#125;,                               -- 影心</span><br>    &#123;<span class="hljs-string">"oar"</span>, <span class="hljs-number">0</span>&#125;,                                         <span class="hljs-comment">-- 桨</span><br>    &#123;<span class="hljs-string">"oar_driftwood"</span>, <span class="hljs-number">0</span>&#125;,                                         <span class="hljs-comment">-- 桨</span><br>    &#123;<span class="hljs-string">"antliontrinket"</span>, <span class="hljs-number">0</span>&#125;,                              <span class="hljs-comment">-- 蚁狮掉落物</span><br>    <span class="hljs-comment">------------------------  厨师的物品  ------------------------</span><br>    &#123;<span class="hljs-string">"portablecookpot_item"</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-string">"portableblender_item"</span>, <span class="hljs-number">0</span>&#125;,<br>    &#123;<span class="hljs-string">"portablespicer_item"</span>, <span class="hljs-number">0</span>&#125;,<br>&#125;<br><br><span class="hljs-comment">--冬季盛宴</span><br><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">winterfeast_rmlist</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">9</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_food"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">12</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_plain"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">8</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_fancy"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">8</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_light"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">5</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_festivalevents"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_bearger"</span>, <span class="hljs-number">0</span> &#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_beequeen"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_deerclops"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_dragonfly"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_moose"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_toadstool"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_antlion"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_fuelweaver"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_klaus"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_krampus"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_noeyered"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"winter_ornament_boss_noeyeblue"</span>, <span class="hljs-number">0</span>&#125;)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--万圣节</span><br><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hallowed_night_rmlist</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">14</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloweencandy_"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>,<span class="hljs-number">6</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_ornament_"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_bravery"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_health"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_sanity"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_volatile"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_moon"</span>, <span class="hljs-number">0</span>&#125;)<br>    <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"halloween_experiment_root"</span>, <span class="hljs-number">0</span>&#125;)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--玩具</span><br><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">trinket_rmlist</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">2</span>,<span class="hljs-number">5</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"trinket_"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">for</span> i=<span class="hljs-number">7</span>,<span class="hljs-number">45</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(rmlist, &#123;<span class="hljs-string">"trinket_"</span>..i, <span class="hljs-number">0</span>&#125;) <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clean</span><span class="hljs-params">()</span></span><br>    winterfeast_rmlist()<br>    hallowed_night_rmlist()<br>    trinket_rmlist()<br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(rmlist) <span class="hljs-keyword">do</span> s_rmognum(v[<span class="hljs-number">1</span>],v[<span class="hljs-number">2</span>]) <span class="hljs-keyword">end</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Clean Finished!"</span>)<br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>输入<code>clean()</code>即可<br>其中<code>rmlist</code>的内容可以根据喜好自行修改，只清理在地面上的物品</p>
+</blockquote>
+<h3 id="随机再生资源"><a href="#随机再生资源" class="headerlink" title="随机再生资源"></a>随机再生资源</h3><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printground</span><span class="hljs-params">()</span></span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"自然地皮"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"DECIDUOUS"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"GRASS"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"SAVANNA"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"FOREST"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"MARSH"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"ROCKY"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"DIRT"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"DESERT_DIRT"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"月岛地皮"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"METEOR"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"PEBBLEBEACH"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"人工地皮"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"SCALE"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"CHECKER"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"CARPET"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"WOODFLOOR"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"海洋："</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_HAZARDOUS"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_START"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_COASTAL_SHORE"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_BRINEPOOL"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_COASTAL"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_SWELL"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_REEF"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"OCEAN_ROUGH"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"不可用"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"IMPASSABLE"</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"INVALID"</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tilespawn</span><span class="hljs-params">(prefab,groundtype)</span></span><br>    <span class="hljs-keyword">local</span> pt = Vector3(<span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>(<span class="hljs-number">-1000</span>, <span class="hljs-number">1000</span>), <span class="hljs-number">0</span>, <span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>(<span class="hljs-number">-1000</span>, <span class="hljs-number">1000</span>))<br>    <span class="hljs-keyword">local</span> tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)<br>    <span class="hljs-comment">--local canspawn = tile ~= GROUND.IMPASSABLE and tile ~= GROUND.INVALID and tile ~= 255 and tile ~= GROUND.OCEAN_START and tile ~= GROUND.OCEAN_SWELL and tile ~= GROUND.OCEAN_ROUGH</span><br>    <span class="hljs-keyword">if</span> tile == groundtype <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">print</span>(prefab, <span class="hljs-string">"spawned!"</span>)<br>        <span class="hljs-keyword">local</span> b = SpawnPrefab(prefab)<br>        b.Transform:SetPosition(pt:Get())<br>    <span class="hljs-keyword">else</span><br>        tilespawn(prefab,groundtype)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ramdomspawn</span><span class="hljs-params">(prefab)</span></span><br>    <span class="hljs-keyword">local</span> pt = Vector3(<span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>(<span class="hljs-number">-1000</span>, <span class="hljs-number">1000</span>), <span class="hljs-number">0</span>, <span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>(<span class="hljs-number">-1000</span>, <span class="hljs-number">1000</span>))<br>    <span class="hljs-keyword">local</span> tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)<br>    <span class="hljs-keyword">local</span> canspawn = tile ~= GROUND.IMPASSABLE <span class="hljs-keyword">and</span> tile ~= GROUND.INVALID <span class="hljs-keyword">and</span> tile ~= <span class="hljs-number">255</span> <span class="hljs-keyword">and</span><br>                     tile ~= GROUND.OCEAN_HAZARDOUS <span class="hljs-keyword">and</span> tile ~= GROUND.OCEAN_START <span class="hljs-keyword">and</span> tile ~= GROUND.OCEAN_COASTAL_SHORE <span class="hljs-keyword">and</span><br>                     tile ~= GROUND.OCEAN_BRINEPOOL <span class="hljs-keyword">and</span> tile ~= GROUND.OCEAN_COASTAL <span class="hljs-keyword">and</span> tile ~= GROUND.OCEAN_SWELL <span class="hljs-keyword">and</span><br>                     tile ~= GROUND.OCEAN_REEF <span class="hljs-keyword">and</span> tile ~= GROUND.OCEAN_ROUGH<br>    <span class="hljs-keyword">if</span> canspawn <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">print</span>(prefab, <span class="hljs-string">"spawned!"</span>)<br>        <span class="hljs-keyword">local</span> b = SpawnPrefab(prefab)<br>        b.Transform:SetPosition(pt:Get())<br>    <span class="hljs-keyword">else</span><br>        tilespawn(prefab,groundtype)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>有三条命令<br><code>printground()</code>可显示所有的地皮类型，为后面两条命令服务<br><code>tilespawn(&quot;beefalo&quot;, GROUND.SAVANNA)</code>即可随机在沙草地皮上随机生成一只牛，其中<code>GROUND.SAVANNA</code>中的<code>SAVANNA</code>根据<code>printground()</code>的输出结果自行调整<br><code>ramdomspawn(&quot;lightninggoat&quot;)</code>即可在世界上随机生成一只羊</p>
+</blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><code>customcommands.lua</code>可以根据喜好自行添加，还可以增加更多DIY的内容</p>
+<p>对于上面的距离有什么不懂，欢迎提问</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/rules/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器规定试行版</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/dstmoji/">
+                        <span class="hidden-mobile">让您的饥荒昵称看起来更精致</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI",
+          app_key: "lh77VzmHrjLqi9khKQgEneGy",
+          placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+          path: window.location.pathname,
+          avatar: "wavatar",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20025824号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33032202000176"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>浙公网安备33032202000176号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d5789316175edf52298e98f64043f39b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-172924260-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

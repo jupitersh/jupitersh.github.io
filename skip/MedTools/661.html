@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>胸腰椎损伤分类及损伤程度评分（TLICS）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>胸腰椎损伤分类及损伤程度评分（TLICS）</h1>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                		<th rowspan="4">骨折形态</th>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox1" />
+                        <label for="checkbox1">压缩型</label>
+                    </td>
+                    <td>
+                    		1
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="2" id="checkbox2" />
+                        <label for="checkbox2">爆裂型</label>
+                    </td>
+                    <td>
+                    		2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="3" id="checkbox3" />
+                        <label for="checkbox3">剪力及旋转</label>
+                    </td>
+                    <td>
+                    		3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="4" id="checkbox4" />
+                        <label for="checkbox4">牵张型</label>
+                    </td>
+                    <td>
+                    		4
+                    </td>
+                </tr>
+                <tr>
+                		<th rowspan="2">神经损伤情况</th>
+                    <td>
+                        <input type="radio" name="radio2" value="0" id="checkbox5" />
+                        <label for="checkbox5">无损伤</label>
+                    </td>
+                    <td>
+                    		0
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="2" id="checkbox6" />
+                        <label for="checkbox6">神经根损伤</label>
+                    </td>
+                    <td>
+                    		2
+                    </td>
+                </tr>
+                <tr>
+                		<th rowspan="3">脊髓或圆锥损伤</th>
+                    <td>
+                        <input type="radio" name="radio3" value="2" id="checkbox7" />
+                        <label for="checkbox7">完全损伤</label>
+                    </td>
+                    <td>
+                    		2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="3" id="checkbox8" />
+                        <label for="checkbox8">不完全性损伤</label>
+                    </td>
+                    <td>
+                    		3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="3" id="checkbox9" />
+                        <label for="checkbox9">马尾神经损伤</label>
+                    </td>
+                    <td>
+                    		3
+                    </td>
+                </tr>
+                <tr>
+                		<th rowspan="3">后纵韧带复合体</th>
+                    <td>
+                        <input type="radio" name="radio6" value="0" id="checkbox10" />
+                        <label for="checkbox10">无损伤</label>
+                    </td>
+                    <td>
+                    		0
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="2" id="checkbox11" />
+                        <label for="checkbox11">不确定</label>
+                    </td>
+                    <td>
+                    		2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="3" id="checkbox12" />
+                        <label for="checkbox12">确定断裂</label>
+                    </td>
+                    <td>
+                    		3
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="count">总分</th>
+                    <td ><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+            		<td colspan="3">
+            				备注：TLICS 评分为胸腰椎损伤分类及损伤程度的评分系统（thoracolumbar injury classification and severity score）。
+            							</br>
+            							</br>
+            							包括 3 个方面：骨折形态，后方韧带复合体的完整性及神经损伤情况。
+													</br>
+													</br>
+													根据不同情况予以不同的分值，最后将 3 部分的分值相加，总分作为选择治疗的依据。
+													</br>
+													</br>
+													总分小于 4 分非手术治疗，大于 4 分选择手术治疗，4 分者两者均可。
+              	</td>	
+            </tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

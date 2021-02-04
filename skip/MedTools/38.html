@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>钠排泌分数</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <td colspan="3" class="danwei"><span class="radio su checked">常用</span><span class="radio si">国际</span></td>
+      </tr>
+      <tr>
+        <th>血清肌酐：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">μmol/L</span></td>
+      </tr>
+      <tr>
+        <th>尿钠：</th>
+        <td class="text_wrap"><input type="number" value="" id="num2" class="text num2"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+      </tr>
+      <tr>
+        <th>血清钠：</th>
+        <td class="text_wrap"><input type="number" value="" id="num3" class="text num3"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+      </tr>
+      <tr>
+        <th>尿肌酐：</th>
+        <td class="text_wrap"><input number="text" value="" id="num4" class="text num4"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">μmol/L</span></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Fractional Excretion of Sodium,FENa</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>钠排泄分数 = (血清肌酐 * 尿钠) / (血清钠 * 尿肌酐)</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>FENa可用于鉴别诊断，FENa> 1%时常伴随着急性肾功能衰竭，FENa < 1%时则多为肾前性功能衰竭。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Stein JH, ed. Internal Medicine. 4th edition. Mosby-Year Book. 1994.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>FENa=<em id="end"> </em>%</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //血清肌酐
+	var num2 = parseFloat(document.getElementById("num2").value); //尿钠
+	var num3 = parseFloat(document.getElementById("num3").value); //血清钠
+	var num4 = parseFloat(document.getElementById("num4").value); //尿肌酐
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的血清肌酐");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的尿钠");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的血清钠");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的尿肌酐");
+	}else{
+		if($(".si").hasClass("checked")){
+			var end = ((num1*num2)/(num3*num4))*100;
+		}else{
+			var end = ((num1*num2)/(num3*num4))*100;
+		}
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

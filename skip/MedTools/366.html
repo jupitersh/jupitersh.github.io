@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>PRST记分系统</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>PRST记分系统</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                    	<th>指标</th>
+                        <th>体征</th>
+                        <th>分值</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="3">收缩压（mmHg）</th>
+                    	<td>
+                        	<input type="radio"  name="radio1" value="0" id="checkbox1" />
+                            <label for="checkbox1">&lt;对照值+15</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="1" id="checkbox2" />
+                            <label for="checkbox2">&lt;对照值+30</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="2" id="checkbox3" />
+                            <label for="checkbox3">&gt;对照值+30</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">心率（bpm）</th>
+                        <td>
+                        	<input type="radio"  name="radio2" value="0" id="checkbox4" />
+                            <label for="checkbox4">&lt;对照值+15</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="1" id="checkbox5" />
+                            <label for="checkbox5">&lt;对照值+30</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="2" id="checkbox6" />
+                            <label for="checkbox6">&gt;对照值+30</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">汗液</th>
+                        <td>
+                        	<input type="radio"  name="radio3" value="0" id="checkbox7" />
+                            <label for="checkbox7">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="1" id="checkbox8" />
+                            <label for="checkbox8">皮肤潮湿</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="2" id="checkbox9" />
+                            <label for="checkbox9">可见汗珠</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">泪液</th>
+                        <td>
+                        	<input type="radio"  name="radio4" value="0" id="checkbox10" />
+                            <label for="checkbox10">分开眼睑无过多泪液</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="1" id="checkbox11" />
+                            <label for="checkbox11">分开眼睑有过多泪液</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="2" id="checkbox12" />
+                            <label for="checkbox12">闭眼即有泪液流出</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="6"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">4</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                        <td>总分5-8分为麻醉过浅；2-4分为浅麻醉但仍合适；0-1分为麻醉合适或过深。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td>Evan综合了几项临床体征，提出了PRST（P=血压，R=心率，S=出汗，T=流泪）记分系统，用于肌松下麻醉深度的监测。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>安刚，薛富善 主编.《现代麻醉学技术》[M].科学技术文献出版社.2001年</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){
+		shuchu();
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 4-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

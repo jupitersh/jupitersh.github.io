@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  <title>利用 Aria2 及 h5ai 在服务器上搭建影音中心 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d5789316175edf52298e98f64043f39b","google":"UA-172924260-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI","app_key":"lh77VzmHrjLqi9khKQgEneGy","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>辣椒手记</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post_background/media.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="利用 Aria2 及 h5ai 在服务器上搭建影音中心">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-06 15:15" pubdate>
+        2020-03-06 15:15
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">利用 Aria2 及 h5ai 在服务器上搭建影音中心</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020-05-24 18:46
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>最近买了一台带宽5m的服务器，利用闲置的带宽来搭建个人影音中心<br>基于腾讯云Ubuntu Server 16</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>H5ai是一款功能强大 php 文件目录列表程序，由德国开发者 Lars Jung 主导开发，它提供多种文件目录列表呈现方式，支持多种主流 Web 服务器，例如 Nginx、Apache、Cherokee、Lighttpd 等，支持多国语言，可以使用本程序在线预览文本、图片、音频、视频等。<a href="https://www.xzymoe.com/h5ai/" target="_blank" rel="noopener">1</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>更新软件源及软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt update<br>sudo apt upgrade<br>sudo apt dist-upgrade<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="安装aria2"><a href="#安装aria2" class="headerlink" title="安装aria2"></a>安装aria2</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install -y aria2<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="配置aria2"><a href="#配置aria2" class="headerlink" title="配置aria2"></a>配置aria2</h2><h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>创建aria2的配置文件夹及文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">mkdir /home/ubuntu/.aria2<br>vi /home/ubuntu/.aria2/aria2.conf<br></code></pre></div></td></tr></table></figure>
+
+<p>在新文件中写入以下内容并保存（第2行的<code>rpc-secret</code>你想设置的密钥）</p>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta">#设置加密的密钥</span><br>rpc-secret= <span class="hljs-number">123456789</span><br><span class="hljs-meta">#允许rpc</span><br>enable-rpc=<span class="hljs-literal">true</span><br><span class="hljs-meta">#允许所有来源, web界面跨域权限需要</span><br>rpc-allow-origin-all=<span class="hljs-literal">true</span><br><span class="hljs-meta">#是否启用https加密，启用之后要设置公钥,私钥的文件路径</span><br><span class="hljs-meta">#rpc-secure=true</span><br><span class="hljs-meta">#启用加密设置公钥</span><br><span class="hljs-meta">#rpc-certificate=/home/name/.config/aria2/example.crt</span><br><span class="hljs-meta">#启用加密设置私钥</span><br><span class="hljs-meta">#rpc-private-key=/home/name/.config/aria2/example.key</span><br><span class="hljs-meta">#允许外部访问，false的话只监听本地端口</span><br>rpc-listen-all=<span class="hljs-literal">true</span><br><span class="hljs-meta">#RPC端口, 仅当默认端口被占用时修改</span><br><span class="hljs-meta">#rpc-listen-port=6800</span><br><span class="hljs-meta">#最大同时下载数(任务数), 路由建议值: 3</span><br>max-concurrent-downloads=<span class="hljs-number">5</span><br><span class="hljs-meta">#断点续传</span><br>continue=<span class="hljs-literal">true</span><br><span class="hljs-meta">#同服务器连接数</span><br>max-connection-per-server=<span class="hljs-number">5</span><br><span class="hljs-meta">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span><br>min-split-size=<span class="hljs-number">10</span>M<br><span class="hljs-meta">#单文件最大线程数, 路由建议值: 5</span><br>split=<span class="hljs-number">10</span><br><span class="hljs-meta">#下载速度限制</span><br>max-overall-download-limit=<span class="hljs-number">0</span><br><span class="hljs-meta">#单文件速度限制</span><br>max-download-limit=<span class="hljs-number">0</span><br><span class="hljs-meta">#上传速度限制</span><br>max-overall-upload-limit=<span class="hljs-number">0</span><br><span class="hljs-meta">#单文件速度限制</span><br>max-upload-limit=<span class="hljs-number">0</span><br><span class="hljs-meta">#断开速度过慢的连接</span><br><span class="hljs-meta">#lowest-speed-limit=0</span><br><span class="hljs-meta">#验证用，需要1.16.1之后的release版本</span><br><span class="hljs-meta">#referer=*</span><br><span class="hljs-meta">#文件保存路径, 默认为当前启动位置</span><br>dir=/home/ubuntu/webroot/download<br><span class="hljs-meta">#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本</span><br><span class="hljs-meta">#disk-cache=0</span><br><span class="hljs-meta">#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)</span><br><span class="hljs-meta">#enable-mmap=true</span><br><span class="hljs-meta">#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长</span><br><span class="hljs-meta">#所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持</span><br>file-allocation=prealloc<br><span class="hljs-meta">#不进行证书校验</span><br>check-certificate=<span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="运行aria2"><a href="#运行aria2" class="headerlink" title="运行aria2"></a>运行aria2</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">aria2c --conf-path=/home/ubuntu/.aria2/aria2.conf -D<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="设置aria2开机自动启动"><a href="#设置aria2开机自动启动" class="headerlink" title="设置aria2开机自动启动"></a>设置aria2开机自动启动</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo vi /etc/rc.local<br></code></pre></div></td></tr></table></figure>
+
+<p>在最下面加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">aria2c --conf-path=/home/ubuntu/.aria2/aria2.conf -D &amp;<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="安装AriaNg"><a href="#安装AriaNg" class="headerlink" title="安装AriaNg"></a>安装AriaNg</h2><h3 id="先要安装http服务"><a href="#先要安装http服务" class="headerlink" title="先要安装http服务"></a>先要安装http服务</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install -y apache2<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="修改apache2默认文件夹"><a href="#修改apache2默认文件夹" class="headerlink" title="修改apache2默认文件夹"></a>修改apache2默认文件夹</h3><p>apache2的默认文件夹在<code>/var/www/html</code>，平时使用不方便，因而改为<code>/home/ubuntu/webroot</code>，方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">mkdir ~/webroot<br>sudo vi /etc/apache2/apache2.conf<br></code></pre></div></td></tr></table></figure>
+<p>找到</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">Directory</span> /<span class="hljs-attr">var</span>/<span class="hljs-attr">www</span>/&gt;</span><br>        Options Indexes FollowSymLinks<br>        AllowOverride None<br>        Require all granted<br><span class="hljs-tag">&lt;/<span class="hljs-name">Directory</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>在其下方添加以下内容并保存退出</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">Directory</span> /<span class="hljs-attr">home</span>/<span class="hljs-attr">ubuntu</span>/<span class="hljs-attr">webroot</span>&gt;</span><br>        Options Indexes FollowSymLinks MultiViews<br>        AllowOverride All<br>        Require all granted<br><span class="hljs-tag">&lt;/<span class="hljs-name">Directory</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>然后修改<code>000-default.conf</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo vi /etc/apache2/sites-available/000-default.conf<br></code></pre></div></td></tr></table></figure>
+
+<p>找到<code>DocumentRoot /var/www/html</code>，改为<code>DocumentRoot /home/ubuntu/webroot</code>即可</p>
+<h3 id="下载AriaNg"><a href="#下载AriaNg" class="headerlink" title="下载AriaNg"></a>下载AriaNg</h3><p>AriaNg 是一个让 aria2 更容易使用的现代 Web 前端</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash"><span class="hljs-built_in">cd</span> ~/webroot<br>mkdir AriaNg<br><span class="hljs-built_in">cd</span> AriaNg<br>wget https://github.com/mayswind/AriaNg/releases/download/1.1.4/AriaNg-1.1.4.zip<br>unzip AriaNg-1.1.4.zip<br>rm AriaNg-1.1.4.zip<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="搭建h5ai"><a href="#搭建h5ai" class="headerlink" title="搭建h5ai"></a>搭建h5ai</h2><h3 id="安装php服务"><a href="#安装php服务" class="headerlink" title="安装php服务"></a>安装php服务</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install -y php libapache2-mod-php<br>sudo /etc/init.d/apache2 restart<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="下载h5ai"><a href="#下载h5ai" class="headerlink" title="下载h5ai"></a>下载h5ai</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash"><span class="hljs-built_in">cd</span> ~/webroot<br>wget https://release.larsjung.de/h5ai/h5ai-0.29.2.zip<br>unzip h5ai-0.29.2.zip<br>rm h5ai-0.29.2.zip<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="修改-apache-配置文件"><a href="#修改-apache-配置文件" class="headerlink" title="修改 apache 配置文件"></a>修改 apache 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo vi /etc/apache2/mods-available/dir.conf<br></code></pre></div></td></tr></table></figure>
+
+<p>将<code>DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm</code>改成：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta">DirectoryIndex <span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.php /_h5ai/<span class="hljs-keyword">public</span>/<span class="hljs-keyword">index</span>.php<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="添加用户名和密码"><a href="#添加用户名和密码" class="headerlink" title="添加用户名和密码"></a>添加用户名和密码</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vi /home/ubuntu/webroot/_h5ai/public/index.php<br></code></pre></div></td></tr></table></figure>
+
+<p>在第二行，也就是<code>&lt;?php</code>下面添加一行，内容为：</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs PHP">passwd();<br></code></pre></div></td></tr></table></figure>
+
+<p>在最下面另起一行添加以下内容：</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs PHP"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">passwd</span><span class="hljs-params">()</span></span>&#123;<br>    $user=<span class="hljs-keyword">array</span>(<span class="hljs-string">'用户名'</span>,<span class="hljs-string">'密码'</span>);<br>    <span class="hljs-keyword">if</span>(!($user[<span class="hljs-number">0</span>]===$_SERVER[<span class="hljs-string">'PHP_AUTH_USER'</span>] &amp;&amp; $user[<span class="hljs-number">1</span>]===$_SERVER[<span class="hljs-string">'PHP_AUTH_PW'</span>]))&#123;<br>        header(<span class="hljs-string">'WWW-Authenticate: Basic realm="138vps"'</span>);<br>        header(<span class="hljs-string">'HTTP/1.0 401 Unauthorized'</span>);<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">"please login"</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>其中用户名和密码改为你自己的，此为登陆h5ai之用</p>
+<h3 id="修改相关权限"><a href="#修改相关权限" class="headerlink" title="修改相关权限"></a>修改相关权限</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo chmod 777 -R /home/ubuntu/webroot<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="重启apache服务器"><a href="#重启apache服务器" class="headerlink" title="重启apache服务器"></a>重启apache服务器</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo /etc/init.d/apache2 restart<br></code></pre></div></td></tr></table></figure>
+
+<p>至此，服务上的配置完毕</p>
+<h2 id="网页使用h5ai及AriaNg教程"><a href="#网页使用h5ai及AriaNg教程" class="headerlink" title="网页使用h5ai及AriaNg教程"></a>网页使用h5ai及AriaNg教程</h2><h2 id="h5ai"><a href="#h5ai" class="headerlink" title="h5ai"></a>h5ai</h2><p>在浏览器中直接输入你服务器的 ip，在以下弹窗中输入<a href="#添加用户名和密码">上面</a>设置的用户名及密码即可进入 h5ai 界面</p>
+<p><img src="/img/article_image/2020/2020-03-06/01.webp" srcset="/img/loading.gif" alt="登陆界面"></p>
+<p>登陆后界面如下：</p>
+<p><img src="/img/article_image/2020/2020-03-06/02.webp" srcset="/img/loading.gif" alt="h5ai界面"></p>
+<p><code>download</code> 文件夹为下载的电影</p>
+<h2 id="AriaNg"><a href="#AriaNg" class="headerlink" title="AriaNg"></a>AriaNg</h2><p>点击页面上的 <code>AriaNg</code> 即可跳转进入 AriaNg 页面</p>
+<p>点击AriaNg页面左边的 <code>AriaNg设置</code>，切换到 <code>RPC</code> 选项卡，找到下面的 <code>Aria2 RPC密钥</code>，填入<a href="#修改配置文件">修改配置文件</a>设置的密钥，然后点击页面右上角的 <code>重新加载AriaNg</code> 即可</p>
+<p>连接成功后，尽情下载影片，然后打开h5ai的download文件夹在线看电影吧</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/IT/">IT</a>
+                    
+                      <a class="hover-with-bg" href="/categories/IT/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Aria2/">Aria2</a>
+                    
+                      <a class="hover-with-bg" href="/tags/h5ai/">h5ai</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/dstscore/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器玩家积分</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/ubuntujupyter/">
+                        <span class="hidden-mobile">Ubuntu Server 安装 Jupyter Notebook</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI",
+          app_key: "lh77VzmHrjLqi9khKQgEneGy",
+          placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+          path: window.location.pathname,
+          avatar: "wavatar",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20025824号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33032202000176"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>浙公网安备33032202000176号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d5789316175edf52298e98f64043f39b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-172924260-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

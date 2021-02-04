@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>卡铂剂量</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="sex"><span class="radio man checked">男</span><span class="radio">女</span></td>
+			</tr>
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<th>年龄：</th>
+				<td><input type="text" value="" id="num2" class="text num2"></td>
+				<td>岁</td>
+			</tr>
+			<tr>
+				<th>Cr：</th>
+				<td><input type="text" value="" id="num3" class="text num3"></td>
+				<td>μmol/L</td>
+			</tr>
+			<tr>
+				<th>AUC：</th>
+				<td><input type="text" value="" id="num4" class="text num4"></td>
+				<td>mg/ml/min</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>Cockcroft公式：<br />肌酐清除率（男）=1.23*体重*（140-年龄）/血肌酐<br />肌酐清除率（女）=1.03*体重*（140-年龄）/血肌酐<br />Calvert公式：<br />卡铂剂量=AUC*（肌酐清除率+25）</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>请根据不同疾病的需要，予以合适的卡铂剂量</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>卡铂剂量的限制性毒性是骨髓抑制，静脉给药后，血小板最低值与游离卡铂AUC高度相关。因此，卡铂的剂量计算方式是以AUC为主要参照的，有别于其他化疗药物以体表面积为主要参照的计算方法。<br />注：AUC（血药浓度-时间曲线下面积，area under the curve）设定为5~10，一般取5。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1. Cockcroft D, Gault MH. Nephron. 1976; 16: 31-41.<br />2. Calvert AH, Newell DR, Gumbrell LA, et al. J Clin Oncol. 1989; 7(11): 1748-56.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>卡铂剂量=<em id="end"></em>mg</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的体重");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的身高");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的年龄");
+	}else if(isNaN(num4) || num4 == "" || num4 < 5 || num4 > 10){
+		alert("请填写正确的AUC，5~10的整数");
+	}else{
+		if($(".man").hasClass("checked")){
+			var end = num4*(1.23*num1*(140-num2)/num3+25);
+		}else{
+			var end = num4*(1.03*num1*(140-num2)/num3+25);
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

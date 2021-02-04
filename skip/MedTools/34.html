@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>白球比</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap"> 
+  <!--<div class="form">
+    	<p class="inputWrap">
+        	<label>白蛋白 单位g/L</label>
+        	<input type="text" value="" id="num1" class="text num1">
+        </p>
+        <p class="inputWrap">
+        	<label>球蛋白 单位g/L</label>
+        	<input type="text" value="" id="num2" class="text num2">
+        </p>
+        <p>
+        	<input type="button" value="" id="btn" class="btn" onClick="count();">
+        </p>
+        <p>
+        	<input type="button" value="" id="reset" class="reset" onClick="hide();">
+        </p>
+    </div>-->
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>白蛋白：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>g/L</td>
+      </tr>
+      <tr>
+        <th>球蛋白：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>g/L</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Albumin/Globulin(A/G)</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>白球比=白蛋白/球蛋白</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>1.5-2.5</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>当白球比A/G小于1.5时（也有很多以小于1为标准），这时被称为白球比倒置或白球比偏低，预示着肝脏受到严重损伤。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>王鸿利主编. 实验诊断学（八年制）[M]. 人民卫生出版社.2005年</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>A/G=<em id="end"> </em></p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //白蛋白
+	var num2 = parseFloat(document.getElementById("num2").value); //球蛋白
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的白蛋白数值");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的球蛋白数值");
+	}else{
+		var end = num1/num2;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>体力状况 ECOG 评分标准（ZPS）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>体力状况 ECOG 评分标准（ZPS）</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th>体力状态</th>
+                    <th>级别</th>
+                </tr>
+                <tr>
+                    <td>活动能力完全正常，
+                    	  <br/>
+                    	  与起病前活动能力无任何差异
+                    </td>
+                    <td>0 级</td>
+                </tr> 
+                <tr>
+                    <td>能自由走动及从事轻体力活动，
+                    	  <br/>
+                    	  包括一般家务或办公室工作，
+                    	  <br/>
+                    	  但不能从事较重的体力活动
+                    </td>
+                    <td>1 级</td>
+                </tr> 
+                <tr> 
+                    <td>能自由走动及生活自理，
+                    	  <br/>
+                      	但已丧失工作能力，
+                      	<br/>
+                      	日间不少于一半时间可以起床活动
+                    </td>
+                    <td>2 级</td>
+                </tr>
+                <tr>
+                    <td>生活仅能部分自理，
+                    	  <br/>
+                    	  日间一半以上时间卧床或坐轮椅
+                    </td>
+                    <td>3 级</td>
+                </tr>
+                <tr>
+                    <td>卧床不起，
+                    		<br/>
+                    	  生活不能自理
+                    </td>
+                    <td>4 级</td>
+                </tr> 
+                <tr>
+                    <td>死亡</td>
+                    <td>5 级</td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+								<td>
+										将患者的活动状态分为 0 ~ 5 共 6 级。
+										<br/>
+										一般认为活动状况 3、4 级的病人不适宜进行化疗。
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore();
+        $('.num').text(n);
+    }
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

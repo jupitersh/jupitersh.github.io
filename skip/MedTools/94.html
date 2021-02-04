@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>代谢综合征的诊断标准（国际糖尿病联盟,IDF）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>代谢综合征的诊断标准（国际糖尿病联盟,IDF）</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table border="0" cellpadding="0" cellspacing="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>内容</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+					  <td>腰围：男&ge;90cm，女&ge;80cm；(必选项，不符合此项不能诊断；根据中国人特点确定与原标准不同)</td>
+					</tr>
+					<tr>
+						<th>2</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox2" />
+						  <label for="checkbox2">甘油三酯高：&ge;1.7mmol/l（150mg/dl）；或已接受相应治疗</label>						</td>
+					</tr>
+					<tr>
+						<th>3</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox3" />
+						  <label for="checkbox3">HDL-C 低：男&lt;1.03mmol/l（40mg/dl），女&lt;1.29mmol/l（50mg/dl）；或已接受相应治疗</label>						</td>
+					</tr>
+					<tr>
+						<th>4</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox4" />
+						  <label for="checkbox4">高血压：收缩压&ge;130mmHg 或舒张压&ge;85mmHg； 或已诊断/治疗高血压</label>						</td>
+					</tr>
+					<tr>
+						<th>5</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox5" />
+						  <label for="checkbox5">高血糖：空腹血糖&ge;5.6mmol/l（100mg/dl）或已诊断/治疗治2型糖尿病。</label>						</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td><span>您已选择 <em class="num">0</em> 项</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="0" cellpadding="0" cellspacing="0" class="countTabResult">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>具备1，同时具备2~5中的 2项或2项以上即可诊断。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Alberti KG, Zimmet P, Shaw J. Metabolic syndrome-a new world-wide definition. A Consensus Statement from the International Diabetes Federation[J]. Diabet Med, 2005, 23(5): 469-480.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input:checkbox').click(function(){
+		var n=$('input:checkbox:checked').length;
+		$('.num').text(n);
+	});
+});
+</script>
+</body>
+</html>

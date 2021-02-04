@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>肝素诱导的血小板减少评分系统(HIT 4T's score)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>肝素诱导的血小板减少评分系统(HIT 4T's score)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th rowspan="2">项目</th>
+                		<th colspan="4">分数</th>
+           	        </tr>
+                    <tr>
+                        <th>2分</th>
+                    	<th>1分</th>
+                    	<th>0分</th>
+                    </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                        <td>血小板减少(<strong>T</strong>hrombocytopenia)</td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="2" id="radio1" />
+                        	<label for="radio1">下降＞50%(绝对值下降&ge;20×10^9/L)</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="1" id="radio2" />
+                        	<label for="radio2">下降30-50%(绝对值下降10-19×10^9/L)</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="0" id="radio3" />
+                        	<label for="radio3">下降&lt;30%(绝对值下降＜10×10^9/L)</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>血小板减少时间(<strong>T</strong>iming)</td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="2" id="radio5" />
+                        	<label for="radio5">使用肝素5-10天或&le;1天（过去30天内曾经使用肝素）</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="1" id="radio6" />
+                        	<label for="radio6">使用肝素&gt;10天或时间不能确定，或&le;1天（过去30-100天内曾经使用肝素）</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="0" id="radio7" />
+                        	<label for="radio7">使用肝素&le;1天，但既往无肝素接触史</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>血栓形成(<strong>T</strong>hrombosis)</td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="2" id="radio9" />
+                        	<label for="radio9">新发血栓、皮肤坏疽、静注后急性全身反应</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="1" id="radio10" />
+                        	<label for="radio10">血栓再发或加重，非坏死性皮肤损伤、可疑血栓</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="0" id="radio11" />
+                        	<label for="radio11">无</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>其他致血小板减少原因(o<strong>T</strong>her causes)</td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="2" id="radio13" />
+                        	<label for="radio13">无证据</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="1" id="radio14" />
+                        	<label for="radio14">疑诊</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="0" id="radio15" />
+                        	<label for="radio15">证据明确</label>
+                        </td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="4"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">4</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>根据积分诊断HIT的可能性：<br />0-3分，轻度怀疑：诊断HIT概率很低；<br />4-5分，中度怀疑：抗体阴性者诊断HIT概率为0.6%，抗体阳性者诊断HIT概率为58.2%；<br />6-8分，高度怀疑：抗体阴性者诊断HIT概率为16%，抗体阳性者诊断HIT概率为98%。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>HIT 的4Ts评分诊断系统阴性预测值较高。目前临床上先使用4T评分系统评价患者患HIT的可能性，如果高度或重度怀疑HIT，则应行相应实验室检查来确诊或排除HIT；如果只是低度怀疑，是否需要行实验室检查来明确或除外诊断尚无定论。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Lo GK et al. Evaluation of pretest clinical score(4T’s)for the diagnosis of heparin-induced thrombocytopenia in two clinical settings.J Thromb Haem 4(4):759-765.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 4-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

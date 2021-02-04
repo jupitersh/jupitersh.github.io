@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>通气血流比</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>每分钟肺泡通气量V：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <th>每分钟肺血流量Q：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Ventilation/Perfusion ratio,V/Q</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>通气血流比=V/Q</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>0.84</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>如果V/Q增大，意味着通气过剩，血流相对不足，部分肺泡气体未能与血液气体充分交换，致使肺泡无效腔增大；反之，V/Q值降低，意味着通气不足，血流相对过多。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>姚泰主编. 生理学（八年制）[M]. 人民卫生出版社.2005年</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>通气血流比=<em id="end"> </em></p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //V
+	var num2 = parseFloat(document.getElementById("num2").value); //Q
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的每分钟肺泡通气量");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的每分钟肺血流量");
+	}else{
+		var end = num1/num2;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

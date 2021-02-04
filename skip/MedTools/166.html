@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>儿童终末期肝病PELD评分</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table ellspacing="0" cellpadding="0" class="countFormTab"> 
+			<tr>
+				<td colspan="3" class="danwei chk">
+					<div style="float:right; width:160px;"><span class="radio su checked">常用</span><span class="radio si">国际</span></div>
+				</td>
+			</tr>
+			<tr>
+				<th>血清胆红素：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span class="s1">mg/dl</span><span class="s2">μmol/L</span></td>
+			</tr>
+			<tr>
+				<th>白蛋白：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td><span class="s1">g/dl</span><span class="s2">g/L</span></td>
+			</tr>
+			<tr>
+				<th>国际标准化比值：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td></td>
+			</tr>
+            <tr>
+            	<th>年龄：</th>
+            	<td>
+                	<select id="sele1">
+                    	<option value="1">&lt;1岁</option>
+                        <option value="0">&ge;1岁</option>
+                    </select>
+                </td>
+            	<td></td>
+            </tr>
+            <tr>
+            	<th>生长停滞：</th>
+            	<td>
+                	<select id="sele2">
+                    	<option value="1">有</option>
+                        <option value="0">无</option>
+                    </select>
+                </td>
+            	<td></td>
+            </tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Pediatric End-Stage Liver Disease score</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>PELD=[0.480×LN(胆红素) ＋1.857×LN(INR) －0.687×LN(白蛋白) ＋0.436×年龄得分 ＋ 0.667×生长停滞]×10</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>PELD评分越高，提示预后越差。自2002年以来，儿童终末期肝病评分系统(PELD)被美国联合器官分配网(UNOS)用于移植前儿童状况的评价，可预测在等待移植期间的患儿死亡率，如果评分越高就越能优先获得脑死亡供体。<br />注：年龄＜1岁为1分（1周岁生日前计算评分并安排在肝移植名单上的儿童，该评分可持续用到满24个月），年龄≥1岁为0分；生长停滞：低于平均水平2个标准差以上为1分，否则为0分。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1. McDiarmid SV, Anand R, Lindblad AS. Development of a pediatric end-stage liver disease score to predict poor outcome in children awaiting liver transplantation. Transplantation 2002; 74: 173–181.<br />2. Bourdeaux C et al. PELD score and posttransplant outcome in pediatric liver transplantation: a retrospective study of 100 recipients. Transplantation. 2005 May 15;79(9):1273-6.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>PELD=<em id="end"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = $('#sele1').val();
+	var num5 = $('#sele2').val();
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的血清胆红素，数值为大于0的数");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的白蛋白，数值为大于0的数");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的国际标准化比值，数值为大于0的数");
+	}else{
+		if($(".si").hasClass("checked")){
+			var end = ( 0.480*Math.log(num1*0.05848)+1.857*Math.log(num3)-0.687*Math.log(num2*0.1)+0.436*num4+0.667*num5 )*10;
+		}else{
+			var end = ( 0.480*Math.log(num1)+1.857*Math.log(num3)-0.687*Math.log(num2)+0.436*num4+0.667*num5 )*10;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

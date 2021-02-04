@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>血浆渗透压</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="danwei"><div style="float:left; width:150px;"><span class="radio su checked">常用</span><span class="radio si">国际</span></div></td>
+			</tr>
+			<tr>
+				<th>Na：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+			<tr>
+				<th>K：</th>
+				<td><input type="text" value="" id="num2" class="text num2"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+<tr>
+				<th>血糖：</th>
+				<td><input type="text" value="" id="num3" class="text num3"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+			<tr>
+				<th>尿素氮：</th>
+				<td><input type="text" value="" id="num4" class="text num4"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <div class="line"></div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>血浆渗透压=2*（Na+K）+血糖+尿素氮</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>280～310mOsm/L</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>血浆渗透压的正常范围是280～310mOsm/L，低于280mOsm/L为低渗，高于310mOsm/L为高渗。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>陆再英，钟南山 主编.《内科学》（第7版）[M].人民卫生出版社.2008年</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>血浆渗透压：<span id="end"></span>mOsm/L</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算结果
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); // Na
+	var num2 = parseFloat(document.getElementById("num2").value); // k
+	var num3 = parseFloat(document.getElementById("num3").value); // 血糖
+	var num4 = parseFloat(document.getElementById("num4").value); // 尿素氮
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的Na");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的K");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的血糖");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的尿素氮");
+	}else{
+		if($(".si").hasClass("checked")){
+			var end = 2*(num1+num2)+num3+num4;
+		}else{
+			var end = 2*( (num1/2.3)+(num2/3.9) )+(num3/18.02)+(num4/2.8);
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

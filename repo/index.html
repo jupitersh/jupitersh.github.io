@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  <title>饥荒『荒野求生』服务器仓库物品统计 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d5789316175edf52298e98f64043f39b","google":"UA-172924260-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI","app_key":"lh77VzmHrjLqi9khKQgEneGy","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>辣椒手记</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post_background/dst.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="饥荒『荒野求生』服务器仓库物品统计">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-28 22:41" pubdate>
+        2020-09-28 22:41
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      300 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">饥荒『荒野求生』服务器仓库物品统计</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021-02-04 18:00
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>以下为各个面板仓库全部物品每日统计，点击相应链接进入，方便各位参考（本文通过 Python 自动生成）</p>
+<a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th>快速直达</th>
+<th>快速直达</th>
+<th>快速直达</th>
+<th>快速直达</th>
+<th>快速直达</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/Repo/KU_0cJfz9oi/"><strong>水溅跃王者</strong></a></td>
+<td><a href="/Repo/KU_0cJfzmhp/"><strong>沃姆伍德</strong></a></td>
+<td><a href="/Repo/KU_0cJfzoCQ/"><strong>󰀐 你怎么哭了 󰀐</strong></a></td>
+<td><a href="/Repo/KU_0cJfzzHZ/"><strong>好孩纸</strong></a></td>
+<td><a href="/Repo/KU_0vPtVpg3/"><strong>千层套路</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_1VO_QySI/"><strong>104</strong></a></td>
+<td><a href="/Repo/KU_1_XnblxC/"><strong>Shallen</strong></a></td>
+<td><a href="/Repo/KU_30o9dsir/"><strong>小麦麦</strong></a></td>
+<td><a href="/Repo/KU_3DiroHuv/"><strong>be be J󰀫</strong></a></td>
+<td><a href="/Repo/KU_3RvV9X08/"><strong>我喝温开水</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_3xJ72W2n/"><strong>happy-go-lucky</strong></a></td>
+<td><a href="/Repo/KU_4735kzg7/"><strong>BoBo</strong></a></td>
+<td><a href="/Repo/KU_7HUISUCN/"><strong>妍妍</strong></a></td>
+<td><a href="/Repo/KU_7jGXdkdY/"><strong>󰀨南雪</strong></a></td>
+<td><a href="/Repo/KU_84TfuZ98/"><strong>隔岸相望</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_84TfuaKp/"><strong>Hamano_Takumi</strong></a></td>
+<td><a href="/Repo/KU_8mk0fOgt/"><strong>执笔</strong></a></td>
+<td><a href="/Repo/KU_BJgEYpJL/"><strong>江月</strong></a></td>
+<td><a href="/Repo/KU_CKFre8uk/"><strong>cnctemar</strong></a></td>
+<td><a href="/Repo/KU_F4GEm0Sl/"><strong>Vsn_____</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_F4GEmbR5/"><strong>锕名</strong></a></td>
+<td><a href="/Repo/KU_F4GEmhNy/"><strong>一条小甜鱼</strong></a></td>
+<td><a href="/Repo/KU_F4GEmz14/"><strong>猪突猛进</strong></a></td>
+<td><a href="/Repo/KU_HQp7BD3c/"><strong>心醇气和</strong></a></td>
+<td><a href="/Repo/KU_HqKLtUPG/"><strong>一个顶俩</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_J9MSP1e_/"><strong>酥酥</strong></a></td>
+<td><a href="/Repo/KU_JWDpJQiF/"><strong>Francis󰀁</strong></a></td>
+<td><a href="/Repo/KU_Mt-zrXdY/"><strong>哔啵哔啵</strong></a></td>
+<td><a href="/Repo/KU_NDmCIhNF/"><strong>Gin</strong></a></td>
+<td><a href="/Repo/KU_NEOnSNfP/"><strong>绝情的奥利奥</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_PPgpTDhJ/"><strong>臻于至善</strong></a></td>
+<td><a href="/Repo/KU_PROlxx-d/"><strong>wing</strong></a></td>
+<td><a href="/Repo/KU_QSHhEcjt/"><strong>良辰未到</strong></a></td>
+<td><a href="/Repo/KU_QSHhEg65/"><strong>号少年</strong></a></td>
+<td><a href="/Repo/KU_SFlxVI2Z/"><strong>糖糖</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_UIG3iJfr/"><strong>JANINE</strong></a></td>
+<td><a href="/Repo/KU_UQsKYXT2/"><strong>Mr.优</strong></a></td>
+<td><a href="/Repo/KU_UQsKYaYY/"><strong>往言</strong></a></td>
+<td><a href="/Repo/KU_UnXy30iO/"><strong>猫猫大侠</strong></a></td>
+<td><a href="/Repo/KU_UnXy3hlp/"><strong>夜间型缇娜</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_UnXy3ri1/"><strong>⌒●ō●⌒</strong></a></td>
+<td><a href="/Repo/KU_VSloxXYc/"><strong>三岁的小宝</strong></a></td>
+<td><a href="/Repo/KU_WfHJqImd/"><strong>小七</strong></a></td>
+<td><a href="/Repo/KU__CRUc70o/"><strong>500分选手</strong></a></td>
+<td><a href="/Repo/KU__CRUc_a5/"><strong>拖拉夫斯基</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_a3ZJpzOT/"><strong>白柠檬</strong></a></td>
+<td><a href="/Repo/KU_aUxMQjy7/"><strong>辣椒小皇纸</strong></a></td>
+<td><a href="/Repo/KU_bALbfb-T/"><strong>Magic.小柚子</strong></a></td>
+<td><a href="/Repo/KU_c1gvbu_G/"><strong>hualing</strong></a></td>
+<td><a href="/Repo/KU_c1gvcLb4/"><strong>莫言</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_cg2vTiLD/"><strong>深海鱼</strong></a></td>
+<td><a href="/Repo/KU_dNpFm8st/"><strong>红中</strong></a></td>
+<td><a href="/Repo/KU_dwt6dUe0/"><strong>Captain_SOAP</strong></a></td>
+<td><a href="/Repo/KU_dwt6di3G/"><strong>󰀜外乡人󰀜</strong></a></td>
+<td><a href="/Repo/KU_e-2-CpKC/"><strong>梦境之王</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_fI1HO4a1/"><strong>美少女壮士</strong></a></td>
+<td><a href="/Repo/KU_fXPG_1R_/"><strong>糖果</strong></a></td>
+<td><a href="/Repo/KU_i91ylYpr/"><strong>󰀁D·W󰀁</strong></a></td>
+<td><a href="/Repo/KU_iC59_vQ2/"><strong>Caesar X</strong></a></td>
+<td><a href="/Repo/KU_j3OZIe9E/"><strong>猪队友</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_j_aPg6qR/"><strong>Giansoarcir</strong></a></td>
+<td><a href="/Repo/KU_kx_0176-/"><strong>王阿浪󰀜</strong></a></td>
+<td><a href="/Repo/KU_oGt2RwCi/"><strong>小五</strong></a></td>
+<td><a href="/Repo/KU_pvwb-OGU/"><strong>当归</strong></a></td>
+<td><a href="/Repo/KU_pvwb-QuV/"><strong>烛天</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_pvwb-a4O/"><strong>anlisang</strong></a></td>
+<td><a href="/Repo/KU_q7g66sNy/"><strong>HALO</strong></a></td>
+<td><a href="/Repo/KU_q87X36VY/"><strong>Trump Wins</strong></a></td>
+<td><a href="/Repo/KU_qE7e8mTu/"><strong>Kiss My Ass^</strong></a></td>
+<td><a href="/Repo/KU_rriSvkW-/"><strong>阿猫</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_s-jzre3j/"><strong>ICU主刀医师</strong></a></td>
+<td><a href="/Repo/KU_sCM3p6f0/"><strong>9ZzKing</strong></a></td>
+<td><a href="/Repo/KU_tD6YgpRp/"><strong>玻璃水面</strong></a></td>
+<td><a href="/Repo/KU_tjzPxN4K/"><strong>油炸丸子</strong></a></td>
+<td><a href="/Repo/KU_tvX4yJ-x/"><strong>帕克</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_u0cSuUU2/"><strong>伍六柒</strong></a></td>
+<td><a href="/Repo/KU_uV8sgo0N/"><strong>Top奇(挂机_找灵感)</strong></a></td>
+<td><a href="/Repo/KU_wwUugdqX/"><strong>守望屁股</strong></a></td>
+<td><a href="/Repo/KU_xN3bd0FY/"><strong>mimimi</strong></a></td>
+<td><a href="/Repo/KU_xb1LjRie/"><strong>业余杂技演员</strong></a></td>
+</tr>
+<tr>
+<td><a href="/Repo/KU_yhCQZL9t/"><strong>快乐的小公鸡</strong></a></td>
+<td><a href="/Repo/KU_zDb_qpaq/"><strong>凯特大魔王</strong></a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/shoprecord/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器商店交易记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/pythoncsv/">
+                        <span class="hidden-mobile">Python CSV 模块读取及写入 CSV 文件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI",
+          app_key: "lh77VzmHrjLqi9khKQgEneGy",
+          placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+          path: window.location.pathname,
+          avatar: "wavatar",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20025824号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33032202000176"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>浙公网安备33032202000176号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d5789316175edf52298e98f64043f39b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-172924260-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>酒精性肝炎Maddrey判别函数</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <td colspan="3" class="danwei"><span class="radio su checked">常用</span><span class="radio si">国际</span></td>
+      </tr>
+      <tr>
+        <th>患者凝血酶原时间：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>对照凝血酶原时间：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>患者血清总胆红素：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">μmol/L</span></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>MDF，Maddrey's Discriminant Function for Alcoholic Hepatitis</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>MDF=4.6×(患者的凝血酶原时间-对照凝血酶原时间)+总胆红素(mg/dL)</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>患者的MDF评分≥32处于死亡的高风险，1个月内的病死率高达30%～50%，尤其合并有肝性脑病者将处于最高的风险，同时将给于糖皮质激素治疗。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>孙颖，田辉，等.酒精性肝炎的临床特征、诊断、预后判断和治疗进展.传染病信息,2011,24(5):305-307</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>MDF=<em id="end"> </em></p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //患者凝血酶原时间
+	var num2 = parseFloat(document.getElementById("num2").value); //对照凝血酶原时间
+	var num3 = parseFloat(document.getElementById("num3").value); //患者血清总胆红素
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的患者凝血酶原时间！");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的对照凝血酶原时间！");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的患者血清总胆红素！");
+	}else{
+		if($(".su").hasClass("checked")){
+			var end = 4.6*(num1-num2)+num3;
+		}else{
+			var end = 4.6*(num1-num2)+num3/17.1;
+		}
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

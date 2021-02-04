@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  <title>饥荒联机版孤儿列表 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"d5789316175edf52298e98f64043f39b","google":"UA-172924260-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI","app_key":"lh77VzmHrjLqi9khKQgEneGy","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>辣椒手记</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post_background/dst.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="饥荒联机版孤儿列表">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-11 00:10" pubdate>
+        2020-03-11 00:10
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      277 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">饥荒联机版孤儿列表</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021-01-31 21:40
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>构建一个没有烧家熊孩子的游戏环境</p>
+<a id="more"></a>
+
+<p>此网页用于 Mod <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2019474125" target="_blank" rel="noopener">全服通缉-天下无熊</a>的访问。在此页面更新的列表即为 Mod 调用的黑名单，项目地址：<a href="https://gitee.com/jupitersh/dstgriefer" target="_blank" rel="noopener">饥荒联机版孤儿列表</a>。</p>
+<p>This website servers as a database for the Mod of <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2019474125" target="_blank" rel="noopener">No Griefer</a>. The list below is the blacklist on which the Mod bases. Gitee Project: <a href="https://gitee.com/jupitersh/dstgriefer" target="_blank" rel="noopener">饥荒联机版孤儿列表</a>.</p>
+<br/>
+
+<table>
+<thead>
+<tr>
+<th>孤儿ID</th>
+<th>孤儿ID</th>
+<th>孤儿ID</th>
+<th>孤儿ID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>KU_3Dirn3ky</td>
+<td>KU_3Dirn2AY</td>
+<td>KU_NmrN-vfm</td>
+<td>KU_pvwb-fhj</td>
+</tr>
+<tr>
+<td>KU_A0x_UJRZ</td>
+<td>76561199028593386</td>
+<td>76561199010584560</td>
+<td>76561198992534421</td>
+</tr>
+<tr>
+<td>76561198992316442</td>
+<td>76561198986553968</td>
+<td>76561198963351986</td>
+<td>76561198929340408</td>
+</tr>
+<tr>
+<td>76561198901313063</td>
+<td>76561198882590134</td>
+<td>76561198863218237</td>
+<td>76561198980630816</td>
+</tr>
+<tr>
+<td>76561198861168198</td>
+<td>76561198856955119</td>
+<td>76561198841866218</td>
+<td>76561198835739844</td>
+</tr>
+<tr>
+<td>76561198824673627</td>
+<td>76561198822588587</td>
+<td>76561198229985584</td>
+<td>76561198821601145</td>
+</tr>
+<tr>
+<td>76561198805250116</td>
+<td>76561198802192309</td>
+<td>76561198799841170</td>
+<td>76561198760987526</td>
+</tr>
+<tr>
+<td>76561198449089141</td>
+<td>76561198448400527</td>
+<td>76561198448291800</td>
+<td>76561198445838968</td>
+</tr>
+<tr>
+<td>76561198443940664</td>
+<td>76561198442350109</td>
+<td>76561198439971919</td>
+<td>76561198439419768</td>
+</tr>
+<tr>
+<td>76561198436009640</td>
+<td>76561198435734771</td>
+<td>76561198432561013</td>
+<td>76561198427852413</td>
+</tr>
+<tr>
+<td>76561198427578907</td>
+<td>76561198426134976</td>
+<td>76561198426002331</td>
+<td>76561198420173391</td>
+</tr>
+<tr>
+<td>76561198411608604</td>
+<td>76561198411508260</td>
+<td>76561198402542117</td>
+<td>76561198401963287</td>
+</tr>
+<tr>
+<td>76561198401827605</td>
+<td>76561198399516897</td>
+<td>76561198396815889</td>
+<td>76561198395082554</td>
+</tr>
+<tr>
+<td>76561198389646833</td>
+<td>76561198384496116</td>
+<td>76561198380447518</td>
+<td>76561198378835447</td>
+</tr>
+<tr>
+<td>76561198373411286</td>
+<td>76561198373258533</td>
+<td>76561198371575389</td>
+<td>76561198365719361</td>
+</tr>
+<tr>
+<td>76561198360200700</td>
+<td>76561198359432248</td>
+<td>76561198358308769</td>
+<td>76561198353713646</td>
+</tr>
+<tr>
+<td>76561198350492465</td>
+<td>76561198349554206</td>
+<td>76561198347943698</td>
+<td>76561198344888750</td>
+</tr>
+<tr>
+<td>76561198344053010</td>
+<td>76561198341891490</td>
+<td>76561198340750880</td>
+<td>76561198339302519</td>
+</tr>
+<tr>
+<td>76561198333354639</td>
+<td>76561198328204910</td>
+<td>76561198323565922</td>
+<td>76561198319729186</td>
+</tr>
+<tr>
+<td>76561198315504555</td>
+<td>76561198313721292</td>
+<td>76561198301710429</td>
+<td>76561198286689762</td>
+</tr>
+<tr>
+<td>76561198285746172</td>
+<td>76561198282314150</td>
+<td>76561198281904766</td>
+<td>76561198276738766</td>
+</tr>
+<tr>
+<td>76561198275358974</td>
+<td>76561198274610120</td>
+<td>76561198272309775</td>
+<td>76561198255210115</td>
+</tr>
+<tr>
+<td>76561198250529136</td>
+<td>76561198247485560</td>
+<td>76561198236254770</td>
+<td>76561198213974149</td>
+</tr>
+<tr>
+<td>76561198210896512</td>
+<td>76561198209393933</td>
+<td>76561198194633403</td>
+<td>76561198192077062</td>
+</tr>
+<tr>
+<td>76561198180954303</td>
+<td>76561198176543833</td>
+<td>76561198168099320</td>
+<td>76561198165651196</td>
+</tr>
+<tr>
+<td>76561198155651901</td>
+<td>76561198154253770</td>
+<td>76561198135151190</td>
+<td>76561198124691155</td>
+</tr>
+<tr>
+<td>76561198114380758</td>
+<td>76561198113361690</td>
+<td>76561198097904098</td>
+<td>76561198091705333</td>
+</tr>
+<tr>
+<td>76561198074593812</td>
+<td>76561198034194854</td>
+<td>76561198033023213</td>
+<td>76561198006678168</td>
+</tr>
+<tr>
+<td>76561198005887853</td>
+<td>76561197998903484</td>
+<td>KU_tvX4yWm6</td>
+<td>KU_3DiroPzS</td>
+</tr>
+<tr>
+<td>KU_tvX4ycU1</td>
+<td>KU_zDb_qqAZ</td>
+<td>KU_ibiDWhUR</td>
+<td>KU_p3AjSGYy</td>
+</tr>
+<tr>
+<td>KU_n0fXOURs</td>
+<td>76561199042742553</td>
+<td>KU_Ve0KdzTu</td>
+<td>KU_0vPtVmoE</td>
+</tr>
+<tr>
+<td>KU_kTIVBNqe</td>
+<td>KU_F4GEmukK</td>
+<td>76561199014138890</td>
+<td>76561198307210875</td>
+</tr>
+<tr>
+<td>76561198895030854</td>
+<td>76561199003426942</td>
+<td>KU_A0x_UJRZ</td>
+<td>KU_3xJ73GQD</td>
+</tr>
+<tr>
+<td>KU_SJvhQ85k</td>
+<td>KU_SJvhQ85k</td>
+<td>KU_F4GEmlCw</td>
+<td>76561198430805987</td>
+</tr>
+<tr>
+<td>KU_pvwb-QIY</td>
+<td>KU_kTIVBPgO</td>
+<td>76561199032256758</td>
+<td>KU_CKFre7xO</td>
+</tr>
+<tr>
+<td>KU_l26xzUbr</td>
+<td>KU__9qL1-ne</td>
+<td>KU_HDjLJFjn</td>
+<td>KU_CKFre6rs</td>
+</tr>
+<tr>
+<td>76561198401121545</td>
+<td>76561199080776777</td>
+<td>76561198822332121</td>
+<td>KU_BmnF41tF</td>
+</tr>
+<tr>
+<td>KU_3RvV88NC</td>
+<td>KU_0cJfzg61</td>
+<td>KU_0cJfzqIu</td>
+<td>KU_Qvt-jM9U</td>
+</tr>
+<tr>
+<td>KU_Zzh0_OUi</td>
+<td>KU_GLJ5k4y1</td>
+<td>KU_XE0s3UIh</td>
+<td>KU_Qvt-jdwB</td>
+</tr>
+<tr>
+<td>KU_3RvV9fV4</td>
+<td>KU_FzX9zPc6</td>
+<td>KU_xI2uphav</td>
+<td>KU_oX0uXq21</td>
+</tr>
+<tr>
+<td>KU_3prf2gb0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A5%A5%E8%8D%92/">饥荒</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/chesthistory/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器箱子历史记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/dstscore/">
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器玩家积分</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "URm4KfhnXhSbqwY8C1zIBw4x-MdYXbMMI",
+          app_key: "lh77VzmHrjLqi9khKQgEneGy",
+          placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+          path: window.location.pathname,
+          avatar: "wavatar",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备20025824号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33032202000176"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>浙公网安备33032202000176号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d5789316175edf52298e98f64043f39b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-172924260-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
