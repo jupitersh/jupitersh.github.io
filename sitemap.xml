@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/dstgriefer/</loc>
+    
+    <lastmod>2021-02-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/2020/03/dstscore/</loc>
     
     <lastmod>2021-02-09</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://peppernotes.top/about/index.html</loc>
     
     <lastmod>2021-02-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/dstgriefer/</loc>
-    
-    <lastmod>2021-01-31</lastmod>
     
   </url>
   
@@ -268,14 +268,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/2020/02/pythonnotes/</loc>
+    <loc>https://peppernotes.top/2020/03/aria2h5ai/</loc>
     
     <lastmod>2020-05-24</lastmod>
     
   </url>
   
   <url>
-    <loc>https://peppernotes.top/2020/03/aria2h5ai/</loc>
+    <loc>https://peppernotes.top/2020/02/pythonnotes/</loc>
     
     <lastmod>2020-05-24</lastmod>
     
@@ -417,13 +417,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Docker/</loc>
-    <lastmod>2021-02-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/Vercel/</loc>
     <lastmod>2021-02-10</lastmod>
     <changefreq>daily</changefreq>
@@ -432,6 +425,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/DNS/</loc>
+    <lastmod>2021-02-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/Docker/</loc>
     <lastmod>2021-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,21 +552,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
-    <lastmod>2021-02-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/IT/Python/</loc>
-    <lastmod>2021-02-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
+    <lastmod>2021-02-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -580,7 +573,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Docker/</loc>
+    <loc>https://peppernotes.top/categories/IT/Python/</loc>
     <lastmod>2021-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -588,6 +581,13 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2021-02-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Docker/</loc>
     <lastmod>2021-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
