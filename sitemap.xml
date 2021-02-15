@@ -254,6 +254,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/2020/02/pythonnotes/</loc>
+    
+    <lastmod>2020-05-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/2019/11/dstcustomcmd/</loc>
     
     <lastmod>2020-05-24</lastmod>
@@ -262,13 +269,6 @@
   
   <url>
     <loc>https://peppernotes.top/2020/02/giteeautoupdate/</loc>
-    
-    <lastmod>2020-05-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/2020/02/pythonnotes/</loc>
     
     <lastmod>2020-05-24</lastmod>
     
@@ -382,6 +382,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/Jupyter/</loc>
+    <lastmod>2021-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/Aria2/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
@@ -432,13 +439,6 @@
   
   <url>
     <loc>https://peppernotes.top/tags/%E5%8C%BB%E5%AD%A6/</loc>
-    <lastmod>2021-02-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/Jupyter/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
