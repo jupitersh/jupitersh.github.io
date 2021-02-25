@@ -4,14 +4,14 @@
   <url>
     <loc>https://peppernotes.top/repo/</loc>
     
-    <lastmod>2021-02-24</lastmod>
+    <lastmod>2021-02-25</lastmod>
     
   </url>
   
   <url>
     <loc>https://peppernotes.top/shoprecord/</loc>
     
-    <lastmod>2021-02-24</lastmod>
+    <lastmod>2021-02-25</lastmod>
     
   </url>
   
@@ -333,20 +333,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Screen/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/Hexo/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
@@ -369,6 +355,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Git/</loc>
+    <lastmod>2021-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -515,6 +508,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2021-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/GitHub-Actions/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
@@ -522,7 +522,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <loc>https://peppernotes.top/tags/Screen/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -559,13 +559,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Python/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
@@ -574,6 +567,13 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/Git/</loc>
+    <lastmod>2021-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Python/</loc>
     <lastmod>2021-02-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
