@@ -459,13 +459,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
-    <lastmod>2021-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/R/</loc>
     <lastmod>2021-02-27</lastmod>
     <changefreq>daily</changefreq>
@@ -480,21 +473,14 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
+    <lastmod>2021-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2021-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/Sublime-Text/</loc>
-    <lastmod>2021-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/Coding/</loc>
     <lastmod>2021-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -509,6 +495,20 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Pixiv/</loc>
+    <lastmod>2021-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/Sublime-Text/</loc>
+    <lastmod>2021-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/Coding/</loc>
     <lastmod>2021-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
