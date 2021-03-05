@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/2020/03/dstscore/</loc>
+    
+    <lastmod>2021-03-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/shoprecord/</loc>
     
     <lastmod>2021-03-05</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://peppernotes.top/chest/</loc>
     
     <lastmod>2021-03-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/2020/03/dstscore/</loc>
-    
-    <lastmod>2021-02-28</lastmod>
     
   </url>
   
@@ -333,20 +333,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Screen/</loc>
-    <lastmod>2021-03-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
-    <lastmod>2021-03-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/Hexo/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
@@ -375,7 +361,21 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
+    <lastmod>2021-03-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/Python/</loc>
+    <lastmod>2021-03-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/Screen/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,14 +552,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Git/</loc>
+    <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
+    <loc>https://peppernotes.top/categories/IT/Git/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -573,7 +573,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
+    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
