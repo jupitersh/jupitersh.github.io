@@ -333,6 +333,20 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/Screen/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/Hexo/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -355,13 +369,6 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Git/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -431,7 +438,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Screen/</loc>
+    <loc>https://peppernotes.top/tags/%E5%8C%BB%E5%AD%A6/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -452,6 +459,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/R/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -460,13 +474,6 @@
   
   <url>
     <loc>https://peppernotes.top/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -521,13 +528,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://peppernotes.top/tags/%E5%8C%BB%E5%AD%A6/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -552,6 +552,20 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Python/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -566,20 +580,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Python/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/Docker/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
@@ -588,6 +588,13 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2021-03-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -622,7 +629,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/</loc>
+    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -630,13 +637,6 @@
   
   <url>
     <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/</loc>
-    <lastmod>2021-03-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
