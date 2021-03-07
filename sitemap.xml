@@ -240,20 +240,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/2019/10/vboxlubuntu/</loc>
-    
-    <lastmod>2020-05-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/2019/11/dstserverwindows/</loc>
-    
-    <lastmod>2020-05-24</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/2019/11/dstcustomcmd/</loc>
     
     <lastmod>2020-05-24</lastmod>
@@ -268,7 +254,21 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/2019/10/vboxlubuntu/</loc>
+    
+    <lastmod>2020-05-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/2020/02/pythonnotes/</loc>
+    
+    <lastmod>2020-05-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/2019/11/dstserverwindows/</loc>
     
     <lastmod>2020-05-24</lastmod>
     
@@ -459,13 +459,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
-    <lastmod>2021-03-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/R/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
@@ -488,6 +481,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Email/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/OpenVPN/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
