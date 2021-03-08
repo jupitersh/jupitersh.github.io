@@ -494,13 +494,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Pixiv/</loc>
-    <lastmod>2021-03-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/Sublime-Text/</loc>
     <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
@@ -509,6 +502,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Coding/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/Pixiv/</loc>
     <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,13 +552,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Git/</loc>
-    <lastmod>2021-03-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
@@ -574,6 +567,13 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Git/</loc>
     <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
