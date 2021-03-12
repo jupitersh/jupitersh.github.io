@@ -508,14 +508,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <loc>https://peppernotes.top/tags/GitHub-Actions/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/GitHub-Actions/</loc>
+    <loc>https://peppernotes.top/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,20 +601,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/R/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
@@ -629,14 +615,28 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
+    <loc>https://peppernotes.top/categories/IT/Sublime-Text/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Sublime-Text/</loc>
+    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
