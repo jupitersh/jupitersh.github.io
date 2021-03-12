@@ -4,14 +4,14 @@
   <url>
     <loc>https://peppernotes.top/repo/</loc>
     
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     
   </url>
   
   <url>
     <loc>https://peppernotes.top/shoprecord/</loc>
     
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     
   </url>
   
@@ -326,20 +326,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Screen/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/Hexo/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
@@ -362,6 +348,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Git/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/VirtualBox/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -438,14 +431,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://peppernotes.top/tags/Pandas/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Pandas/</loc>
+    <loc>https://peppernotes.top/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -473,14 +466,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/Email/</loc>
+    <loc>https://peppernotes.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <loc>https://peppernotes.top/tags/Email/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -521,6 +514,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://peppernotes.top/tags/Screen/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -552,13 +552,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/IT/Git/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
@@ -567,6 +560,13 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/Python/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
