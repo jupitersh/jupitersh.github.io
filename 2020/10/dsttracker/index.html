@@ -32,7 +32,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -305,7 +305,7 @@
 <p>该方法获得的 <code>TOKEN</code> 几小时候后会失效，可以向 Klei 索取永久的 <code>TOKEN</code></p>
 <p><img src="/img/article_image/2020/2020-10-07/2.webp" srcset="/img/loading.gif" alt=""></p>
 <p>设置好后打开，修改 <code>.github/workflows/main.yml</code>，找到下面的段落，将 <code>#</code> 号去掉即可</p>
-<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">on:</span><br><span class="hljs-symbol">  push:</span><br><span class="hljs-symbol">    branches:</span> main<br>  <span class="hljs-meta">#schedule:</span><br>  <span class="hljs-meta">#- cron: <span class="hljs-string">"*/5 * * * *"</span></span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">on:</span><br><span class="hljs-symbol">  push:</span><br><span class="hljs-symbol">    branches:</span> main<br>  <span class="hljs-meta">#schedule:</span><br>  <span class="hljs-meta">#- cron: <span class="hljs-string">"*/5 * * * *"</span></span><br></code></pre></td></tr></table></figure>
 
 <p>注意： GitHub Action 免费用户每月只能用 2000 分钟，请调节合适的频率避免免费额度用完，另外如果有服务器的话，可以部署在自己服务器上更方便</p>
 

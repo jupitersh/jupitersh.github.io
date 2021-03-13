@@ -34,7 +34,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -270,33 +270,33 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自从将 GitHub Pages 上的博客导入 Vercel 后，成功绑定了自定义域名，网站访问速度快了不少（ Vercel 提供免费 CDN 加速，但速度比起码云还是略逊色一点）</p>
 <p>但是随之而来出现一个问题，域名的 DNS 服务器改成 Vercel 的 DNS 服务器后，就不能在阿里云修改 DNS 记录了（我的域名是阿里云购买的），只能用 Vercel 提供的 CLI 工具修改 DNS 记录</p>
 <p>下面，就记录一下使用 Vercel CLI 修改 DNS 记录的方法</p>
-<h2 id="安装-Vercel-CLI"><a href="#安装-Vercel-CLI" class="headerlink" title="安装 Vercel CLI"></a>安装 Vercel CLI</h2><h3 id="安装-Nodejs"><a href="#安装-Nodejs" class="headerlink" title="安装 Nodejs"></a>安装 Nodejs</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装-Vercel-CLI"><a href="#安装-Vercel-CLI" class="headerlink" title="安装 Vercel CLI"></a>安装 Vercel CLI</h2><h3 id="安装-Nodejs"><a href="#安装-Nodejs" class="headerlink" title="安装 Nodejs"></a>安装 Nodejs</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install nodejs<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt install nodejs<br></code></pre></td></tr></table></figure>
 
-<h3 id="安装-Vercel-CLI-1"><a href="#安装-Vercel-CLI-1" class="headerlink" title="安装 Vercel CLI"></a>安装 Vercel CLI</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo npm i -g vercel<br></code></pre></div></td></tr></table></figure>
+<h3 id="安装-Vercel-CLI-1"><a href="#安装-Vercel-CLI-1" class="headerlink" title="安装 Vercel CLI"></a>安装 Vercel CLI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo npm i -g vercel<br></code></pre></td></tr></table></figure>
 
-<h2 id="登录-Vercel-CLI"><a href="#登录-Vercel-CLI" class="headerlink" title="登录 Vercel CLI"></a>登录 Vercel CLI</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel login<br></code></pre></div></td></tr></table></figure>
+<h2 id="登录-Vercel-CLI"><a href="#登录-Vercel-CLI" class="headerlink" title="登录 Vercel CLI"></a>登录 Vercel CLI</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel login<br></code></pre></td></tr></table></figure>
 
 <p>会让你输入 Vercel 邮箱名，实际上就是 GitHub 的邮箱名</p>
 <p>然后会发送一封邮件到你的邮箱，打开邮箱确认即可登录</p>
-<h2 id="查看-DNS-记录"><a href="#查看-DNS-记录" class="headerlink" title="查看 DNS 记录"></a>查看 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns ls<br></code></pre></div></td></tr></table></figure>
+<h2 id="查看-DNS-记录"><a href="#查看-DNS-记录" class="headerlink" title="查看 DNS 记录"></a>查看 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns ls<br></code></pre></td></tr></table></figure>
 
 <p>会出现类似的内容输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">ubuntu@instance-2:~$ vercel dns ls<br>Vercel CLI 19.0.1<br>&gt; Records found under jupitersh [386ms]<br><br>(你的域名).(顶级域名)<br>                                          id    name        <span class="hljs-built_in">type</span>        value                               created<br>                                                            CAA         0 issue <span class="hljs-string">"xxxxxxxxxxx.org"</span>           default<br>                                                            ALIAS       cname.vercel-dns.com.               default<br>                                                *           CNAME       cname.vercel-dns.com.               default<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ubuntu@instance-2:~$ vercel dns ls<br>Vercel CLI 19.0.1<br>&gt; Records found under jupitersh [386ms]<br><br>(你的域名).(顶级域名)<br>                                          id    name        <span class="hljs-built_in">type</span>        value                               created<br>                                                            CAA         0 issue <span class="hljs-string">"xxxxxxxxxxx.org"</span>           default<br>                                                            ALIAS       cname.vercel-dns.com.               default<br>                                                *           CNAME       cname.vercel-dns.com.               default<br></code></pre></td></tr></table></figure>
 
-<h2 id="添加-DNS-记录"><a href="#添加-DNS-记录" class="headerlink" title="添加 DNS 记录"></a>添加 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns add [domain] [subdomain] [A || AAAA || ALIAS || CNAME || TXT] [value]<br></code></pre></div></td></tr></table></figure>
+<h2 id="添加-DNS-记录"><a href="#添加-DNS-记录" class="headerlink" title="添加 DNS 记录"></a>添加 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns add [domain] [subdomain] [A || AAAA || ALIAS || CNAME || TXT] [value]<br></code></pre></td></tr></table></figure>
 
 <p>举个例子，假设你的域名是 <code>example.com</code>，你想添加 <code>name.example.com</code> 到 <code>127.0.0.1</code> 的 <code>A</code> 记录，那么就输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns add example.com name A 127.0.0.1<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns add example.com name A 127.0.0.1<br></code></pre></td></tr></table></figure>
 
 <p>加入你想添加 <code>ga.example.com</code> 到 <code>domain.com</code> 的 <code>CNAME</code> 记录，那么输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns add example.com name CNAME domain.com<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns add example.com name CNAME domain.com<br></code></pre></td></tr></table></figure>
 
-<h2 id="删除-DNS-记录"><a href="#删除-DNS-记录" class="headerlink" title="删除 DNS 记录"></a>删除 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns rm [record-id]<br></code></pre></div></td></tr></table></figure>
+<h2 id="删除-DNS-记录"><a href="#删除-DNS-记录" class="headerlink" title="删除 DNS 记录"></a>删除 DNS 记录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns rm [record-id]<br></code></pre></td></tr></table></figure>
 
 <p>按照上文 <code>vercel dns ls</code> 后会获得 DNS 记录的 <code>id</code>，假设 <code>id</code> 为 <code>rec_679p3f94d98cc8233844c9dp</code>，那么输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">vercel dns rm rec_679p3f94d98cc8233844c9dp<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">vercel dns rm rec_679p3f94d98cc8233844c9dp<br></code></pre></td></tr></table></figure>
 
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://vercel.com/docs/cli" target="_blank" rel="noopener">Vercel CLI Reference</a><br><a href="https://vercel.com/knowledge/pointing-subdomains-to-external-services" target="_blank" rel="noopener">How do I point a subdomain to a service outside of Vercel?</a></p>
 

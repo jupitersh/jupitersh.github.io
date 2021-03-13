@@ -34,7 +34,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -267,50 +267,50 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -<br>sudo apt-get install nodejs<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -<br>sudo apt-get install nodejs<br></code></pre></td></tr></table></figure>
 
 <p>安装完成后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">node -v<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">node -v<br></code></pre></td></tr></table></figure>
 
 <p>若能提示版本则安装成功</p>
-<h2 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h2><figure class="highlight arduino"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arduino">npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">set</span> registry https:<span class="hljs-comment">//registry.npm.taobao.org</span><br>npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">get</span> registry<br></code></pre></div></td></tr></table></figure>
+<h2 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">set</span> registry https:<span class="hljs-comment">//registry.npm.taobao.org</span><br>npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">get</span> registry<br></code></pre></td></tr></table></figure>
 
 <p>如果更换了国内源则不用安装 <code>cnpm</code></p>
-<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure>
 
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo cnpm install -g hexo<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo cnpm install -g hexo<br></code></pre></td></tr></table></figure>
 
 <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>有些系统已经预装，可先用<code>git --version</code>确认</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo add-apt-repository ppa:git-core/ppa<br>sudo apt-get update<br>sudo apt-get install git<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo add-apt-repository ppa:git-core/ppa<br>sudo apt-get update<br>sudo apt-get install git<br></code></pre></td></tr></table></figure>
 
 <p>安装完成后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">git --version<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git --version<br></code></pre></td></tr></table></figure>
 
 <p>若能提示版本则安装成功</p>
-<h2 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">mkdir hexo<br><span class="hljs-built_in">cd</span> hexo<br>hexo init<br>cnpm install hexo --save <span class="hljs-comment"># 编译工具</span><br>cnpm install hexo-deployer-git --save <span class="hljs-comment"># 安装自动部署发布工具</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">mkdir hexo<br><span class="hljs-built_in">cd</span> hexo<br>hexo init<br>cnpm install hexo --save <span class="hljs-comment"># 编译工具</span><br>cnpm install hexo-deployer-git --save <span class="hljs-comment"># 安装自动部署发布工具</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="本地编译预览"><a href="#本地编译预览" class="headerlink" title="本地编译预览"></a>本地编译预览</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></div></td></tr></table></figure>
+<h2 id="本地编译预览"><a href="#本地编译预览" class="headerlink" title="本地编译预览"></a>本地编译预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 
 <p>Ubuntu 14可能出现没有<code>hexo s</code>命令</p>
 <p>这时需执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo cnpm install hexo-server --save<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo cnpm install hexo-server --save<br></code></pre></td></tr></table></figure>
 
 <p>然后用<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo server</code>命令</p>
 <p>打开<code>127.0.0.1:4000</code>即可访问网页</p>
 <h2 id="编译发布"><a href="#编译发布" class="headerlink" title="编译发布"></a>编译发布</h2><p>在hexo目录下的<code>_config.yml</code>最下面添加</p>
-<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs YAML"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://gitee.com/jupitersh/jupitersh.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs YAML"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://gitee.com/jupitersh/jupitersh.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>请将<code>repo</code>中的地址改为你码云的地址</p>
 </blockquote>
 <h3 id="Git-全局设置"><a href="#Git-全局设置" class="headerlink" title="Git 全局设置:"></a>Git 全局设置:</h3><p>发布前请先全局设置Git</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">git config --global user.name <span class="hljs-string">"辣椒小皇纸"</span><br>git config --global user.email <span class="hljs-string">"arxhd.love@qq.com"</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git config --global user.name <span class="hljs-string">"辣椒小皇纸"</span><br>git config --global user.email <span class="hljs-string">"arxhd.love@qq.com"</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>请将<code>user.name</code>和<code>user.email</code>的内容执行替换成您的码云用户名和邮箱</p>
 </blockquote>
 <p><strong>发布代码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="hljs-comment"># 发布博客</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="hljs-comment"># 发布博客</span><br></code></pre></td></tr></table></figure>
 
 <p>需输入码云的<strong>账号</strong>和<strong>密码</strong></p>
 

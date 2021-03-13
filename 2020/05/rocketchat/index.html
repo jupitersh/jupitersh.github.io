@@ -34,7 +34,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -267,20 +267,20 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install docker.io<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt install docker.io<br></code></pre></td></tr></table></figure>
 
-<h2 id="为-Docker-配置中科大源加速"><a href="#为-Docker-配置中科大源加速" class="headerlink" title="为 Docker 配置中科大源加速"></a>为 Docker 配置中科大源加速</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo vi /etc/docker/daemon.json<br></code></pre></div></td></tr></table></figure>
+<h2 id="为-Docker-配置中科大源加速"><a href="#为-Docker-配置中科大源加速" class="headerlink" title="为 Docker 配置中科大源加速"></a>为 Docker 配置中科大源加速</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo vi /etc/docker/daemon.json<br></code></pre></td></tr></table></figure>
 
 <p>加入以下内容：</p>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"registry-mirrors"</span>: [<span class="hljs-string">"https://docker.mirrors.ustc.edu.cn"</span>]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"registry-mirrors"</span>: [<span class="hljs-string">"https://docker.mirrors.ustc.edu.cn"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>然后重启 Docker 服务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
 
-<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo docker pull mongo:4.0<br>sudo docker pull rocket.chat<br></code></pre></div></td></tr></table></figure>
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo docker pull mongo:4.0<br>sudo docker pull rocket.chat<br></code></pre></td></tr></table></figure>
 
 <p>拉取时间根据网速而定</p>
-<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo docker run --name db -d mongo:4.0 --smallfiles --replSet rs0 --oplogSize 128<br>sudo docker <span class="hljs-built_in">exec</span> -ti db mongo --<span class="hljs-built_in">eval</span> <span class="hljs-string">"printjson(rs.initiate())"</span><br>sudo docker run --name rocketchat -p 80:3000 --link db --env ROOT_URL=http://0.0.0.0 --env MONGO_OPLOG_URL=mongodb://db:27017/<span class="hljs-built_in">local</span> -d rocket.chat<br></code></pre></div></td></tr></table></figure>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo docker run --name db -d mongo:4.0 --smallfiles --replSet rs0 --oplogSize 128<br>sudo docker <span class="hljs-built_in">exec</span> -ti db mongo --<span class="hljs-built_in">eval</span> <span class="hljs-string">"printjson(rs.initiate())"</span><br>sudo docker run --name rocketchat -p 80:3000 --link db --env ROOT_URL=http://0.0.0.0 --env MONGO_OPLOG_URL=mongodb://db:27017/<span class="hljs-built_in">local</span> -d rocket.chat<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>第三行的 <code>80</code> 可以改成别的端口，如果你访问是不想在网站后加上端口号，就保持默认的 <code>80</code> 端口<br>第三行 <code>0.0.0.0</code> 改成你服务器的公网 IP 或域名（如果在公网使用的话）或者改成你的内网 IP（如果你内网使用的话）</p>

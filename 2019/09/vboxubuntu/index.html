@@ -34,7 +34,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -267,40 +267,40 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="开启增强功能"><a href="#开启增强功能" class="headerlink" title="开启增强功能"></a>开启增强功能</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo mount /dev/cdrom /mnt/<br></code></pre></div></td></tr></table></figure>
+<h2 id="开启增强功能"><a href="#开启增强功能" class="headerlink" title="开启增强功能"></a>开启增强功能</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mount /dev/cdrom /mnt/<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>如果挂载失败，则需检查设备-&gt;分配光驱下是否包含了<code>VBoxGuestAdditions.iso</code>这个镜像<br>如果有请选择它<br>如果没有，请点击选择虚拟盘，然后在<code>C:\Program Files\Oracle\VirtualBox</code>下找到它<br>然后再执行<code>sudo mount /dev/cdrom /mnt/</code></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo /mnt/VBoxLinuxAdditions.run<br>sudo umount /mnt/<br>sudo reboot<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo /mnt/VBoxLinuxAdditions.run<br>sudo umount /mnt/<br>sudo reboot<br></code></pre></td></tr></table></figure>
 
-<h2 id="换阿里云源"><a href="#换阿里云源" class="headerlink" title="换阿里云源"></a>换阿里云源</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak <span class="hljs-comment"># 备份源</span><br>sudo rm /etc/apt/sources.list<br>sudo nano /etc/apt/sources.list<br></code></pre></div></td></tr></table></figure>
+<h2 id="换阿里云源"><a href="#换阿里云源" class="headerlink" title="换阿里云源"></a>换阿里云源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak <span class="hljs-comment"># 备份源</span><br>sudo rm /etc/apt/sources.list<br>sudo nano /etc/apt/sources.list<br></code></pre></td></tr></table></figure>
 
 <p>粘贴源地址：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Bash">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br></code></pre></td></tr></table></figure>
 
 <h2 id="共享文件夹"><a href="#共享文件夹" class="headerlink" title="共享文件夹"></a>共享文件夹</h2><p>设备-&gt;共享文件夹-&gt;共享文件夹，请添加一个共享文件夹，一般会勾选<code>固定分配</code>项，共享文件夹路径以及名称，最好都不要出现中文。<br/><br>请记下共享文件夹名称，假设为<code>VB</code>，且在共享文件夹中放入一个<code>123.txt</code>作为测试使用</p>
 <p>执行共享文件夹的挂载命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo mount -t vboxsf VB [挂载后的本地路径]<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mount -t vboxsf VB [挂载后的本地路径]<br></code></pre></td></tr></table></figure>
 
 <p>该路径可以填<code>/mnt/share</code>，当然，你需要先<code>mkdir share</code></p>
 <p>例如</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo mount -t vboxsf VB /mnt/share<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mount -t vboxsf VB /mnt/share<br></code></pre></td></tr></table></figure>
 
 <p>然后在<code>/mnt/share</code>下可以找到<code>123.txt</code></p>
 <h2 id="设置开机自动挂载共享文件夹"><a href="#设置开机自动挂载共享文件夹" class="headerlink" title="设置开机自动挂载共享文件夹"></a>设置开机自动挂载共享文件夹</h2><p>如果是Ubuntu 16 请用这段代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo nano /etc/rc.loca<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo nano /etc/rc.loca<br></code></pre></td></tr></table></figure>
 
 <p>粘贴：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">mount -t vboxsf VBSharing /mnt/share<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">mount -t vboxsf VBSharing /mnt/share<br></code></pre></td></tr></table></figure>
 
 <p>如果是Ubuntu18 请用以下代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo nano /etc/fstab<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo nano /etc/fstab<br></code></pre></td></tr></table></figure>
 
 <p>粘贴：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">VB /mnt/share vboxsf defaults 0 0<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">VB /mnt/share vboxsf defaults 0 0<br></code></pre></td></tr></table></figure>
 
 <h2 id="安装openssh-server-可选"><a href="#安装openssh-server-可选" class="headerlink" title="安装openssh-server(可选)"></a>安装openssh-server(可选)</h2><p>Ubuntu安装时可勾选是否安装openssh，如果已安装请忽略该步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt-get install openssh-server<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt-get install openssh-server<br></code></pre></td></tr></table></figure>
 
 <h2 id="端口转发后用PuTTy连接Ubuntu-Server-可选"><a href="#端口转发后用PuTTy连接Ubuntu-Server-可选" class="headerlink" title="端口转发后用PuTTy连接Ubuntu Server(可选)"></a>端口转发后用PuTTy连接Ubuntu Server(可选)</h2><p>因为VBox里的Ubuntu Server不支持复制粘贴，故我喜欢用PuTTy连接VBox里的Ubuntu，这时就需要端口转发</p>
 <p>方法：</p>

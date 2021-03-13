@@ -34,7 +34,7 @@ Lubuntu是Ubuntu的另一个分支，其桌面环境是LXDE，适合性能范围
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -269,27 +269,27 @@ Lubuntu是Ubuntu的另一个分支，其桌面环境是LXDE，适合性能范围
 
 <h2 id="安装Lubuntu"><a href="#安装Lubuntu" class="headerlink" title="安装Lubuntu"></a>安装Lubuntu</h2><p>官网下载Lubuntu的最新镜像，安装过程很无脑，在此省略</p>
 <h2 id="安装增强功能"><a href="#安装增强功能" class="headerlink" title="安装增强功能"></a>安装增强功能</h2><p>点击<code>安装增强功能</code>，进入光盘目录，按<code>F4</code>打开终端</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo ./VBoxLinuxAdditions.run<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo ./VBoxLinuxAdditions.run<br></code></pre></td></tr></table></figure>
 <p>安装完成后重启</p>
 <h2 id="配置清华的源"><a href="#配置清华的源" class="headerlink" title="配置清华的源"></a>配置清华的源</h2><p>清华源地址：<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">清华大学开源软件镜像站</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak<br>sudo vi /etc/apt/sources.list<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak<br>sudo vi /etc/apt/sources.list<br></code></pre></td></tr></table></figure>
 
 <p>配置完成后更新软件源：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt update<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt update<br></code></pre></td></tr></table></figure>
 
-<h2 id="将个人目录的文件转为英文"><a href="#将个人目录的文件转为英文" class="headerlink" title="将个人目录的文件转为英文"></a>将个人目录的文件转为英文</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash"><span class="hljs-built_in">export</span> LANG=en_US<br>xdg-user-dirs-gtk-update<br></code></pre></div></td></tr></table></figure>
+<h2 id="将个人目录的文件转为英文"><a href="#将个人目录的文件转为英文" class="headerlink" title="将个人目录的文件转为英文"></a>将个人目录的文件转为英文</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">export</span> LANG=en_US<br>xdg-user-dirs-gtk-update<br></code></pre></td></tr></table></figure>
 
 <p>跳出对话框询问是否将目录转化为英文路径，同意并关闭</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash"><span class="hljs-built_in">export</span> LANG=zh_CN<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">export</span> LANG=zh_CN<br></code></pre></td></tr></table></figure>
 
 <h2 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h2><p>Lubuntu就算是选择中文界面，也不自带中文输入法</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo apt install fcitx-pinyin<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt install fcitx-pinyin<br></code></pre></td></tr></table></figure>
 
 <p>我选择默认的最简单的拼音输入法，当然也可以考虑Google拼音输入法，但是Lubuntu似乎不兼容搜狗拼音输入法</p>
 <p>安装后重启系统方可生效</p>
 <h2 id="设置Firefox系统代理"><a href="#设置Firefox系统代理" class="headerlink" title="设置Firefox系统代理"></a>设置Firefox系统代理</h2><p>在宿主机上开启ss的<code>允许来自局域网的连接</code></p>
 <p><em>打开<em><code>Firefox</code>-&gt;<code>Network Setting</code>-&gt;<code>Manual proxy configuration</code>-&gt;<code>HTTP Proxy</code>-&gt;</em>输入宿主机的内网ip及端口</em>-&gt;<em>勾选</em><code>Use this proxy server for all protocols</code></p>
-<h2 id="下载Google-Chrome"><a href="#下载Google-Chrome" class="headerlink" title="下载Google Chrome"></a>下载Google Chrome</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb<br></code></pre></div></td></tr></table></figure>
+<h2 id="下载Google-Chrome"><a href="#下载Google-Chrome" class="headerlink" title="下载Google Chrome"></a>下载Google Chrome</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>

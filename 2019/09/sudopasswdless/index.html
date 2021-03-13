@@ -34,7 +34,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -270,12 +270,12 @@
 <p>觉得每次超过五分钟后运行sudo命令时都要输入密码很烦吗？</p>
 <p>解决办法很简单</p>
 <p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Bash">sudo visudo<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo visudo<br></code></pre></td></tr></table></figure>
 
 <p>到最下面</p>
 <p>找到一行<code>#includedir /etc/sudoers.d</code></p>
 <p>在其下添加一行</p>
-<figure class="highlight ada"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ada">ubuntu  <span class="hljs-keyword">ALL</span>=(<span class="hljs-keyword">ALL</span>:<span class="hljs-keyword">ALL</span>) NOPASSWD: <span class="hljs-keyword">ALL</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">ubuntu  <span class="hljs-keyword">ALL</span>=(<span class="hljs-keyword">ALL</span>:<span class="hljs-keyword">ALL</span>) NOPASSWD: <span class="hljs-keyword">ALL</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>我的用户名是<code>ubuntu</code>，将其替换成您电脑的用户名即可</p>

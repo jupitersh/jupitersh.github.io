@@ -32,7 +32,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai-sublime.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -267,12 +267,12 @@
 <p><img src="/img/article_image/2020/2020-09-09/01.webp" srcset="/img/loading.gif" alt=""></p>
 <p>会弹出资源管理器，进入 <code>User</code> 文件，新建一个名为 <code>addCurrentTime.py</code> 的文件</p>
 <p>添加以下内容：</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> datetime<br><span class="hljs-keyword">import</span> sublime_plugin<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddCurrentTimeCommand</span><span class="hljs-params">(sublime_plugin.TextCommand)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self, edit)</span>:</span><br>        self.view.run_command(<span class="hljs-string">"insert_snippet"</span>,<br>            &#123;<br>                <span class="hljs-string">"contents"</span>: <span class="hljs-string">"%s"</span> % datetime.datetime.now().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>)<br>            &#125;<br>        )<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> datetime<br><span class="hljs-keyword">import</span> sublime_plugin<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddCurrentTimeCommand</span><span class="hljs-params">(sublime_plugin.TextCommand)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self, edit)</span>:</span><br>        self.view.run_command(<span class="hljs-string">"insert_snippet"</span>,<br>            &#123;<br>                <span class="hljs-string">"contents"</span>: <span class="hljs-string">"%s"</span> % datetime.datetime.now().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>)<br>            &#125;<br>        )<br></code></pre></td></tr></table></figure>
 
 <p>在 Sublime Text 3 的菜单栏中点击 <code>Preferences</code> -&gt; <code>Key Bindings</code></p>
 <p><img src="/img/article_image/2020/2020-09-09/02.webp" srcset="/img/loading.gif" alt=""></p>
 <p>在弹出窗口<strong>右边栏</strong>添加以下内容：</p>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JSON">[<br>    &#123; <span class="hljs-attr">"keys"</span>: [<span class="hljs-string">"ctrl+shift+,"</span>], <span class="hljs-attr">"command"</span>: <span class="hljs-string">"add_current_time"</span> &#125;,<br>]<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JSON">[<br>    &#123; <span class="hljs-attr">"keys"</span>: [<span class="hljs-string">"ctrl+shift+,"</span>], <span class="hljs-attr">"command"</span>: <span class="hljs-string">"add_current_time"</span> &#125;,<br>]<br></code></pre></td></tr></table></figure>
 
 <p><img src="/img/article_image/2020/2020-09-09/03.webp" srcset="/img/loading.gif" alt=""></p>
 <p>以后要输入当前日期及时间，按组合键 <code>Ctrl</code> + <code>Shift</code> + <code>,</code>即可</p>
