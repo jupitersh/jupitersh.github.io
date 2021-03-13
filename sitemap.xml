@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://peppernotes.top/chest/</loc>
+    
+    <lastmod>2021-03-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/repo/</loc>
     
     <lastmod>2021-03-13</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>https://peppernotes.top/2020/03/chesthistory/</loc>
-    
-    <lastmod>2021-03-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/chest/</loc>
     
     <lastmod>2021-03-12</lastmod>
     
@@ -615,6 +615,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/categories/IT/Sublime-Text/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
@@ -630,13 +637,6 @@
   
   <url>
     <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2021-03-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/IT/Sublime-Text/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
