@@ -410,6 +410,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/tags/Docker/</loc>
+    <lastmod>2021-03-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/tags/Vercel/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
@@ -418,13 +425,6 @@
   
   <url>
     <loc>https://peppernotes.top/tags/DNS/</loc>
-    <lastmod>2021-03-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/tags/Docker/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -545,6 +545,13 @@
   </url>
   
   <url>
+    <loc>https://peppernotes.top/categories/IT/Git/</loc>
+    <lastmod>2021-03-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
@@ -566,7 +573,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Git/</loc>
+    <loc>https://peppernotes.top/categories/IT/Docker/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -574,13 +581,6 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-03-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/IT/Docker/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
