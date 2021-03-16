@@ -203,7 +203,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      83 字
+      88 字
     </span>
   
 
@@ -264,50 +264,24 @@
 <a id="more"></a>
 
 <script>
-    function month_ago(){
-        var now=new Date();
-        var year = now.getFullYear(); //getYear()+1900=getFullYear()
-        var month = now.getMonth() +1; //0-11表示1-12月
-        var day = now.getDate();
-        if(parseInt(month)<10){
-            month="0"+month;
-        }
-        if(parseInt(day)<10){
-            day="0"+day;
-        }
-
-        now =year + '-'+ month + '-' + day;
-
-        if (parseInt(month) ==1) { //如果是1月份，则取上一年的12月份
-            return (parseInt(year) - 1) + '-12-' + day;
-        }
-
-        var  preSize= new Date(year, parseInt(month)-1, 0).getDate(); //上月总天数
-        if (preSize < parseInt(day)) { //上月总天数<本月日期，比如3月的30日，在2月中没有30
-            return year + '-' + month + '-01';
-        }
-
-        if(parseInt(month) <=10){
-            return year + '-0' + (parseInt(month)-1) + '-' + day;
-        }else{
-            return year + '-' + (parseInt(month)-1) + '-' + day;
-        }
+    function getDay(num, str) {
+        var today = new Date();
+        var nowTime = today.getTime();
+        var ms = 24*3600*1000*num;
+        today.setTime(parseInt(nowTime + ms));
+        var oYear = today.getFullYear();
+        var oMoth = (today.getMonth() + 1).toString();
+        if (oMoth.length <= 1) oMoth = '0' + oMoth;
+        var oDay = today.getDate().toString();
+        if (oDay.length <= 1) oDay = '0' + oDay;
+        return oYear + str + oMoth + str + oDay;
     }
 </script>
 <script>
 window.onload = function(){
-    //创建一个当bai前日期对象
-    var now = new Date();    
-    //格式化日，如果小于9，前面补0
-    var day = ("0" + now.getDate()).slice(-2);
-    //格式化月，如果小于9，前面补0
-    var month = ("0" + (now.getMonth() + 1)).slice(-2);
-    //拼装完整日期格式
-    var today = now.getFullYear()+"-"+(month)+"-"+(day);
-    //完成赋值
-    document.getElementById('datePicker').value=today
-    document.getElementById('datePicker').max=today
-    document.getElementById('datePicker').min=month_ago()
+    document.getElementById('datePicker').value=getDate(-1, '-')
+    document.getElementById('datePicker').max=getDate(-1, '-')
+    document.getElementById('datePicker').min=getDate(-30, '-')
 };
 </script>
 <script>
