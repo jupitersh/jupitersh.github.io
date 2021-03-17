@@ -312,14 +312,14 @@
 
   
   <url>
-    <loc>https://peppernotes.top/tags/Linux/</loc>
+    <loc>https://peppernotes.top/tags/%E9%A5%A5%E8%8D%92/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E9%A5%A5%E8%8D%92/</loc>
+    <loc>https://peppernotes.top/tags/Linux/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -431,13 +431,6 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/tags/%E5%8C%BB%E5%AD%A6/</loc>
-    <lastmod>2021-03-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
@@ -446,6 +439,13 @@
   
   <url>
     <loc>https://peppernotes.top/tags/Pandas/</loc>
+    <lastmod>2021-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/tags/%E5%8C%BB%E5%AD%A6/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -524,13 +524,6 @@
 
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/</loc>
-    <lastmod>2021-03-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://peppernotes.top/categories/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
@@ -538,14 +531,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
-    <lastmod>2021-03-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
+    <loc>https://peppernotes.top/categories/IT/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -559,7 +545,7 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/IT/Git/</loc>
+    <loc>https://peppernotes.top/categories/IT/Linux/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -567,6 +553,20 @@
   
   <url>
     <loc>https://peppernotes.top/categories/IT/Python/</loc>
+    <lastmod>2021-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Blogging/</loc>
+    <lastmod>2021-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peppernotes.top/categories/IT/Git/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -587,14 +587,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/</loc>
+    <loc>https://peppernotes.top/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -622,14 +622,14 @@
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://peppernotes.top/categories/%E7%A7%91%E7%A0%94/</loc>
+    <loc>https://peppernotes.top/categories/%E5%8C%BB%E5%AD%A6/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
