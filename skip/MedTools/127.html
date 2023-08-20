@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>旧金山晕厥标准（San Francisco Syncope Rule, SFSR）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>旧金山晕厥标准（San Francisco Syncope Rule, SFSR）</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>项目</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox1" />
+						  <label for="checkbox1">C：充血性心力衰竭病史&nbsp;&nbsp;</label>						</td>
+					</tr>
+					<tr>
+						<th>2</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox2" />
+						  <label for="checkbox2">H：红细胞压积&lt;30%&nbsp;&nbsp;</label>						</td>
+					</tr>
+					<tr>
+						<th>3</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox3" />
+						  <label for="checkbox3">E：心电图异常(新出现的改变或非窦性心律) &nbsp;&nbsp;</label>						</td>
+					</tr>
+					<tr>
+						<th>4</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox4" />
+						  <label for="checkbox4">S：以气短为主诉&nbsp;&nbsp;</label>						</td>
+					</tr>
+					<tr>
+						<th>5</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox5" />
+						  <label for="checkbox5">S：初诊时收缩压&lt;90mmHg&nbsp;&nbsp;</label>						</td>
+					</tr>
+					<tr>
+						<th class="count">结论</th>
+						<td><span id="end">患者有较低风险发生严重不良转归</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>有以上任一情况则预示着晕厥患者有很高的风险发生严重不良的转归（包括死亡，心肌梗死，心律失常，肺栓塞，卒中，蛛网膜下腔出血，严重出血，或任何需要到急诊室就诊并住院治疗的相关情况）</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>该评分预测严重不良转归的敏感性96%，特异性62%，阴性预期值99.2%，阳性预期值24.8%。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td> 1. Quinn J, McDermott D, Stiell I, Kohn M, Wells G (May 2006). "Prospective validation of the San Francisco Syncope Rule to predict patients with serious outcomes". Ann Emerg Med 47 (5): 448–54.<br/>2. Birnbaum A, Esses D, Bijur P, Wollowitz A, Gallagher EJ (February 2008). "Failure to Validate the San Francisco Syncope Rule in an Independent Emergency Department Population". Ann Emerg Med 52 (2): 151–9.
+
+</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input:checkbox').click(function(){
+		var n=$('input:checkbox:checked').length;
+		if(n>=1){
+			$('#end').text('患者有较高风险发生严重不良转归');
+		}else{
+			$('#end').text('患者有较低风险发生严重不良转归');
+		}
+	});
+});
+</script>
+</body>
+</html>

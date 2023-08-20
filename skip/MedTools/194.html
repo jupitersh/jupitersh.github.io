@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>欧洲心脏危险评估系统(EuroSCORE)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>欧洲心脏危险评估系统(EuroSCORE)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th>1.病人相关因素</th>
+                        <th>系数β<sub>j</sub></th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th>年龄 <input type="text" id="nianling" value="" style="width:55px;" /></th>
+                    	<td>0.0666354</td>
+                    </tr>
+                	<tr>
+                    	<th>女性</th>
+                    	<td><input type="checkbox" id="checkbox3" class="checkbox" value="0.3304052" /> <label for="checkbox3">0.3304052</label></td>
+                    </tr>
+                	<tr>
+                    	<th>慢性肺疾病*</th>
+                    	<td><input type="checkbox" id="checkbox7" class="checkbox" value="0.4931341" /> <label for="checkbox7">0.4931341</label></td>
+                    </tr>
+                	<tr>
+                    	<th>心外动脉系统疾病*</th>
+                    	<td><input type="checkbox" id="checkbox10" class="checkbox" value="0.6558917" /> <label for="checkbox10">0.6558917</label></td>
+                    </tr>
+                	<tr>
+                    	<th>神经系统功能障碍*</th>
+                    	<td><input type="checkbox" id="checkbox13" class="checkbox" value="0.841626" /> <label for="checkbox13">0.841626</label></td>
+                    </tr>
+                	<tr>
+                    	<th>既往心脏手术史（打开心包）</th>
+                    	<td><input type="checkbox" id="checkbox14" class="checkbox" value="1.002625" /> <label for="checkbox14">1.002625</label></td>
+                    </tr>
+                	<tr>
+                    	<th>血肌酐&gt;200μmol/L</th>
+                    	<td><input type="checkbox" id="checkbox15" class="checkbox" value="0.6521653" /> <label for="checkbox15">0.6521653</label></td>
+                    </tr>
+                	<tr>
+                    	<th>活动性心内膜炎（需抗生素治疗）</th>
+                    	<td><input type="checkbox" id="checkbox16" class="checkbox" value="1.101265" /> <label for="checkbox16">1.101265</label></td>
+                    </tr>
+                	<tr>
+                    	<th>术前病情危急*</th>
+                    	<td><input type="checkbox" id="checkbox17" class="checkbox" value="0.9058132" /> <label for="checkbox17">0.9058132</label></td>
+                    </tr>
+				</tbody>
+                <thead>
+                	<tr>
+                        <th>2.心脏相关因素</th>
+                        <th>系数β<sub>j</sub></th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                    	<th>需要药物干预的不稳定心绞痛</th>
+                    	<td><input type="checkbox" id="checkbox1" class="checkbox" value="0.5677075" /> <label for="checkbox1">0.5677075</label></td>
+                    </tr>
+                    <tr>
+                    	<th>左室功能不全</th>
+                    	<td><input type="radio" id="checkbox4" name="radio" class="checkbox" value="0.4191643" /> <label for="checkbox4">LVEF30-50%：0.4191643；</label><br />
+                        <input type="radio" id="checkbox5" name="radio" class="checkbox" value="1.094443" /> <label for="checkbox5">LVEF&lt;30%：1.094443</label></td>
+                    </tr>
+                    <tr>
+                    	<th>90天内既往心梗史</th>
+                    	<td><input type="checkbox" id="checkbox8" class="checkbox" value="0.5460218" /> <label for="checkbox8">0.5460218</label></td>
+                    </tr>
+                    <tr>
+                    	<th>肺动脉收缩压&gt;60mmHg</th>
+                    	<td><input type="checkbox" id="checkbox11" class="checkbox" value="0.7676924" /> <label for="checkbox11">0.7676924</label></td>
+                    </tr>
+                </tbody>
+                <thead>
+                	<tr>
+                        <th>3.手术相关因素</th>
+                        <th>系数β<sub>j</sub></th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                        <th>急诊手术</th>
+                        <td><input type="checkbox" id="checkbox2" class="checkbox" value="0.7127953" /> <label for="checkbox2">0.7127953</label></td>
+                    </tr>
+                	<tr>
+                        <th>胸主动脉手术</th>
+                        <td><input type="checkbox" id="checkbox6" class="checkbox" value="1.159787" /> <label for="checkbox6">1.159787</label></td>
+                    </tr>
+                	<tr>
+                        <th>心梗后室间隔穿孔</th>
+                        <td><input type="checkbox" id="checkbox9" class="checkbox" value="1.462009" /> <label for="checkbox9">1.462009</label></td>
+                    </tr>
+                	<tr>
+                        <th>CABG合并其他心脏手术</th>
+                        <td><input type="checkbox" id="checkbox12" class="checkbox" value="0.5420364" /> <label for="checkbox12">0.5420364</label></td>
+                    </tr>
+                    <tr>
+						<th class="count">心脏手术后住院期间的预测死亡率</th>
+                        <td colspan="5"><span><em class="num">0</em> %</span></td>
+                    </tr>
+                </tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                    	<td>主要用于急性心肌梗死患者心脏手术后住院期间的预测死亡率，也可用于其他原因急性心衰评价。<br />简化EuroSCORE也可用于外科手术死亡率预测，但对于高危人群，它可能会低估死亡风险。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td><p>*慢性肺疾病：需要长期使用支气管扩张或激素；<br />*心外动脉系统疾病：跛行；颈动脉阻塞或狭窄&gt;50%；曾计划治疗腹主动脉疾病；其他四肢动脉或颈动脉疾病；<br />
+						*神经系统功能障碍：严重运动障碍或影响日常生活；<br />
+					  *术前病情危急：室速、室颤、心跳骤停；术前心脏按摩；术前即需机械通气；术前需使用正性肌力药物；IABP；术前急性肾衰（无尿或少尿&lt;10ml/Hr）。</p>
+						  <p>●计算公式如下：<br />
+					  心脏手术后住院期间的预测死亡率=<sub>e</sub>(β<sub>0</sub>+Σβ<sub>j</sub>χ<sub>j</sub>)÷[1+<sub>e</sub>(β<sub>0</sub>+Σβ<sub>j</sub>X<sub>j</sub>)]。<br />注：e为对数常数=2.718281828…；β<sub>j</sub>是各变量X<sub>j</sub>的相应系数，如表中所示；β<sub>0</sub>常数=-4.789594。<br />表中危险因素存在时，X<sub>j</sub>=1，否则X<sub>j</sub>=0；对于年龄，&lt;60岁时，X<sub>j</sub>=1，此后每增加1岁，X<sub>j</sub>增加1（即&le;59岁时X<sub>j</sub>=1,60岁X<sub>j</sub>=2,62岁X<sub>j</sub>=4，以此类推）。</p></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Reques F,Michel P,Goldstone AR,Nashef SA.The logistic EuroSCORE.Eur Heart J.2003 May;24(9):882-3.<br />2. 中国经皮冠状动脉介入治疗指南2012（简本）. 中华医学会心血管病学分会介入心脏病学组 中华心血管病杂志编辑委员会.<br />3. http://www.euroscore.org/logisticEuroSCORE.htm</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	//两小数相加
+	function accAdd(num1,num2){ 
+        var r1,r2,m; 
+        try{ 
+            r1 = num1.toString().split('.')[1].length; 
+        }catch(e){ 
+            r1 = 0; 
+        } 
+        try{ 
+            r2=num2.toString().split(".")[1].length; 
+        }catch(e){ 
+            r2=0; 
+        } 
+        m=Math.pow(10,Math.max(r1,r2)); 
+        return Math.round(num1*m+num2*m)/m; 
+    }
+	
+	//两小数相除 
+    function accDiv(num1,num2){ 
+        var t1,t2,r1,r2; 
+        try{ 
+            t1 = num1.toString().split('.')[1].length; 
+        }catch(e){ 
+            t1 = 0; 
+        } 
+        try{ 
+            t2=num2.toString().split(".")[1].length; 
+        }catch(e){ 
+            t2=0; 
+        } 
+        r1=Number(num1.toString().replace(".","")); 
+        r2=Number(num2.toString().replace(".","")); 
+        return (r1/r2)*Math.pow(10,t2-t1); 
+    }
+	
+	function shuchu(){
+		var x = allCheckbox()+nianling();
+		if(x != 0){
+			var addX = Math.exp( accAdd(-4.789594,x) );
+			var n = accDiv(addX,(1+addX) )*100;
+			$('.num').text(n.toFixed(2));
+		}else{
+			$('.num').text('0');
+		}
+	}
+	
+	function nianling(){
+		var nianling=0;
+		$('#nianling').each(function(){
+			if( $('#nianling').val() != '' ){
+				var v = parseInt( $('#nianling').val() );
+				var n=0;
+				n=v;
+				nianling=nianling+n;
+				
+				if( (nianling - 59) <= 0 ){
+					nianling = 1;
+				}else{
+					nianling = (nianling - 59)+1;
+				}
+			}
+		});
+		return nianling*0.0666354;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$('input:checked').each(function(){
+			var v = parseFloat( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu();
+	});
+	$('#nianling').keyup(function(){
+		shuchu();
+	});
+});
+</script>
+</body>
+</html>

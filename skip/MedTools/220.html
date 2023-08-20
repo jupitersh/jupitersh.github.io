@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>序贯性器官功能衰竭评分(SOFA脓毒症评分)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>序贯性器官功能衰竭评分(SOFA脓毒症评分)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<tr>
+                    	<th rowspan="2">系统</th>
+                        <th rowspan="2">检测项目</th>
+                        <th colspan="5">评分</th>
+                    </tr>
+                	<tr>
+                	  <th>0</th>
+                	  <th>1</th>
+                	  <th>2</th>
+                	  <th>3</th>
+                	  <th>4</th>
+   	                </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="5">循环</th>
+                        <th>平均动脉压(mmHg)</th>
+                    	<td><input type="radio" name="radio" id="radio1" value="0" /><label for="radio1">≥70</label></td>
+                    	<td><input type="radio" name="radio" id="radio2" value="1" /><label for="radio2">＜70（未使用血管活性药）</label></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr>
+                    	<th>多巴胺剂量(μg/kg/min)</th>
+                        <td></td>
+                        <td></td>
+                    	<td><input type="radio" name="radio" id="radio3" value="2" /><label for="radio3">≤5</label></td>
+                    	<td><input type="radio" name="radio" id="radio4" value="3" /><label for="radio4">＞5</label></td>
+                    	<td><input type="radio" name="radio" id="radio5" value="4" /><label for="radio5">＞15</label></td>
+                    </tr>
+                    <tr>
+                    	<th>肾上腺素剂量(μg/kg/min)</th>
+                        <td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td><input type="radio" name="radio" id="radio6" value="3" /><label for="radio6">≤0.1</label></td>
+                    	<td><input type="radio" name="radio" id="radio7" value="4" /><label for="radio7">＞0.1</label></td>
+                    </tr>
+                    <tr>
+                    	<th>去甲肾上腺素剂量(μg/kg/min)</th>
+                        <td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td><input type="radio" name="radio" id="radio8" value="3" /><label for="radio8">≤0.1</label></td>
+                    	<td><input type="radio" name="radio" id="radio9" value="4" /><label for="radio9">＞0.1</label></td>
+                    </tr>
+                    <tr>
+                    	<th>多巴酚丁胺（是/否）</th>
+                        <td></td>
+                        <td></td>
+                        <td><input type="radio" name="radio" id="radio10" value="2" /><label for="radio10">是</label></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="2">呼吸</th>
+                        <th>PaO2/FiO2(mmHg)</th>
+                        <td><input type="radio" name="radio1" id="radio11" value="0" /><label for="radio11">≥400</label></td>
+                        <td><input type="radio" name="radio1" id="radio12" value="1" /><label for="radio12">300~399</label></td>
+                        <td><input type="radio" name="radio1" id="radio13" value="2" /><label for="radio13">200~299</label></td>
+                        <td><input type="radio" name="radio1" id="radio14" value="3" /><label for="radio14">100~199</label></td>
+                        <td><input type="radio" name="radio1" id="radio15" value="4" /><label for="radio15">＜100</label></td>
+                    </tr>
+                    <tr>
+                        <th>呼吸支持（是/否）</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="radio" name="radio1" id="radio16" value="3" /><label for="radio16">是</label></td>
+                        <td><input type="radio" name="radio1" id="radio17" value="4" /><label for="radio17">是</label></td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="2">肾脏</th>
+                        <th>肌酐(μmol/L)</th>
+                        <td><input type="radio" name="radio2" id="radio18" value="0" /><label for="radio18">＜110</label></td>
+                        <td><input type="radio" name="radio2" id="radio19" value="1" /><label for="radio19">110~170</label></td>
+                        <td><input type="radio" name="radio2" id="radio20" value="2" /><label for="radio20">171~299</label></td>
+                        <td><input type="radio" name="radio2" id="radio21" value="3" /><label for="radio21">300~440</label></td>
+                        <td><input type="radio" name="radio2" id="radio22" value="4" /><label for="radio22">＞440</label></td>
+                    </tr>
+                    <tr>
+                        <th>24小时尿量(ml/24h)</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="radio" name="radio2" id="radio23" value="3" /><label for="radio23">＜500</label></td>
+                        <td><input type="radio" name="radio2" id="radio24" value="4" /><label for="radio24">＜200</label></td>
+                    </tr>
+                    <tr>
+                    	<th>肝脏</th>
+                        <th>胆红素(μmol/L)</th>
+                        <td><input type="radio" name="radio3" id="radio25" value="0" /><label for="radio25">＜20</label></td>
+                        <td><input type="radio" name="radio3" id="radio26" value="1" /><label for="radio26">20~32</label></td>
+                        <td><input type="radio" name="radio3" id="radio27" value="2" /><label for="radio27">33~101</label></td>
+                        <td><input type="radio" name="radio3" id="radio28" value="3" /><label for="radio28">102~204</label></td>
+                        <td><input type="radio" name="radio3" id="radio29" value="4" /><label for="radio29">＞204</label></td>
+                    </tr>
+                    <tr>
+                    	<th>凝血</th>
+                        <th>血小板(×10^9/L)</th>
+                        <td><input type="radio" name="radio4" id="radio30" value="0" /><label for="radio30">＞149</label></td>
+                        <td><input type="radio" name="radio4" id="radio31" value="1" /><label for="radio31">100~149</label></td>
+                        <td><input type="radio" name="radio4" id="radio32" value="2" /><label for="radio32">50~99</label></td>
+                        <td><input type="radio" name="radio4" id="radio33" value="3" /><label for="radio33">20~49</label></td>
+                        <td><input type="radio" name="radio4" id="radio34" value="4" /><label for="radio34">＜20</label></td>
+                    </tr>
+                    <tr>
+                    	<th>神经</th>
+                        <th>GCS评分</th>
+                        <td><input type="radio" name="radio5" id="radio35" value="0" /><label for="radio35">15</label></td>
+                        <td><input type="radio" name="radio5" id="radio36" value="1" /><label for="radio36">13~14</label></td>
+                        <td><input type="radio" name="radio5" id="radio37" value="2" /><label for="radio37">10~12</label></td>
+                        <td><input type="radio" name="radio5" id="radio38" value="3" /><label for="radio38">6~9</label></td>
+                        <td><input type="radio" name="radio5" id="radio39" value="4" /><label for="radio39">0~5</label></td>
+                    </tr>
+					<tr>
+						<th class="count" colspan="2">评分</th>
+						<td colspan="5"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">6</span>个必选项未选）</td>
+					</tr>
+                    <tr>
+                    	<td colspan="7">注：每日评估时应采取每日最差值</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+                        <td>SOFA评分系统具有客观、简便、数据易于收集、能动态地观察疾病的演变过程、有利于不同地区医疗单位资料的比较等优点。结果显示在ICU患者中，入院时SOFA评分与预后无关，而最大SOFA评分、ΔSOFA评分与预后有非常好的相关性，对每一器官的相关性比较发现，以循环系统对预后的相关性最好，其次为肾脏、神经系统。<br />SOFA评分在入院最初48小时对病死率的预测最好，如入院最初48小时SOFA评分增加，预测病死率在50%以上。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>欧洲重症监护医学协会(European society of intensive care medicine, ESICM)感染相关问题工作组在1994年12月于巴黎组织召开了一个研讨会，制定了所谓感染相关器官衰竭估计(sepsis-related organ failure assessment, SOFA)评分，因为这一评分的应用不仅局限于感染，以后又叫序贯性器官功能衰竭(SOFA)评分。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Sepsis-related Organ Failure (SOFA) Score. European Society of Intensie Care Medicine (ESICM), 1994.<br />2. Vincent JL, Moreno R, Takala J, et al. The SOFA (sepsis-related organ failure assessment) score to describe organ dysfunction failure(J). Intensive Care Med, 1996, 22: 707-710.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 6-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>临床肺部感染CPIS评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>临床肺部感染CPIS评分</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<tr>
+                    	<th rowspan="2">评分</th>
+                        <th colspan="5">初次评定项目</th>
+                        <th colspan="2">72小时后需加评</th>
+                    </tr>
+                	<tr>
+                	  <th><p>1.体温（℃）</p></th>
+                	  <th><p>2.白细胞计数（×10^9/L）</p></th>
+                	  <th>3.气管分泌物</th>
+                	  <th>4.X线胸片</th>
+                	  <th><p>5.氧合指数(PaO2/FiO2）</p></th>
+                      <th>6.胸片进展</th>
+                      <th>7.气管分泌物培养</th>
+   	                </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<td>0</td>
+                    	<td><input type="radio" name="radio1" id="radio1" value="0" /><label for="radio1">36.5-38.4</label></td>
+                    	<td><input type="radio" name="radio2" id="radio2" value="0" /><label for="radio2">4.0-11.0</label></td>
+                    	<td><input type="radio" name="radio3" id="radio3" value="0" /><label for="radio3">无或少许</label></td>
+                    	<td><input type="radio" name="radio4" id="radio4" value="0" /><label for="radio4">无浸润</label></td>
+                    	<td><input type="radio" name="radio5" id="radio5" value="0" /><label for="radio5">&gt;240或ARDS</label></td>
+                    	<td><input type="radio" name="radio6" id="radio6" value="0" /><label for="radio6">无进展</label></td>
+                    	<td><input type="radio" name="radio7" id="radio7" value="0" /><label for="radio7">致病菌极少/轻度生长或无生长</label></td>
+                    </tr>
+                	<tr>
+                    	<td>1</td>
+                    	<td><input type="radio" name="radio1" id="radio8" value="1" /><label for="radio8">38.5-38.9</label></td>
+                    	<td><input type="radio" name="radio2" id="radio9" value="1" /><label for="radio9">&lt;4.0或&gt;11.0</label></td>
+                    	<td><input type="radio" name="radio3" id="radio10" value="1" /><label for="radio10">中~大量，非脓性</label></td>
+                    	<td><input type="radio" name="radio4" id="radio11" value="1" /><label for="radio11">弥散浸润</label></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td><input type="radio" name="radio7" id="radio12" value="1" /><label for="radio12">与Gram染色下所见致病菌一致（少/轻度生长）；致病菌中/重度生长</label></td>
+                    </tr>
+                	<tr>
+                    	<td>2</td>
+                    	<td><input type="radio" name="radio1" id="radio13" value="2" /><label for="radio13">&ge;39或&le;36</label></td>
+                    	<td><input type="radio" name="radio2" id="radio14" value="2" /><label for="radio14">&lt;4.0或&gt;11.0 + 杆状核中性粒细胞&gt;500</label></td>
+                    	<td><input type="radio" name="radio3" id="radio15" value="2" /><label for="radio15">中~大量，脓性</label></td>
+                    	<td><input type="radio" name="radio4" id="radio16" value="2" /><label for="radio16">局限化浸润</label></td>
+                    	<td><input type="radio" name="radio5" id="radio17" value="2" /><label for="radio17">&le;240且排除ARDS</label></td>
+                    	<td><input type="radio" name="radio6" id="radio18" value="2" /><label for="radio18">有进展(排除慢性心衰和ARDS)</label></td>
+                    	<td><input type="radio" name="radio7" id="radio19" value="2" /><label for="radio19">与Gram染色下所见致病菌一致（中/重度生长）</label></td>
+                    </tr>
+					<tr>
+						<th class="count">评分</th>
+						<td colspan="7"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">4</span>个必选项未选）</td>
+					</tr>
+                    <tr>
+                    	<td colspan="8">注：如为初次评定，只需评定前5项，如为72小时评定，则需要评定全部的7项。</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                        <td>评分&gt;6分时，高度提示存在肺部感染；<br />评分&le;6分时，可停用抗生素。<br />CPIS评分常用来评估肺部感染的严重程度，帮助调整或停止抗菌素使用，可以减少不必要的抗菌素使用。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Pugin J,Auckenthaler R,Mili N,et al. Diagnosis of ventilator-associated pneumonia by bacteriologic analysis of bronchoscopic and nonbronchoscopic "blind" bronchoalveolar lavage fluid.Am Rev Respir Dis.1991;143:1121-9.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 4-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

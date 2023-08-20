@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>小儿药物计算公式2-按年龄计算（董氏公式）</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+        	<tr>
+            	<td colspan="3" class="danwei chk"><span class="radio yue checked">&lt;1岁</span><span class="radio nian">&ge;1岁</span></td>
+            </tr>
+			<tr>
+				<th>成人剂量：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>g</td>
+			</tr>
+			<tr>
+				<th class="n_y_t">月龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td class="n_y">月</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>1岁以内的用药剂量=0.01×（月龄+3）×成人剂量<br />1岁以上的用药剂量=0.05×（年龄+2）×成人剂量</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>邢丽梅，邢孔庚；《数理医药学杂志》；1999年03期</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>小儿剂量=<em id="end"></em>g</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.chk span').click(function(e){
+		if(e.target == $('.yue')[0]){
+			$('.n_y_t').html('月龄：');
+			$('.n_y').text('月');
+		}else if(e.target == $('.nian')[0]){
+			$('.n_y_t').html('小儿年龄：');
+			$('.n_y').text('岁');
+		}
+	});
+});
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的成人剂量");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的月龄/小儿年龄");
+	}else if($('.yue').hasClass('checked')){
+		if( num2 >= 1 && num2 <= 12 ){
+			var end = 0.01*(num2+3)*num1;
+		}else{
+			alert('月龄请输入1到12的整数');
+			return false;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}else if($('.nian').hasClass('checked')){
+		if( num2 < 1 ){
+			alert('请输入正确的小儿年龄');
+			return false;
+		}else{
+			var end = 0.05*(num2+2)*num1;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>腹水血清白蛋白梯度</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>血清白蛋白：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>g/L</td>
+			</tr>
+			<tr>
+				<th>腹水白蛋白：</th>
+				<td><input type="text" value="" id="num2" class="text num2"></td>
+				<td>g/L</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Serum Ascites to Albumin Gradient</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>SAAG=血清白蛋白-腹水白蛋白</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>＜11g/L</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>SAAG可用于判别腹水的病因，判定是否存在门脉高压：SAAG≥11g/L，提示患者有97%的可能患有门脉高压；SAAG＜11g/L，提示患者不存在门脉高压。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>Runyon BA et al. The serum-ascites albumin gradient is superior to the exudate-transudate concept in the differential diagnosis of ascites. Ann Intern Med.1992;117(3):215-20. </td>
+            </tr>
+            <tr>
+            	<th>来源(网址等)：</th>
+            </tr>
+            <tr>
+            	<td>Qx calculator. PubMed Link: http://www.QxMD.com/PubMed/1616215</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>SAAG=<em id="end"></em>g/L</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的FEV1");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的FVC");
+	}else{
+		var end = num1-num2;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

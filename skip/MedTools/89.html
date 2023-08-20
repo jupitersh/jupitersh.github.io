@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>DIC诊断积分系统（ISTH-DIC, 2001）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>DIC诊断积分系统（ISTH-DIC, 2001）</h1>
+</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<tr>
+                    	<th colspan="2">评估患者是否存在与典型DIC发病有关的潜在疾病。<br/>若回答"是"则进入下述程序。</th>
+                    </tr>
+                </thead>
+				<tbody>
+					<tr>
+						<th rowspan="3">PLT(×10^9/L)</th>
+						<td>
+						<input type="radio" name="radio" value="0" id="checkbox1" />
+						<label for="checkbox1">&gt;100</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio" value="1" id="checkbox2" />
+						<label for="checkbox2">&lt;100</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio" value="2" id="checkbox3" />
+						<label for="checkbox3">&lt;50</label>
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="3">D-Dimer和FDPs</th>
+						<td>
+						<input type="radio" name="radio2" value="0" id="checkbox4" />
+						<label for="checkbox4">无增加</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio2" value="2" id="checkbox5" />
+						<label for="checkbox5">中度增加</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio2" value="3" id="checkbox6" />
+						<label for="checkbox6">显著增加</label>
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="3">PT延长(s)</th>
+						<td>
+						<input type="radio" name="radio3" value="0" id="checkbox7" />
+						<label for="checkbox7">&lt;3s</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio3" value="1" id="checkbox8" />
+						<label for="checkbox8">3~6s</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio3" value="2" id="checkbox9" />
+						<label for="checkbox9">&gt;6s</label>
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="2">Fbg(g/L)</th>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox10" />
+						<label for="checkbox10">&gt;1.0g/L</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<input type="radio" name="radio4" value="1" id="checkbox11" />
+						<label for="checkbox11">&lt;1.0g/L</label>
+						</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">4</span>个必选项未选）</td>
+					</tr>
+                    <tr>
+                    	<td colspan="2">注：本文为译稿，原文中Fbg数据缺少＝1g时的评分</td>
+                    </tr>
+
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>积分&ge;5，符合典型的DIC，每天重复计分<br />积分&lt;5，提示非典型DIC，之后1~2天重复计分</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>对显性DIC的诊断：敏感性91%，特异性 97%。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Taylor, FB, et al. Thromb Haemost 2001; 86: 1327.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 4-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

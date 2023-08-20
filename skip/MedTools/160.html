@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>常用单位换算</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>换算项目名称：</th>
+				<td class="text_wrap">
+                	<select id="S1">
+                    	<option value="0" selected="selected">血压</option>
+                    	<option value="1">血糖</option>
+                    	<option value="2">胆红素</option>
+                    	<option value="3">血肌酐</option>
+                    	<option value="4">血尿素氮</option>
+                    	<option value="5">甘油三酯</option>
+                    	<option value="6">胆固醇</option>
+                    	<option value="7">高密度/低密度脂蛋白</option>
+                    	<option value="8">血尿酸</option>
+                    	<option value="9">血钙</option>
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>传统单位：</th>
+				<td><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span id="dw1_span">mmHg</span></td>
+			</tr>
+			<tr>
+				<th>SI单位：</th>
+				<td><input type="text" value="" id="num2" class="text num2"></td>
+				<td><span id="dw2_span">kPa</span></td>
+			</tr>
+			<!--<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>-->
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式</th>
+            </tr>
+        	<tr>
+            	<td>血压 mmHg*7.5=kPa<br />血压 kPa*0.1333=mmHg<br />血糖 mmol/L*18.02=mg/dl<br />血糖 mg/dl*0.0555=mmol/L<br />胆红素 μmol/L*0.05848=mg/dl<br />胆红素 mg/dl*17.1=μmol/L<br />血肌酐 μmol/L*0.01131=mg/dl<br />血肌酐 mg/dl*88.402=μmol/L<br />血尿素氮 mmol/L*2.8=mg/dl<br />血尿素氮 mg/dl*0.357=mmol/L<br />甘油三酯 mmol/L*88.6=mg/dl<br />甘油三酯 mg/dl*0.01129=mmol/L<br />胆固醇 mmol/L*38.67=mg/dl<br />胆固醇 mg/dl*0.02586=mmol/L<br />高密度/低密度脂蛋白 mmol/L*38.67=mg/dl<br />高密度/低密度脂蛋白 mg/dl*0.02586=mmol/L<br />血尿酸 μmol/L*0.01681=mg/dl<br />血尿酸 mg/dl*59.48=μmol/L<br />血钙 mmol/L*4=mg/dl<br />血钙 mg/dl*0.25=mmol/L</td>
+            </tr>
+        </tbody>
+    </table>    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>换算结果：<em id="end"></em>mg</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(function(){
+	$('#S1').change(function(){
+		$('#num1, #num2').val('');
+		
+		var $dw1 = $('#dw1_span');
+		var $dw2 = $('#dw2_span');
+		var value = $(this).val();
+		
+		if(value == 0){
+			$dw1.text('mmHg');
+			$dw2.text('kPa');
+		}else if(value == 1){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 2){
+			$dw1.text('μmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 3){
+			$dw1.text('μmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 4){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 5){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 6){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 7){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 8){
+			$dw1.text('μmol/L');
+			$dw2.text('mg/dl');
+		}else if(value == 9){
+			$dw1.text('mmol/L');
+			$dw2.text('mg/dl');
+		}
+	});
+	
+	$('#num1').keyup(function(){
+		var value = $('#S1').val();
+		
+		var v = $(this).val();
+		var $n2 = $('#num2');
+		
+		if(value == 0){
+			v *= 0.1333;
+			$n2.val(v.toFixed(2))
+		}else if(value == 1){
+			v *= 18.02;
+			$n2.val(v.toFixed(2))
+		}else if(value == 2){
+			v *= 0.05848;
+			$n2.val(v.toFixed(2))
+		}else if(value == 3){
+			v *= 0.01131;
+			$n2.val(v.toFixed(2))
+		}else if(value == 4){
+			v *= 2.8;
+			$n2.val(v.toFixed(2))
+		}else if(value == 5){
+			v *= 88.6;
+			$n2.val(v.toFixed(2))
+		}else if(value == 6){
+			v *= 38.67;
+			$n2.val(v.toFixed(2))
+		}else if(value == 7){
+			v *= 38.67;
+			$n2.val(v.toFixed(2))
+		}else if(value == 8){
+			v *= 0.01681;
+			$n2.val(v.toFixed(2))
+		}else if(value == 9){
+			v *= 4;
+			$n2.val(v.toFixed(2))
+		}
+	});
+	
+	$('#num2').keyup(function(){
+		var value = $('#S1').val();
+		
+		var v = $(this).val();
+		var $n1 = $('#num1');
+		
+		if(value == 0){
+			v *= 7.5;
+			$n1.val(v.toFixed(2))
+		}else if(value == 1){
+			v *= 0.0555;
+			$n1.val(v.toFixed(2))
+		}else if(value == 2){
+			v *= 17.1;
+			$n1.val(v.toFixed(2))
+		}else if(value == 3){
+			v *= 88.402;
+			$n1.val(v.toFixed(2))
+		}else if(value == 4){
+			v *= 0.357;
+			$n1.val(v.toFixed(2))
+		}else if(value == 5){
+			v *= 0.01129;
+			$n1.val(v.toFixed(2))
+		}else if(value == 6){
+			v *= 0.02586;
+			$n1.val(v.toFixed(2))
+		}else if(value == 7){
+			v *= 0.02586;
+			$n1.val(v.toFixed(2))
+		}else if(value == 8){
+			v *= 59.48;
+			$n1.val(v.toFixed(2))
+		}else if(value == 9){
+			v *= 0.25;
+			$n1.val(v.toFixed(2))
+		}
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

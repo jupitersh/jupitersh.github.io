@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>峰值流量预测值（成人）</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="sex"><span class="radio man checked">男</span><span class="radio">女</span></td>
+			</tr>
+			<tr>
+				<th>年龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>岁</td>
+			</tr>
+			<tr>
+				<th>身高：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>PEF测定值：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>L/min</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Predicted Peak Flow(Adult)</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>男：PEF=exp（0.544*ln（年龄）-0.0151*年龄-74.7/身高+5.48）<br />女：PEF=exp（0.376*ln（年龄）-0.0120*年龄-58.8/身高+5.63）<br />预测值百分比=PEF测定值/PEF预测值%</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>此公式仅用于成人。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>Nunn AJ.BMJ.1989 Apr 22;298(6680):1068-70.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>峰值流量预测值=<em id="end"></em>L/min </p>
+        <p>预测值百分比=<em id="end2"></em>%</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的年龄");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的身高");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的PEF测定值");
+	}else{
+		if($(".man").hasClass("checked")){
+			var end = Math.exp(0.544*Math.log(num1)-0.0151*num1-74.7/num2+5.48);
+			var end2 = num3/end;
+		}else{
+			var end = Math.exp(0.376*Math.log(num1)-0.0120*num1-58.8/num2+5.63);
+			var end2 = num3/end;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed(3));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

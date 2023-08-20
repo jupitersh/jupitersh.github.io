@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>ST段抬高型心肌梗死TIMI评分(TIMI risk index)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>ST段抬高型心肌梗死TIMI评分(TIMI risk index)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<th colspan="2">项目</th>
+                	<th>评分</th>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="3">年龄</th>
+                        <td>
+                            <input type="radio" name="radio" value="0" id="checkbox8" />
+                            <label for="checkbox8">&lt;65</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="radio" value="2" id="checkbox9" />
+                            <label for="checkbox9">65~74</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="radio" value="3" id="checkbox10" />
+                            <label for="checkbox10">&ge;75</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                    	<th>糖尿病或高血压或心绞痛</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox1" />
+                            <label for="checkbox1">是</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th>收缩压&lt;100mmHg</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="3" id="checkbox2" />
+                            <label for="checkbox2">是</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                    	<th>心率&gt;100次/分</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="2" id="checkbox3" />
+                            <label for="checkbox3">是</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th>Killip分级II-IV</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="2" id="checkbox4" />
+                            <label for="checkbox4">是</label>	
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th>体重&lt;67kg</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox5" />
+                            <label for="checkbox5">是</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th>前壁ST段抬高或左束支传导阻滞</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox6" />
+                            <label for="checkbox6">是</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                    	<th>治疗距发病时间&gt;4小时</th>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox7" />
+                            <label for="checkbox7">是</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th class="count">评分</th>
+                        <td colspan="2"><span><em class="num">0</em> 分</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+                <tbody>
+                    <tr>
+                        <th>结果解读</th>
+                        <td>用于评估ST段抬高型心肌梗死(STEMI)30天内全因死亡的风险。TIMI危险评分积分越高，冠状动脉病变血管狭窄程度越高，病变范围越大，病变性质越复杂。</td>
+                    </tr>
+                    <tr>
+                        <th>相关解释</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>参考来源</th>
+                        <td>1.《不稳定性心绞痛患者TIMI危险评分与冠状动脉病变严重程度相关》 解放军总医院第二附属医院心内科 华宁，唐发宽等<br />2.TIMI Risk Score for ST-Elevation Myocardial Infarction: A Convenient, Bedside, Clinical Score for Risk Assessment at Presentation. PubMed ID 11044416<br />3.A simple risk index for rapid initial triage of patients with ST-elevation myocardial infarction: an InTIME II substudy. Lancet. 2001 Nov 10;358(9293):1571-5.</td>
+                    </tr>
+                </tbody>
+            </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore()+allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

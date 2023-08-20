@@ -1,0 +1,823 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>汉密尔顿抑郁量表(Hamilton Depression Scale，HAMD)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>汉密尔顿抑郁量表(Hamilton Depression Scale，HAMD)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                        <th colspan="2">症状描述</th>
+                        <th>得分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="5">抑郁情绪</th>
+                        <td>
+                        	<input type="radio"  name="radio1" value="0" id="checkbox0" />
+                        	<label for="checkbox0">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="1" id="checkbox1" />
+                        	<label for="checkbox1">只在问到时才诉述</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="2" id="checkbox2" />
+                        	<label for="checkbox2">在言语中自发地表达</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="3" id="checkbox3" />
+                        	<label for="checkbox3">不用言语也可从表情、姿势、声音或欲哭中流露出这种情绪</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="4" id="checkbox4" />
+                        	<label for="checkbox4">病人的自发和非自发语言（表情、动作），几乎完全表现为这种情绪</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                	<tr>
+                    	<th rowspan="5">有罪感</th>
+                        <td>
+                        	<input type="radio"  name="radio2" value="0" id="checkbox06" />
+                        	<label for="checkbox06">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="1" id="checkbox6" />
+                        	<label for="checkbox6">责备自己，感到自己已连累他人</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="2" id="checkbox7" />
+                        	<label for="checkbox7">认为自己犯了罪，或反复思考以往的过失和错误</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="3" id="checkbox8" />
+                        	<label for="checkbox8">认为目前的疾病，是对自己错误的惩罚，或有罪恶妄想</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="4" id="checkbox9" />
+                        	<label for="checkbox9">罪恶妄想伴有指责或威胁性幻觉</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">自杀</th>
+                        <td>
+                        	<input type="radio"  name="radio3" value="0" id="checkbox011" />
+                        	<label for="checkbox011">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="1" id="checkbox11" />
+                        	<label for="checkbox11">觉得活着没有意义</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="2" id="checkbox12" />
+                        	<label for="checkbox12">希望自己已经死去，或常想到与死有关的事</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="3" id="checkbox13" />
+                        	<label for="checkbox13">消极观念（自杀念头）</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="4" id="checkbox14" />
+                        	<label for="checkbox14">有严重自杀行为</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">入睡困难</th>
+                        <td>
+                        	<input type="radio"  name="radio4" value="0" id="checkbox016" />
+                        	<label for="checkbox016">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="1" id="checkbox16" />
+                        	<label for="checkbox16">主诉有时有入睡困难，即上床后半小时仍不能入睡</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="2" id="checkbox17" />
+                        	<label for="checkbox17">主诉每晚均有入睡困难</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">睡眠不深</th>
+                        <td>
+                        	<input type="radio"  name="radio5" value="0" id="checkbox018" />
+                        	<label for="checkbox018">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio5" value="1" id="checkbox18" />
+                        	<label for="checkbox18">睡眠浅多恶梦</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio5" value="2" id="checkbox19" />
+                        	<label for="checkbox19">半夜（晚上12点以前）曾醒来（不包括上厕所）</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">早醒</th>
+                        <td>
+                        	<input type="radio"  name="radio6" value="0" id="checkbox020" />
+                        	<label for="checkbox020">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio6" value="1" id="checkbox20" />
+                        	<label for="checkbox20">有早醒，比平时早醒1小时，但能重新入睡</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio6" value="2" id="checkbox21" />
+                        	<label for="checkbox21">早醒后无法重新入睡</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">工作和兴趣</th>
+                        <td>
+                        	<input type="radio"  name="radio7" value="0" id="checkbox022" />
+                        	<label for="checkbox022">无异常</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="1" id="checkbox22" />
+                        	<label for="checkbox22">提问时才诉述</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="2" id="checkbox23" />
+                        	<label for="checkbox23">自发地直接或间接表达对活动、工作或学习失去兴趣，如感到没精打采，犹豫不决，不能坚持或需强迫自己去工作或活动</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="3" id="checkbox24" />
+                        	<label for="checkbox24">病室劳动或娱乐不满3小时</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="4" id="checkbox25" />
+                        	<label for="checkbox25">因目前的疾病而停止工作，住院患者不参加任何活动或者没有他人帮助便不能完成病室日常事务</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">迟缓：指思维和语言缓慢，注意力难以集中，主动性减退。</th>
+                        <td>
+                        	<input type="radio"  name="radio8" value="0" id="checkbox026" />
+                        	<label for="checkbox026">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="1" id="checkbox26" />
+                        	<label for="checkbox26">精神检查中发现轻度迟缓</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="2" id="checkbox27" />
+                        	<label for="checkbox27">精神检查中发现明显迟缓</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="3" id="checkbox28" />
+                        	<label for="checkbox28">精神检查进行困难</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="4" id="checkbox29" />
+                        	<label for="checkbox29">完全不能回答问题（木僵）</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">激越</th>
+                        <td>
+                        	<input type="radio"  name="radio9" value="0" id="checkbox030" />
+                        	<label for="checkbox030">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="1" id="checkbox30" />
+                        	<label for="checkbox30">检查时表现的有些心神不定</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="2" id="checkbox31" />
+                        	<label for="checkbox31">明显的心神不定或小动作多</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="3" id="checkbox32" />
+                        	<label for="checkbox32">不能静坐，检查中曾站立</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="4" id="checkbox33" />
+                        	<label for="checkbox33">搓手，咬手指，扯头发，咬嘴唇</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">精神性焦虑</th>
+                        <td>
+                        	<input type="radio"  name="radio10" value="0" id="checkbox034" />
+                        	<label for="checkbox034">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="1" id="checkbox34" />
+                        	<label for="checkbox34">问到时才诉述</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="2" id="checkbox35" />
+                        	<label for="checkbox35">自发地表达</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="3" id="checkbox36" />
+                        	<label for="checkbox36">表情和言谈流露明显忧虑</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="4" id="checkbox37" />
+                        	<label for="checkbox37">明显惊恐</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">躯体性焦虑：指焦虑的生理症状，包括口干、腹胀、腹泻、打呃、腹绞痛、心悸、头痛、过度换气和叹息、以及尿频和出汗等。</th>
+                        <td>
+                        	<input type="radio"  name="radio11" value="0" id="checkbox038" />
+                        	<label for="checkbox038">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio11" value="1" id="checkbox38" />
+                        	<label for="checkbox38">轻度</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio11" value="2" id="checkbox39" />
+                        	<label for="checkbox39">中度，有肯定的上述症状</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio11" value="3" id="checkbox40" />
+                        	<label for="checkbox40">重度，上述症状严重，影响生活或需加处理</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio11" value="4" id="checkbox41" />
+                        	<label for="checkbox41">严重影响生活和活动</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">胃肠道症状</th>
+                        <td>
+                        	<input type="radio"  name="radio12" value="0" id="checkbox042" />
+                        	<label for="checkbox042">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio12" value="1" id="checkbox42" />
+                        	<label for="checkbox42">食欲减退，但不需他人鼓励便自行进食</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio12" value="2" id="checkbox43" />
+                        	<label for="checkbox43">进食需他人催促或请求或需要应用泻药或助消化药</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">全身症状</th>
+                        <td>
+                        	<input type="radio"  name="radio13" value="0" id="checkbox044" />
+                        	<label for="checkbox044">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio13" value="1" id="checkbox44" />
+                        	<label for="checkbox44">四肢、背部或颈部沉重感，背痛，头痛，肌肉疼痛，全身乏力或疲倦</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio13" value="2" id="checkbox45" />
+                        	<label for="checkbox45">上述症状明显</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">性症状：指性欲减退、月经紊乱等。</th>
+                        <td>
+                        	<input type="radio"  name="radio14" value="0" id="checkbox046" />
+                        	<label for="checkbox046">无症状，或者不能肯定，或者该项对被评者不适合。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio14" value="1" id="checkbox46" />
+                        	<label for="checkbox46">轻度</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio14" value="2" id="checkbox47" />
+                        	<label for="checkbox47">重度</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">疑病</th>
+                        <td>
+                        	<input type="radio"  name="radio15" value="0" id="checkbox049" />
+                        	<label for="checkbox049">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio15" value="1" id="checkbox49" />
+                        	<label for="checkbox49">对身体过分关注</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio15" value="2" id="checkbox50" />
+                        	<label for="checkbox50">反复考虑健康问题</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio15" value="3" id="checkbox51" />
+                        	<label for="checkbox51">有疑病妄想</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio15" value="4" id="checkbox52" />
+                        	<label for="checkbox52">伴幻觉的疑病妄想</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">体重减轻</th>
+                        <td>
+                        	<input type="radio"  name="radio16" value="0" id="checkbox053" />
+                        	<label for="checkbox053">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio16" value="1" id="checkbox53" />
+                        	<label for="checkbox53">一周内体重减轻1斤以上</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio16" value="2" id="checkbox553" />
+                        	<label for="checkbox553">一周内体重减轻2斤以上</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">自知力</th>
+                        <td>
+                        	<input type="radio"  name="radio17" value="0" id="checkbox54" />
+                        	<label for="checkbox54">知道自己有病，表现为忧郁</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio17" value="1" id="checkbox55" />
+                        	<label for="checkbox55">知道自己有病，但归于伙食太差、环境问题、工作过忙、病毒感染或需要休息等</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio17" value="2" id="checkbox56" />
+                        	<label for="checkbox56">完全否认有病</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">日夜变化（如果症状在早晨或傍晚加重，先指出哪一种，然后按其变化程度评分）</th>
+                        <td>
+                        	<input type="radio"  name="radio18" value="0" id="checkbox057" />
+                        	<label for="checkbox057">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio18" value="1" id="checkbox57" />
+                        	<label for="checkbox57">轻度变化</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio18" value="2" id="checkbox58" />
+                        	<label for="checkbox58">重度变化</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">人格解体或现实解体：指非真实感或虚无妄想。</th>
+                        <td>
+                        	<input type="radio"  name="radio19" value="0" id="checkbox059" />
+                        	<label for="checkbox059">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio19" value="1" id="checkbox59" />
+                        	<label for="checkbox59">问及时才诉述</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio19" value="2" id="checkbox60" />
+                        	<label for="checkbox60">自发诉述</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio19" value="3" id="checkbox61" />
+                        	<label for="checkbox61">有虚无妄想</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio19" value="4" id="checkbox62" />
+                        	<label for="checkbox62">伴幻觉的虚无妄想</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">偏执症状</th>
+                        <td>
+                        	<input type="radio"  name="radio20" value="0" id="checkbox063" />
+                        	<label for="checkbox063">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio20" value="1" id="checkbox63" />
+                        	<label for="checkbox63">有猜疑</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio20" value="2" id="checkbox64" />
+                        	<label for="checkbox64">有关系观念</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio20" value="3" id="checkbox65" />
+                        	<label for="checkbox65">有关系妄想或被害妄想</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio20" value="4" id="checkbox66" />
+                        	<label for="checkbox66">伴有幻觉的关系妄想或被害妄想</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">强迫症状：指强迫思维和强迫行为。</th>
+                        <td>
+                        	<input type="radio"  name="radio21" value="0" id="checkbox067" />
+                        	<label for="checkbox067">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio21" value="1" id="checkbox67" />
+                        	<label for="checkbox67">问及时才诉述</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio21" value="2" id="checkbox68" />
+                        	<label for="checkbox68">自发诉述</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">能力减退感</th>
+                        <td>
+                        	<input type="radio"  name="radio22" value="0" id="checkbox069" />
+                        	<label for="checkbox069">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio22" value="1" id="checkbox69" />
+                        	<label for="checkbox69">仅于提问时方引出主观体验</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio22" value="2" id="checkbox70" />
+                        	<label for="checkbox70">病人主动表示能力减退感</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio22" value="3" id="checkbox71" />
+                        	<label for="checkbox71">需鼓励、指导和安慰才能完成病室日常事务或个人卫生</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio22" value="4" id="checkbox72" />
+                        	<label for="checkbox72">穿衣、梳洗、进食、铺床或个人卫生均需他人协助</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">绝望感</th>
+                        <td>
+                        	<input type="radio"  name="radio23" value="0" id="checkbox073" />
+                        	<label for="checkbox073">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio23" value="1" id="checkbox73" />
+                        	<label for="checkbox73">有时怀疑"情况是否会好转"，但解释后能接受</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio23" value="2" id="checkbox74" />
+                        	<label for="checkbox74">持续感到"没有希望"，但解释后能接受</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio23" value="3" id="checkbox75" />
+                        	<label for="checkbox75">对未来感到灰心、悲观和绝望，解释后不能排除</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio23" value="4" id="checkbox76" />
+                        	<label for="checkbox76">自动反复诉述"我的病不会好了"或诸如此类的情况</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">自卑感</th>
+                        <td>
+                        	<input type="radio"  name="radio24" value="0" id="checkbox077" />
+                        	<label for="checkbox077">无</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio24" value="1" id="checkbox77" />
+                        	<label for="checkbox77">仅在询问时诉述有自卑感（我不如他人）</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio24" value="2" id="checkbox78" />
+                        	<label for="checkbox78">自动诉述有自卑感（我不如他人）</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio24" value="3" id="checkbox79" />
+                        	<label for="checkbox79">病人主动诉述："我一无是处"或"低人一等"，与评2分者只是程度的差别</label>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio24" value="4" id="checkbox80" />
+                        	<label for="checkbox80">自卑感达妄想的程度，例如"我是废物"或类似情况</label>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="2"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">24</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                        <td>总分＜8分：正常；<br />总分在8～20分：可能有抑郁症；<br />总分在20～35分：肯定有抑郁症；<br />总分＞35分：严重抑郁症。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td>汉密尔顿抑郁量表(Hamilton Depression Scale，HAMD)是由Hamilton编制，是临床上评定抑郁状态时应用得最为普遍的量表。量表是24项版本，方法简单，标准明确，便于掌握。适用于有抑郁症状的成人。总分能够较好的反映疾病严重程度，也能很好的衡量治疗效果，是经典和被公认的抑郁评定量表。HAMD大部分项目采用0~4分的5级评分法。各级的标准为：(0)无；(1)轻度；(2)中度；(3)重度；(4)极重度。少数项目采用0~2分的3级评分法，其分级的标准为：(0)无；(1)轻~中度；(2)重度。<br />应由经过训练的两名评定员对被评定者进行汉密尔顿抑郁量表联合检查。一般采用交谈与观察方式，待检查结束后，两名评定员分别独立评分。若需比较治疗前后抑郁症状和病情的变化，则于入组时，评定当时或入组前一周的情况，治疗后2-6周，再次评定，以资比较。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>张作记主编.《行为医学量表手册》（光盘版）[M].中华医学电子音像出版社.2005年</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore()+allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseFloat( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu();
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 24-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

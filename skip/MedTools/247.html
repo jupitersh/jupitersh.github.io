@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>类风湿关节炎疾病活动性评分</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>压痛关节数：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>肿胀关节数：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>血沉：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>mm/1h</td>
+			</tr>
+			<tr>
+				<th>视觉模拟评分：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除结果" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Disease activity score in 28 joints</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>DAS28=0.56*SQRT(T28)+0.28*SQRT(SW28)+0.70*Ln（ESR）+0.014*VAS</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>＜2.6：临床缓解；<br />2.6-3.2：低活动性；<br />3.2-5.1：中等活动性；<br />＞5.1，高活动性。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>28指的是评估的关节数一共有28个，包括双肩关节（2）、双肘关节（2）、双腕关节（2）、双侧掌指关节（10）、双侧近端指间关节（10）和双膝关节（2）；压痛检查应考虑到关节各个活动范围内的压痛；肿胀检查应从前、后、侧方多角度分别观察；可配合皮温检查确定是否肿胀。
+VAS表示患者对当前疾病在近一周内造成的疼痛和不适的主观评价，在一个0-100mm的尺上进行标注，0为无不适，100为最严重的不适。</td>
+			</tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1. J.Fransen,P.L.C.M.van Riel.The Disease Activity Score and the EULAR response criteria.Clin Exp Rheumatol.2005;23(suppl.39):S93-S99.</td>
+            </tr>
+        </tbody>
+    </tbody>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>DAS28=<em id="end"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	if(isNaN(num1) || num1 < 0 || num1 > 28){
+		alert("请填写正确的压痛关节数，数值为0~28的整数");
+	}else if(isNaN(num2) || num2 < 0 || num2 > 28){
+		alert("请填写正确的肿胀关节数，数值为0~28的整数");
+	}else if(isNaN(num3) || num3 == "" || num3 < 0){
+		alert("请填写正确的血沉，数值为大于0的数");
+	}else if(isNaN(num4) || num4 < 0 || num4 > 100){
+		alert("请填写正确的视觉模拟评分，数值为0~100的整数");
+	}else{
+		var end = 0.56*num1+0.28*num2+0.70*Math.log(num3)+0.014*num4;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

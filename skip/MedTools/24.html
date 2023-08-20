@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>1秒率</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>FEV<sub>1</sub>：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <th>FVC：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>FEV<sub>1</sub>/FVC</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>1秒率=FEV<sub>1</sub>/FVC</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>1秒率可以帮助鉴别阻塞性肺部疾病和限制性肺部疾病，在肺纤维化等限制性肺部疾病中，FEV1和FVC均下降，1秒率可正常甚至超过83%；而在支气管哮喘等阻塞性肺部疾病中，1秒率降低。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>姚泰主编. 生理学（八年制）[M]. 人民卫生出版社.2005年</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin:auto;vertical-align:middle;">
+    <div id="textPop">
+      <h4>计算结果为：</h4>
+      <p>1秒率=<em id="end"> </em>%</p>
+      <div>
+        <input type="button" value="关闭" id="close" class="closeBtn">
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //VC
+	var num2 = parseFloat(document.getElementById("num2").value); //RV
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的FEV1");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的FVC");
+	}else{
+		var end = (num1/num2)*100;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

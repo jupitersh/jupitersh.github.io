@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>FLACC 行为评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>FLACC 行为评分</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th colspan="2">内容</th>
+                    <th>评分</th>
+                </tr>
+                <tr>
+                		<td rowspan="3">面部表情</td>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox0" />
+                        <label for="checkbox0">无特定表情或微笑</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox1" />
+                        <label for="checkbox1">偶尔面部扭曲或皱眉</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="2" id="checkbox2" />
+                        <label for="checkbox2">持续颤抖下巴，紧缩下颚，紧皱眉头</label>
+                    </td>
+                    <td>2</td>
+                </tr> 
+                 <tr>
+                		<td rowspan="3">腿部活动</td>
+                    <td>
+                        <input type="radio" name="radio2" value="0" id="checkbox3" />
+                        <label for="checkbox3">正常体位或放松状态</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="1" id="checkbox4" />
+                        <label for="checkbox4">不适，无法休息，肌肉或神经紧张，肌体间断弯曲/伸展</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="2" id="checkbox5" />
+                        <label for="checkbox5">踢或拉直腰，高张力，扩大肌体弯曲/伸展，发抖</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">体位</td>
+                    <td>
+                        <input type="radio" name="radio3" value="0" id="checkbox6" />
+                        <label for="checkbox6">安静平躺，正常体位，可顺利移动</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="1" id="checkbox7" />
+                        <label for="checkbox7">急促不安，来回移动，紧张，移动犹豫</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="2" id="checkbox14" />
+                        <label for="checkbox14">卷曲或痉挛，来回摆动，头部左右摇动，揉搓身体某部分</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">哭闹</td>
+                    <td>
+                        <input type="radio" name="radio4" value="0" id="checkbox8" />
+                        <label for="checkbox8">不哭不闹</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="1" id="checkbox9" />
+                        <label for="checkbox9">呻吟或啜泣，偶尔哭泣，叹息</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="2" id="checkbox10" />
+                        <label for="checkbox10">不断哭泣，尖叫或抽泣，呻吟</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">可安慰度</td>
+                    <td>
+                        <input type="radio" name="radio5" value="0" id="checkbox11" />
+                        <label for="checkbox11">平静的，满足的，放松，不要求安慰</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="1" id="checkbox12" />
+                        <label for="checkbox12">可通过偶尔身体接触消除疑虑，分散注意</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="2" id="checkbox13" />
+                        <label for="checkbox13">安慰有困难</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th colspan="2"class="count">评分</th>
+                    <td><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+								<td>
+										5 项指标的总和，最低为 0 分，最高为 l0 分，得分越高，不适和疼痛越明显。
+								</td>
+						</tr>
+						<tr>
+								<th>相关解释</th>
+								<td>
+										面部表情 (facial expression)、下肢动作 (legs)、活动 (activity)、哭闹 (cry)、是否易安慰 (consolability)。
+										<br/><br/>
+										FIACC 行为评分法适用：术后疼痛及不适、选择性外科手术术后、不能精确表达的 0 岁～7 岁儿童。	
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

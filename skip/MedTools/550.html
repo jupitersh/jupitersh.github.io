@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>MODS评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+input,select {border:1px solid #ccc;}
+input {padding:5px;}
+input[type="text"] {width:65px;}
+select {padding:5px 0;}
+
+#jisuan {margin-right:15px; padding:5px 15px; background:#eee; cursor:pointer;}
+</style>
+</head>
+
+<body>
+<div id="Layout">
+    <div class="titleBar">
+    	<h1>MODS评分</h1>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+            	<tr>
+            		<th colspan="2">PaO<sub>2</sub></th>
+            		<td><input type="text" id="num1"> mmHg</td>
+            	</tr>
+                <tr>
+                    <th colspan="2">FiO<sub>2</sub></th>
+                    <td><input type="text" id="num2"> %</td>
+                </tr>
+                <tr>
+                    <th colspan="2">血清肌酐</th>
+                    <td><input type="text" id="num3"> umol/L</td>
+                </tr>
+                <tr>
+                    <th colspan="2">血清总胆红素</th>
+                    <td><input type="text" id="num4"> umol/L</td>
+                </tr>
+                <tr>
+                    <th colspan="2">心率</th>
+                    <td><input type="text" id="num5"> 次/分</td>
+                </tr>
+                <tr>
+                    <th colspan="2">中心静脉压</th>
+                    <td><input type="text" id="num6"> mmHg</td>
+                </tr>
+                <tr>
+                    <th colspan="2">平均动脉压</th>
+                    <td><input type="text" id="num7"> mmHg</td>
+                </tr>
+                <tr>
+                    <th colspan="2">血小板</th>
+                    <td><input type="text" id="num8"> ×10^9/L</td>
+                </tr>
+                <tr>
+                	<th rowspan="3">格拉斯哥昏迷评分</th>
+                    <th>运动反应</th>
+                    <td>
+                    	<select id="num9">
+                        	<option value="0">请选择</option>
+                        	<option value="6">遵命动作</option>
+                        	<option value="5">定位动作</option>
+                        	<option value="4">刺痛躲避</option>
+                        	<option value="3">肢体屈曲</option>
+                        	<option value="2">肢体过伸</option>
+                        	<option value="1">无反应</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>言语反应</th>
+                    <td>
+                    	<select id="num10">
+                        	<option value="0">请选择</option>
+                        	<option value="5">回答正确</option>
+                        	<option value="4">回答错误</option>
+                        	<option value="3">说单个词</option>
+                        	<option value="2">唯有声叹</option>
+                        	<option value="1">无反应</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>睁眼动作</th>
+                    <td>
+                    	<select id="num11">
+                        	<option value="0">请选择</option>
+                        	<option value="4">正常睁眼</option>
+                        	<option value="3">呼唤睁眼</option>
+                        	<option value="2">刺痛睁眼</option>
+                        	<option value="1">无反应</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="count">评分</th>
+                    <td><input type="button" id="jisuan" value="计算" /> <strong>MODS评分:<span><em class="num">0</em></span></strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="countTabResult">
+            <tbody>
+                <tr>
+                    <th>结果解读</th>
+                    <td>MODS评分越高，ICU病人死亡率越高。0分，无死亡发生；9～12分，死亡率小于25%；13～16分，死亡率50%；17～20分，死亡率75%；＞20分，死亡率100%。</td>
+                </tr>
+                <tr>
+                    <th>相关解释</th>
+                    <td>以6个脏器系统的客观生化指标衡量，每个系统得分有0～4五个级别。</td>
+                </tr>
+                <tr>
+                    <th>参考来源</th>
+                    <td>刘焕然，万献尧 主编.《袖珍危重症评分手册》[M].人民军医出版社.2010.</td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script> 
+<script type="text/javascript">
+$(function(){	
+	function HuXi(n1,n2){
+		var huxi = n1/n2;
+		if(huxi>300){
+			return 0
+		}else if(huxi>=226 && huxi<=300){
+			return 1
+		}else if(huxi>=151 && huxi<=225){
+			return 2
+		}else if(huxi>=76 && huxi<=150){
+			return 3
+		}else if(huxi<=75){
+			return 4
+		}
+	}
+	
+	function Shen(n){
+		if(n<=100){
+			return 0
+		}else if(n>=101 && n<=200){
+			return 1
+		}else if(n>=201 && n<=350){
+			return 2
+		}else if(n>=351 && n<=500){
+			return 3
+		}else if(n>500){
+			return 4
+		}
+	}
+	
+	function Gan(n){
+		if(n<=20){
+			return 0
+		}else if(n>=21 && n<=60){
+			return 1
+		}else if(n>=61 && n<=120){
+			return 2
+		}else if(n>=121 && n<=240){
+			return 3
+		}else if(n>240){
+			return 4
+		}
+	}
+	
+	function Xin(n1,n2,n3){
+		var N = n1*n2/n3;
+		if(N<=10){
+			return 0
+		}else if(N>=10.1 && N<=15){
+			return 1
+		}else if(N>=15.1 && N<=20){
+			return 2
+		}else if(N>=20.1 && N<=30){
+			return 3
+		}else if(N>30){
+			return 4
+		}
+	}
+	
+	function Xue(n){
+		if(n>120){
+			return 0
+		}else if(n>=80 && n<=120){
+			return 1
+		}else if(n>=51 && n<=80){
+			return 2
+		}else if(n>=21 && n<=50){
+			return 3
+		}else if(n<=20){
+			return 4
+		}
+	}
+	
+	function Ge(n1,n2,n3){
+		var N = n1+n2+n3;
+		if(N=15){
+			return 0
+		}else if(N>=13 && N<=14){
+			return 1
+		}else if(N>=10 && N<=12){
+			return 2
+		}else if(N>=7 && N<=9){
+			return 3
+		}else if(N<6){
+			return 4
+		}
+	}
+	
+	$('#jisuan').click(function(){
+		var num1 = parseFloat($('#num1').val());
+		var num2 = parseFloat($('#num2').val());
+		var num3 = parseFloat($('#num3').val());
+		var num4 = parseFloat($('#num4').val());
+		var num5 = parseFloat($('#num5').val());
+		var num6 = parseFloat($('#num6').val());
+		var num7 = parseFloat($('#num7').val());
+		var num8 = parseFloat($('#num8').val());
+		var num9 = parseInt($('#num9').val());
+		var num10 = parseInt($('#num10').val());
+		var num11 = parseInt($('#num11').val());
+		
+		if( isNaN(num1) ){
+			alert('请输入正确的PaO2')
+			return false;
+		}
+		if( isNaN(num2) ){
+			alert('请输入正确的FiO2')
+			return false;
+		}
+		if( isNaN(num3) ){
+			alert('请输入正确的血清肌酐')
+			return false;
+		}
+		if( isNaN(num4) ){
+			alert('请输入正确的血清总胆红素')
+			return false;
+		}
+		if( isNaN(num5) ){
+			alert('请输入正确的心率')
+			return false;
+		}
+		if( isNaN(num6) ){
+			alert('请输入正确的中心静脉压')
+			return false;
+		}
+		if( isNaN(num7) ){
+			alert('请输入正确的平均动脉压')
+			return false;
+		}
+		if( isNaN(num8) ){
+			alert('请输入正确的血小板')
+			return false;
+		}
+		if( num9==0 ){
+			alert('请选择一项运动反应')
+			return false;
+		}
+		if( num10==0 ){
+			alert('请选择一项言语反应')
+			return false;
+		}
+		if( num11==0 ){
+			alert('请选择一项睁眼动作')
+			return false;
+		}
+		
+		var end = HuXi(num1,num2)+Shen(num3)+Gan(num4)+Xin(num5,num6,num7)+Xue(num8)+Ge(num9,num10,num11);
+		
+		$('.num').text(end);
+		
+	});
+});
+</script>
+</body>
+</html>

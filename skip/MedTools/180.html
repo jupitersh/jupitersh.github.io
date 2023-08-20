@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>非心脏手术术前心脏风险指数(改良Goldman评分)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>非心脏手术术前心脏风险指数(改良Goldman评分)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                    	<th></th>
+                		<th>影响因素</th>
+                		<th>评分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="2">1.病史</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="5" id="checkbox1" />
+                        	<label for="checkbox1">年龄&gt;70岁</label>
+                        </td>
+                        <td>5分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="10" id="checkbox2" />
+                        	<label for="checkbox2">6个月内心肌梗塞病史</label>
+                        </td>
+                        <td>10分</td>
+           	        </tr>
+                	<tr>
+                    	<th rowspan="2">2.物理检查</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="11" id="checkbox3" />
+                        	<label for="checkbox3">奔马率（S3 gallop）or颈静脉怒张（JVD）</label>
+                        </td>
+                        <td>11分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="4" id="checkbox4" />
+                        	<label for="checkbox4">显著的主动脉瓣狭窄（Important VAS）</label>
+                        </td>
+                        <td>4分</td>
+           	        </tr>
+                	<tr>
+                    	<th rowspan="2">3.心电图</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="7" id="checkbox5" />
+                        	<label for="checkbox5">窦性or房性期前收缩以外的心律失常（最末一次EKG）</label>
+                        </td>
+                        <td>7分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="7" id="checkbox6" />
+                        	<label for="checkbox6">室性期前收缩≥5次/分（任何时候的EKG）</label>
+                        </td>
+                        <td>7分</td>
+           	        </tr>
+                    <tr>
+                    	<th>4.一般状况</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="3" id="checkbox7" />
+                        	<label for="checkbox7">PaO2＜60mmHg or PCO2＞50mmHg；<br />&nbsp;&nbsp;&nbsp;&nbsp;K+＜3.0mmol/L；<br />&nbsp;&nbsp;&nbsp;&nbsp;HCO3-＜20mmol/L；<br />&nbsp;&nbsp;&nbsp;&nbsp;BUN＞50mg/dl(17.85mmol/L)或Cr＞3.0mg/dl(265μmol/L)；<br />&nbsp;&nbsp;&nbsp;&nbsp;GOT不正常；<br />&nbsp;&nbsp;&nbsp;&nbsp;慢性肝病征像；<br />&nbsp;&nbsp;&nbsp;&nbsp;病人非心脏原因的卧床不起（patient bedridden from noncardiac causes）</label></td>
+                        <td>3分</td>
+                    </tr>
+                	<tr>
+                    	<th rowspan="2">5.手术种类</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="3" id="checkbox8" />
+                        	<label for="checkbox8">腹腔，胸腔内，或主动脉手术</label>
+                        </td>
+                        <td>3分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="4" id="checkbox9" />
+                        	<label for="checkbox9">急诊手术</label>
+                        </td>
+                        <td>4分</td>
+           	        </tr>
+                    <tr>
+						<th colspan="2" class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+		  <tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>分级:<br />Ⅰ级，0-5分：重要并发症&lt;1%，心血管并发症风险&lt;0.2%。<br />Ⅱ级，6-12分：重要并发症7%左右，心血管并发症风险2%左右。<br />Ⅲ级，13-25分：重要并发症14%左右，心血管并发症风险5%左右。<br />Ⅳ级，&ge;26分：重要并发症78%，心血管并发症风险56%。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Goldman L, Caldera DL, Nussbaum SR, et al. Multifactorial index of cardiac risk in noncardiac surgical procedures. N. Engl J Med. 297: 845, 1977.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

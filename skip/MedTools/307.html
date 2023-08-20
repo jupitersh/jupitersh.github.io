@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>Essen卒中风险评分量表(Essen Stroke Risk Score, ESRS)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Essen卒中风险评分量表(Essen Stroke Risk Score, ESRS)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+                	<tr>
+                        <th>危险因素</th>
+                        <th>分数</th>
+                    </tr>
+                </thead>
+				<tbody>
+                    <tr>
+                        <td>
+                            <input type="radio" name="radio" value="0" id="checkbox1" />
+                            <label for="checkbox1">&lt;65岁</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="radio" value="1" id="checkbox2" />
+                            <label for="checkbox2">65~75岁</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="radio" value="2" id="checkbox3" />
+                            <label for="checkbox3">&gt;75岁</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox4" />
+                            <label for="checkbox4">高血压</label>	
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox5" />
+                            <label for="checkbox5">糖尿病</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox6" />
+                            <label for="checkbox6">既往心肌梗死</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox7" />
+                            <label for="checkbox7">其他心血管疾病（除外心房颤动和心肌梗死）</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox8" />
+                            <label for="checkbox8">外周动脉疾病</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox9" />
+                            <label for="checkbox9">吸烟</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="checkbox" value="1" id="checkbox10" />
+                            <label for="checkbox10">既往缺血性脑卒中/TIA史</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+                <tbody>
+                    <tr>
+                        <th>结果解读</th>
+                        <td>ESRS可以预测稳定期或急性期患者的卒中或复合心血管事件的复发风险。<br />0~2分者年卒中复发风险较低；<br />3~6分者为高度风险，年卒中复发风险为7~9%左右；<br />6分以上者为极高度风险，年卒中复发风险达11%。<br />对于ESRS≥3分的高危患者应该给予氯吡格雷强化二级预防抗血小板治疗策略。</td>
+                    </tr>
+                    <tr>
+                        <th>相关解释</th>
+                        <td>该量表根据氯吡格雷与阿司匹林相比用于缺血事件高危患者试验(Clopidogrel versus Aspirin in Patients at Risk of Ischaemic Events, CAPRIE)的卒中患者的数据开发。</td>
+                    </tr>
+                    <tr>
+                        <th>参考来源</th>
+                        <td>1. A randomized, blinded, trial of clopidogrel versus aspirin in patients at risk of ischaemic events (caprie). Caprie steering committee [J]. Lancet, 1996, 348: 1329-1339.</td>
+                    </tr>
+                </tbody>
+            </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu(){
+		var n=allScore()+allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu();
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>动脉血氧分压预测值(根据年龄、体位估算)</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>年龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>岁</td>
+			</tr>
+			<tr>
+				<th>体位：</th>
+				<td class="text_wrap">
+                	<select id="sele">
+                    	<option value="0">坐位</option>
+                    	<option value="1">卧位</option>
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>坐位：PaO2=104.2-0.27×年龄<br />卧位：PaO2=103.5-0.42×年龄</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>正常范围为80~100mmHg</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+           	<tr>
+            	<td>PaO2是反映机体氧合功能的重要指标，是低氧血症诊断的金标准；其大小受肺通气、血流量、V/Q比值、心排血量、混合静脉血氧分压、组织耗氧量和吸氧浓度等多种因素影响。<br/>若患者的实测值低于该预测值的话，需要考虑低氧血症的可能。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>陈孝平主编. 《外科学》（八年制）[M]. 人民卫生出版社.2010年主编. 《儿科学》（八年制）[M]. 人民卫生出版社.2005年</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>动脉血氧分压：<span id="end"></span>mmHg</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("sele").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的年龄");
+	}else{
+		if(num2 == 0){
+			var end = 104.2-0.27*num1;
+			$("#end").text(end.toFixed(0));
+		}else if(num2 == 1){
+			var end = 103.5-0.42*num1;
+			$("#end").text(end.toFixed(0));
+		}
+		$("#textPop").css("display","block");
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>Karnofsky（卡氏，KPS）功能状态评分（百分法）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Karnofsky（卡氏，KPS）功能状态评分（百分法）</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th>体力状况</th>
+                    <th>评分</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="100" id="checkbox0" />
+                        <label for="checkbox0">正常，无症状和体征</label>
+                    </td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="90" id="checkbox1" />
+                        <label for="checkbox1">能进行正常活动，有轻微症状和体征</label>
+                    </td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="80" id="checkbox2" />
+                        <label for="checkbox2">勉强进行正常活动，有一些症状或体征</label>
+                    </td>
+                    <td>80</td>
+                </tr> 
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="70" id="checkbox3" />
+                        <label for="checkbox3">生活能自理，但不能维持正常生活和工作</label>
+                    </td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="60" id="checkbox4" />
+                        <label for="checkbox4">生活能大部分自理，但偶尔需要别人帮助</label>
+                    </td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="50" id="checkbox5" />
+                        <label for="checkbox5">常需要人照料</label>
+                    </td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="40" id="checkbox6" />
+                        <label for="checkbox6">生活不能自理，需要特别照顾和帮助</label>
+                    </td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="30" id="checkbox7" />
+                        <label for="checkbox7">生活严重不能自理</label>
+                    </td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="20" id="checkbox8" />
+                        <label for="checkbox8">病重，需要住院和积极的支持治疗</label>
+                    </td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="10" id="checkbox9" />
+                        <label for="checkbox9">重危，临近死亡</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox10" />
+                        <label for="checkbox10">死亡</label>
+                    </td>
+                    <td>0</td>
+                </tr> 
+                <tr>
+                    <th class="count">评分</th>
+                    <td><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+								<td>
+										得分越高，健康状况越好，越能忍受治疗给身体带来的副作用，因而也就有可能接受彻底的治疗。
+										<br/><br/>
+										等分越低，健康状况越差，若低于 60 分，许多有效的抗肿瘤治疗就无法实施。
+										<br/><br/>
+										Karnofsky 评分一般要求不小于 70，PS 评分一般要求不大于 2，才考虑化疗等。
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

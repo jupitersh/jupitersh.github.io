@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>全麻效果评级标准</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>全麻效果评级标准</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th width="17%">级别</th>
+                    <th>标准</th>
+                </tr>
+                <tr>
+                    <td>Ⅰ 级</td>
+                    <td>
+                    		1、麻醉诱导平稳、无躁动、无呛咳及血液动力学的变化，插管顺利无损伤。
+												<br/><br/>
+												2、麻醉维持期深浅适度，既无明显的应急反应，又无呼吸循环的抑制，肌松良好， 为手术提供良好的条件。
+												<br/><br/>
+												3、麻醉结束，苏醒期平稳，既没有过早或过迟苏醒，呼吸和循环各项监测正常，肌 松恢复良好，拔管恰当，无不良反应。
+												<br/><br/>
+												4、无并发症。
+                    </td>
+                </tr> 
+                <tr>
+                    <td>Ⅱ 级</td>
+                    <td>
+                    		1、麻醉诱导时稍有呛咳和血液动力学的改变。
+												<br/><br/>
+												2、麻醉维持期深度掌握不够熟练，血液动力学有改变，肌松尚可，配合手术欠理想。
+												<br/><br/>
+												3、麻醉结束缝皮时病人略有躁动，血压和呼吸稍有不平稳。
+												<br/><br/>
+												4、难以防止的轻度并发症。
+                    </td>
+                </tr> 
+                <tr>
+                    <td>Ⅲ 级</td> 
+                    <td>
+                    		1、麻醉诱导经过不平稳，插管有呛咳、躁动，血液动力学不稳定，应激反应强烈。
+												<br/><br/>
+												2、麻醉维持期深浅掌握不熟练，致使应激反应激烈，呼吸和循环的抑制或很不稳定，肌松不良，配合手术勉强。
+												<br/><br/>
+												3、麻醉结束，病人苏醒冗长伴有呼吸抑制或缝皮时病人躁动、呛咳；被迫进行拔管，拔管后呼吸恢复欠佳。
+												<br/><br/>
+												4、产生严重并发症。
+                    </td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore();
+        $('.num').text(n);
+    }
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

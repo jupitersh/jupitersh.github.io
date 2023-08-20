@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>小儿体重计算</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+        	<tr>
+            	<td colspan="3" class="danwei chk"><span class="radio yue checked">月龄</span><span class="radio nian">年龄</span></td>
+            </tr>
+			<tr>
+				<th class="n_y_t">月龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td class="n_y">月</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>足月新生儿：约为3000g(2500~4000g)；<br />1~6个月：出生时体重＋月龄×0.7(kg)；<br />7~12个月：6(kg)＋月龄×0.25(kg)；<br />1岁时：约10kg；<br />2~12岁：年龄(岁)×2＋7(或8)(kg)<br /><br />足月新生儿：平均身长为50cm(46~53cm)；<br />1~6个月：出生身长＋月龄×2.5(cm)；<br />7~12个月：出生身长＋月龄×1.5(cm)；<br />1岁时：出生时1.5倍，约75cm；<br />2~12岁：年龄(岁)×6＋77(cm)</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>新生儿体重有生理性下降，多在出生后3~4日达最低点，以后逐渐回升，至出生后第7~10日又达到出生时的体重。<br />需要注意的是在进行生长评价时应以儿童实际体重的变化趋势为依据，不能用"公式"计算来评价。<br />身长是指头、脊柱、与下肢长度的总和，3岁以下儿童应仰卧位测量，3岁以上立位测量。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>薛辛东主编. 《儿科学》第2版（八年制）[M]. 人民卫生出版社.2010年.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>体重=<em id="end"></em>kg</p>
+        <p>身长=<em id="end2"></em>cm</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.chk span').click(function(e){
+		if(e.target == $('.yue')[0]){
+			$('.n_y_t').html('月龄：');
+			$('.n_y').text('月');
+		}else if(e.target == $('.nian')[0]){
+			$('.n_y_t').html('年龄：');
+			$('.n_y').text('岁');
+		}
+	});
+});
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的月龄/年龄");
+	}else if($('.yue').hasClass('checked')){
+		if( num1 >= 1 && num1 <= 6 ){
+			var end = 3+num1*0.7;
+			var end2 = 50+num1*2.5;
+		}else if( num1 >= 7 && num1 <= 12 ){
+			if( num1 != 12){
+				var end = 6+num1*0.25;
+				var end2 = 50+num1*1.5;
+			}else{
+				var end = 10;
+				var end2 = 75;
+			}
+		}else{
+			alert('月份请输入1到12的整数');
+			return false;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed(2));
+		
+	}else if($('.nian').hasClass('checked')){
+		if( num1 > 0 && num1 < 2 ){
+			if(num1 !=1 ){
+				var end = 6+num1*12*0.25;
+				var end2 = 50+num1*12*1.5;
+			}else{
+				var end = 10;
+				var end2 = 75;
+			}
+		}else if( num1 >= 2 && num1 <= 12 ){
+			var end = num1*2+8;
+			var end2 = num1*6+77;
+		}else{
+			alert('年龄请输入1到12的整数');
+			return false;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

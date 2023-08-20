@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>改良 Rankin 量表</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>改良 Rankin 量表</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th>患者状况</th>
+                    <th>评分标准</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox0" />
+                        <label for="checkbox0">完全无症状</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox1" />
+                        <label for="checkbox1">尽管有症状，但无明显功能障碍，能完成所有日常工作和生活</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="2" id="checkbox2" />
+                        <label for="checkbox2">轻度残疾，不能完成病前所有活动，但不需帮助能照料自己的日常事务</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="3" id="checkbox3" />
+                        <label for="checkbox3">中度残疾，需部分帮助，但能独立行走 </label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="4" id="checkbox4" />
+                        <label for="checkbox4">中重度残疾，不能独立行走，日常生活需别人帮助 </label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="5" id="checkbox5" />
+                        <label for="checkbox5">重度残疾，卧床，二便失禁，日常生活完全依赖他人</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th class="count">评分</th>
+                    <td colspan="2"><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+										<td>
+												<B>0.</B> 尽管可能会有轻微症状，但患者自脑卒中后，没有察觉到任何新发生的功能受限和症状。
+												</br></br>
+												<B>1.</B> 患者有由脑卒中引起的某些症状，无论是身体上或是认知上的，但可继续从事所有脑卒中以前从事的工作、社会和休闲活动。用于区分级别 1 和 2 （见下）的关键问题可以是“是否有些事情你过去经常做，但直到脑卒中以后你不能再做？”。频率超过每月一次的活动被认为是经常（usual）活动。
+												</br></br>
+												<B>2.</B> 某些脑卒中以前可以完成的活动，脑卒中后患者不再能够从事，但仍能每日照顾自己而无须他人协助。患者能够不需要别人的帮助穿衣、行走、吃饭、去卫生间、准备简单的食物、购物、本地出行等。患者生活无需监督。设想这一级别的患者可在无人照顾的情况下单独居家一周或更长时间。
+												</br></br>
+												<B>3.</B> 在这一级别，患者可以独立的行走，能够独立穿衣、去卫生间、吃饭等，但是更复杂的任务需要在别人协助下完成。例如，需要他人代替完成购物、做饭或打扫卫生的工作，和一周不止一次看望患者以确保完成上述活动。需要协助的不仅是照顾身体，更多的是给予建议：比如，在这一级别的患者将需要监督或鼓励来处理财务。
+												</br></br>
+												<B>4.</B> 患者需要其他人帮助打理日常生活，无论是行走、穿衣、去卫生间或吃饭。患者需要每天照看至少一次、通常是二次或更多次，或必须和看护者住得很近。为区分级别 4 和 5 （见下），考虑患者是否能够在一天当中，常规单独生活适当的时间。
+												</br></br>
+												<B>5.</B> 虽然不需受过培训的护士，但需要有人整个白天和夜间数次照看。
+										</td>
+						</tr>
+						<tr>
+								<th>相关解释</th>
+								<td>改良 Rankin 量表是用来衡量患者脑卒中后的功能恢复的结果。</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>孕周查询</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<style type="text/css">
+.form table th {width:40%; padding:5px 0;}
+.form table .text_wrap {width:auto;}
+.form table td .text {width:52px; padding-left:8px;}
+select {padding:5px;}
+</style>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>LMP：</th>
+				<td class="text_wrap lmp">
+                	<select id="lmp_y">
+                    </select>
+                	<select id="lmp_m">
+                    </select>
+                	<select id="lmp_d">
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>孕周查询：</th>
+				<td class="text_wrap search">
+                	<select id="end_y">
+                    </select>
+                	<select id="end_m">
+                    </select>
+                	<select id="end_d">
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="resetData();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>gestational weeks</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>孕周查询=末次月经LMP起始日距某时间的周数。</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>妊娠分期：<br>早期妊娠（first trimester）：≤13周；<br>中期妊娠（second trimester）：14-27周；<br>晚期妊娠（third trimester）：≥28周。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>早期妊娠也称早孕，是胚胎形成、胎儿器官分化的重要时期，因此早期诊断主要是确定妊娠、胎数、胎龄，排除异位妊娠等病理情况。中、晚期妊娠是胎儿生长和各器官发育成熟的重要时期，主要的妊娠诊断是判断胎儿生长发育情况、宫内状况和发现胎儿畸形。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>谢幸，苟文丽主编.妇产科学（第8版）[M].北京：人民卫生出版社，2013.</td>
+            </tr>
+        </tbody>
+	</table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p><em id="end"></em><span id="dw"></span><em id="end2"></em><span id="dw2"></span></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+//当前时间
+var oCurDate = new Date();
+var oCurYear = oCurDate.getFullYear();
+var oCurMonth = oCurDate.getMonth()+1;
+var oCurDay = oCurDate.getDate();
+var oCurTime = oCurDate.getTime();
+
+function init(){
+	$('#lmp_y').html('<option value="'+(oCurYear-1)+'">'+(oCurYear-1)+'</option><option value="'+oCurYear+'" selected>'+oCurYear+'</option><option value="'+(oCurYear+1)+'">'+(oCurYear+1)+'</option>');
+	$('#end_y').html('<option value="'+(oCurYear-1)+'">'+(oCurYear-1)+'</option><option value="'+oCurYear+'" selected>'+oCurYear+'</option><option value="'+(oCurYear+1)+'">'+(oCurYear+1)+'</option><option value="'+(oCurYear+2)+'">'+(oCurYear+2)+'</option>');
+	
+	//设置月份
+	for(var i=1; i<=12; i++){
+		if(i == oCurMonth){
+			var option = $('<option value="'+i+'" selected>'+i+'</option>');
+		}else{
+			var option = $('<option value="'+i+'">'+i+'</option>');
+		}
+		$('#lmp_m').append(option);
+	}
+	
+	for(var i=1; i<=12; i++){
+		if(i == oCurMonth){
+			var option = $('<option value="'+i+'" selected>'+i+'</option>');
+		}else{
+			var option = $('<option value="'+i+'">'+i+'</option>');
+		}
+		$('#end_m').append(option);
+	}
+	
+	oCurDate.setMonth(oCurMonth,0);
+	var oCurLastDay = oCurDate.getDate();
+	
+	//设置日期
+	for(var i=1; i<=oCurLastDay; i++){
+		if(i == oCurDay){
+			var option = $('<option value="'+i+'" selected>'+i+'</option>');
+		}else{
+			var option = $('<option value="'+i+'">'+i+'</option>');
+		}
+		$('#lmp_d').append(option);
+	}
+	
+	for(var i=1; i<=oCurLastDay; i++){
+		if(i == oCurDay){
+			var option = $('<option value="'+i+'" selected>'+i+'</option>');
+		}else{
+			var option = $('<option value="'+i+'">'+i+'</option>');
+		}
+		$('#end_d').append(option);
+	}
+}
+
+$(function(){
+	init();
+	
+	//关闭弹出框
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+	
+function resetData(){
+	init();
+}
+
+function count(){
+	var oLmpYear = $('#lmp_y').val();
+	var oLmpMonth = $('#lmp_m').val();
+	var oLmpDay = $('#lmp_d').val();
+	
+	var oLmpDate = new Date();
+	oLmpDate.setFullYear(oLmpYear,oLmpMonth-1,oLmpDay)
+	var oLmpTime = oLmpDate.getTime();
+	
+	var oSearchYear = $('#end_y').val();
+	var oSearchMonth = $('#end_m').val();
+	var oSearchDay = $('#end_d').val();
+	
+	var oSearchDate = new Date();
+	oSearchDate.setFullYear(oSearchYear,oSearchMonth-1,oSearchDay)
+	var oSearchTime = oSearchDate.getTime();
+	
+	var endTime = oSearchTime - oLmpTime;
+	var lastTime = 42*7*24*60*60*1000;
+	
+	if(oSearchTime < oLmpTime){
+		alert('查询的日期不能小于LMP日期');
+	}else if(endTime > lastTime){
+		alert('您查询的时间超过了42周，请重新查询')
+	}else{
+		if(endTime < 1000){
+			endTime = 1000
+		}
+		var endDay = endTime/24/60/60/1000;
+		
+		var z = parseInt(endDay/7);
+		var d = parseInt(endDay%=7);
+		$('#end').text(z);
+		$('#dw').text('周');
+		$('#end2').text(d);
+		$('#dw2').text('天');
+		
+		$('#textPop').show()
+	}
+}
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>
