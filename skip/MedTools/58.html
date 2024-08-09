@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>血性脑脊液白细胞校正</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>检测到的脑脊液WBC计数：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>cells/μL</td>
+      </tr>
+      <tr>
+        <th>血WBC计数：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>×10<sup>9</sup>/L</td>
+      </tr>
+      <tr>
+        <th>脑脊液RBC<br />
+          计数：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td>cells/μL</td>
+      </tr>
+      <tr>
+        <th>血RBC计数：</th>
+        <td><input type="number" value="" id="num4" class="text num4"></td>
+        <td>×10<sup>12</sup>/L</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>CSF WBC correction in blood contaminated CSF</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>校正脑脊液WBC计数=检测到的脑脊液WBC计数-（血WBC计数*脑脊液RBC计数/血RBC计数）</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>出血24小时后，红细胞溶解，加上出血刺激脑膜，使得白细胞大量增加，就不能用上述规律计算。其增加的种类开始为中性粒细胞，以后为淋巴细胞，再后为单核细胞。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Mandell, Bennett, & Dolin: Principles and Practice of Infectious Diseases, 6th ed.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p><em id="end"> </em>cells/μL</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //尿淀粉酶
+	var num2 = parseFloat(document.getElementById("num2").value); //血淀粉酶
+	var num3 = parseFloat(document.getElementById("num3").value); //尿肌酐
+	var num4 = parseFloat(document.getElementById("num4").value); //血肌酐
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的检测到的脑脊液白细胞计数 单位是cells/μL");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的血白细胞计数 单位是×10^9/L");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的脑脊液红细胞计数 单位是cells/μL");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的血红细胞计数 单位是×10^12/L");
+	}else{
+		var end = num1-((1000*num2)*num3/(1000000*num4));
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>氧合指数</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>吸入氧浓度FiO<sub>2</sub>：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <th>动脉血氧分压PaO<sub>2</sub>：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>mmHg</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Oxygenation index,OI</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>氧合指数 = 动脉血氧分压PaO<sub>2</sub>/吸入氧浓度FiO<sub>2</sub></td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>400-500mmHg</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>目前临床上以PaO2/FiO2最为常用，PaO2的单位才用mmHg，FiO2为吸入氧浓度（吸入氧分数），如某位患者在吸入40%氧气的条件下，PaO2为80mmHg，则PaO2/FiO2为80/0.4=200mmHg。PaO2/FiO2的正常值为400-500mmHg，≤300mmHg是诊断急性呼吸窘迫综合征的必要条件。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>内科学2013年3月第8版教材P135</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>OI=<em id="end"> </em></p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //吸入氧浓度
+	var num2 = parseFloat(document.getElementById("num2").value); //动脉氧分压
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的吸入氧浓度");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的动脉氧分压");
+	}else{
+		var end = num2/num1*100;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

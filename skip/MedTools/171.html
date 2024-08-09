@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>小儿基础代谢率</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table cellspacing="0" cellpadding="0" class="countFormTab">
+        	<tr>
+            	<td colspan="3" class="danwei chk"><span class="radio ying checked">婴儿</span><span class="radio qi">7岁</span><span class="radio shi">12岁</span></td>
+            </tr>
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>婴儿：基础代谢率=体重×230kJ(55kcal)/kg；<br />7岁：基础代谢率=体重×184kJ(44kcal)/kg；<br />12岁：基础代谢率=体重×126kJ(30kcal)/kg</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>婴儿基础代谢率较成年人高，婴儿基础代谢率的能量需要约占总能量的60%，后随年龄增长、体表面积增加而逐渐减少，12岁后与成人相仿。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>薛辛东主编. 《儿科学》（八年制）[M]. 人民卫生出版社.2005年</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>基础代谢率=<em id="end"></em>kJ/d</p>
+        <p>或<em id="end2"></em>kcal/d</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的体重");
+	}else{
+		if($(".ying").hasClass("checked")){
+			var end = num1*230;
+			var end2 = num1*55;
+		}else if($(".qi").hasClass("checked")){
+			var end = num1*184;
+			var end2 = num1*44;
+		}else{
+			var end = num1*126;
+			var end2 = num1*30;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+		$("#end2").text(end2.toFixed());
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

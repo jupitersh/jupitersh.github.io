@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>尿素排泄分数</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>血肌酐：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>μmol/L</td>
+      </tr>
+      <tr>
+        <th>尿尿素：</th>
+        <td class="text_wrap"><input type="number" value="" id="num2" class="text num2"></td>
+        <td>mmol/L</td>
+      </tr>
+      <tr>
+        <th>血尿素氮：</th>
+        <td class="text_wrap"><input type="number" value="" id="num3" class="text num3"></td>
+        <td>mmol/L</td>
+      </tr>
+      <tr>
+        <th>尿肌酐：</th>
+        <td class="text_wrap"><input type="number" value="" id="num4" class="text num4"></td>
+        <td>μmol/L</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Fractional Excretion of Urea,FEUrea</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>尿素排泄分数 = (血肌酐 * 尿尿素) / (血尿素氮 * 尿肌酐)</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>7.57±1.85%</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>这项检查能提供与钠排泄分数FENa 公式相似的信息，同时对接受利尿治疗的患者同样适用</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Perez-Ruiz F, Calabozo M, Erauskin GG, et.al. Renal underexcretion of uric acid is present in patients with apparent high urinary uric acid output. Arthritis Rheum. 2002 Dec 15;47(6):610-3.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>FEUrea=<em id="end"> </em>%</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //血肌酐
+	var num2 = parseFloat(document.getElementById("num2").value); //尿尿素
+	var num3 = parseFloat(document.getElementById("num3").value); //血尿素氮
+	var num4 = parseFloat(document.getElementById("num4").value); //尿肌酐
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的血肌酐");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的尿尿素");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的血尿素氮");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的尿肌酐");
+	}else{
+		var end = (num1*num2*100)/(num3*num4);
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

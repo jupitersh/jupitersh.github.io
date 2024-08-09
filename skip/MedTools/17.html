@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>氧输送</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>心输出量CO：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>L/min</td>
+      </tr>
+      <tr>
+        <th>血红蛋白Hb：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>g/L</td>
+      </tr>
+      <tr>
+        <th>动脉血氧饱和度SaO<sub>2</sub>：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Oxygen delivery,DO<sub>2</sub></td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>DO<sub>2</sub>=1.34*CO*Hb*SaO<sub>2</sub></td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>400～600 ml/(min*m<sup>2</sup>)</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>氧在体内无储存，被摄取的氧均被利用，所以测定氧输送(oxygen delivery, DO2)和氧消耗(oxygen consumption VO2)可了解机体循环系统运输氧的能力以及组织对氧的摄取和利用能力。DO2和VO2受到心搏指数（CI）、血红蛋白(Hb)、动/静脉氧分压(PaO2/PvO2)和氧饱和度(SaO2/ SvO2)的影响。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>闫柏刚 杨宗城，烧伤休克监护的进展，《中华烧伤杂志》，2000 Vol.16 No.6 P.375-377.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>DO<sub>2</sub>=<em id="end"> </em>ml/（min*m<sup>2</sup>)</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //CO
+	var num2 = parseFloat(document.getElementById("num2").value); //Hb
+	var num3 = parseFloat(document.getElementById("num3").value); //SaO2
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的心输出量");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的血红蛋白");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的动脉血氧饱和度");
+	}else{
+		var end = 1.34*num1*num2*num3/100;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

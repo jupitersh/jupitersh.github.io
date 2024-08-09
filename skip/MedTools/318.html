@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>胎儿发育指数</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table>
+      <tr>
+        <th>宫高：</th>
+        <td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+        <td>cm</td>
+      </tr>
+      <tr>
+        <th>孕月：</th>
+        <td class="text_wrap"><select id="sele">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select></td>
+        <td>月</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称：</th>
+      </tr>
+      <tr>
+        <td>fetal developmental index</td>
+      </tr>
+      <tr>
+        <th>计算公式：</th>
+      </tr>
+      <tr>
+        <td>胎儿发育指数=宫高(cm)-3×(孕月+1)</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围：</th>
+      </tr>
+      <tr>
+        <td>指数在-3与﹢3之间为正常儿，低于-3则提示有FGR的可能</td>
+      </tr>
+      <tr>
+        <th>说明：</th>
+      </tr>
+      <tr>
+        <td>胎儿生长受限(fetal growth restriction, FGR)需要连续测定宫高、腹围及孕妇体重判断胎儿宫内发育状况。宫高明显小于相应孕周是FGR最明显、最容易识别的体征，宫高测定是筛选FGR的基本方法。孕18~30周时，宫底高度与孕周有明确相关性。<br/>
+          动态检测宫底高度增长曲线的变化，若低于正常宫高平均值2个标准差，则考虑FGR；妊娠晚期孕妇体重增加缓慢或停滞则有FGR可能。</td>
+      </tr>
+      <tr>
+        <th>参考文献：</th>
+      </tr>
+      <tr>
+        <td>丰有吉 沈铿主编. 《妇产科学》（八年制）[M]. 人民卫生出版社.2010年</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div id="textPop">
+  <h4>计算结果为：</h4>
+  <p><span id="end"></span></p>
+  <div>
+    <input type="button" value="关闭" id="close" class="closeBtn">
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("sele").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的宫高，单位是cm");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的孕月");
+	}else{
+		var end = num1-3*(num2+1);
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(1));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

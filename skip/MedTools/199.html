@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>房颤患者卒中风险评分(CHADS2 score for AF，ACC/AHA/ESC 2006)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>房颤患者卒中风险评分(CHADS2 score for AF，ACC/AHA/ESC 2006)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th>危险因素</th>
+                		<th>评分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox1" />
+                        	<label for="checkbox1">心衰或EF≤35%(C)</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox2" />
+                        	<label for="checkbox2">高血压(H)</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox3" />
+                        	<label for="checkbox3">年龄≥75岁(A)</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox4" />
+                        	<label for="checkbox4">糖尿病(D)</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="2" id="checkbox5" />
+                        	<label for="checkbox5">卒中/TIA/系统性栓塞(S)</label>
+                        </td>
+                        <td>2分</td>
+                    </tr>
+                    <tr>
+						<th class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>评分&ge;2分，高危(年卒中风险4~18.2%)，如无禁忌应使用华法林抗凝治疗，INR维持在2-3之间；<br />评分=1分，中危(年卒中风险2.8%)，可使用华法林或阿司匹林进行抗凝治疗，取决于患者情况及医师的建议；<br />评分=0分，低危(年卒中风险1.9%)，推荐使用阿司匹林325mg qd。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>2006年ACC/AHA/ESC推荐用于房颤患者脑卒中危险分层，相比CHA2DS2-VASc，临床操作性强、简单易行。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Gage BF, van Walraven C,Pearce L,et al.(2004).Selecting patients with atrial fibrillation for anticoagulation:stroke risk stratification in patients taking aspirin. Circulation 110(16):2287-92.PMID 15477396.<br />2. Gage BF, Waterman AD, Shannon W,Boechler M,Rich MW,Radford MJ(2001).Validation of clinical classification schemes for predicting stoke:results from the National Registry of Atrial Fibrillation.JAMA 285(22):2864-70.<br />3. Go AS,Hylek EM,Chang Y,Phillips KA,Henault LE,Capra AM,Jensvold NG,Selby JV,Singer DE.Anticoagulation therapy for stroke prevention in atrial fibrillation:how well do randomized trials translate into clinical practice? JAMA.2003 Nov26;290(20)2685-92.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

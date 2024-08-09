@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>输液计算器</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+        	<tr>
+            	<td colspan="3" class="danwei chk"><span class="radio tz checked">输入体重</span><span class="radio n_tz">不输入体重</span></td>
+            </tr>
+			<tr>
+				<th>药物量：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>
+                	<select id="dw">
+                    	<option value="g">g</option>
+                    	<option value="mg">mg</option>
+                    	<option value="μg">μg</option>
+                    </select>
+                </td>
+			</tr>
+			<tr>
+				<th>溶液量：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>ml</td>
+			</tr>
+			<tr>
+				<th>医嘱药速：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>
+                	<select id="select1" style="display:block;">
+                    	<option value="mg/kg/min">mg/kg/min</option>
+                    	<option value="μg/kg/min">μg/kg/min</option>
+                    </select>
+                	<select id="select2" style="display:none;">
+                    	<option value="mg/min">mg/min</option>
+                    	<option value="μg/min">μg/min</option>
+                    </select>
+                </td>
+			</tr>
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<th>每ml滴数：</th>
+				<td class="text_wrap">
+                	<select id="num5">
+                    	<option value="10">10</option>
+                    	<option value="15">15</option>
+                    	<option value="20">20</option>
+                    </select>
+                </td>
+				<td>滴</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>1．每h所需药量(mg/h)=医嘱药速(mg/kg/min)×体重(kg)×60(min/h)；<br />2．每h输入溶液量(ml/h)=每h所需药量(mg/h)÷[药物量(mg)/溶液量(ml)]<br />3．每min输入溶液量(ml/min)=每h输入溶液量(ml/h)÷60<br />4．每min滴数=每min输入溶液量(ml/min)×每ml滴数(滴/ml)</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>1．医嘱药速的单位为mg/kg/min或μg/kg/min，若选择不输入体重，则为mg/min或μg/min。<br />2．每ml滴数，根据输液器滴系数不同，可选择10、15、20三种。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>白继荣 主编. 《护理学基础》（第二版）[M].中国协和医科大学出版社.2003年</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>每h输入溶液量=<em id="end"></em>ml</p>
+        <p>每min输入溶液量=<em id="end2"></em>ml</p>
+        <p>每min滴数=<em id="end3"></em>滴</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	var num5 = parseFloat(document.getElementById("num5").value);
+	
+	var n4 = $('#num4');
+	
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的药物量");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的溶液量");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的医嘱药速");
+	}else if((isNaN(num4) || num4 == "") && !n4.hasClass('disabled')){
+		alert('请填写正确的体重')
+	}else{
+		if($(".tz").hasClass("checked")){
+			if($('#dw').val() == 'g'){
+				num1 = num1*1000;
+			}else if($('#dw').val() == 'μg'){
+				num1 = num1/1000;
+			}else{
+				num1 = num1;
+			}
+			
+			if($('#select1').val() == 'μg/kg/min'){
+				num3 = num3/1000;
+			}else{
+				num3 = num3;
+			}
+			var end = (num3*num4*60)/(num1/num2);
+			var end2 = end/60;
+			var end3 = end2*num5;
+		}else{
+			if($('#dw').val() == 'g'){
+				num1 = num1*1000;
+			}else if($('#dw').val() == 'μg'){
+				num1 = num1/1000;
+			}else{
+				num1 = num1;
+			}
+			
+			if($('#select2').val() == 'μg/min'){
+				num3 = num3/1000;
+			}else{
+				num3 = num3;
+			}
+			
+			var end = (num3*60)/(num1/num2);
+			var end2 = end/60;
+			var end3 = end2*num5;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+		$("#end2").text(end2.toFixed());
+		$("#end3").text(end3.toFixed());
+	}
+}
+$(function(){
+	$('.radio').click(function(){
+		if( $(this).hasClass('tz') ){
+			$('#num4').removeAttr('disabled').removeAttr('style').removeClass('disabled');
+			$('#select1').show();
+			$('#select2').hide();
+		}else{
+			$('#num4').val('').attr('disabled','disabled').css({'border':'1px solid #ddd','background-color':'#eee'}).addClass('disabled');
+			$('#select1').hide();
+			$('#select2').show();
+		}
+	});
+	
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

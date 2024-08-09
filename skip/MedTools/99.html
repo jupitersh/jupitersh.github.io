@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>Graves眼病病情活动评分CAS</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Graves眼病病情活动评分CAS</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>项目</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox1" />
+						  <label for="checkbox1">自发性球后疼痛&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>2</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox2" />
+						  <label for="checkbox2">眼球运动时疼痛&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>3</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox3" />
+						  <label for="checkbox3">眼睑红斑&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>4</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox4" />
+						  <label for="checkbox4">结膜充血&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>5</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox5" />
+						  <label for="checkbox5">结膜水肿&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>6</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox6" />
+						  <label for="checkbox6">肉阜肿胀&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th>7</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox7" />
+						  <label for="checkbox7">眼睑水肿&nbsp;&nbsp;+1分</label>						</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td><span><em class="num">0</em> 分</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>CAS积分&ge;3分提示TAO处于活动期，积分越高，病情越重。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>由国际 4 个甲状腺学会联合提出（AdHOC委员会，1992年）</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input:checkbox').click(function(){
+		var n=$('input:checkbox:checked').length;
+		$('.num').text(n);
+	});
+});
+</script>
+</body>
+</html>

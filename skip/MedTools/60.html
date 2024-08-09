@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>下肢深静脉血栓形成（DVT）诊断的Wells评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>下肢深静脉血栓形成（DVT）诊断的Wells评分</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>病史及临床表现</th>
+						<th>评分</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>肿瘤</th>
+					  <td>
+							<input type="checkbox" name="checkbox1" value="1" id="checkbox1" />
+                        <label for="checkbox1">1</label>					
+                        </td>
+					</tr>
+					<tr>
+						<th>瘫痪或近期下肢石膏固定</th>
+					  <td>
+							<input type="checkbox" name="checkbox2" value="1" id="checkbox2" />
+                        <label for="checkbox2">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>近期卧床＞3天或近4周内大手术</th>
+					  <td>
+							<input type="checkbox" name="checkbox3" value="1" id="checkbox3" />
+                        <label for="checkbox3">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>沿深静脉走行的局部压痛</th>
+					  <td>
+							<input type="checkbox" name="checkbox4" value="1" id="checkbox4" />
+                        <label for="checkbox4">1</label>							
+                        </td>
+					</tr>
+					<tr>
+						<th>全下肢水肿</th>
+					  <td>
+							<input type="checkbox" name="checkbox5" value="1" id="checkbox5" />
+                        <label for="checkbox5">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>与健侧相比，小腿周径增大＞3cm</th>
+					  <td>
+							<input type="checkbox" name="checkbox6" value="1" id="checkbox6" />
+                        <label for="checkbox6">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>DVT病史</th>
+					  <td>
+							<input type="checkbox" name="checkbox7" value="1" id="checkbox7" />
+                        <label for="checkbox7">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>凹陷性水肿（症状侧下肢）</th>
+					  <td>
+							<input type="checkbox" name="checkbox8" value="1" id="checkbox8" />
+                        <label for="checkbox8">1</label>						
+                        </td>
+					</tr>
+					<tr>
+						<th>浅静脉侧支循环（非静脉曲张）</th>
+					  <td>
+							<input type="checkbox" name="checkbox9" value="1" id="checkbox9" />
+                        <label for="checkbox9">1</label>						
+                        </td>
+					</tr>
+                    <tr>
+						<th>与下肢DVT相近或类似的诊断</th>
+					  <td>
+							<input type="checkbox" name="checkbox10" value="-2" id="checkbox10" />
+                        <label for="checkbox10">-2</label>						
+                        </td>
+					</tr>
+					<tr>
+                    <th class="count">评分</th>
+                    <td colspan="10"><span><em class="num">0</em> 分</span> </td>
+                </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>Wells评分&le;0分为低危，1～2分为中危，&ge;3分为高危患者；若双侧下肢均有症状，以症状严重的一侧为准。低危、中危、高危患者发生DVT的可能性分别为3%、16.6%、74.6%。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>Wells评分法是一种评分规则，用于深静脉血栓形成的筛查，它主要根据患者的病史、体格检查来初步判断患者是否存在深静脉血栓形成的高危因素。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>中华医学会外科学分会血管外科学组.深静脉血栓形成的诊断和治疗指南(第2版).中华外科杂志2012年7月第50卷第7期</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input[type=checkbox]').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':checkbox:checked').length;
+		var num3 = 10-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>肾小球滤过率（CKD-EPI公式）</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<style>
+.wrap .s1 {display:none;}
+.wrap .s2 {display:inline-block;}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+            <tr>
+            	<td colspan="3" class="sex danwei"><span class="radio man checked">男</span><span class="radio woman">女</span></td>
+            </tr>
+            <tr>
+            	<td colspan="3" class="sex danwei"><span class="radio si checked">国际</span><span class="radio su">常用</span></td>
+            </tr>
+			<tr>
+				<th>血肌酐浓度：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span class="s1">mg/dl</span><span class="s2">μmol/L</span></td>
+			</tr>
+			<tr>
+				<th>年龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>岁</td>
+			</tr>
+			<tr>
+				<th>人种：</th>
+				<td class="text_wrap">
+                	<select id="sele">
+                    	<option value="0">黑人</option>
+                    	<option value="1">其他人种</option>
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td><p>GFR＝a×(血肌酐浓度/b)<sup>c</sup>×(0.993)<sup>年龄</sup></p>
+            	  <p><br />
+            	  a值根据性别与人种分别采用如下数值：<br />            	  
+           	  ①黑人：女性 = 166； 男性 = 163<br />            	
+           	  ②其他人种：女性 = 144； 男性 = 141<br /><br />
+           	  b值根据性别不同分别采用如下数值：<br />女性 = 0.7； 男性 = 0.9<br /><br />c值根据年龄与血清肌酐值的大小分别采用如下数值：<br />
+           	  ①女性：血清肌酐 ≤ 0.7 mg/dL = -0.329； 血清肌酐 ＞ 0.7 mg/dL = -1.209<br />
+           	  ②男性：血清肌酐 ≤ 0.7 mg/dL = -0.411； 血清肌酐 ＞ 0.7 mg/dL = -1.209</p></td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>120~138mL/(min*1.73m<sup>2</sup>)</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+           	<tr>
+            	<td>2009年刚发表的慢性肾脏病流行病学合作研究(CKD-EPI)公式，较目前普遍应用的MDRD公式评估肾小球滤过率更为精确，尤其是当GFR大于60mL/(min*1.73m<sup>2</sup>)时。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>Levey AS, Stevens LA, Schmid CH, Zhang YL, Castro AF 3rd, Feldman HI, Kusek JW, Eggers P, Van Lente F, Greene T, Coresh J; CKD-EPI (Chronic Kidney Disease Epidemiology Collaboration). A New Equation to Estimate Glomerular Filtration Rate. Ann Intern Med 150(9):604-12. (2009)</td>
+            </tr>
+            <tr>
+            	<th>来源：</th>
+            </tr>
+            <tr>
+            	<td>http://www.qxmd.com/renal/Calculate-CKD-EPI-GFR.php</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>肾小球滤过率：<span id="end"></span>mL/(min*1.73m<sup>2</sup>)</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("sele").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的血肌酐浓度");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的年龄");
+	}else{
+		var a,b,c;
+		if($(".man").hasClass("checked") && num3 == 0){ //黑人 男
+			a = 163;
+			b = 0.9;
+			if(num1 > 0.7){
+				c = -1.209;
+			}else if(num1 <= 0.7){
+				c = -0.411;
+			}
+			if($(".si").hasClass("checked")){
+				var end = a*Math.pow(num1*0.01131/b,c)*Math.pow(0.993,num2);
+			}else{
+				var end = a*Math.pow(num1/b,c)*Math.pow(0.993,num2);
+			}
+		}else if($(".woman").hasClass("checked") && num3 == 0){  //黑人 女
+			a = 166;
+			b = 0.7;
+			if(num1 > 0.7){
+				c = -1.209;
+			}else if(num1 <= 0.7){
+				c = -0.329;
+			}
+			if($(".si").hasClass("checked")){
+				var end = a*Math.pow(num1*0.01131/b,c)*Math.pow(0.993,num2);
+			}else{
+				var end = a*Math.pow(num1/b,c)*Math.pow(0.993,num2);
+			}
+		}else if($(".man").hasClass("checked") && num3 == 1){  //其他人种 男
+			a = 141;
+			b = 0.9;
+			if(num1 > 0.7){
+				c = -1.209;
+			}else if(num1 <= 0.7){
+				c = -0.411;
+			}
+			if($(".si").hasClass("checked")){
+				var end = a*Math.pow(num1*0.01131/b,c)*Math.pow(0.993,num2);
+			}else{
+				var end = a*Math.pow(num1/b,c)*Math.pow(0.993,num2);
+			}
+		}else if($(".woman").hasClass("checked") && num3 == 1){  //其他人种 女
+			a = 144;
+			b = 0.7;
+			if(num1 > 0.7){
+				c = -1.209;
+			}else if(num1 <= 0.7){
+				c = -0.329;
+			}
+			if($(".si").hasClass("checked")){
+				var end = a*Math.pow(num1*0.01131/b,c)*Math.pow(0.993,num2);
+			}else{
+				var end = a*Math.pow(num1/b,c)*Math.pow(0.993,num2);
+			}
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

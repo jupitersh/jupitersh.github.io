@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>Barthel指数评定</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Barthel指数评定</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                    	<th>项目</th>
+                        <th>内容</th>
+                        <th>评分标准</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="3">饮食（10）</th>
+                    	<td>
+                        	<input type="radio"  name="radio1" value="10" id="checkbox1" />
+                            <label for="checkbox1">独立：食物摆在面前时，可自己取食。如需助具，必须能自己穿戴。如需切食物、撒盐面等，必须自己在一定时间内完成。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="5" id="checkbox2" />
+                            <label for="checkbox2">需要帮助（如切食物，搅拌食物等）。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio1" value="0" id="checkbox3" />
+                            <label for="checkbox3">完全不能做。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="4">床-椅移动（15）</th>
+                        <td>
+                        	<input type="radio"  name="radio2" value="15" id="checkbox4" />
+                            <label for="checkbox4">独立：患者能独立、安全地进行床到轮椅和轮椅到床的动作。</label>
+                        </td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="10" id="checkbox5" />
+                            <label for="checkbox5">需要帮助：在活动的某一步骤需要极少帮助，或过程中需要口头指导。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="5" id="checkbox6" />
+                            <label for="checkbox6">需要较多帮助：患者能独立坐起，但移动到椅上需大量帮助。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio2" value="0" id="checkbox7" />
+                            <label for="checkbox7">完全不能做。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="2">个人卫生（5）</th>
+                        <td>
+                        	<input type="radio"  name="radio3" value="5" id="checkbox8" />
+                            <label for="checkbox8">独立：能洗手、洗脸、梳头、刷牙、化妆、剃须，可用剃刀，必须能够自己从盛物屉柜中取出、安装、使用。女患者化妆。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio3" value="0" id="checkbox9" />
+                            <label for="checkbox9">完全不能做。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">如厕（10）</th>
+                        <td>
+                        	<input type="radio"  name="radio4" value="10" id="checkbox10" />
+                            <label for="checkbox10">独立：患者能独自上厕所，可用扶手支撑身体，解系衣服，使用手纸。使用便盆者须能将便器放到椅子上，倒大小便并冲洗干净。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="5" id="checkbox11" />
+                            <label for="checkbox11">需要帮助：患者因不平衡或在穿脱、解系衣物及使用手纸时需要帮助。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio4" value="0" id="checkbox12" />
+                            <label for="checkbox12">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="2">洗浴（5）</th>
+                        <td>
+                        	<input type="radio"  name="radio5" value="5" id="checkbox13" />
+                            <label for="checkbox13">独立：患者可用澡盆、淋浴或擦浴洗澡，并且无论用哪种方式都能自己完成所有步骤，不需他人在场。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio5" value="0" id="checkbox14" />
+                            <label for="checkbox14">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="4">平地行走（15）</th>
+                        <td>
+                        	<input type="radio"  name="radio6" value="15" id="checkbox15" />
+                            <label for="checkbox15">独立：在水平路面至少能独立行走45米。穿支具或假肢、使用杖。能自己扣、解支具，把支具放好。</label>
+                        </td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio6" value="10" id="checkbox16" />
+                            <label for="checkbox16">需要帮助：需要在上述条目中的任何一项得到帮助或指导，但至少行走45米。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio6" value="5" id="checkbox17" />
+                            <label for="checkbox17">操作轮椅：不能移动，但独立操作轮椅，能拐弯、转圈、将椅子移到桌前、床边或厕所内，至少能驱动轮椅45米。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio6" value="0" id="checkbox18" />
+                            <label for="checkbox18">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">上下楼梯（10）</th>
+                        <td>
+                        	<input type="radio"  name="radio7" value="10" id="checkbox19" />
+                            <label for="checkbox19">独立：患者能独立、安全地上下一层楼梯，可以使用扶手或栏杆、杖，但必须能够自己携带杖。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="5" id="checkbox20" />
+                            <label for="checkbox20">需要帮助：患者需要上述项目中的任何一项的帮助或指导。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio7" value="0" id="checkbox21" />
+                            <label for="checkbox21">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">穿脱衣服（10）</th>
+                        <td>
+                        	<input type="radio"  name="radio8" value="10" id="checkbox22" />
+                            <label for="checkbox22">独立：患者能穿、脱、系所有的衣服。要求该活动包括穿、脱、系腰带、胸衣或支具。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="5" id="checkbox23" />
+                            <label for="checkbox23">需要帮助：穿、脱衣服时，需要帮助，但患者必须自己能在一定的时间内完成一半作业。女患者的胸罩或腰带不列入评分。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio8" value="0" id="checkbox24" />
+                            <label for="checkbox24">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">大便控制（10）</th>
+                        <td>
+                        	<input type="radio"  name="radio9" value="10" id="checkbox25" />
+                            <label for="checkbox25">独立：患者能控制大便，无失控现象，需要时能自己使用通便栓剂或灌肠剂。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="5" id="checkbox26" />
+                            <label for="checkbox26">需要帮助：需要帮助使用栓剂或灌肠剂，并且大便偶尔有失禁现象。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio9" value="0" id="checkbox27" />
+                            <label for="checkbox27">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="3">小便控制（10）</th>
+                        <td>
+                        	<input type="radio"  name="radio10" value="10" id="checkbox28" />
+                            <label for="checkbox28">独立：在整个昼夜间患者都能控制小便，能独自穿戴特殊用具或便袋，并能清洁这些器具，使其保持干燥。</label>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="5" id="checkbox29" />
+                            <label for="checkbox29">需要帮助：偶尔有失禁，等不到取便盆或去厕所。使用特殊器具需要帮助。</label>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="radio"  name="radio10" value="0" id="checkbox30" />
+                            <label for="checkbox30">完全依赖他人。</label>
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="6"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">10</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                        <td>严重程度评估：<br />0～20分 功能严重障碍，日常生活完全依赖。<br />21～40分 生活需要很大帮助，属重度依赖。<br />41～60分 生活需要中等程度帮助。<br />&gt;60分 生活大部自理，轻度依赖。<br />100分 基本生活独立自理，不需他人照顾。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td>Barthel指数是用来测量个体基本生活能力，提供残疾严重程度评分的量表。它共有10项内容，每项根据是否需要帮助和帮助的程度及所花时间长短决定给予15、10、5或0分，总分100分，表示基本日常生活自理，得分越少，日常生活依赖他人越多。据研究，40～60分者从康复治疗中受益最大。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>戴红主编. 《康复医学》[M].北京大学医学出版社.2004年</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){
+		shuchu();
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 10-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

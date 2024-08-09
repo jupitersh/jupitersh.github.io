@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>中国脑卒中患者临床神经功能缺损评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>中国脑卒中患者临床神经功能缺损评分</h1>
+        <p class="sectitle">(1995 年版)</p>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th colspan="2">评价内容</th>
+                    <th>得分</th>
+                </tr>
+                <tr><td colspan="3"><div align="left">一、意识（最大刺激、最佳反应）</div></td></tr>
+                <tr>
+                    <td rowspan="2">1. 提问：①年龄；②：现在是几月份<br/>相差 2 岁或 1 个月都算正确</td>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox0" />
+                        <label for="checkbox0">都正确</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox1" />
+                        <label for="checkbox1">一项正确</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">2. 两项指令：握拳、伸掌、睁眼、闭眼（可示范）</td>
+                    <td>
+                        <input type="radio" name="radio2" value="0" id="checkbox3" />
+                        <label for="checkbox3">均完成</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="3" id="checkbox4" />
+                        <label for="checkbox4">完成一项</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="4" id="checkbox5" />
+                        <label for="checkbox5">均不能完成，进行以下检查 </label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">3. 强烈局部刺激健侧肢体</td>
+                    <td>
+                        <input type="radio" name="radio3" value="0" id="checkbox6" />
+                        <label for="checkbox6">定向退让</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="7" id="checkbox7" />
+                        <label for="checkbox7">定向肢体回缩</label>
+                    </td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="8" id="checkbox8" />
+                        <label for="checkbox8">肢体伸直</label>
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="9" id="checkbox9" />
+                        <label for="checkbox9">无反应</label>
+                    </td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">二、水平凝视功能</td>
+                    <td>
+                        <input type="radio" name="radio4" value="0" id="checkbox10" />
+                        <label for="checkbox10">正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="2" id="checkbox11" />
+                        <label for="checkbox11">侧方凝视功能受限</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="4" id="checkbox12" />
+                        <label for="checkbox12">眼球侧方凝视</label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">三、面瘫</td>
+                    <td>
+                        <input type="radio" name="radio5" value="0" id="checkbox13" />
+                        <label for="checkbox13">正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="1" id="checkbox14" />
+                        <label for="checkbox14">轻瘫，可动</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="2" id="checkbox15" />
+                        <label for="checkbox15">全瘫</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">四、语言</td>
+                    <td>
+                        <input type="radio" name="radio6" value="0" id="checkbox16" />
+                        <label for="checkbox16">正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="2" id="checkbox17" />
+                        <label for="checkbox17">交谈有一定困难，需借助表情动作表达；或流利但不易听懂，错语较多</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="5" id="checkbox18" />
+                        <label for="checkbox18">可简单交流，但复述困难，语言多纡回，有命名障碍</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="6" id="checkbox19" />
+                        <label for="checkbox19">词不达意</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td rowspan="7">五、上肢肌力</td>
+                    <td>
+                        <input type="radio" name="radio7" value="0" id="checkbox20" />
+                        <label for="checkbox20">Ⅴ级 正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="1" id="checkbox21" />
+                        <label for="checkbox21">Ⅳ级 不能抵抗外力</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="2" id="checkbox22" />
+                        <label for="checkbox22">Ⅲ级 抬臂高于肩</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="3" id="checkbox23" />
+                        <label for="checkbox23">Ⅲ级 平肩或以下</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="4" id="checkbox24" />
+                        <label for="checkbox24">Ⅱ级 上肢与躯干夹角＞45°</label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="5" id="checkbox25" />
+                        <label for="checkbox25">Ⅰ级 上肢与躯干夹角≤45°</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="6" id="checkbox26" />
+                        <label for="checkbox26">0</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td rowspan="7">六、手肌力</td>
+                    <td>
+                        <input type="radio" name="radio8" value="0" id="checkbox27" />
+                        <label for="checkbox27">Ⅴ级 正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="1" id="checkbox28" />
+                        <label for="checkbox28">Ⅳ级 不能紧握拳</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="2" id="checkbox29" />
+                        <label for="checkbox29">Ⅲ级 握空拳，能伸开</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="3" id="checkbox30" />
+                        <label for="checkbox30">Ⅲ级 能屈指，不能伸</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="4" id="checkbox31" />
+                        <label for="checkbox31">Ⅱ级 能屈指，不能及拳</label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="5" id="checkbox32" />
+                        <label for="checkbox32">Ⅰ级 指微动</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="6" id="checkbox33" />
+                        <label for="checkbox33">0</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td rowspan="7">七、下肢肌力</td>
+                    <td>
+                        <input type="radio" name="radio9" value="0" id="checkbox34" />
+                        <label for="checkbox34">Ⅴ级 正常</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="1" id="checkbox35" />
+                        <label for="checkbox35">Ⅳ级 不能抵抗外力</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="2" id="checkbox36" />
+                        <label for="checkbox36">Ⅲ级 抬腿45°以上，踝或趾可动</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="3" id="checkbox37" />
+                        <label for="checkbox37">Ⅲ级 抬腿45°左右，踝或趾不能动</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="4" id="checkbox38" />
+                        <label for="checkbox38">Ⅱ级 抬腿离床不足45°</label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="5" id="checkbox39" />
+                        <label for="checkbox39">Ⅰ级 水平移动，不能抬高</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="6" id="checkbox40" />
+                        <label for="checkbox40">0</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td rowspan="7">八、步行能力</td>
+                    <td>
+                        <input type="radio" name="radio10" value="0" id="checkbox41" />
+                        <label for="checkbox41">正常行走</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="1" id="checkbox42" />
+                        <label for="checkbox42">独立行走 5m 以上，跛行</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="2" id="checkbox43" />
+                        <label for="checkbox43">独立行走，需拐杖</label>
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="3" id="checkbox44" />
+                        <label for="checkbox44">他人扶持下可以行走</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="4" id="checkbox45" />
+                        <label for="checkbox45">能自己站立，不能走</label>
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="5" id="checkbox46" />
+                        <label for="checkbox46">坐不需支持，但不能站立</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="6" id="checkbox47" />
+                        <label for="checkbox47">卧床</label>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <th class="count">分表总分</th>
+                    <td colspan="3"><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+                <tbody>
+                    <tr>
+                        <th>结果解读</th>
+                        <td>注：
+                            <br/>0～15 分 轻型神经功能缺损；
+                            <br/>16～30 分 中型神经功能缺损；
+                            <br/>31～45 分 重型神经功能缺损</td>
+                    </tr>
+                </tbody>
+        </table>
+        <p class="wordleft"></p>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

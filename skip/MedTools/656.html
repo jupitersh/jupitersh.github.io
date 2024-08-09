@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>HSS 膝关节评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>HSS 膝关节评分</h1>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th colspan="3"><div align="left">Ⅰ 疼痛（30分）</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="4">A</td>
+                    <td>
+                    	<input type="radio" name="radio1" value="15" id="checkbox1" />
+                      <label for="checkbox1">行走时无疼痛</label>
+                    </td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio1" value="10" id="checkbox2" />
+                      <label for="checkbox2">行走时轻度疼痛</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio1" value="5" id="checkbox3" />
+                      <label for="checkbox3">行走时中度疼痛</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio1" value="0" id="checkbox4" />
+                      <label for="checkbox4">行走时重度疼痛</label>	
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">B</td>
+                     <td>
+                    	<input type="radio" name="radio2" value="15" id="checkbox5" />
+                      <label for="checkbox5">休息时无疼痛</label>	
+                    </td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio2" value="10" id="checkbox6" />
+                      <label for="checkbox6">休息时轻度疼痛</label>	
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio2" value="5" id="checkbox7" />
+                      <label for="checkbox7">休息时中度疼痛</label>	
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                     <td>
+                    	<input type="radio" name="radio2" value="0" id="checkbox8" />
+                      <label for="checkbox8">休息时重度疼痛</label>	
+                    </td>
+                    <td>0</td>
+                </tr> 
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>              
+                <tr>
+                    <th colspan="3"><div align="left">Ⅱ 功能（22分）</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="5">A</td>
+                    <td>
+                    	<input type="radio" name="radio3" value="12" id="checkbox9" />
+                      <label for="checkbox9">行走站立时不受限制</label>	
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio3" value="10" id="checkbox10" />
+                      <label for="checkbox10">行走 2500-5000 米和能间歇站立半小时以上</label>	
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio3" value="8" id="checkbox11" />
+                      <label for="checkbox11">行走 500-2500 米和最多站立半小时</label>	
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio3" value="4" id="checkbox12" />
+                      <label for="checkbox12">行走少于 500 米</label>	
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio3" value="0" id="checkbox13" />
+                      <label for="checkbox13">不能行走</label>	
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">B</td>
+                    <td>
+                    	<input type="radio" name="radio4" value="5" id="checkbox14" />
+                      <label for="checkbox14">能自行上下楼梯</label>	
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio4" value="2" id="checkbox15" />
+                      <label for="checkbox15">能上下楼梯，但需支具</label>	
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">C</td>
+                    <td>
+                    	<input type="radio" name="radio5" value="5" id="checkbox16" />
+                      <label for="checkbox16">屋内行走，无需支具</label>	
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio5" value="2" id="checkbox17" />
+                      <label for="checkbox17">屋内行走，需要支具</label>	
+                    </td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>
+                <tr>
+                    <th colspan="3"><div align="left">Ⅲ 活动度（18分）[可输入]</div></th>
+                </tr>
+                <tr>
+                		<td></td>
+                		<td>每活动 8 度得 1 分，最高 18 分</td>
+                		<td><input type="text" id="input"/></td>	
+                </tr>
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>
+                
+                <tr>
+                    <th colspan="3"><div align="left">Ⅳ 肌力（10分）</div></th>
+                </tr>
+                <tr>
+                		<td rowspan="4"></td>
+                	  <td>
+                    	<input type="radio" name="radio6" value="10" id="checkbox18" />
+                      <label for="checkbox18">优：股四头肌能完全对抗阻力</label>	
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio6" value="8" id="checkbox19" />
+                      <label for="checkbox19">良：股四头肌不能完全对抗阻力</label>	
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio6" value="4" id="checkbox20" />
+                      <label for="checkbox20">中：能带动关节活动</label>	
+                    </td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio6" value="0" id="checkbox21" />
+                      <label for="checkbox21">差：不能带动关节活动</label>	
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>
+                <tr>
+                    <th colspan="3"><div align="left">Ⅴ 屈膝畸形（10分）</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="4"></td>
+                    <td>
+                    	<input type="radio" name="radio7" value="10" id="checkbox22" />
+                      <label for="checkbox22"> 无畸形</label>	
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio7" value="8" id="checkbox23" />
+                      <label for="checkbox23"> ＜5 度</label>	
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio7" value="5" id="checkbox24" />
+                      <label for="checkbox24"> 5 - 10 度</label>	
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio7" value="0" id="checkbox25" />
+                      <label for="checkbox25"> ＞ 10 度</label>	
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>
+                <tr>
+                    <th colspan="3"><div align="left">Ⅵ 不稳定性（10分）</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="4"></td>
+                     <td>
+                    	<input type="radio" name="radio8" value="10" id="checkbox26" />
+                      <label for="checkbox26">无</label>	
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio8" value="8" id="checkbox27" />
+                      <label for="checkbox27">轻微：0-5 度</label>	
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio8" value="5" id="checkbox28" />
+                      <label for="checkbox28">中度：6-15 度</label>	
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="radio" name="radio8" value="0" id="checkbox29" />
+                      <label for="checkbox29">重度：16 度以上</label>	
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                		<td colspan="3" height="20px"></td>	
+                </tr>
+                <tr>
+                    <th colspan="3"><div align="left">Ⅶ 减分项目[多选]</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="8"></td>
+                     <td>
+                    	<input type="checkbox" name="checkbox1" value="-1" id="checkbox30" />
+                      <label for="checkbox30">使用手杖</label>	
+                    </td>
+                    <td>-1</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-2" id="checkbox31" />
+                      <label for="checkbox31">使用一根拐杖</label>	
+                    </td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-3" id="checkbox32" />
+                      <label for="checkbox32">使用两根拐杖</label>	
+                    </td>
+                    <td>-3</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-2" id="checkbox33" />
+                      <label for="checkbox33">伸直受限 5 度</label>	
+                    </td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-3" id="checkbox34" />
+                      <label for="checkbox34">伸直受限 10 度</label>	
+                    </td>
+                    <td>-3</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-5" id="checkbox35" />
+                      <label for="checkbox35">伸直受限 15 度</label>	
+                    </td>
+                    <td>-5</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-1" id="checkbox36" />
+                      <label for="checkbox36">每 5 度外翻杖</label>	
+                    </td>
+                    <td>-1</td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input type="checkbox" name="checkbox1" value="-1" id="checkbox37" />
+                      <label for="checkbox37">每 5 度内翻</label>	
+                    </td>
+                    <td>-1</td>
+                </tr>
+                <tr>
+                    
+                		<th class="count" colspan="2">得出总分</th>	
+                		<td ><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+
+    function shuchu( ){
+        var n=allScore()+allCheckbox()+inputNumber();
+        $('.num').text(n);
+    }
+		
+		function inputNumber(){
+				var inputVal=0;
+				if( $('#input').val() != '' ){
+						var v = parseInt( $('#input').val() );
+						inputVal=inputVal+v;
+				}
+				return inputVal;
+		}
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+		$('#input').change(function(){
+			shuchu( );
+		});
+});
+</script>
+</body>
+</html>

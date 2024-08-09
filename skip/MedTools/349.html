@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>气胸肺压缩面积估算（三线法）</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>A：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>B：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>C：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>肺压缩面积(%)＝2.20+(A+B+C)×3.65<br />气胸吸收时间(天)＝肺压缩面积(%)÷1.5%/天</td>
+            </tr>
+            <tr>
+            	<th>正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>正常肺部应无压缩。但A+B+C=0时，结果为2.2%，此时可认为压缩程度为0</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+           	<tr>
+            	<td>1995年Collins等人根据体积法回归分析提出了三线法估算肺压缩程度的方法Y＝4.2+(A+B+C)×4.7，但由于其胸片皆为球管距离为1.8288m条件下所摄，与国内的1.5m有所区别，因此我国不能直接采用其公式。我国研究者于2007年重新进行估算，得出了新的公式，测量肺萎陷程度结果可靠。<br />A、B、C所代表的距离如下图所示<br /><img src="Pub/images/01.jpg" alt="A、B、C所代表的距离" /></td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1.Kircher LT, Swartzel RL. Spontaneous pneumothorax and its treatment. JAMA 155:24-29, 1954. <br />2.Collins CD et al. Quantification of Pneumothorax Size on Chest Radiographs Using interpleural Distances: Regression Analysis Based on Volume Measurements from Helical CT. AJR 1995; 165: 1127-1130.<br />3.王蕾等. 三线法在计算气胸压缩程度中的应用. 诊断理论与实践. 2007; 6(4): 347-349.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>肺压缩面积：<em id="end"></em>%</p>
+        <p>气胸吸收时间：<em id="end2"></em>天</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	if(isNaN(num1)){
+		alert("请填写正确的A");
+	}else if(isNaN(num2)){
+		alert("请填写正确的B");
+	}else if(isNaN(num3)){
+		alert("请填写正确的C");
+	}else{
+		var end = 2.20+(num1+num2+num3)*3.65;
+		var end2 = end/1.5;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

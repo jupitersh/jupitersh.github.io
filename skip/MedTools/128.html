@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>APACHE II评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1><a href="#">APACHE II评分</a></h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th></th>
+						<th colspan="3"></th>
+						<th>0分</th>
+						<th>1分</th>
+						<th>2分</th>
+						<th>3分</th>
+						<th>4分</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th rowspan="15">A、生理学评分</th>
+						<td colspan="3">1、肛温（℃）</td>
+						<td>
+							<input type="radio" name="radio1" value="0" id="checkbox1"  />
+							<label for="checkbox1">36.0～38.4</label>						</td>
+						<td>
+							<input type="radio" name="radio1" value="1" id="checkbox2"  />
+							<label for="checkbox2">34～35.9或38.5～38.9</label>						</td>
+						<td>
+							<input type="radio" name="radio1" value="2" id="checkbox3"  />
+							<label for="checkbox3">32～33.9</label>						</td>
+						<td>
+							<input type="radio" name="radio1" value="3" id="checkbox4"  />
+							<label for="checkbox4">30～31.9或39～40.9</label>						</td>
+						<td>
+							<input type="radio" name="radio1" value="4" id="checkbox5"  />
+							<label for="checkbox5">&le;29.9或&ge;41</label>						</td>
+					</tr>
+					<tr>
+						<td colspan="3">2、平均动脉压（mmHg）</td>
+						<td>
+							<input type="radio" name="radio2" value="0" id="checkbox6"  />
+							<label for="checkbox6">70～109</label>						</td>
+						<td></td>
+						<td>
+							<input type="radio" name="radio2" value="2" id="checkbox7"  />
+							<label for="checkbox7">50～69或110～129</label>						</td>
+						<td>
+							<input type="radio" name="radio2" value="3" id="checkbox8"  />
+							<label for="checkbox8">130～159</label>						</td>
+						<td>
+							<input type="radio" name="radio2" value="4" id="checkbox9"  />
+							<label for="checkbox9">&le;49或&ge;160</label>						</td>
+					</tr>
+					<tr>
+						<td colspan="3">3、心率（次∕min）</td>
+						<td>
+							<input type="radio" name="radio3" value="0" id="checkbox10"  />
+							<label for="checkbox10">70～109</label>						</td>
+						<td>&nbsp;</td>
+						<td>
+							<input type="radio" name="radio3" value="2" id="checkbox11"  />
+							<label for="checkbox11">55～69或110～139</label>						</td>
+						<td>
+							<input type="radio" name="radio3" value="3" id="checkbox12"  />
+							<label for="checkbox12">40～54或140～179</label>						</td>
+						<td>
+							<input type="radio" name="radio3" value="4" id="checkbox13"  />
+							<label for="checkbox13">&le;39或&ge;180</label>						</td>
+					</tr>
+					<tr>
+						<td colspan="3">4、呼吸频率（次∕min）</td>
+						<td>
+							<input type="radio" name="radio4" value="0" id="checkbox14"  />
+							<label for="checkbox14">12～24</label>						</td>
+						<td>
+							<input type="radio" name="radio4" value="1" id="checkbox15"  />
+							<label for="checkbox15">10～11或25～34</label>						</td>
+						<td>
+							<input type="radio" name="radio4" value="2" id="checkbox16"  />
+							<label for="checkbox16">6～9</label>						</td>
+						<td>
+							<input type="radio" name="radio4" value="3" id="checkbox17"  />
+							<label for="checkbox17">35～49</label>						</td>
+						<td>
+							<input type="radio" name="radio4" value="4" id="checkbox18"  />
+							<label for="checkbox18">&le;5或&ge;50</label>						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">5、氧合作用（mmHg）</td>
+						<td colspan="2">FiO2&lt;0.5时测PaO2</td>
+						<td>
+							<input type="radio" name="radio5" value="0" id="checkbox19"  />
+							<label for="checkbox19">&gt;70</label>						</td>
+						<td>
+							<input type="radio" name="radio5" value="1" id="checkbox20"  />
+							<label for="checkbox20">61～70</label>						</td>
+						<td></td>
+						<td>
+							<input type="radio" name="radio5" value="3" id="checkbox21"  />
+							<label for="checkbox21">55～60</label>						</td>
+						<td>
+							<input type="radio" name="radio5" value="4" id="checkbox22"  />
+							<label for="checkbox22">&lt;55</label>						</td>
+					</tr>
+					<tr>
+					  <td colspan="2">FiO2&gt;0.5 时测AaDO2</td>
+				      <td>
+							<input type="radio" name="radio5" value="0" id="checkbox23"  />
+							<label for="checkbox23">&lt;200</label>					  </td>
+				      <td></td>
+				      <td>
+							<input type="radio" name="radio5" value="2" id="checkbox24"  />
+							<label for="checkbox24">200～349</label>					  </td>
+				      <td>
+							<input type="radio" name="radio5" value="3" id="checkbox25"  />
+							<label for="checkbox25">350～499</label></td>
+				      <td>
+							<input type="radio" name="radio5" value="4" id="checkbox26"  />
+							<label for="checkbox26">&ge;500</label>					  </td>
+				  </tr>
+					<tr>
+						<td rowspan="2">6、</td>
+						<td colspan="2">动脉血pH</td>
+						<td>
+							<input type="radio" name="radio6" value="0" id="checkbox27"  />
+							<label for="checkbox27">7.33～7.49</label>						</td>
+						<td>
+							<input type="radio" name="radio6" value="1" id="checkbox28"  />
+							<label for="checkbox28">7.5～7.59</label>						</td>
+						<td>
+							<input type="radio" name="radio6" value="2" id="checkbox29"  />
+							<label for="checkbox29">7.25～7.32</label>						</td>
+						<td>
+							<input type="radio" name="radio6" value="3" id="checkbox30"  />
+							<label for="checkbox30">7.15～7.24或7.60～7.69</label>						</td>
+						<td>
+							<input type="radio" name="radio6" value="4" id="checkbox31"  />
+							<label for="checkbox31">&ge;7.7或&lt;7.15</label>						</td>
+					</tr>
+					<tr>
+					  <td colspan="2">静脉血HCO3(mmol/L) （无动脉血气时用）</td>
+					  <td>
+							<input type="radio" name="radio6" value="0" id="checkbox32"  />
+							<label for="checkbox32">22～31.9</label>					  </td>
+					  <td>
+							<input type="radio" name="radio6" value="1" id="checkbox33"  />
+							<label for="checkbox33">32～40.9</label>					  </td>
+					  <td>
+							<input type="radio" name="radio6" value="2" id="checkbox34"  />
+							<label for="checkbox34">18～21.9</label>					  </td>
+					  <td>
+							<input type="radio" name="radio6" value="3" id="checkbox35"  />
+							<label for="checkbox35">15～17.9或41～51.9</label>					  </td>
+					  <td>
+							<input type="radio" name="radio6" value="4" id="checkbox36"  />
+							<label for="checkbox36">&lt;15或&ge;52</label>					  </td>
+					</tr>
+					<tr>
+						<td colspan="3">7、血清钠（mmol/L）</td>
+						<td>
+							<input type="radio" name="radio7" value="0" id="checkbox37"  />
+							<label for="checkbox37">130～149</label>						</td>
+						<td>
+							<input type="radio" name="radio7" value="1" id="checkbox38"  />
+							<label for="checkbox38">150～154</label>						</td>
+						<td>
+							<input type="radio" name="radio7" value="2" id="checkbox39"  />
+							<label for="checkbox39">120～129或155～159</label>						</td>
+						<td>
+							<input type="radio" name="radio7" value="3" id="checkbox40"  />
+							<label for="checkbox40">111～119或160～179</label>						</td>
+						<td>
+							<input type="radio" name="radio7" value="4" id="checkbox41"  />
+							<label for="checkbox41">&le;110或&ge;180</label>						</td>
+					</tr>
+					<tr>
+						<td colspan="3">8、血清钾（mmol/L）</td>
+						<td>
+							<input type="radio" name="radio8" value="0" id="checkbox42"  />
+							<label for="checkbox42">3.5～5.4</label>						</td>
+						<td>
+							<input type="radio" name="radio8" value="1" id="checkbox43"  />
+							<label for="checkbox43">3.0～3.4或5.5～5.9</label>						</td>
+						<td>
+							<input type="radio" name="radio8" value="2" id="checkbox44"  />
+							<label for="checkbox44">2.5～2.9</label>						</td>
+						<td>
+							<input type="radio" name="radio8" value="3" id="checkbox45"  />
+							<label for="checkbox45">6.0～6.9</label>						</td>
+						<td>
+							<input type="radio" name="radio8" value="4" id="checkbox46"  />
+							<label for="checkbox46">&lt;2.5或&ge;7</label>						</td>
+					</tr>
+					<tr>
+						<td rowspan="3">9、</td>
+						<td colspan="2">血肌酐（mg/dL）</td>
+						<td>
+							<input type="radio" name="radio9" value="0" id="checkbox47" class="n91" />
+							<label for="checkbox47">0.6～1.4</label>						</td>
+						<td></td>
+						<td>
+							<input type="radio" name="radio9" value="2" id="checkbox48"  class="n91" />
+							<label for="checkbox48">&lt;0.6或1.5～1.9</label>						</td>
+						<td>
+							<input type="radio" name="radio9" value="3" id="checkbox49"  class="n91" />
+							<label for="checkbox49">2.0～3.4</label>						</td>
+						<td>
+							<input type="radio" name="radio9" value="4" id="checkbox50" class="n91"  />
+							<label for="checkbox50">&ge;3.5</label>						</td>
+					</tr>
+					<tr>
+					  <td colspan="2">血肌酐（μmol/L）</td>
+                      <td>
+							<input type="radio" name="radio9" value="0" id="checkbox51" class="n91" />
+							<label for="checkbox51">53～127</label>					  </td>
+				      <td></td>
+				      <td>
+							<input type="radio" name="radio9" value="2" id="checkbox52" class="n91" />
+							<label for="checkbox52">&lt;53或128～171</label>					  </td>
+				      <td>
+							<input type="radio" name="radio9" value="3" id="checkbox53" class="n91" />
+							<label for="checkbox53">172～304</label>					  </td>
+				      <td>
+							<input type="radio" name="radio9" value="4" id="checkbox54" class="n91" />
+							<label for="checkbox54">&ge;305</label>					  </td>
+				  </tr>
+                  <tr>
+                  	<td colspan="2">是否有急性肾衰</td>
+                  	<td colspan="5"><input type="radio" name="radio17" value="0" id="checkbox91" class="n91_0" /><label for="checkbox91">是</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="radio17" value="0" id="checkbox92" class="n91_0" /><label for="checkbox92">否</label></td>
+                  </tr>
+					<tr>
+						<td colspan="3">10、红细胞比容(%)</td>
+						<td>
+							<input type="radio" name="radio10" value="0" id="checkbox59"  />
+							<label for="checkbox59">30～45.9</label>						</td>
+						<td>
+							<input type="radio" name="radio10" value="1" id="checkbox60"  />
+							<label for="checkbox60">46～49.9</label>						</td>
+						<td>
+							<input type="radio" name="radio10" value="2" id="checkbox61"  />
+							<label for="checkbox61">20～29.9或50～59.9</label>						</td>
+						<td></td>
+						<td>
+							<input type="radio" name="radio10" value="4" id="checkbox62"  />
+							<label for="checkbox62">&lt;20或&ge;60</label>						</td>
+					</tr>
+					<tr>
+						<td colspan="3">11、WBC（×10^9/L）</td>
+						<td>
+							<input type="radio" name="radio11" value="0" id="checkbox63"  />
+							<label for="checkbox63">3～14.9</label>						</td>
+						<td>
+							<input type="radio" name="radio11" value="1" id="checkbox64"  />
+							<label for="checkbox64">15～19.9</label>						</td>
+						<td>
+							<input type="radio" name="radio11" value="2" id="checkbox65"  />
+							<label for="checkbox65">1～2.9或20～39.9</label>						</td>
+						<td>
+							  </td>
+						<td>
+							<input type="radio" name="radio11" value="4" id="checkbox67"  />
+							<label for="checkbox67">&lt;1或&ge;40</label>                      </td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2 n12box">
+				<tbody>
+					<tr>
+						<th>A、生理学评分</th>
+						<td></td>
+						<td>6分</td>
+						<td>5分</td>
+						<td>4分</td>
+						<td>3分</td>
+						<td>2分</td>
+						<td>1分</td>
+					</tr>
+					<tr>
+						<td rowspan="5">12、GCS评分</td>
+						<td>睁眼反应</td>
+						<td></td>
+					    <td></td>
+					    <td>
+							<input type="radio" name="radio12" value="4" id="checkbox68" class="n12" />
+							<label for="checkbox68">自动睁眼</label>
+						</td>
+					    <td>
+							<input type="radio" name="radio12" value="3" id="checkbox69" class="n12" />
+							<label for="checkbox69">呼唤睁眼</label>
+						</td>
+					    <td>
+							<input type="radio" name="radio12" value="2" id="checkbox70" class="n12" />
+							<label for="checkbox70">刺疼睁眼</label>
+						</td>
+					    <td>
+							<input type="radio" name="radio12" value="1" id="checkbox71" class="n12" />
+							<label for="checkbox71">不能睁眼</label>
+						</td>
+					</tr>
+					<tr>
+					  <td>语言反应</td>
+					  <td></td>
+				      <td>
+							<input type="radio" name="radio13" value="5" id="checkbox72" class="n12" />
+							<label for="checkbox72">回答切题</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio13" value="4" id="checkbox73" class="n12" />
+							<label for="checkbox73">回答不切题</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio13" value="3" id="checkbox74" class="n12" />
+							<label for="checkbox74">答非所问</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio13" value="2" id="checkbox75" class="n12" />
+							<label for="checkbox75">只能发音</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio13" value="1" id="checkbox76" class="n12" />
+							<label for="checkbox76">不能言语</label>
+					  </td>
+				  </tr>
+					<tr>
+					  <td>运动反应</td>
+					  <td>
+							<input type="radio" name="radio14" value="6" id="checkbox77" class="n12" />
+							<label for="checkbox77">按吩咐动作</label></td>
+				      <td>
+							<input type="radio" name="radio14" value="5" id="checkbox78" class="n12" />
+							<label for="checkbox78">刺疼能定位</label></td>
+				      <td>
+							<input type="radio" name="radio14" value="4" id="checkbox79" class="n12" />
+							<label for="checkbox79">刺疼能躲避</label></td>
+				      <td>
+							<input type="radio" name="radio14" value="3" id="checkbox80" class="n12" />
+							<label for="checkbox80">刺疼肢体屈曲</label></td>
+				      <td>
+							<input type="radio" name="radio14" value="2" id="checkbox81" class="n12" />
+							<label for="checkbox81">刺疼肢体伸展</label></td>
+				      <td>
+							<input type="radio" name="radio14" value="1" id="checkbox82" class="n12" />
+							<label for="checkbox82">不能活动</label></td>
+				  </tr>
+					<tr>
+					  <td>GCS总分</td>
+					  <td colspan="6"><span><em id="n1">0</em> 分</span></td>
+			      </tr>
+					<tr>
+					  <td>15-GCS评分</td>
+					  <td colspan="6"><span><em id="n2">0</em> 分</span></td>
+			      </tr>
+			  </tbody>
+</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+              <tbody>
+                <tr>
+                  <th rowspan="2">B、年龄评分</th>
+                  <td>0分</td>
+                  <td>2分</td>
+                  <td>3分</td>
+                  <td>5分</td>
+                  <td>6分</td>
+                </tr>
+                <tr>
+                  <td><input type="radio" name="radio15" value="0" id="checkbox83"  />
+                      <label for="checkbox83">&le;44岁</label>
+                  </td>
+                  <td><input type="radio" name="radio15" value="2" id="checkbox84"  />
+                      <label for="checkbox84">45～54岁</label>
+                  </td>
+                  <td><input type="radio" name="radio15" value="3" id="checkbox85"  />
+                      <label for="checkbox85">55～64岁</label>
+                  </td>
+                  <td><input type="radio" name="radio15" value="5" id="checkbox86"  />
+                      <label for="checkbox86">65～74岁</label>
+                  </td>
+                  <td><input type="radio" name="radio15" value="6" id="checkbox87"  />
+                      <label for="checkbox87">&ge;75岁</label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th rowspan="2">C、慢性健康状况评分（有严重器官系统功能不全或免疫损害）</th>
+						<td>2分</td>
+					    <td>5分</td>
+					    <td>0分</td>
+					</tr>
+					<tr>
+					  <td>
+							<input type="radio" name="radio16" value="2" id="checkbox88"  />
+							<label for="checkbox88">非手术或择期手术后</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio16" value="5" id="checkbox89"  />
+							<label for="checkbox89">不能手术或急诊手术后</label>
+					  </td>
+				      <td>
+							<input type="radio" name="radio16" value="0" id="checkbox90"  />
+							<label for="checkbox90">无上述情况</label>
+					  </td>
+				  </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th colspan="2" class="count">评分</th>
+						<td colspan="6"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">17</span>个必选项未选）</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>APACHEⅡ评分系统是由急性生理学评分（APS）、年龄评分、3部分组成，最后得分为三者之和。理论最高分71分，分值越高病情越重。其中APS包含12项生理参数，并提出了计算死亡危险度（R）的公式，每位患者R值相加除以患者总数即可得出该群体患者的预计病死率，目前作为ICU入住患者的主要评估标准。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>注：<br />
+1．数据采集应为病人入ICU或抢救开始后24小时内最差值。<br />
+2．平均动脉压=（收缩压+2*舒张压）/3，若有直接动脉压监测则记直接动脉压。<br />
+3．呼吸频率应记录病人的自主呼吸频率。<br />
+4．如果病人是急性肾功能衰竭，则血清肌酐一项分值应在原基础上加倍。<br />
+5．严重器官功能不全指：①心：心功能Ⅳ级；②肺：慢性缺氧、阻塞性或限制性通气障碍、运动耐力差；③肾：慢性透析者；④肝：肝硬化、门脉高压、有上消化道出血史、肝昏迷、肝功能衰竭史。<br />
+6．免疫损害：如接受放疗、化疗、长期或大量激素治疗，有白血病、淋巴瘤、爱滋病等。<br />
+7．C项中“不能手术”应理解为由于病人病情危重而不能接受手术治疗者。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Knaus WA, Draper EA, Wagner DP, Zimmerman JE (1985). "APACHE II: a severity of disease classification system". Critical Care Medicine 13 (10): 818-29.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.n91_0').attr('disabled','disabled');
+	
+	function shuchu( ){
+		$('#n1').text( n12() );
+		var $n12 = parseInt( 15-n12() );
+		$('#n2').text($n12);
+			
+		var n=allScore()+$n12;
+		var n91=0;
+		if( $('.n91').is(':checked') ){
+			$('.n91_0').removeAttr('disabled');
+		}
+		if( $('#checkbox91').is(':checked')){
+			var n91=parseInt( $('.n91:checked').val() );
+		}
+		$('.num').text(n+n91);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':checked').not('.n12').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function n12()
+	{
+		var n12=0;
+		$('.n12box :checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			n12 = n12+n;
+		});
+		return n12;
+	}
+	
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2( );
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 17-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

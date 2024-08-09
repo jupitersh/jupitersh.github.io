@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>肺栓塞Geneva预后评分(ESC, 2008)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>肺栓塞Geneva预后评分(ESC, 2008)</h1>
+    </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+        	<thead>
+            	<tr>
+                	<th>变量</th>
+                	<th>得分</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+                	<td>年龄
+                	  <input type="text" name="nianling" id="nianling" maxlengtd="3" style="width:35px;" />
+岁</td>
+                    <td>每岁1分</td>
+                </tr>
+            	<tr>
+                	<td>男性
+               	    <input type="checkbox" name="checkbox2" value="10" id="checkbox1" /></td>
+                    <td>10</td>
+                </tr>
+            	<tr>
+                	<td>癌症
+               	    <input type="checkbox" name="checkbox3" value="30" id="checkbox2" /></td>
+                    <td>30</td>
+                </tr>
+            	<tr>
+                	<td>心衰
+               	    <input type="checkbox" name="checkbox4" value="10" id="checkbox3" /></td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                	<td>慢性肺部疾病
+               	    <input type="checkbox" name="checkbox5" value="10" id="checkbox4" /></td>
+                    <td>10</td>
+                </tr>           	
+            <tr>
+                	<td>心率>110/分钟
+               	    <input type="checkbox" name="checkbox6" value="20" id="checkbox5" /></td>
+                    <td>20</td>
+                </tr>           	
+            <tr>
+                	<td>收缩压＜100mmHg
+               	    <input type="checkbox" name="checkbox7" value="30" id="checkbox6" /></td>
+                    <td>30</td>
+                </tr>           	
+            <tr>
+                	<td>呼吸频率>30/分钟
+               	    <input type="checkbox" name="checkbox8" value="20" id="checkbox7" /></td>
+                    <td>20</td>
+                </tr>           	
+            <tr>
+                	<td>体温＜36℃
+               	    <input type="checkbox" name="checkbox9" value="20" id="checkbox8" /></td>
+                    <td>20</td>
+                </tr>           	
+            <tr>
+                	<td>定向障碍、嗜睡、昏睡、昏迷
+               	    <input type="checkbox" name="checkbox10" value="60" id="checkbox9" /></td>
+                    <td>60</td>
+                </tr>           	
+            <tr>
+                	<td>动脉血氧饱和度＜90%
+               	    <input type="checkbox" name="checkbox" value="20" id="checkbox10" /></td>
+                    <td>20</td>
+                </tr>
+                <tr>
+						<th class="count">评分</th>
+						<td><span><em class="num">0</em> 分</span></td>
+					</tr>           	
+            </tbody>
+        </table>
+
+		<table class="countTabResult">
+<tbody>
+				<tr>
+					<th>结果解读</th>
+				  <td>用于肺栓塞30天全因死亡率的预测。危险分层（30天全因死亡率）如下：<br/>Ⅰ级，＜65分（0%）；<br/>Ⅱ级，66~85分（1%）；<br/>Ⅲ级，86~05分（3.1%）；<br/>Ⅳ级，106~125分（10.4%）；<br/>Ⅴ级，＞125分（24.4%）。<br/>Ⅰ和Ⅱ级（0~1%）为低风险。</td>
+				</tr>
+				<tr>
+					<th>相关解释</th>
+				  <td></td>
+				</tr>
+				<tr>
+					<th>参考来源</th>
+					<td>欧洲心脏病学会(ESC). 急性肺动脉栓塞诊断治疗指南. Eur Heart J, 2008; 29(18):2276-2315.</td>
+				</tr>
+		  </tbody>
+	  </table>
+  </div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input[type|=checkbox]').attr('disabled','disabled');
+	
+	function shuchu( ){
+		var n = allScore()+nianling();
+		$('.num').text(n);
+	}
+	
+	function nianling(){
+		var nianling=0;
+		$('#nianling').each(function(){
+			if( $('#nianling').val() != '' ){
+				$('input[type|=checkbox]').removeAttr('disabled');
+				var v = parseInt( $('#nianling').val() );
+				var n=0;
+				n=v;
+				nianling=nianling+n;
+			}
+		});
+		return nianling;
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':checked').each(function(){
+			var v = parseFloat( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+	$('#nianling').change(function(){
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

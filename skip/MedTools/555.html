@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>预产期</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<style type="text/css">
+.form table th {width:40%; padding:5px 0;}
+.form table .text_wrap {width:auto;}
+.form table td .text {width:52px; padding-left:8px;}
+select {padding:5px;}
+</style>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>LMP：</th>
+				<td class="text_wrap">
+                	<select id="lmp_y">
+                    </select>
+                	<select id="lmp_m">
+                    	<option value="1">1</option>
+                    	<option value="2">2</option>
+                    	<option value="3">3</option>
+                    	<option value="4">4</option>
+                    	<option value="5">5</option>
+                    	<option value="6">6</option>
+                    	<option value="7">7</option>
+                    	<option value="8">8</option>
+                    	<option value="9">9</option>
+                    	<option value="10">10</option>
+                    	<option value="11">11</option>
+                    	<option value="12">12</option>
+                    </select>
+                	<select id="lmp_d">
+                    </select>
+                </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>expected date of confinement,EDC</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>末次月经LMP第一日算起，月份减3或加9，日数加7。</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>妊娠期全过程从末次月经的第1日开始计算，孕龄为280日，即40周。<br>妊娠满28周（196日）及以上，胎儿及其附属物自然临产开始到由母体娩出的全过程，成为分娩（delivery）。妊娠满28周至不满37足周（196-258日）期间分娩，称为早产（premature delivery）；妊娠满37周至不满42足周（259-293日）期间分娩，称为足月产（term delivery）；妊娠满42周（294日）及以上分娩，称为过期产（postterm delivery）<br>对于妊娠41周以后的孕妇可常规引产。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>如末次月经第1日是2007年9月10日，预产期应为2008年6月17日。若孕妇只知农历日期，应先换算成公历在推算预产期。实际分娩日期与推算的预产期有可能相差1-2周。若孕妇记不清末次月经日期或哺乳期尚未月经来潮而受孕者，可根据早孕反应开始出现时间、胎动开始时间、子宫底高度和B型超声检查的胎囊大小（GS）、头臀长度（CRL）、胎头双顶径（BPD）及股骨长度（FL）值推算出预产期。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>谢幸，苟文丽主编.妇产科学（第8版）[M].北京：人民卫生出版社，2013.</td>
+            </tr>
+        </tbody>
+	</table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p><em id="end"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(function(){
+	var oDate = new Date();
+	var oYear = oDate.getFullYear();
+	$('#lmp_y').html('<option value="'+(oYear-1)+'">'+(oYear-1)+'</option><option value="'+oYear+'" selected>'+oYear+'</option><option value="'+(oYear+1)+'">'+(oYear+1)+'</option>');
+	
+	var oMonth = oDate.getMonth()+1;
+	$('#lmp_m option').each(function(index, element) {
+        if( $(this).val() == oMonth ){
+			$(this).attr('selected',true)
+		}
+    });
+	
+	oDate.setMonth(oMonth);
+	oDate.setDate(0);
+	var n = oDate.getDate();
+	
+	var oDate = new Date();
+	var tody = oDate.getDate();
+	
+	for(var i=1; i<=n; i++){
+		if(i == tody){
+			var option = $('<option value="'+i+'" selected>'+i+'</option>');
+		}else{
+			var option = $('<option value="'+i+'">'+i+'</option>');
+		}
+		$('#lmp_d').append(option);
+	}
+	
+	$('#lmp_m').change(function(){
+		var oYear = $('#lmp_y').val();
+		var oMonth = $(this).val();
+		
+		var oDate = new Date();
+		oDate.setFullYear(oYear);
+		oDate.setMonth(oMonth);
+		oDate.setDate(0);
+		var n = oDate.getDate();
+		
+		$('#lmp_d').html('');
+		for(var i=1; i<=n; i++){
+			var option = $('<option value="'+i+'">'+i+'</option>');
+			$('#lmp_d').append(option);
+		}
+	});
+	
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+
+function count(){
+	var oY = $('#lmp_y').val();
+	var oM = $('#lmp_m').val();
+	var oD = $('#lmp_d').val();
+	
+	if(oM<=3){
+		var oDate = new Date();
+		oDate.setFullYear(oY);
+		oDate.setMonth(oM*1-1+9);
+		oDate.setDate(oD*1+7); //*1是把oD转成数字
+	}else{
+		var oDate = new Date();
+		oDate.setFullYear(oY*1+1);
+		oDate.setMonth(oM*1-1-3);
+		oDate.setDate(oD*1+7);
+	}
+	
+	$('#textPop').show();
+	$('#end').html(oDate.getFullYear()+'/'+(oDate.getMonth()+1)+'/'+oDate.getDate());
+	
+}
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

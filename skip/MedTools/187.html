@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>链球菌咽炎的修正centor评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>链球菌咽炎的修正centor评分</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th>描述</th>
+                		<th>评分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox1" />
+                        	<label for="checkbox1">无咳嗽</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox2" />
+                        	<label for="checkbox2">颈前淋巴结肿大/触痛</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox3" />
+                        	<label for="checkbox3">体温超过38℃</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox4" />
+                        	<label for="checkbox4">扁桃体肿胀或有渗出液</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="radio"  name="radio" value="1" id="checkbox5" />
+                        	<label for="checkbox5">3~14岁</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="radio"  name="radio" value="0" id="checkbox6" />
+                        	<label for="checkbox6">15~44岁</label>
+                        </td>
+                        <td>0分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="radio"  name="radio" value="-1" id="checkbox7" />
+                        	<label for="checkbox7">&ge;45岁</label>
+                        </td>
+                        <td>-1分</td>
+                    </tr>
+                    <tr>
+						<th class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th colspan="3">结果解读</th>
+                    </tr>
+                	<tr>
+                    	<th>分数</th>
+                    	<th>链球菌感染概率</th>
+                    	<th>治疗</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                    	<td>-1~0</td>
+                    	<td>1-2.5%</td>
+                    	<td rowspan="2">无需进一步检查或应用抗生素</td>
+                    </tr>
+                	<tr>
+                    	<td>1</td>
+                    	<td>5-10%</td>
+                    </tr>
+                	<tr>
+                    	<td>2</td>
+                    	<td>11-17%</td>
+                    	<td rowspan="2">进行细菌培养，仅对培养阳性者应用抗生素</td>
+                    </tr>
+                	<tr>
+                    	<td>3</td>
+                    	<td>28-35%</td>
+                    </tr>
+                	<tr>
+                    	<td>4~5</td>
+                    	<td>51-53%</td>
+                    	<td>应用抗生素进行经验性治疗，进行或不进行培养</td>
+                    </tr>
+                </tbody>
+            </table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>相关解释</th>
+						<td>≤2岁不适用。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Warren I.Mclsaac,James D.Kellner;Peggy Aufricht;Anita Vanjaka;Donald E. Empricical Validation of Guidelines for the Management of Pharyngitis in Children and Adults.JAMA 2004;291(13):1587-1595.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allCheckbox()+allRadio();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	function allRadio(){
+		var allRadio=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allRadio = allRadio+n;
+		});
+		return allRadio;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

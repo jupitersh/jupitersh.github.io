@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>Framingham心脏危险评分（女性）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Framingham心脏危险评分（女性）</h1>
+  </div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>年龄</th>
+						<td>
+							20~34
+						</td>
+						<td>
+							35~39
+						</td>
+						<td>
+							40~44
+						</td>
+						<td>
+							45~49
+						</td>
+						<td>
+							50~54
+						</td>
+						<td>
+							55~59
+						</td>
+						<td>
+							60~64
+						</td>
+						<td>
+							65~69
+						</td>
+						<td>
+							70~74
+						</td>
+						<td>
+							75~79
+						</td>
+					</tr>
+					<tr>
+						<th>分值</th>
+					  	<td>
+							<input type="radio" name="radio" value="-7" id="checkbox1" />
+							<label for="checkbox1">-7</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="-3" id="checkbox2" />
+							<label for="checkbox2">-3</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="0" id="checkbox3" />
+							<label for="checkbox3">0</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="3" id="checkbox4" />
+							<label for="checkbox4">3</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="6" id="checkbox5" />
+							<label for="checkbox5">6</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="8" id="checkbox6" />
+							<label for="checkbox6">8</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="10" id="checkbox7" />
+							<label for="checkbox7">10</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="12" id="checkbox8" />
+							<label for="checkbox8">12</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="14" id="checkbox9" />
+							<label for="checkbox9">14</label>
+						</td>
+					  	<td>
+							<input type="radio" name="radio" value="16" id="checkbox10" />
+							<label for="checkbox10">16</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>高密度脂蛋白mg/dl</th>
+						<td>&ge;60</td>
+						<td>50~59</td>
+						<td>40~49</td>
+						<td>&lt;40</td>
+					</tr>
+					<tr>
+						<th>分值</th>
+						<td>
+							<input type="radio" name="radio2" value="-1" id="checkbox11" />
+							<label for="checkbox11">-1</label>
+						</td>
+						<td>
+							<input type="radio" name="radio2" value="0" id="checkbox12" />
+							<label for="checkbox12">0</label>
+						</td>
+						<td>
+							<input type="radio" name="radio2" value="1" id="checkbox13" />
+							<label for="checkbox13">1</label>
+						</td>
+						<td>
+							<input type="radio" name="radio2" value="2" id="checkbox59" />
+							<label for="checkbox59">2</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>收缩压mmHg</th>
+						<td>&lt;120</td>
+						<td>120~129</td>
+						<td>130~139</td>
+						<td>140~159</td>
+						<td>&ge;160</td>
+					</tr>
+					<tr>
+						<th>没有治疗</th>
+						<td>
+						<input type="radio" name="radio3" value="0" id="checkbox14" />
+						<label for="checkbox14">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="1" id="checkbox15" />
+						<label for="checkbox15">1</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="2" id="checkbox16" />
+						<label for="checkbox16">2</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="3" id="checkbox17" />
+						<label for="checkbox17">3</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="4" id="checkbox18" />
+						<label for="checkbox18">4</label>
+						</td>
+					</tr>
+					<tr>
+						<th>接受治疗</th>
+						<td>
+						<input type="radio" name="radio3" value="0" id="checkbox19" />
+						<label for="checkbox19">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="3" id="checkbox20" />
+						<label for="checkbox20">3</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="4" id="checkbox21" />
+						<label for="checkbox21">4</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="5" id="checkbox22" />
+						<label for="checkbox22">5</label>
+						</td>
+						<td>
+						<input type="radio" name="radio3" value="6" id="checkbox23" />
+						<label for="checkbox23">6</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th colspan="2" rowspan="2"></th>
+						<th colspan="5">年龄</th>
+					</tr>
+					<tr>
+						<th>20~39</th>
+						<th>40~49</th>
+						<th>50~59</th>
+						<th>60~69</th>
+						<th>70~79</th>
+					</tr>
+					<tr>
+						<th rowspan="5">总胆固醇 mg/dl</th>
+						<th>&lt;160</th>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox24" />
+						<label for="checkbox24">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox25" />
+						<label for="checkbox25">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox26" />
+						<label for="checkbox26">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox27" />
+						<label for="checkbox27">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="0" id="checkbox28" />
+						<label for="checkbox28">0</label>
+						</td>
+					</tr>
+					<tr>
+						<th>160~199</th>
+						<td>
+						<input type="radio" name="radio4" value="4" id="checkbox29" />
+						<label for="checkbox29">4</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="3" id="checkbox30" />
+						<label for="checkbox30">3</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="2" id="checkbox31" />
+						<label for="checkbox31">2</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="1" id="checkbox32" />
+						<label for="checkbox32">1</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="1" id="checkbox33" />
+						<label for="checkbox33">1</label>
+						</td>
+					</tr>
+					<tr>
+						<th>200~239</th>
+						<td>
+						<input type="radio" name="radio4" value="8" id="checkbox34" />
+						<label for="checkbox34">8</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="6" id="checkbox35" />
+						<label for="checkbox35">6</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="4" id="checkbox36" />
+						<label for="checkbox36">4</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="2" id="checkbox37" />
+						<label for="checkbox37">2</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="1" id="checkbox38" />
+						<label for="checkbox38">1</label>
+						</td>
+					</tr>
+					<tr>
+						<th>240~279</th>
+						<td>
+						<input type="radio" name="radio4" value="11" id="checkbox39" />
+						<label for="checkbox39">11</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="8" id="checkbox40" />
+						<label for="checkbox40">8</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="5" id="checkbox41" />
+						<label for="checkbox41">5</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="3" id="checkbox42" />
+						<label for="checkbox42">3</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="2" id="checkbox43" />
+						<label for="checkbox43">2</label>
+						</td>
+					</tr>
+					<tr>
+						<th>&ge;280</th>
+						<td>
+						<input type="radio" name="radio4" value="13" id="checkbox44" />
+						<label for="checkbox44">13</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="10" id="checkbox45" />
+						<label for="checkbox45">10</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="7" id="checkbox46" />
+						<label for="checkbox46">7</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="4" id="checkbox47" />
+						<label for="checkbox47">4</label>
+						</td>
+						<td>
+						<input type="radio" name="radio4" value="2" id="checkbox48" />
+						<label for="checkbox48">2</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>年龄</th>
+						<th>20~39</th>
+						<th>40~49</th>
+						<th>50~59</th>
+						<th>60~69</th>
+						<th>70~79</th>
+					</tr>
+					<tr>
+						<th>不抽烟</th>
+						<td>
+						<input type="radio" name="radio5" value="0" id="checkbox49" />
+						<label for="checkbox49">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="0" id="checkbox50" />
+						<label for="checkbox50">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="0" id="checkbox51" />
+						<label for="checkbox51">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="0" id="checkbox52" />
+						<label for="checkbox52">0</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="0" id="checkbox53" />
+						<label for="checkbox53">0</label>
+						</td>
+					</tr>
+					<tr>
+						<th>抽烟</th>
+						<td>
+						<input type="radio" name="radio5" value="9" id="checkbox54" />
+						<label for="checkbox54">9</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="7" id="checkbox55" />
+						<label for="checkbox55">7</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="4" id="checkbox56" />
+						<label for="checkbox56">4</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="2" id="checkbox57" />
+						<label for="checkbox57">2</label>
+						</td>
+						<td>
+						<input type="radio" name="radio5" value="1" id="checkbox58" />
+						<label for="checkbox58">1</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th class="count">评分</th>
+						<td><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">5</span>个必选项未选）</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>评分</th>
+						<td>&lt;9</td>
+						<td>9</td>
+						<td>10</td>
+						<td>11</td>
+						<td>12</td>
+						<td>13</td>
+						<td>14</td>
+						<td>15</td>
+						<td>16</td>
+						<td>17</td>
+						<td>18</td>
+						<td>19</td>
+						<td>20</td>
+						<td>21</td>
+						<td>22</td>
+						<td>23</td>
+						<td>24</td>
+						<td>&ge;25</td>
+					</tr>
+					<tr>
+						<th>危险（%）</th>
+						<td>&lt;1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>2</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>8</td>
+						<td>11</td>
+						<td>14</td>
+						<td>17</td>
+						<td>22</td>
+						<td>27</td>
+						<td>&ge;30</td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>相关解释</th>
+						<td>来自于弗明汉心脏病研究（Framingham Heart Study），是根据胆固醇水平和非胆固醇因素计算个体未来10年冠心病发作几率。非胆固醇因素又分为高危因素、主要危险因素和其他因素。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>《Framingham危险评分》 首都医科大学附属北京安贞医院 作者：周玉杰　杨士伟　王建龙</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 5-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

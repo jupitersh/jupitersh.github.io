@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>成人still病的Yamaguchi诊断标准(日本成人Still病研究委员会, 1992)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>成人still病的Yamaguchi诊断标准(日本成人Still病研究委员会, 1992)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th rowspan="4">主要标准：</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox1" id="checkbox1" />
+                        	<label for="checkbox1">1.发热≥39.0℃，并持续≥1周</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox1" id="checkbox2" />
+                        	<label for="checkbox2">2.关节痛持续≥2周</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox1" id="checkbox3" />
+                        	<label for="checkbox3">3.典型皮疹</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox1" id="checkbox4" />
+                        	<label for="checkbox4">4.白细胞增高≥10×10^9/L，中性粒细胞≥80%</label>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="5">次要标准：</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox2" id="checkbox10" />
+                        	<label for="checkbox10">1.咽痛</label>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<input type="checkbox"  name="checkbox2" id="checkbox11" />
+                        	<label for="checkbox11">2.肝大或脾大</label>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<input type="checkbox"  name="checkbox2" id="checkbox12" />
+                        	<label for="checkbox12">3.淋巴结肿大</label>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<input type="checkbox"  name="checkbox2" id="checkbox13" />
+                        	<label for="checkbox13">4.肝功能异常（AST、ALT和LDH升高）</label>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<input type="checkbox"  name="checkbox2" id="checkbox14" />
+                        	<label for="checkbox14">5.类风湿因子RF和抗核抗体ANA阴性</label>
+                        </td>
+                    </tr>
+                    <tr>
+						<th class="count">诊断结果</th>
+                        <td><span class="num"></span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>此诊断标准须排除感染性疾病、恶性肿瘤和其他风湿病。符合5项条件（至少含2项主要条件）即可诊断。Yamaguchi诊断标准是目前提出的众多诊断标准中敏感性最高的。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>典型皮疹：在发热时可见躯干及四肢出现淡红色、无瘙痒的斑点状或斑丘状皮疹。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Yamaghuchi et al.Preliminary criteria for classification of adult Still’s disease.J Rheumatol.1992;19(3):424.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>    
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input').click(function(){
+		var in1 = $('input[name="checkbox1"]:checked').length;
+		var in2 = $('input[name="checkbox2"]:checked').length;
+		
+		if( (in1+in2) >= 5 && in1 >= 2){
+			$('.num').text('排除感染性疾病、恶性肿瘤和其他风湿病后，可以诊断成人still病');
+		}else{
+			$('.num').text('不足以诊断成人still病');
+		}
+	});
+});
+</script>
+</body>
+</html>

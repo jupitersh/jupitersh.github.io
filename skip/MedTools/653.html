@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>Barthel 指数量表（BI）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Barthel 指数量表（BI）</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th width="70%">内容</th>
+                    <th colspan="2">评分标准</th>
+                </tr>
+                <tr>
+                		<td rowspan="3">1. 大便控制</td>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox0" />
+                        <label for="checkbox0">失禁</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="5" id="checkbox1" />
+                        <label for="checkbox1">偶尔失禁</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="10" id="checkbox2" />
+                        <label for="checkbox2">能控制</label>
+                    </td>
+                    <td>10</td>
+                </tr> 
+                 <tr>
+                		<td rowspan="3">2. 小便控制</td>
+                    <td>
+                        <input type="radio" name="radio2" value="0" id="checkbox3" />
+                        <label for="checkbox3">失禁</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="5" id="checkbox4" />
+                        <label for="checkbox4">偶尔失禁</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio2" value="10" id="checkbox5" />
+                        <label for="checkbox5">能控制</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                 <tr>
+                		<td rowspan="2">3. 洗漱</td>
+                    <td>
+                        <input type="radio" name="radio3" value="0" id="checkbox6" />
+                        <label for="checkbox6">需帮助</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio3" value="5" id="checkbox7" />
+                        <label for="checkbox7">独立完成</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">4. 入厕</td>
+                    <td>
+                        <input type="radio" name="radio4" value="0" id="checkbox8" />
+                        <label for="checkbox8">依靠他人</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="5" id="checkbox9" />
+                        <label for="checkbox9">需部分协助</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio4" value="10" id="checkbox10" />
+                        <label for="checkbox10">自理</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">5. 进食</td>
+                    <td>
+                        <input type="radio" name="radio5" value="0" id="checkbox11" />
+                        <label for="checkbox11">依靠他人</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="5" id="checkbox12" />
+                        <label for="checkbox12">需部分协助</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio5" value="10" id="checkbox13" />
+                        <label for="checkbox13">完全自理</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                 <tr>
+                		<td rowspan="4">6. 床椅转移</td>
+                    <td>
+                        <input type="radio" name="radio6" value="0" id="checkbox14" />
+                        <label for="checkbox14">完全依靠他人不能坐</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="5" id="checkbox15" />
+                        <label for="checkbox15">需 2 人协助</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="10" id="checkbox16" />
+                        <label for="checkbox16">需 1 人协助或指导</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio6" value="15" id="checkbox17" />
+                        <label for="checkbox17">自理</label>
+                    </td>
+                    <td>15</td>
+                </tr>
+                 <tr>
+                		<td rowspan="4">7. 平地行走</td>
+                    <td>
+                        <input type="radio" name="radio7" value="0" id="checkbox18" />
+                        <label for="checkbox18">不能起床活动</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="5" id="checkbox19" />
+                        <label for="checkbox19">在轮椅上活动</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="10" id="checkbox20" />
+                        <label for="checkbox20">需 1 人帮助体力或言语指导</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio7" value="15" id="checkbox21" />
+                        <label for="checkbox21">独自行走，可用步行辅助器</label>
+                    </td>
+                    <td>15</td>
+                </tr>
+                 <tr>
+                		<td rowspan="3">8. 穿衣</td>
+                    <td>
+                        <input type="radio" name="radio8" value="0" id="checkbox22" />
+                        <label for="checkbox22">完全依靠他人</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="5" id="checkbox23" />
+                        <label for="checkbox23">需部分协助</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio8" value="10" id="checkbox24" />
+                        <label for="checkbox24">全部自理</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                		<td rowspan="3">9. 上下楼梯</td>
+                    <td>
+                        <input type="radio" name="radio9" value="0" id="checkbox25" />
+                        <label for="checkbox25">不能</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="5" id="checkbox26" />
+                        <label for="checkbox26">需部分协助</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio9" value="10" id="checkbox27" />
+                        <label for="checkbox27">完全自理</label>
+                    </td>
+                    <td>10</td>
+                </tr>
+                 <tr>
+                		<td rowspan="2">10. 洗澡</td>
+                    <td>
+                        <input type="radio" name="radio10" value="0" id="checkbox28" />
+                        <label for="checkbox28">完全依靠他人</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio10" value="5" id="checkbox29" />
+                        <label for="checkbox29">全部自理</label>
+                    </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th class="count">评分</th>
+                    <td colspan="2"><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+								<td>
+										总分 100 分，得分越高，生活自理能力越强。
+								</td>
+						</tr>
+						<tr>
+								<th>相关解释</th>
+								<td>
+										Baahel 指数是目前国际上使用最广泛的残疾量表，
+										<br/>
+										如脑血管病患者由于肢体活动障碍导致生活自理能力下降，
+										<br/>
+										可通过 Barthel 指数来评价能力障碍的程度。	
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

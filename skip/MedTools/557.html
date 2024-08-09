@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>6分钟步行试验</title>
+<link href="Pub/css/layout.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <td colspan="3" class="sex"><span class="radio man checked">男</span><span class="radio">女</span></td>
+      </tr>
+      <tr>
+        <th>身高：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>m</td>
+      </tr>
+      <tr>
+        <th>年龄：</th>
+        <td class="text_wrap"><input type="number" value="" id="num2" class="text num2"></td>
+        <td>岁</td>
+      </tr>
+      <tr>
+        <th>体重：</th>
+        <td class="text_wrap"><input type="number" value="" id="num3" class="text num3"></td>
+        <td>kg</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式名称</th>
+      </tr>
+      <tr>
+        <td>六分钟步行试验（6MWD）正常预计值</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>男性：757×身高（m）-5.02×年龄（yr）-1.76×体重（Kg）-309<br />女性：211×身高（m）-5.78×年龄（yr）-2.29×体重（Kg）+667<br />注：身高适用范围：1~2.5m，保留小数点后两位；年龄适用范围：4~100；体重适用范围：15~200kg，保留小数点后1位。
+</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>一、适应证：<br />评价中重度心肺疾病患者对治疗的反应情况；评价患者整体的功能状况。包括肺动脉高压、心力衰竭、COPD、间质性肺疾病、肺移植、肺减容术、肺切除术等。<br />二、禁忌证：<br />绝对禁忌症：近6个月存在不稳定心绞痛或心肌梗死。<br />相对禁忌症：静息状态下，心率超过120次/分；收缩压高于180 mmHg；舒张压超过100 mmHg。<br />所有患者测试之前的一餐饮食必须清淡，并在测试开始前休息至少20分钟。患者在测试当天仍应用平时使用药物。如患者在步行前需服用支气管扩张剂，应在测试前5-30分钟服用。患者应被告知穿着舒适的衣服和鞋进行测试。<br /><br /><strong>6MWD的参考值：</strong>
+        <table>
+        	<tr>
+            	<td>描述</td>
+            	<td>分级</td>
+            </tr>
+        	<tr>
+            	<td>＜150m</td>
+            	<td>重度心功能不全</td>
+            </tr>
+        	<tr>
+            	<td>150~425m</td>
+            	<td>中度心功能不全</td>
+            </tr>
+        	<tr>
+            	<td>426~550m</td>
+            	<td>轻度心功能不全</td>
+            </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Enright PL, Sherrill DL. Reference equations for the six-minute walk in healthy adults.Am J Respir Crit Care Med 1998;158:1384-7.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>6MWD=<em id="end"> </em>m</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = (parseFloat(document.getElementById("num1").value)).toFixed(2); // 身高
+	var num2 = parseFloat(document.getElementById("num2").value); // 年龄
+	var num3 = (parseFloat(document.getElementById("num3").value)).toFixed(2); // 体重
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的身高，单位是cm");
+	}else{
+		if($(".man").hasClass("checked")){
+			var end = 757*num1-5.02*num2-1.76*num3-309;
+		}else{
+			var end = 211*num1-5.78*num2-2.29*num3+667;
+		}
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

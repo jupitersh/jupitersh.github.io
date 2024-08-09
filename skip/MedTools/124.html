@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>短暂性脑缺血发作ABCD2 评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>短暂性脑缺血发作ABCD2 评分</h1>
+  </div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+			<thead>
+				<tr>
+					<th>项目</th>
+					<th>内容</th>
+					<th>评分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>A （Age）</th>
+					<td>
+					<input type="checkbox" name="checkbox" value="1" id="checkbox1"  />
+					<label for="checkbox1">大于60岁</label>
+					</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<th>B （Blood  pressure &gt; 140/90 mmHg）</th>
+					<td>
+					<input type="checkbox" name="checkbox" value="1" id="checkbox2" />
+					<label for="checkbox2">急性评估时大于140/90 mmHg</label>
+					</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<th rowspan="3">C （Clinical  features）</th>
+					<td>
+					<input type="radio" name="radio1" value="2" id="checkbox3" />
+					<label for="checkbox3">单侧无力</label>
+					</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>
+					<input type="radio" name="radio1" value="1" id="checkbox4" />
+					<label for="checkbox4">没有无力表现但语言障碍</label>
+					</td>
+					<td>1</td>
+				</tr>
+				<tr>
+				  <td>
+					<input type="radio" name="radio1" value="0" id="checkbox5" />
+					<label for="checkbox5">其他</label></td>
+				  <td>0</td>
+		      </tr>
+				<tr>
+					<th rowspan="3">D （symptom Duration）</th>
+					<td>
+					<input type="radio" name="radio2" value="0" id="checkbox6" />
+					<label for="checkbox6">脑缺血症状持续时间&lt;10min</label>
+					</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>
+					<input type="radio" name="radio2" value="1" id="checkbox7" />
+					<label for="checkbox7">脑缺血症状持续时间10-59min</label>
+					</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>
+					<input type="radio" name="radio2" value="2" id="checkbox8" />
+					<label for="checkbox8">脑缺血症状持续时间&ge;60min</label>
+					</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<th>D （Diabetes）</th>
+					<td>
+					<input type="checkbox" name="checkbox" value="1" id="checkbox9" />
+					<label for="checkbox9">有糖尿病</label>
+					</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<th class="count">评分</th>
+					<td colspan="2"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">2</span>个必选项未选）</td>
+				</tr>
+			</tbody>
+		</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+		  <tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>将短暂性脑缺血(TIA)病人划分为低危（0-3分），中危（4-5分）和高危（6-7分）三组，低危、中危和高危组在TIA后7天内发生脑梗死的比例分别为1.2%、5.9%和11.7%。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>ABCD2评分可以为急诊室有脑血管病低危因素的头晕患者提供有用的信息，如果提前被验证的话可以帮助一线人员进行急性期处理。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Higher ABCD2 score predicts patients most likely to have true transient ischemic attack. Josephson SA, Sidney S, Pham TN, Bernstein AL, Johnston SC. Stroke. 2008 Nov;39(11):3096-8. Epub 2008 Aug 7.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore()+allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 2-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

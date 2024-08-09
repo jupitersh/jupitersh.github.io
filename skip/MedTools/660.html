@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>Tarlov 神经功能评分标准</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>Tarlov 神经功能评分标准</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th>内容</th>
+                    <th>评分</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="0" id="checkbox0" />
+                        <label for="checkbox0">下肢完全瘫痪</label>
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox1" />
+                        <label for="checkbox1">可觉察的下肢关节运动</label>
+                    </td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="2" id="checkbox2" />
+                        <label for="checkbox2">下肢可自由运动，但无法站立</label>
+                    </td>
+                    <td>2</td>
+                </tr> 
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="3" id="checkbox3" />
+                        <label for="checkbox3">可站立但无法行走</label>
+                    </td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="radio1" value="4" id="checkbox4" />
+                        <label for="checkbox4">下肢运动功能完全恢复，能正常行走</label>
+                    </td>
+                    <td>4</td>
+                </tr> 
+                <tr>
+                    <th class="count">评分</th>
+                    <td><span><em class="num">0</em> 分</span> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+								<td>
+										注：评分在 4 分以上，方能离开手术室或恢复室。
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore()+allCheckbox();
+        $('.num').text(n);
+    }
+    
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function allCheckbox(){
+        var allCheckbox=0;
+        $(':checkbox:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;
+            allCheckbox = allCheckbox+n;
+        });
+        return allCheckbox;
+    }
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

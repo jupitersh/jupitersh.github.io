@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>激素剂量换算</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>药物：</th>
+				<td class="text_wrap">
+                	<select id="S1">
+                    	<option value="10">可的松</option>
+                    	<option value="0.3">倍他米松</option>
+                    	<option value="0.3">地塞米松</option>
+                    	<option value="0.5">氟米龙</option>
+                    	<option value="8">氢化可的松</option>
+                    	<option value="1.6">甲泼尼龙</option>
+                    	<option value="2">泼尼松龙</option>
+                    	<option value="2">泼尼松</option>
+                    	<option value="1.6">曲安西龙</option>
+                    </select>
+                </td>
+				<td>mg</td>
+			</tr>
+			<tr>
+				<th>剂量：</th>
+				<td><input type="text" value="" id="num1" class="text num1"></td>
+				<td>mg</td>
+			</tr>
+			<tr>
+				<th>转换的药物：</th>
+				<td class="text_wrap">
+                	<select id="S2">
+                    	<option value="10">可的松</option>
+                    	<option value="0.3">倍他米松</option>
+                    	<option value="0.3">地塞米松</option>
+                    	<option value="0.5">氟米龙</option>
+                    	<option value="8">氢化可的松</option>
+                    	<option value="1.6">甲泼尼龙</option>
+                    	<option value="2">泼尼松龙</option>
+                    	<option value="2">泼尼松</option>
+                    	<option value="1.6">曲安西龙</option>
+                    </select>
+                </td>
+				<td>mg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>可的松10mg=倍他米松0.3mg=地塞米松0.3mg=氟米龙0.5mg=氢化可的松8mg=甲泼尼龙1.6mg=泼尼松龙2mg=泼尼松2mg=曲安西龙1.6mg</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>【严格掌握糖皮质激素治疗的适应证】<br />糖皮质激素临床应用的随意性较大，因此未严格按照适应证给药的情况较为普遍，如单纯以退热和止痛为目的使用糖皮质激素，特别是在感染性疾病中以退热和止痛为目的使用。糖皮质激素有抑制自身免疫的药理作用，但并不适用于所有自身免疫病治疗如慢性淋巴细胞浸润性甲状腺炎（桥本病）、1型糖尿病、寻常型银屑病等。<br />【合理制订糖皮质激素治疗方案】<br />（1）给药剂量（以泼尼松为例）<br />长期服用维持剂量：2.5-15.0mg/d；<br />小剂量：＜0.5mg/kg·d；<br />中等剂量：0.5-1.0mg/kg·d；<br />大剂量：大于1.0mg/kg·d；<br />冲击剂量：（以甲泼尼龙为例）7.5-30.0mg/kg·d。<br />（2）疗程<br />冲击治疗：疗程多小于5天。适用于危重症病人的抢救，如暴发型感染、过敏性休克、严重哮喘持续状态、过敏性喉头水肿、狼疮性脑病、重症大疱性皮肤病、重症药疹、急进性肾炎等。冲击治疗须配合其他有效治疗措施，可迅速停药，若无效大部分情况下不可在短时间内重复冲击治疗。<br />短程治疗：疗程小于1个月，包括应激性治疗。适用于感染或变态反应类疾病，如结核性脑膜炎及胸膜炎、剥脱性皮炎或器官移植急性排斥反应等。短程治疗须配合其他有效治疗措施，停药时需逐渐减量至停药。<br />中程治疗：疗程3个月以内。适用于病程较长且多器官受累性疾病,如风湿热等。生效后减至维持剂量，停药时需要逐渐递减。<br />长程治疗：疗程大于3个月。适用于器官移植后排斥反应的预防和治疗及反复发作、多器官受累的慢性自身免疫病,如系统性红斑狼疮、溶血性贫血、系统性血管炎、结节病、大疱性皮肤病等。维持治疗可采用每日或隔日给药，停药前亦应逐步过渡到隔日疗法后逐渐停药。<br />李莎 17:31:28<br />终身替代治疗：适用于原发性或继发性慢性肾上腺皮质功能减退症，并于各种应激情况下适当增加剂量。<br />（3）给药途径<br />包括口服、肌内注射、静脉注射或静脉滴注等全身用药，以及吸入、局部注射、点滴和涂抹等局部用药。<br />【监测糖皮质激素的不良反应】<br />糖皮质激素的不良反应与用药品种、剂量、疗程、剂型及用法等明显相关，在使用中应密切监测不良反应，如感染、代谢紊乱（水电解质、血糖、血脂）、体重增加、出血倾向、血压异常、骨质疏松、股骨头坏死等，小儿应监测生长和发育情况。<br />【停药反应】<br />长期中或大剂量使用糖皮质激素时，减量过快或突然停用可出现肾上腺皮质功能减退样症状，轻者表现为精神萎靡、乏力、食欲减退、关节和肌肉疼痛，重者可出现发热、恶心、呕吐、低血压等，危重者甚至发生肾上腺皮质危象，需及时抢救。<br />【反跳现象】<br />在长期使用糖皮质激素时，减量过快或突然停用可使原发病复发或加重，应恢复糖皮质激素治疗并常需加大剂量，稳定后再慢慢减量。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1.Goodman & Gilman's The Parmacological basis of therapeutics. McGrawHill, 1997.<br />2.2011年.糖皮质激素类药物临床应用指导原则（卫生部）.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>换算结果：<em id="end"></em>mg</p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+//计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var v1 = parseFloat(document.getElementById("S1").value);
+	var v2 = parseFloat(document.getElementById("S2").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的剂量");
+	}else{
+		var end = num1*v2/v1;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

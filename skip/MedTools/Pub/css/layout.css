@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+#Layout {
+}
+.titleBar {
+	width:95%;
+	margin:0 auto;
+	padding:20px 0;
+}
+.titleBar h1, .titleBar h2 {
+	text-align:center;
+	margin-bottom:5px;
+}
+/* 第一类 */
+.countTab1 {
+	width:95%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+	margin:0 auto 20px auto;
+}
+.countTab1 thead th {
+	border:1px solid #ccc;
+	background:#666;
+	padding:5px;
+	color:#fff;
+}
+.countTab1 tbody th, .countTab1 tbody td {
+	border:1px solid #ccc;
+	background:#EFEFEF;
+	text-align:center;
+	padding:5px;
+}
+.countTab1 tbody td {
+	background:#fff;
+	font-weight:normal;
+	text-align:left;
+}
+.countTab1 tbody span {
+	color:#333;
+	display:block;
+}
+/* 第二类 */
+.countTab2 {
+	width:95%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+	margin:0 auto 20px auto;
+}
+.countTab2 thead th {
+	border:1px solid #ccc;
+	background:#666;
+	padding:10px;
+	color:#fff;
+}
+.countTab2 tbody th, .countTab2 tbody td {
+	border:1px solid #ccc;
+	background:#EFEFEF;
+	text-align:center;
+	padding:5px;
+}
+.countTab2 tbody td {
+	background:#fff;
+	font-weight:normal;
+	text-align:left;
+}
+.countTab2 tbody .count {
+	background:#9c0 !important;
+	color:#fff !important;
+}
+.countTab2 tbody span {
+	color:#333;
+	font-weight:bold;
+}
+/* 结果类样式表 */
+.countTabResult {
+	width:95%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+	margin:0 auto 20px auto;
+}
+.countTabResult thead th {
+	border:1px solid #ccc;
+	background:#666;
+	padding:5px;
+	color:#fff;
+}
+.countTabResult tbody th, .countTabResult tbody td {
+	border:1px solid #ccc;
+	background:#EFEFEF;
+	text-align:center;
+	padding:5px;
+	width:25%;
+}
+.countTabResult tbody td {
+	background:#fff;
+	font-weight:normal;
+	text-align:left;
+	width:80%;
+}
+.countTabResult tbody span {
+	color:#333;
+	display:block;
+}
+.countTab {
+	width:95%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+	margin:0 auto 20px auto;
+}
+.countTab caption {
+	text-align:left;
+	font-weight:bold;
+	padding:5px 0;
+	font-size:1.2em;
+}
+.countTab thead th {
+	border:1px solid #ccc;
+	background:#666;
+	padding:10px;
+	color:#fff;
+}
+.countTab tbody th, .countTab tbody td {
+	border:1px solid #ccc;
+	background:#EFEFEF;
+	text-align:center;
+	padding:5px;
+	text-align:left;
+}
+.countTab tbody td {
+	background:#fff;
+	font-weight:normal;
+	text-align:left;
+}
+.countTab tbody .count {
+	background:#9c0 !important;
+	color:#fff !important;
+}
+.countTab tbody span {
+	color:#333;
+	font-weight:bold;
+}
+.countFormTab {
+	width:90%;
+	margin:0 auto;
+	border:0;
+}
+.countFormTab td, .countFormTab th {
+}
+.danwei,.sex {
+	border-bottom:1px dashed #ccc;
+}

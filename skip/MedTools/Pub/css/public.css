@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	font-family:"Times New Roman", Times, serif;
+	font-size:1em;
+	-webkit-text-size-adjust:none;
+}
+ul {
+	list-style:none;
+}
+h1 {
+	font-size:1.3em;
+}
+h2 {
+	font-size:1.1em;
+}
+img {
+	border:none;
+}
+.noShow {
+	display:none;
+}
+.show {
+	display:block !important;
+}
+.noMagrin {
+	margin:0 !important;
+}
+.noBg {
+	background:none !important;
+}
+.noBorder {
+	border:none !important;
+}
+.divC {
+	clear:both;
+	height:0;
+	font-size:0;
+	line-height:0;
+}
+
+
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1em;
+	-webkit-text-size-adjust:none;
+}
+.wrap {
+	position:relative;
+	width:90%;
+	margin:0 auto;
+}
+.form {
+	margin:10px auto;
+	border-bottom:1px dashed #ccc;
+}
+.btn, .reset, .closeBtn {
+	width:100%;
+	height:50px;
+	font-weight:bold;
+	margin:0 auto;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#EEEFF0));
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border:1px solid #ccc;
+	font-size:1em;
+	outline:none;
+}
+.reset {
+	width:50%;
+	height:30px;
+}
+.closeBtn {
+	width:50%;
+	height:30px;
+	margin-bottom:10px;
+}
+#textPop {
+	width:90%;
+	position:absolute;
+	top:50px;
+	left:6%;
+	display:none;
+	padding-bottom:5px;
+	border-radius:5px;
+	-moz-box-shadow:2px 2px 10px #ccc;
+	-webkit-box-shadow:2px 2px 10px #ccc;
+	box-shadow:2px 2px 10px #ccc;
+	background:#fff;
+}
+#textPop h4 {
+	margin:15px 15px 0;
+	color:#666;
+}
+#textPop p {
+	color:#333;
+	text-align:center;
+	vertical-align:middle;
+}
+#textPop p em {
+	margin:0 6px;
+	color:#f60;
+	font-size:30px;
+	font-style:normal;
+	line-height:50px;
+	vertical-align:middle;
+}
+#textPop div {
+	margin-top:10px;
+	text-align:center;
+}
+.form table {
+	width:100%;
+	border-collapse:collapse;
+}
+.form table th {
+	width:70%;
+	padding:5px 5px 5px 0;
+	font-weight:bold;
+	text-align:right;
+}
+.form table td {
+	height:40px;
+	padding:5px 0;
+	vertical-align:middle;
+	border-collapse:collapse;
+}
+.form table .text_wrap {
+	width:80px;
+}
+.form table td .text {
+	width:70px;
+	height:30px;
+	margin-right:5px;
+	padding-left:10px;
+	color:#333;
+	border:1px solid #ccc;
+}
+.form table td .radio {
+	display:inline-block;
+	min-height:21px;
+	margin-right:10px;
+	padding-left:30px;
+	background:url(../images/bg_radio1.png) no-repeat 0 50%;
+	overflow:hidden;
+	line-height:1.5em;
+	cursor:pointer;
+}
+.form table td .checked {
+	background:url(../images/bg_radio2.png) no-repeat 0 50%;
+}
+.wrap .s2 {
+	display:none;
+}
+.normal{
+font-size:1em;
+}
+.big{
+font-size:1.15em;
+}

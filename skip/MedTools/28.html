@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>最大呼气中段流量</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>用力肺活量<br />
+          FVC：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <th>最大呼气中段时间MET：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>s</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Maximum Mid-Expiratory Flow,MMEF</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>MMEF=FVC/(2*MET)</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>男性：(3452±1160)ml/s；女性：(2836±946)ml/s</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>MMEF是用力呼出肺活量的25%-75%的平均流量，是检测空气污染对小气道功能影响的灵敏指标。最大通气量可反映气道阻塞的严重程度，又可了解患者的呼吸储备力、肌肉强度和动力水平，可作为手术前评价。其减少见于： (1)气道阻力增加：如各种慢性阻塞性肺疾病、支气管哮喘或支气管肿瘤等。 (2)肺组织损害：如肺炎、肺结核、肺泡出血、肺水肿、肺间质纤维化等。 (3)胸廓、胸膜病变：如严重脊柱后侧弯、肋骨骨折、气胸、大量胸腔积液等。 (4)神经系统和呼吸肌活动障碍：如麻醉、脑炎、脊髓灰质炎和重症肌无力等。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>欧阳钦主编. 临床诊断学（八年制）[M]. 人民卫生出版社.2005年</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>MMEF=<em id="end"> </em>ml/s</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //FVC
+	var num2 = parseFloat(document.getElementById("num2").value); //MET
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的用力肺活量");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的最大呼气中段时间");
+	}else{
+		var end = num1/(2*num2);
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

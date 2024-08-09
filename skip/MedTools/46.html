@@ -1,0 +1,121 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>肾小球滤过率（MDRD简化公式）</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<style>
+.wrap .s1 {display:none;}
+.wrap .s2 {display:inline-block;}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <td colspan="3" class="sex danwei"><span class="radio man checked">男</span><span class="radio woman">女</span></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="sex danwei"><span class="radio si checked">国际</span><span class="radio su">常用</span></td>
+      </tr>
+      <tr>
+        <th>血肌酐浓度Scr：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td><span class="s1">mg/dL</span><span class="s2">μmol/L</span></td>
+      </tr>
+      <tr>
+        <th>年龄：</th>
+        <td class="text_wrap"><input type="number" value="" id="num2" class="text num2"></td>
+        <td>岁</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>Glomerular Filtration Rate Estimate by Abbreviated MDRD Study Equation,GFR</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>常用单位，GFR=186*SCr<sup>-1.154</sup>*年龄<sup>-0.203</sup>*(女性*0.742)</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>120～138 mL/(min*1.73m<sup>2</sup>)</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>肾小球滤过率GFR是单位时间内经肾小球滤出的血浆液体量，是反映肾小球滤过功能的客观指标。GFR受年龄，性别，种族，体型的影响，因此在用Scr估算GFR时应该加入这些因素。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Levey AS, Greene T, Kusek JW, et. al. A simplified equation to predict glomerular filtration rate from serum creatinine. J Am Soc Nephrol. 11:A0828, 2000 (abstr).</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>GFR=<em id="end"> </em>mL/(min*1.73m<sup>2</sup>)</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //Scr
+	var num2 = parseFloat(document.getElementById("num2").value); //年龄
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的血肌酐浓度");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的年龄");
+	}else{	
+		if($(".man").hasClass("checked") && $(".si").hasClass("checked")){
+			var end = 186*Math.pow(num1/88.402,-1.154)*Math.pow(num2,-0.203);
+		}else if($(".man").hasClass("checked") && !($(".si").hasClass("checked"))){
+			var end = 186*Math.pow(num1,-1.154)*Math.pow(num2,-0.203);
+		}else if($(".woman").hasClass("checked") && $(".si").hasClass("checked")){
+			var end = 186*Math.pow(num1/88.402,-1.154)*Math.pow(num2,-0.203)*0.742;
+		}else if($(".woman").hasClass("checked") && !($(".si").hasClass("checked"))){
+			var end = 186*Math.pow(num1,-1.154)*Math.pow(num2,-0.203)*0.742;
+		}
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

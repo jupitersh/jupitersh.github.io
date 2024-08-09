@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>克罗恩病活动指数（CDAI）简化计算法</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>克罗恩病活动指数（CDAI）简化计算法</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>临床表现</th>
+					    <th>0分</th>
+					    <th>1分</th>
+					    <th>2分</th>
+					    <th>3分</th>
+						<th>4分</th>
+	                </tr>
+				</thead>
+				<tbody>
+                	<tr>
+                    	<th>一般情况</th>
+                    	<td><input type="radio" name="radio" id="radio1" value="0" /><label for="radio1">良好</label></td>
+                    	<td><input type="radio" name="radio" id="radio2" value="1" /><label for="radio2">稍差</label></td>
+                    	<td><input type="radio" name="radio" id="radio3" value="2" /><label for="radio3">差</label></td>
+                    	<td><input type="radio" name="radio" id="radio4" value="3" /><label for="radio4">不良</label></td>
+                    	<td><input type="radio" name="radio" id="radio5" value="4" /><label for="radio5">极差</label></td>
+                    </tr>
+                	<tr>
+                    	<th>腹痛</th>
+                    	<td><input type="radio" name="radio1" id="radio6" value="0" /><label for="radio6">无</label></td>
+                    	<td><input type="radio" name="radio1" id="radio7" value="1" /><label for="radio7">轻</label></td>
+                    	<td><input type="radio" name="radio1" id="radio8" value="2" /><label for="radio8">中</label></td>
+                    	<td><input type="radio" name="radio1" id="radio9" value="3" /><label for="radio9">重</label></td>
+                    	<td></td>
+                    </tr>
+                	<tr>
+                    	<th>腹块</th>
+                        <td><input type="radio" name="radio2" id="radio10" value="0" /><label for="radio10">无</label></td>
+                    	<td><input type="radio" name="radio2" id="radio11" value="1" /><label for="radio11">可疑</label></td>
+                    	<td><input type="radio" name="radio2" id="radio12" value="2" /><label for="radio12">确定</label></td>
+                    	<td><input type="radio" name="radio2" id="radio13" value="3" /><label for="radio13">伴触痛</label></td>
+                    	<td></td>
+                    </tr>
+                    <tr>
+                    	<th>腹泻</th>
+                        <td colspan="5"><input type="text" id="fx" value="" style="width:40px;" /> (请输入每日稀便次数)</td>
+                    </tr>
+                    <tr>
+                    	<th>并发症</th>
+                        <td colspan="5"><input type="text" id="bfz" value="" style="width:40px;" /> (请输入并发症数)</td>
+                    </tr>
+                    <tr>
+						<th class="count">评分</th>
+						<td colspan="5"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">3</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>克罗恩病的严重度可参考临床表现作出，无全身症状、腹部压痛、包块和梗阻者为轻度；明显腹痛、腹泻、全身症状和并发症为重度；介于其间者为中度。临床上采用Harvey和Bradshow标准(简化CDAI)较为简便实用。&le;4分为缓解期；5-8分为中度活动期；&ge;9分为重度活动期。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>克罗恩病并发症包括：A.关节痛/关节炎;B.虹膜炎/葡萄膜(色素膜)炎;C.结节红斑/坏疽性脓皮病/口疮性溃疡;D.肛裂/肛瘘/脓肿;E.其他瘘管;F.过去1周内体温&gt;38℃。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>中国炎症性肠病诊断治疗规范的共识意见<br />作者：中华医学会消化病学分会炎症性肠病协作组<br />刊名：中华内科杂志<br />年，卷(期)：2008，47(1)</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore()+allScore2()+fx()+bfz();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allScore2()
+	{
+		var allScore=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function fx(){
+		var fx=0;
+		$('#fx').each(function(){
+			if( $('#fx').val() != '' ){
+			  var v = parseInt( $('#fx').val() );
+			  var n=0;
+			  n=v;
+			  fx=fx+n;
+			}
+		});
+		return fx;
+	}
+	
+	function bfz(){
+		var bfz=0;
+		$('#bfz').each(function(){
+			if( $('#bfz').val() != '' ){
+			  var v = parseInt( $('#bfz').val() );
+			  var n=0;
+			  n=v;
+			  bfz=bfz+n;
+			}
+		});
+		return bfz;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 3-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+	$('#fx').change(function(){
+		shuchu( );
+	});
+	$('#bfz').change(function(){
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

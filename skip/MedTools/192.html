@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>急性阑尾炎Alvarado评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>急性阑尾炎Alvarado评分</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th>因素</th>
+                        <th>描述</th>
+                        <th>得分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th rowspan="3">症状</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox1" value="1" id="checkbox1" />
+                        	<label for="checkbox1">转移性右下腹痛</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox2" value="1" id="checkbox2" />
+                        	<label for="checkbox2">纳差</label>
+                        </td>
+                        <td>1</td>
+              	    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox3" value="1" id="checkbox3" />
+                        	<label for="checkbox3">恶心呕吐</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                	<tr>
+                    	<th rowspan="3">体征</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox4" value="2" id="checkbox4" />
+                        	<label for="checkbox4">右下腹压痛</label>
+                        </td>
+                        <td>2</td>
+              	    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox5" value="1" id="checkbox5" />
+                        	<label for="checkbox5">反跳痛</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox6" value="1" id="checkbox6" />
+                        	<label for="checkbox6">发热&ge;37.3℃</label>
+                        </td>
+                        <td>1</td>
+              	    </tr>
+                	<tr>
+                    	<th rowspan="2">实验室检查</th>
+                        <td>
+                        	<input type="checkbox"  name="checkbox7" value="2" id="checkbox7" />
+                        	<label for="checkbox7">WBC↑（&gt;10×10^9/L）</label>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<input type="checkbox"  name="checkbox8" value="1" id="checkbox8" />
+                        	<label for="checkbox8">NEU%↑</label>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="2"><span><em class="num">0</em> 分</span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                        <td>0-4分，阑尾炎的可能性极低；<br />5-6分，有阑尾炎的可能；<br />&ge;7分，阑尾炎的可能性极大；</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td>对于男性&gt;6分者可考虑手术治疗；女性及儿童6-8分者需进一步观察或行B超等辅助检查；育龄女性&gt;6分者有近40%非急性阑尾炎，需与异位妊娠、盆腔炎性疾病、输卵管/卵巢脓肿等鉴别。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. Alvarado A.A pratical score for the early diagnosis of acute appendicitis.Ann Emerg Med.1986 May;15(5):557-64.<br />2. Douglas CD,Macpherson NE,Davidson PM,Gani JS.Randomised controlled trial of ultrasonography in diagnosis of acute appendicitis,incorporating the Alvarado score.BMJ.2000 Oct14;321(7266):919-22.<br />3. Mckay R,Shepherd J.The use of the clinical scoring system by Alvarado in the decision to perform computed tomography for acute appendicitis in the ED.Am J Emerg Med.2007 Jun;25(5):489-93.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox()
+	{
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseFloat( $(this).val() );
+			var n=0;
+			n=v;  
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

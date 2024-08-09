@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>平板运动试验Duke评分</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>运动时间：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>min</td>
+			</tr>
+			<tr>
+				<th>ST段压低值：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>mm</td>
+			</tr>
+			<tr>
+				<th>心绞痛指数：</th>
+				<td colspan="2">
+                	<select id="sele">
+                    	<option value="0">无心绞痛</option>
+                    	<option value="1">运动不受限制</option>
+                    	<option value="2">需要终止运动</option>
+                    </select>
+                </td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>Duke评分=运动时间（min）-5*ST段压低值（mm）-4*心绞痛指数<br />（心绞痛指数：无心绞痛=0，运动不受限制=1，需要终止运动=2）</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>Duke评分≥5分，低危，1年死亡率0.25%；<br />Duke评分-10~4分，中危，1年死亡率1.25%；<br />Duke评分≤-11分，高危，1年死亡率5.25%。</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>Duke运动平板评分(Duke Treadmill Score，DTS)系统，是依据Duke资料库中患者的冠状动脉病变血管情况、心脏射血分数和平板运动试验结果，综合分析而制定的一个评分方案。该方法突破了以往单纯依靠运动平板检查时按照患者心电图ST段下降程度进行评价的局限性，提高了运动平板检查冠心病的准确性，并且可以帮助医师比较准确的分析患者可能的预后情况，以便及时采取有效的治疗和预防措施。目前DTS已被多个国家所采纳，是目前无创性检查当中用来判断冠心病患者预后的重要指标之一。75岁以上老人，Duke评分可能受到影响。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>1. Mark DB,Hlatky MA,Harrell FE,Lee KL,Califf RM,Pryor DB.Exercise treadmill score for predicting prognosis in coronary artery disease.Ann Int Med 1987;106:793-800.<br />2. Mark DB,Shaw L,Harrell FE Jr.et al. Prognostic value of a treadmill exercise score in outpatients with suspected coronary artery disease.N Engl J Med 1991;325:849-53.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>DTS=<em id="end"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = $('#sele').val();
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的DTS");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的ST段压低值");
+	}else{
+		var end = num1-5*num2-4*num3;
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

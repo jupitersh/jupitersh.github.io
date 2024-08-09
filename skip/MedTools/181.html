@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>非心脏手术术前心脏风险指数(改良Lee’s评分)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>非心脏手术术前心脏风险指数(改良Lee’s评分)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th>影响因素</th>
+                		<th>评分</th>
+           	        </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox1" />
+                        	<label for="checkbox1">高风险手术类型</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox2" />
+                        	<label for="checkbox2">缺血性心脏病史</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox3" />
+                        	<label for="checkbox3">充血性心衰史</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox4" />
+                        	<label for="checkbox4">脑血管病史</label></td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox5" />
+                        	<label for="checkbox5">糖尿病需要胰岛素治疗</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                	<tr>
+                        <td>
+                        	<input type="checkbox"  name="checkbox" value="1" id="checkbox6" />
+                        	<label for="checkbox6">肌酐&ge;2mg/dl（177μmol/L）</label>
+                        </td>
+                        <td>1分</td>
+                    </tr>
+                    <tr>
+						<th class="count">评分</th>
+                        <td><span><em class="num">0</em> 分</span></td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+			  <tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>评分=0，Ⅰ级，风险非常低，并发症发生率约0.4%；<br />评分=1，Ⅱ级，风险低，并发症发生率约0.9%；<br />评分=2，Ⅲ级，风险中，并发症发生率约7%；<br />评分≥3，Ⅳ级，风险高，并发症发生率高于11%。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td><p>主要用于非心脏手术术前心血管风险的评估。</p>
+					    <p>注：高风险手术指腹主动脉瘤或其他的血管手术，胸腹部手术，骨科手术。</p></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>Thomas H. Lee, et al. Derivation and Prospective Validation of a Simple Index for Prediction of Cardiac Risk of Major Noncardiac Surgery. 1999 Circulation100:1043-9.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+	});
+});
+</script>
+</body>
+</html>

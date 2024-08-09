@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>简化的急性生理功能评分系统(SAPS Ⅱ, 1993)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>简化的急性生理功能评分系统(SAPS Ⅱ, 1993)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                    <tr>
+                        <th rowspan="2">变量</th>
+                        <th colspan="19">分值</th>
+                    </tr>
+                    <tr>
+                    	<th>0</th>
+                    	<th>1</th>
+                    	<th>2</th>
+                    	<th>3</th>
+                    	<th>4</th>
+                    	<th>5</th>
+                    	<th>6</th>
+                    	<th>7</th>
+                    	<th>8</th>
+                    	<th>9</th>
+                    	<th>10</th>
+                    	<th>11</th>
+                    	<th>12</th>
+                    	<th>13</th>
+                    	<th>15</th>
+                    	<th>16</th>
+                    	<th>17</th>
+                    	<th>18</th>
+                    	<th>26</th>
+                    </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                    	<th>年龄（岁）</th>
+                    	<td>
+                        	<input type="radio"  name="radio1" value="0" id="radio1" />
+                        	<label for="radio1">&lt;40</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="7" id="radio2" />
+                        	<label for="radio2">40~59</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="12" id="radio3" />
+                        	<label for="radio3">60~69</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="15" id="radio4" />
+                        	<label for="radio4">70~74</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="16" id="radio5" />
+                        	<label for="radio5">75~79</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="18" id="radio6" />
+                        	<label for="radio6">&ge;80</label>
+                        </td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>HR(次/min)</th>
+                    	<td>
+                        	<input type="radio"  name="radio2" value="0" id="radio7" />
+                        	<label for="radio7">70~119</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="2" id="radio8" />
+                        	<label for="radio8">40~69</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="4" id="radio9" />
+                        	<label for="radio9">120~159</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="7" id="radio10" />
+                        	<label for="radio10">&ge;160</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="11" id="radio11" />
+                        	<label for="radio11">&lt;40</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>SBP(mmHg)</th>
+                    	<td>
+                        	<input type="radio"  name="radio3" value="0" id="radio12" />
+                        	<label for="radio12">100~199</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="2" id="radio13" />
+                        	<label for="radio13">&ge;200</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="5" id="radio14" />
+                        	<label for="radio14">70~99</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="13" id="radio15" />
+                        	<label for="radio15">&lt;70</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>T(℃)</th>
+                    	<td>
+                        	<input type="radio"  name="radio4" value="0" id="radio16" />
+                        	<label for="radio16">&lt;39</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="3" id="radio17" />
+                        	<label for="radio17">&ge;39</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>PaO<sub>2</sub>/FiO<sub>2</sub>(mmHg)</th>
+                    	<td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="checkbox"  name="radio5" value="6" id="radio18" class="checkbox1" />
+                        	<label for="radio18">&ge;200</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="checkbox"  name="radio5" value="9" id="radio19" class="checkbox1" />
+                        	<label for="radio19">100~199</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="checkbox"  name="radio5" value="11" id="radio20" class="checkbox1" />
+                        	<label for="radio20">&lt;100</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>尿量(L/d)</th>
+                    	<td>
+                        	<input type="radio"  name="radio6" value="0" id="radio21" />
+                        	<label for="radio21">&ge;1.0</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio6" value="4" id="radio22" />
+                        	<label for="radio22">0.50~0.999</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio6" value="11" id="radio23" />
+                        	<label for="radio23">&lt;0.5</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>血BUN(mmol/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio7" value="0" id="radio24" />
+                        	<label for="radio24">&lt;10.5</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio7" value="6" id="radio25" />
+                        	<label for="radio25">10.5~31.0</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio7" value="10" id="radio26" />
+                        	<label for="radio26">&ge;32.0</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>WBC(×10<sup>9</sup>/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio8" value="0" id="radio27" />
+                        	<label for="radio27">1.0~19.9</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio8" value="3" id="radio28" />
+                        	<label for="radio28">&ge;20.0</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio8" value="12" id="radio29" />
+                        	<label for="radio29">&lt;1.0</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>血钾浓度(mmol/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio9" value="0" id="radio30" />
+                        	<label for="radio30">3.0~4.9</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio9" value="3" id="radio31" />
+                        	<label for="radio31">&lt;3或&ge;5</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>血钠浓度(mmol/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio10" value="0" id="radio32" />
+                        	<label for="radio32">125~144</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio10" value="1" id="radio33" />
+                        	<label for="radio33">&ge;145</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio10" value="5" id="radio34" />
+                        	<label for="radio34">&lt;125</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>血HCO<sup>-</sup><sub>3</sub>浓度(mmol/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio11" value="0" id="radio35" />
+                        	<label for="radio35">&ge;20</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio11" value="3" id="radio36" />
+                        	<label for="radio36">15~19</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio11" value="6" id="radio37" />
+                        	<label for="radio37">&lt;15</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>血胆红素浓度(μmol/L)</th>
+                    	<td>
+                        	<input type="radio"  name="radio12" value="0" id="radio38" />
+                        	<label for="radio38">&lt;68.4</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio12" value="4" id="radio39" />
+                        	<label for="radio39">68.4~102.5</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio12" value="9" id="radio40" />
+                        	<label for="radio40">&ge;102.6</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>GCS 评分</th>
+                    	<td>
+                        	<input type="radio"  name="radio13" value="0" id="radio41" />
+                        	<label for="radio41">14~15</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio13" value="5" id="radio42" />
+                        	<label for="radio42">11~13</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio13" value="7" id="radio43" />
+                        	<label for="radio43">9~10</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio13" value="13" id="radio44" />
+                        	<label for="radio44">6~8</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio13" value="26" id="radio45" />
+                        	<label for="radio45">&lt;6</label>
+                        </td>
+                    </tr>
+                	<tr>
+                    	<th>慢性疾病</th>
+                    	<td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="checkbox"  name="radio14" value="9" id="radio46" class="checkbox2" />
+                        	<label for="radio46">转移癌</label>
+                        </td>
+                        <td>
+                        	<input type="checkbox"  name="radio14" value="10" id="radio47" class="checkbox2" />
+                        	<label for="radio47">血液恶性肿瘤</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="checkbox"  name="radio14" value="17" id="radio48" class="checkbox2" />
+                        	<label for="radio48">AIDS</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                    	<th>住ICU类型</th>
+                    	<td>
+                        	<input type="radio"  name="radio15" value="0" id="radio49" />
+                        	<label for="radio49">择期手术</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio15" value="6" id="radio50" />
+                        	<label for="radio50">内科患者</label>
+                        </td>
+                        <td></td>
+                        <td>
+                        	<input type="radio"  name="radio15" value="8" id="radio51" />
+                        	<label for="radio51">急诊手术</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="19"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">13</span>个必选项未选）</td>
+                    </tr>
+                    <tr>
+                    	<td colspan="20">注：PaO2/FiO2仅用于机械通气或持续肺动脉压监测者</td>
+                    </tr>
+                </tbody>
+            </table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+                	<tr>
+                    	<th>结果解读</th>
+                    	<td>SAPSⅡ评分由17项变量〔生理学变量12项、年龄、住院类型及3种慢性疾病：获得性免疫缺陷综合征(AIDS)、转移癌和血液恶性肿瘤〕构成，每项变量分值不等，最低0分，最高26分，总分0~163分。生理学变量仍取患者入住ICU后第1个24小时内的最差值(即得分最高者)，缺如项视为正常，总分越高，表示病情越重，预后越差。<br />该评分系统将18周岁以下者及儿科病人、烧伤病人、冠心病病人及心脏外科手术病人除外。</td>
+                    </tr>
+					<tr>
+						<th>相关解释</th>
+						<td>SAPⅡ各变量的定义如下表：
+                        	<table border="0" cellspacing="0" cellpadding="0" class="countTab2" style="width:99%">
+                            	<tr>
+                                	<th>变量</th>
+                                	<th>定义</th>
+                                </tr>
+                                <tr>
+                                	<td>1.年龄</td>
+                                	<td>为患者最近一次生日时的年龄(岁)</td>
+                                </tr>
+                                <tr>
+                                	<td>2.心率</td>
+                                	<td>为24小时内最差值(低或高值)，如果由心跳骤停(11分)变至心动过速(7分)，指定为11分</td>
+                                </tr>
+                                <tr>
+                                	<td>3.收缩压</td>
+                                	<td>与HR相同，如果由&lt;70mmHg变至200mmHg，则为13分</td>
+                                </tr>
+                                <tr>
+                                	<td>4.体温</td>
+                                	<td>为最高体温(℃)</td>
+                                </tr>
+                                <tr>
+                                	<td>5.PaO2/FiO2</td>
+                                	<td>如行机械通气或持续肺动脉压监测，则使用最低的比值</td>
+                                </tr>
+                                <tr>
+                                	<td>6.尿量</td>
+                                	<td>如患者住ICU&lt;24小时，按下式计算：1L/8h=3L/d</td>
+                                </tr>
+                                <tr>
+                                	<td>7.血清尿素氮水平</td>
+                                	<td>为最高值</td>
+                                </tr>
+                                <tr>
+                                	<td>8.白细胞计数</td>
+                                	<td>为最差值(高或低值)</td>
+                                </tr>
+                                <tr>
+                                	<td>9.血清钾水平</td>
+                                	<td>为最差值(高或低值)</td>
+                                </tr>
+                                <tr>
+                                	<td>10.血清钠水平</td>
+                                	<td>为最差值(高或低值)</td>
+                                </tr>
+                                <tr>
+                                	<td>11.血碳酸氢盐水平</td>
+                                	<td>为最低值</td>
+                                </tr>
+                                <tr>
+                                	<td>12.血胆红素水平</td>
+                                	<td>为最高值</td>
+                                </tr>
+                                <tr>
+                                	<td>13.Glasgow昏迷评分</td>
+                                	<td>为最低值，如患者使用了镇静药，则记录镇静前估计的GCS</td>
+                                </tr>
+                                <tr>
+                                	<td>14.住ICU类型</td>
+                                	<td>拟在24小时内进行手术者为急诊手术；至少在24小时以后进行手术者为择期手术；住ICU 1周内不进行手术者为内科患者。</td>
+                                </tr>
+                                <tr>
+                                	<td>15. 获得性免疫缺陷综合征(AIDS)</td>
+                                	<td>指HIV阳性伴有下列临床并发症者：卡氏肺囊虫肺炎，卡波氏肉瘤，淋巴瘤，结核或血液中毒性(toxoplasma)感染。</td>
+                                </tr>
+                                <tr>
+                                	<td>16.血液恶性肿瘤</td>
+                                	<td>指淋巴瘤、急性白血病或多发性骨髓瘤。</td>
+                                </tr>
+                                <tr>
+                                	<td>17.转移性癌</td>
+                                	<td>指手术、CT或任何其它方法证实的转移癌。</td>
+                                </tr>
+                            </table>
+                        </td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>1. 陈孝平主编. 《外科学》(八年制)[M]. 人民卫生出版社.2010年<br />2. Le Gall JR, Lemeshow S, Saulnier F. A new simplified acute physiology score (SAPS II) based on a European/North American multicenter study. JAMA. 1993;270:2957-63.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore()+allCheckbox();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	function allCheckbox(){
+		var allCheckbox=0;
+		$(':checkbox:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;
+			allCheckbox = allCheckbox+n;
+		});
+		return allCheckbox;
+	}
+	
+	$(':checkbox').click(function(event){
+		var className = $(this).attr('class');
+		if($(this).is(':checked')){
+			$('.'+className).not( $(this) ).removeAttr('checked');
+		}
+	})
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu();
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 13-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

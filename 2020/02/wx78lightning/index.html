@@ -1,0 +1,2219 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="辣椒小皇纸">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="WX-78被雷击之后超载时间一直是个谜博主提取饥荒联机版内部Lua代码，写了一个计算超载时间的公式，点击下面按钮输入雷击天数即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="饥荒联机版 WX-78 雷击超载时间计算公式">
+<meta property="og:url" content="https://peppernotes.top/2020/02/wx78lightning/index.html">
+<meta property="og:site_name" content="辣椒手记">
+<meta property="og:description" content="WX-78被雷击之后超载时间一直是个谜博主提取饥荒联机版内部Lua代码，写了一个计算超载时间的公式，点击下面按钮输入雷击天数即可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://peppernotes.top/img/post_cover/dst2.webp">
+<meta property="article:published_time" content="2020-02-28T10:49:00.000Z">
+<meta property="article:modified_time" content="2020-02-28T10:49:00.000Z">
+<meta property="article:author" content="辣椒小皇纸">
+<meta property="article:tag" content="饥荒">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://peppernotes.top/img/post_cover/dst2.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>饥荒联机版 WX-78 雷击超载时间计算公式 - 辣椒手记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"peppernotes.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"♥","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"UA-172924260-1"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=UA-172924260-1", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'UA-172924260-1');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>辣椒手记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post_background/dst.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="饥荒联机版 WX-78 雷击超载时间计算公式"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-02-28 18:49" pubdate>
+          2020-02-28 18:49
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">饥荒联机版 WX-78 雷击超载时间计算公式</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="WX-78被雷击之后超载时间一直是个谜"><a href="#WX-78被雷击之后超载时间一直是个谜" class="headerlink" title="WX-78被雷击之后超载时间一直是个谜"></a>WX-78被雷击之后超载时间一直是个谜</h2><p>博主提取饥荒联机版内部<code>Lua</code>代码，写了一个计算超载时间的公式，点击下面按钮输入雷击天数即可</p>
+<span id="more"></span>
+
+<p><strong>注意</strong>：</p>
+<ul>
+<li>每次雷击后获得的时间是一个范围内的<strong>随机数</strong>，故我们得到的是<strong>平均值</strong>和<strong>上下范围</strong></li>
+<li>此方法从未超载状态算起</li>
+</ul>
+<script>
+function get_times() {
+    var lightning = prompt("请输入WX-78的雷击次数","");
+    if (lightning != null){
+        lightning = Number(lightning);
+     　 if (!isNaN(lightning)){
+            function CalcDiminishingReturns0(current, basedelta) {
+                var dampen = 3 * basedelta / (current + 3 * basedelta);
+                var dcharge = dampen * basedelta * .5;
+                return current + dcharge;
+            }
+            function CalcDiminishingReturns1(current, basedelta) {
+                var dampen = 3 * basedelta / (current + 3 * basedelta);
+                var dcharge = dampen * basedelta * .5 * (1 + dampen);
+                return current + dcharge;
+            }
+            var output0 = 0;
+            var output1 = 0;
+            var i;
+            for (i = 0; i < lightning; i++) {
+                output0 = CalcDiminishingReturns0(output0,480);
+                output1 = CalcDiminishingReturns1(output1,480);
+            }
+            var output = (output0 + output1) / 2;
+            text = 'WX78被雷击'+lightning+'次后获得约'+Math.round(output/480)+'天的负载（'+Math.round(output)+'秒）\n范围为'+Math.round(output0)+'至'+Math.round(output1)+'秒';
+            alert(text);
+        }else{
+            alert("请输入数字");
+        }
+    }
+}
+</script>
+<input type="button" onClick="get_times()" value="点击按钮">
+
+
+<h2 id="另附表格"><a href="#另附表格" class="headerlink" title="另附表格"></a>另附表格</h2><table>
+<thead>
+<tr>
+<th>雷击次数</th>
+<th>平均超载天数</th>
+<th>平均超载秒数</th>
+<th>最少超载秒数</th>
+<th>最多超载秒数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td>4</td>
+<td>1922</td>
+<td>1602</td>
+<td>2242</td>
+</tr>
+<tr>
+<td>20</td>
+<td>6</td>
+<td>2973</td>
+<td>2593</td>
+<td>3353</td>
+</tr>
+<tr>
+<td>30</td>
+<td>8</td>
+<td>3793</td>
+<td>3381</td>
+<td>4206</td>
+</tr>
+<tr>
+<td>40</td>
+<td>9</td>
+<td>4490</td>
+<td>4055</td>
+<td>4925</td>
+</tr>
+<tr>
+<td>50</td>
+<td>11</td>
+<td>5106</td>
+<td>4655</td>
+<td>5557</td>
+</tr>
+<tr>
+<td>60</td>
+<td>12</td>
+<td>5664</td>
+<td>5200</td>
+<td>6128</td>
+</tr>
+<tr>
+<td>70</td>
+<td>13</td>
+<td>6178</td>
+<td>5703</td>
+<td>6652</td>
+</tr>
+<tr>
+<td>80</td>
+<td>14</td>
+<td>6657</td>
+<td>6173</td>
+<td>7140</td>
+</tr>
+<tr>
+<td>90</td>
+<td>15</td>
+<td>7107</td>
+<td>6616</td>
+<td>7598</td>
+</tr>
+<tr>
+<td>100</td>
+<td>16</td>
+<td>7533</td>
+<td>7035</td>
+<td>8031</td>
+</tr>
+<tr>
+<td>110</td>
+<td>17</td>
+<td>7938</td>
+<td>7434</td>
+<td>8442</td>
+</tr>
+<tr>
+<td>120</td>
+<td>17</td>
+<td>8325</td>
+<td>7816</td>
+<td>8835</td>
+</tr>
+<tr>
+<td>130</td>
+<td>18</td>
+<td>8697</td>
+<td>8183</td>
+<td>9211</td>
+</tr>
+<tr>
+<td>140</td>
+<td>19</td>
+<td>9055</td>
+<td>8536</td>
+<td>9573</td>
+</tr>
+<tr>
+<td>150</td>
+<td>20</td>
+<td>9400</td>
+<td>8877</td>
+<td>9923</td>
+</tr>
+<tr>
+<td>160</td>
+<td>20</td>
+<td>9734</td>
+<td>9208</td>
+<td>10260</td>
+</tr>
+<tr>
+<td>170</td>
+<td>21</td>
+<td>10058</td>
+<td>9528</td>
+<td>10588</td>
+</tr>
+<tr>
+<td>180</td>
+<td>22</td>
+<td>10372</td>
+<td>9839</td>
+<td>10905</td>
+</tr>
+<tr>
+<td>190</td>
+<td>22</td>
+<td>10678</td>
+<td>10142</td>
+<td>11214</td>
+</tr>
+<tr>
+<td>200</td>
+<td>23</td>
+<td>10976</td>
+<td>10437</td>
+<td>11515</td>
+</tr>
+<tr>
+<td>210</td>
+<td>23</td>
+<td>11266</td>
+<td>10725</td>
+<td>11808</td>
+</tr>
+<tr>
+<td>220</td>
+<td>24</td>
+<td>11550</td>
+<td>11006</td>
+<td>12094</td>
+</tr>
+<tr>
+<td>230</td>
+<td>25</td>
+<td>11827</td>
+<td>11281</td>
+<td>12374</td>
+</tr>
+<tr>
+<td>240</td>
+<td>25</td>
+<td>12099</td>
+<td>11550</td>
+<td>12647</td>
+</tr>
+<tr>
+<td>250</td>
+<td>26</td>
+<td>12364</td>
+<td>11814</td>
+<td>12915</td>
+</tr>
+<tr>
+<td>260</td>
+<td>26</td>
+<td>12625</td>
+<td>12072</td>
+<td>13178</td>
+</tr>
+<tr>
+<td>270</td>
+<td>27</td>
+<td>12880</td>
+<td>12326</td>
+<td>13435</td>
+</tr>
+<tr>
+<td>280</td>
+<td>27</td>
+<td>13131</td>
+<td>12575</td>
+<td>13688</td>
+</tr>
+<tr>
+<td>290</td>
+<td>28</td>
+<td>13378</td>
+<td>12819</td>
+<td>13936</td>
+</tr>
+<tr>
+<td>300</td>
+<td>28</td>
+<td>13620</td>
+<td>13060</td>
+<td>14180</td>
+</tr>
+<tr>
+<td>310</td>
+<td>29</td>
+<td>13858</td>
+<td>13297</td>
+<td>14420</td>
+</tr>
+<tr>
+<td>320</td>
+<td>29</td>
+<td>14093</td>
+<td>13529</td>
+<td>14656</td>
+</tr>
+<tr>
+<td>330</td>
+<td>30</td>
+<td>14323</td>
+<td>13759</td>
+<td>14888</td>
+</tr>
+<tr>
+<td>340</td>
+<td>30</td>
+<td>14551</td>
+<td>13985</td>
+<td>15117</td>
+</tr>
+<tr>
+<td>350</td>
+<td>31</td>
+<td>14775</td>
+<td>14207</td>
+<td>15342</td>
+</tr>
+<tr>
+<td>360</td>
+<td>31</td>
+<td>14996</td>
+<td>14427</td>
+<td>15564</td>
+</tr>
+<tr>
+<td>370</td>
+<td>32</td>
+<td>15213</td>
+<td>14643</td>
+<td>15784</td>
+</tr>
+<tr>
+<td>380</td>
+<td>32</td>
+<td>15428</td>
+<td>14857</td>
+<td>16000</td>
+</tr>
+<tr>
+<td>390</td>
+<td>33</td>
+<td>15640</td>
+<td>15068</td>
+<td>16213</td>
+</tr>
+<tr>
+<td>400</td>
+<td>33</td>
+<td>15850</td>
+<td>15276</td>
+<td>16423</td>
+</tr>
+<tr>
+<td>410</td>
+<td>33</td>
+<td>16056</td>
+<td>15481</td>
+<td>16631</td>
+</tr>
+<tr>
+<td>420</td>
+<td>34</td>
+<td>16261</td>
+<td>15685</td>
+<td>16837</td>
+</tr>
+<tr>
+<td>430</td>
+<td>34</td>
+<td>16462</td>
+<td>15885</td>
+<td>17040</td>
+</tr>
+<tr>
+<td>440</td>
+<td>35</td>
+<td>16662</td>
+<td>16084</td>
+<td>17240</td>
+</tr>
+<tr>
+<td>450</td>
+<td>35</td>
+<td>16859</td>
+<td>16280</td>
+<td>17438</td>
+</tr>
+<tr>
+<td>460</td>
+<td>36</td>
+<td>17054</td>
+<td>16474</td>
+<td>17634</td>
+</tr>
+<tr>
+<td>470</td>
+<td>36</td>
+<td>17247</td>
+<td>16666</td>
+<td>17828</td>
+</tr>
+<tr>
+<td>480</td>
+<td>36</td>
+<td>17438</td>
+<td>16856</td>
+<td>18020</td>
+</tr>
+<tr>
+<td>490</td>
+<td>37</td>
+<td>17627</td>
+<td>17044</td>
+<td>18210</td>
+</tr>
+<tr>
+<td>500</td>
+<td>37</td>
+<td>17814</td>
+<td>17230</td>
+<td>18398</td>
+</tr>
+<tr>
+<td>510</td>
+<td>37</td>
+<td>17999</td>
+<td>17414</td>
+<td>18584</td>
+</tr>
+<tr>
+<td>520</td>
+<td>38</td>
+<td>18183</td>
+<td>17597</td>
+<td>18768</td>
+</tr>
+<tr>
+<td>530</td>
+<td>38</td>
+<td>18364</td>
+<td>17778</td>
+<td>18951</td>
+</tr>
+<tr>
+<td>540</td>
+<td>39</td>
+<td>18544</td>
+<td>17957</td>
+<td>19131</td>
+</tr>
+<tr>
+<td>550</td>
+<td>39</td>
+<td>18722</td>
+<td>18134</td>
+<td>19310</td>
+</tr>
+<tr>
+<td>560</td>
+<td>39</td>
+<td>18899</td>
+<td>18310</td>
+<td>19488</td>
+</tr>
+<tr>
+<td>570</td>
+<td>40</td>
+<td>19074</td>
+<td>18484</td>
+<td>19663</td>
+</tr>
+<tr>
+<td>580</td>
+<td>40</td>
+<td>19247</td>
+<td>18657</td>
+<td>19838</td>
+</tr>
+<tr>
+<td>590</td>
+<td>40</td>
+<td>19419</td>
+<td>18828</td>
+<td>20010</td>
+</tr>
+<tr>
+<td>600</td>
+<td>41</td>
+<td>19590</td>
+<td>18998</td>
+<td>20182</td>
+</tr>
+<tr>
+<td>610</td>
+<td>41</td>
+<td>19759</td>
+<td>19167</td>
+<td>20352</td>
+</tr>
+<tr>
+<td>620</td>
+<td>42</td>
+<td>19927</td>
+<td>19334</td>
+<td>20520</td>
+</tr>
+<tr>
+<td>630</td>
+<td>42</td>
+<td>20093</td>
+<td>19500</td>
+<td>20687</td>
+</tr>
+<tr>
+<td>640</td>
+<td>42</td>
+<td>20259</td>
+<td>19664</td>
+<td>20853</td>
+</tr>
+<tr>
+<td>650</td>
+<td>43</td>
+<td>20422</td>
+<td>19827</td>
+<td>21017</td>
+</tr>
+<tr>
+<td>660</td>
+<td>43</td>
+<td>20585</td>
+<td>19989</td>
+<td>21181</td>
+</tr>
+<tr>
+<td>670</td>
+<td>43</td>
+<td>20746</td>
+<td>20150</td>
+<td>21342</td>
+</tr>
+<tr>
+<td>680</td>
+<td>44</td>
+<td>20906</td>
+<td>20310</td>
+<td>21503</td>
+</tr>
+<tr>
+<td>690</td>
+<td>44</td>
+<td>21065</td>
+<td>20468</td>
+<td>21663</td>
+</tr>
+<tr>
+<td>700</td>
+<td>44</td>
+<td>21223</td>
+<td>20625</td>
+<td>21821</td>
+</tr>
+<tr>
+<td>710</td>
+<td>45</td>
+<td>21380</td>
+<td>20781</td>
+<td>21978</td>
+</tr>
+<tr>
+<td>720</td>
+<td>45</td>
+<td>21535</td>
+<td>20936</td>
+<td>22135</td>
+</tr>
+<tr>
+<td>730</td>
+<td>45</td>
+<td>21690</td>
+<td>21090</td>
+<td>22290</td>
+</tr>
+<tr>
+<td>740</td>
+<td>46</td>
+<td>21843</td>
+<td>21243</td>
+<td>22444</td>
+</tr>
+<tr>
+<td>750</td>
+<td>46</td>
+<td>21996</td>
+<td>21395</td>
+<td>22597</td>
+</tr>
+<tr>
+<td>760</td>
+<td>46</td>
+<td>22147</td>
+<td>21546</td>
+<td>22749</td>
+</tr>
+<tr>
+<td>770</td>
+<td>46</td>
+<td>22298</td>
+<td>21696</td>
+<td>22899</td>
+</tr>
+<tr>
+<td>780</td>
+<td>47</td>
+<td>22447</td>
+<td>21845</td>
+<td>23049</td>
+</tr>
+<tr>
+<td>790</td>
+<td>47</td>
+<td>22596</td>
+<td>21993</td>
+<td>23198</td>
+</tr>
+<tr>
+<td>800</td>
+<td>47</td>
+<td>22743</td>
+<td>22140</td>
+<td>23346</td>
+</tr>
+<tr>
+<td>810</td>
+<td>48</td>
+<td>22890</td>
+<td>22286</td>
+<td>23494</td>
+</tr>
+<tr>
+<td>820</td>
+<td>48</td>
+<td>23036</td>
+<td>22431</td>
+<td>23640</td>
+</tr>
+<tr>
+<td>830</td>
+<td>48</td>
+<td>23180</td>
+<td>22576</td>
+<td>23785</td>
+</tr>
+<tr>
+<td>840</td>
+<td>49</td>
+<td>23324</td>
+<td>22719</td>
+<td>23930</td>
+</tr>
+<tr>
+<td>850</td>
+<td>49</td>
+<td>23468</td>
+<td>22862</td>
+<td>24073</td>
+</tr>
+<tr>
+<td>860</td>
+<td>49</td>
+<td>23610</td>
+<td>23004</td>
+<td>24216</td>
+</tr>
+<tr>
+<td>870</td>
+<td>49</td>
+<td>23751</td>
+<td>23145</td>
+<td>24358</td>
+</tr>
+<tr>
+<td>880</td>
+<td>50</td>
+<td>23892</td>
+<td>23285</td>
+<td>24499</td>
+</tr>
+<tr>
+<td>890</td>
+<td>50</td>
+<td>24032</td>
+<td>23424</td>
+<td>24639</td>
+</tr>
+<tr>
+<td>900</td>
+<td>50</td>
+<td>24171</td>
+<td>23563</td>
+<td>24779</td>
+</tr>
+<tr>
+<td>910</td>
+<td>51</td>
+<td>24309</td>
+<td>23701</td>
+<td>24917</td>
+</tr>
+<tr>
+<td>920</td>
+<td>51</td>
+<td>24447</td>
+<td>23838</td>
+<td>25055</td>
+</tr>
+<tr>
+<td>930</td>
+<td>51</td>
+<td>24583</td>
+<td>23975</td>
+<td>25192</td>
+</tr>
+<tr>
+<td>940</td>
+<td>51</td>
+<td>24720</td>
+<td>24110</td>
+<td>25329</td>
+</tr>
+<tr>
+<td>950</td>
+<td>52</td>
+<td>24855</td>
+<td>24245</td>
+<td>25465</td>
+</tr>
+<tr>
+<td>960</td>
+<td>52</td>
+<td>24989</td>
+<td>24379</td>
+<td>25600</td>
+</tr>
+<tr>
+<td>970</td>
+<td>52</td>
+<td>25123</td>
+<td>24513</td>
+<td>25734</td>
+</tr>
+<tr>
+<td>980</td>
+<td>53</td>
+<td>25257</td>
+<td>24646</td>
+<td>25868</td>
+</tr>
+<tr>
+<td>990</td>
+<td>53</td>
+<td>25389</td>
+<td>24778</td>
+<td>26000</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>53</td>
+<td>25521</td>
+<td>24909</td>
+<td>26133</td>
+</tr>
+<tr>
+<td>1010</td>
+<td>53</td>
+<td>25652</td>
+<td>25040</td>
+<td>26264</td>
+</tr>
+<tr>
+<td>1020</td>
+<td>54</td>
+<td>25783</td>
+<td>25171</td>
+<td>26395</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>54</td>
+<td>25913</td>
+<td>25300</td>
+<td>26526</td>
+</tr>
+<tr>
+<td>1040</td>
+<td>54</td>
+<td>26042</td>
+<td>25429</td>
+<td>26655</td>
+</tr>
+<tr>
+<td>1050</td>
+<td>55</td>
+<td>26171</td>
+<td>25557</td>
+<td>26784</td>
+</tr>
+<tr>
+<td>1060</td>
+<td>55</td>
+<td>26299</td>
+<td>25685</td>
+<td>26913</td>
+</tr>
+<tr>
+<td>1070</td>
+<td>55</td>
+<td>26426</td>
+<td>25812</td>
+<td>27040</td>
+</tr>
+<tr>
+<td>1080</td>
+<td>55</td>
+<td>26553</td>
+<td>25939</td>
+<td>27168</td>
+</tr>
+<tr>
+<td>1090</td>
+<td>56</td>
+<td>26680</td>
+<td>26065</td>
+<td>27294</td>
+</tr>
+<tr>
+<td>1100</td>
+<td>56</td>
+<td>26805</td>
+<td>26190</td>
+<td>27420</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>56</td>
+<td>26930</td>
+<td>26315</td>
+<td>27546</td>
+</tr>
+<tr>
+<td>1120</td>
+<td>56</td>
+<td>27055</td>
+<td>26439</td>
+<td>27671</td>
+</tr>
+<tr>
+<td>1130</td>
+<td>57</td>
+<td>27179</td>
+<td>26563</td>
+<td>27795</td>
+</tr>
+<tr>
+<td>1140</td>
+<td>57</td>
+<td>27303</td>
+<td>26686</td>
+<td>27919</td>
+</tr>
+<tr>
+<td>1150</td>
+<td>57</td>
+<td>27425</td>
+<td>26809</td>
+<td>28042</td>
+</tr>
+<tr>
+<td>1160</td>
+<td>57</td>
+<td>27548</td>
+<td>26931</td>
+<td>28165</td>
+</tr>
+<tr>
+<td>1170</td>
+<td>58</td>
+<td>27670</td>
+<td>27053</td>
+<td>28287</td>
+</tr>
+<tr>
+<td>1180</td>
+<td>58</td>
+<td>27791</td>
+<td>27174</td>
+<td>28409</td>
+</tr>
+<tr>
+<td>1190</td>
+<td>58</td>
+<td>27912</td>
+<td>27294</td>
+<td>28530</td>
+</tr>
+<tr>
+<td>1200</td>
+<td>58</td>
+<td>28032</td>
+<td>27414</td>
+<td>28650</td>
+</tr>
+<tr>
+<td>1210</td>
+<td>59</td>
+<td>28152</td>
+<td>27534</td>
+<td>28771</td>
+</tr>
+<tr>
+<td>1220</td>
+<td>59</td>
+<td>28271</td>
+<td>27653</td>
+<td>28890</td>
+</tr>
+<tr>
+<td>1230</td>
+<td>59</td>
+<td>28390</td>
+<td>27771</td>
+<td>29009</td>
+</tr>
+<tr>
+<td>1240</td>
+<td>59</td>
+<td>28509</td>
+<td>27889</td>
+<td>29128</td>
+</tr>
+<tr>
+<td>1250</td>
+<td>60</td>
+<td>28627</td>
+<td>28007</td>
+<td>29246</td>
+</tr>
+<tr>
+<td>1260</td>
+<td>60</td>
+<td>28744</td>
+<td>28124</td>
+<td>29364</td>
+</tr>
+<tr>
+<td>1270</td>
+<td>60</td>
+<td>28861</td>
+<td>28241</td>
+<td>29481</td>
+</tr>
+<tr>
+<td>1280</td>
+<td>60</td>
+<td>28977</td>
+<td>28357</td>
+<td>29598</td>
+</tr>
+<tr>
+<td>1290</td>
+<td>61</td>
+<td>29094</td>
+<td>28473</td>
+<td>29714</td>
+</tr>
+<tr>
+<td>1300</td>
+<td>61</td>
+<td>29209</td>
+<td>28588</td>
+<td>29830</td>
+</tr>
+<tr>
+<td>1310</td>
+<td>61</td>
+<td>29324</td>
+<td>28703</td>
+<td>29945</td>
+</tr>
+<tr>
+<td>1320</td>
+<td>61</td>
+<td>29439</td>
+<td>28818</td>
+<td>30060</td>
+</tr>
+<tr>
+<td>1330</td>
+<td>62</td>
+<td>29553</td>
+<td>28932</td>
+<td>30175</td>
+</tr>
+<tr>
+<td>1340</td>
+<td>62</td>
+<td>29667</td>
+<td>29045</td>
+<td>30289</td>
+</tr>
+<tr>
+<td>1350</td>
+<td>62</td>
+<td>29781</td>
+<td>29158</td>
+<td>30403</td>
+</tr>
+<tr>
+<td>1360</td>
+<td>62</td>
+<td>29894</td>
+<td>29271</td>
+<td>30516</td>
+</tr>
+<tr>
+<td>1370</td>
+<td>63</td>
+<td>30006</td>
+<td>29384</td>
+<td>30629</td>
+</tr>
+<tr>
+<td>1380</td>
+<td>63</td>
+<td>30118</td>
+<td>29495</td>
+<td>30741</td>
+</tr>
+<tr>
+<td>1390</td>
+<td>63</td>
+<td>30230</td>
+<td>29607</td>
+<td>30853</td>
+</tr>
+<tr>
+<td>1400</td>
+<td>63</td>
+<td>30341</td>
+<td>29718</td>
+<td>30965</td>
+</tr>
+<tr>
+<td>1410</td>
+<td>63</td>
+<td>30452</td>
+<td>29829</td>
+<td>31076</td>
+</tr>
+<tr>
+<td>1420</td>
+<td>64</td>
+<td>30563</td>
+<td>29939</td>
+<td>31187</td>
+</tr>
+<tr>
+<td>1430</td>
+<td>64</td>
+<td>30673</td>
+<td>30049</td>
+<td>31297</td>
+</tr>
+<tr>
+<td>1440</td>
+<td>64</td>
+<td>30783</td>
+<td>30159</td>
+<td>31407</td>
+</tr>
+<tr>
+<td>1450</td>
+<td>64</td>
+<td>30892</td>
+<td>30268</td>
+<td>31517</td>
+</tr>
+<tr>
+<td>1460</td>
+<td>65</td>
+<td>31002</td>
+<td>30377</td>
+<td>31626</td>
+</tr>
+<tr>
+<td>1470</td>
+<td>65</td>
+<td>31110</td>
+<td>30485</td>
+<td>31735</td>
+</tr>
+<tr>
+<td>1480</td>
+<td>65</td>
+<td>31219</td>
+<td>30593</td>
+<td>31844</td>
+</tr>
+<tr>
+<td>1490</td>
+<td>65</td>
+<td>31326</td>
+<td>30701</td>
+<td>31952</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>65</td>
+<td>31434</td>
+<td>30808</td>
+<td>32060</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>66</td>
+<td>31541</td>
+<td>30915</td>
+<td>32167</td>
+</tr>
+<tr>
+<td>1520</td>
+<td>66</td>
+<td>31648</td>
+<td>31022</td>
+<td>32274</td>
+</tr>
+<tr>
+<td>1530</td>
+<td>66</td>
+<td>31755</td>
+<td>31128</td>
+<td>32381</td>
+</tr>
+<tr>
+<td>1540</td>
+<td>66</td>
+<td>31861</td>
+<td>31234</td>
+<td>32487</td>
+</tr>
+<tr>
+<td>1550</td>
+<td>67</td>
+<td>31967</td>
+<td>31340</td>
+<td>32593</td>
+</tr>
+<tr>
+<td>1560</td>
+<td>67</td>
+<td>32072</td>
+<td>31445</td>
+<td>32699</td>
+</tr>
+<tr>
+<td>1570</td>
+<td>67</td>
+<td>32177</td>
+<td>31550</td>
+<td>32804</td>
+</tr>
+<tr>
+<td>1580</td>
+<td>67</td>
+<td>32282</td>
+<td>31655</td>
+<td>32909</td>
+</tr>
+<tr>
+<td>1590</td>
+<td>67</td>
+<td>32387</td>
+<td>31759</td>
+<td>33014</td>
+</tr>
+<tr>
+<td>1600</td>
+<td>68</td>
+<td>32491</td>
+<td>31863</td>
+<td>33118</td>
+</tr>
+<tr>
+<td>1610</td>
+<td>68</td>
+<td>32595</td>
+<td>31967</td>
+<td>33222</td>
+</tr>
+<tr>
+<td>1620</td>
+<td>68</td>
+<td>32698</td>
+<td>32070</td>
+<td>33326</td>
+</tr>
+<tr>
+<td>1630</td>
+<td>68</td>
+<td>32801</td>
+<td>32173</td>
+<td>33429</td>
+</tr>
+<tr>
+<td>1640</td>
+<td>69</td>
+<td>32904</td>
+<td>32276</td>
+<td>33533</td>
+</tr>
+<tr>
+<td>1650</td>
+<td>69</td>
+<td>33007</td>
+<td>32378</td>
+<td>33635</td>
+</tr>
+<tr>
+<td>1660</td>
+<td>69</td>
+<td>33109</td>
+<td>32480</td>
+<td>33738</td>
+</tr>
+<tr>
+<td>1670</td>
+<td>69</td>
+<td>33211</td>
+<td>32582</td>
+<td>33840</td>
+</tr>
+<tr>
+<td>1680</td>
+<td>69</td>
+<td>33312</td>
+<td>32683</td>
+<td>33942</td>
+</tr>
+<tr>
+<td>1690</td>
+<td>70</td>
+<td>33414</td>
+<td>32784</td>
+<td>34043</td>
+</tr>
+<tr>
+<td>1700</td>
+<td>70</td>
+<td>33515</td>
+<td>32885</td>
+<td>34144</td>
+</tr>
+<tr>
+<td>1710</td>
+<td>70</td>
+<td>33616</td>
+<td>32986</td>
+<td>34245</td>
+</tr>
+<tr>
+<td>1720</td>
+<td>70</td>
+<td>33716</td>
+<td>33086</td>
+<td>34346</td>
+</tr>
+<tr>
+<td>1730</td>
+<td>70</td>
+<td>33816</td>
+<td>33186</td>
+<td>34446</td>
+</tr>
+<tr>
+<td>1740</td>
+<td>71</td>
+<td>33916</td>
+<td>33286</td>
+<td>34546</td>
+</tr>
+<tr>
+<td>1750</td>
+<td>71</td>
+<td>34016</td>
+<td>33385</td>
+<td>34646</td>
+</tr>
+<tr>
+<td>1760</td>
+<td>71</td>
+<td>34115</td>
+<td>33484</td>
+<td>34746</td>
+</tr>
+<tr>
+<td>1770</td>
+<td>71</td>
+<td>34214</td>
+<td>33583</td>
+<td>34845</td>
+</tr>
+<tr>
+<td>1780</td>
+<td>71</td>
+<td>34313</td>
+<td>33682</td>
+<td>34944</td>
+</tr>
+<tr>
+<td>1790</td>
+<td>72</td>
+<td>34411</td>
+<td>33780</td>
+<td>35042</td>
+</tr>
+<tr>
+<td>1800</td>
+<td>72</td>
+<td>34509</td>
+<td>33878</td>
+<td>35141</td>
+</tr>
+<tr>
+<td>1810</td>
+<td>72</td>
+<td>34607</td>
+<td>33976</td>
+<td>35239</td>
+</tr>
+<tr>
+<td>1820</td>
+<td>72</td>
+<td>34705</td>
+<td>34073</td>
+<td>35336</td>
+</tr>
+<tr>
+<td>1830</td>
+<td>73</td>
+<td>34802</td>
+<td>34170</td>
+<td>35434</td>
+</tr>
+<tr>
+<td>1840</td>
+<td>73</td>
+<td>34899</td>
+<td>34267</td>
+<td>35531</td>
+</tr>
+<tr>
+<td>1850</td>
+<td>73</td>
+<td>34996</td>
+<td>34364</td>
+<td>35628</td>
+</tr>
+<tr>
+<td>1860</td>
+<td>73</td>
+<td>35093</td>
+<td>34460</td>
+<td>35725</td>
+</tr>
+<tr>
+<td>1870</td>
+<td>73</td>
+<td>35189</td>
+<td>34556</td>
+<td>35821</td>
+</tr>
+<tr>
+<td>1880</td>
+<td>74</td>
+<td>35285</td>
+<td>34652</td>
+<td>35918</td>
+</tr>
+<tr>
+<td>1890</td>
+<td>74</td>
+<td>35381</td>
+<td>34748</td>
+<td>36014</td>
+</tr>
+<tr>
+<td>1900</td>
+<td>74</td>
+<td>35476</td>
+<td>34843</td>
+<td>36109</td>
+</tr>
+<tr>
+<td>1910</td>
+<td>74</td>
+<td>35572</td>
+<td>34939</td>
+<td>36205</td>
+</tr>
+<tr>
+<td>1920</td>
+<td>74</td>
+<td>35667</td>
+<td>35033</td>
+<td>36300</td>
+</tr>
+<tr>
+<td>1930</td>
+<td>75</td>
+<td>35762</td>
+<td>35128</td>
+<td>36395</td>
+</tr>
+<tr>
+<td>1940</td>
+<td>75</td>
+<td>35856</td>
+<td>35222</td>
+<td>36490</td>
+</tr>
+<tr>
+<td>1950</td>
+<td>75</td>
+<td>35950</td>
+<td>35317</td>
+<td>36584</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>75</td>
+<td>36044</td>
+<td>35411</td>
+<td>36678</td>
+</tr>
+<tr>
+<td>1970</td>
+<td>75</td>
+<td>36138</td>
+<td>35504</td>
+<td>36772</td>
+</tr>
+<tr>
+<td>1980</td>
+<td>75</td>
+<td>36232</td>
+<td>35598</td>
+<td>36866</td>
+</tr>
+<tr>
+<td>1990</td>
+<td>76</td>
+<td>36325</td>
+<td>35691</td>
+<td>36960</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>76</td>
+<td>36418</td>
+<td>35784</td>
+<td>37053</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E6%88%8F/" class="category-chain-item">游戏</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/" class="category-chain-item">饥荒</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A5%A5%E8%8D%92/" class="print-no-link">#饥荒</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>饥荒联机版 WX-78 雷击超载时间计算公式</div>
+      <div>https://peppernotes.top/2020/02/wx78lightning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>辣椒小皇纸</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年2月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/ubuntujupyter/" title="Ubuntu Server 安装 Jupyter Notebook">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ubuntu Server 安装 Jupyter Notebook</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/chest/" title="饥荒『荒野求生』服务器箱子等容器记录">
+                        <span class="hidden-mobile">饥荒『荒野求生』服务器箱子等容器记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="cusdis" style="width:100%">
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="acc52ffb-1b13-4e02-ab16-962d718df98e"
+      data-page-id="ae6ad7f43a9d44b191e3b163431dbb6e"
+      data-page-url="/2020/02/wx78lightning/"
+      data-page-title="饥荒联机版 WX-78 雷击超载时间计算公式"
+      data-theme="auto"
+    >
+    </div>
+  </div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#cusdis_thread', function() {
+      Fluid.utils.createScript('https://cusdis.com/js/widget/lang/zh-cn.js');
+      Fluid.utils.createScript('https://cusdis.com/js/cusdis.es.js');
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema) {
+        document.querySelector('#cusdis_thread').dataset.theme = schema
+      }
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

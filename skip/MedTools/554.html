@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>Kt/V(URR)透析有效性指数</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="danwei">
+					<div style="float:right; width:160px;"><span class="radio su checked">常用</span><span class="radio si">国际</span></div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+                	<select id="sele">
+                    	<option value="1">透析前血尿素氮：</option>
+                    	<option value="2">透析前血尿素：</option>
+                    </select>
+                </th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+			<tr>
+				<th><span id="v1">透析后血尿素氮：</span><span id="v2">透析后血尿素：</span></th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td><span class="s1">mg/dL</span><span class="s2">mmol/L</span></td>
+			</tr>
+			<tr>
+				<th>透析前体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<th>透析后体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+        	<tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>Kt/V (URR) dialysis effectiveness index</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>R=透析后BUN或尿素/透析前BUN或尿素<br />URR=1-R<br />超滤体积（UF）=透析前体重-透析后体重<br />Kt/V=-ln(R-0.03)+((4-3.5*R)*UF/透析后体重）</td>
+            </tr>
+            <tr>
+            	<th>正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>URR>60%且Kt/V>1.2~1.4</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+            <tr>
+            	<td>计算Kt/V是评估血透有效性的最常用方法。URR>60%且Kt/V>1.2~1.4表示血透有效。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>Daugirdas JT. Am J Kidney Dis. 1993 Aug;22(2):267-70.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>URR=<em id="end"></em>%</p>
+        <p>Kt/V=<em id="end2"></em></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#v2').css('display','none');
+	$('#sele').change(function(){
+		if($('#sele').val()==1){
+			$('#v1').css('display','block');
+			$('#v2').css('display','none');
+		}else if($('#sele').val()==2){
+			$('#v2').css('display','block');
+			$('#v1').css('display','none');
+		}
+	})
+});
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的透析前血尿素氮或透析前血尿素");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的透析后血尿素氮或透析后血尿素");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的透析前体重");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的透析后体重");
+	}else{
+		if($(".si").hasClass("checked")){
+			var end = (1-((num2/0.357)/(num1/0.357)))*100;
+			var end2 = -Math.log((num2/0.357)/(num1/0.357)-0.03)+(4-3.5*num2/0.357/num1/0.357)*(num3-num4)*(num3-num4)/num4;
+		}else{
+			var end = (1-(num2/num1))*100;
+			var end2 = -Math.log(num2/num1-0.03)+(4-3.5*num2/num1)*(num3-num4)/num4;
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed());
+		$("#end2").text(end2.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

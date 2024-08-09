@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>国际淋巴瘤预后指数IPI</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>国际淋巴瘤预后指数IPI</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>相关因素</th>
+						<th>预后不良因素</th>
+						<th>分值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>年龄</th>
+					  <td>
+							<input type="checkbox" name="checkbox" value="1" id="checkbox1" />
+						  <label for="checkbox1">&gt;60 岁</label>						</td>
+                          <td>1分</td>
+					</tr>
+					<tr>
+						<th>分期</th>
+					  <td>
+							<input type="checkbox" name="checkbox" value="1" id="checkbox2" />
+						  <label for="checkbox2">Ⅲ、Ⅳ期</label>						</td>
+                          <td>1分</td>
+					</tr>
+					<tr>
+						<th>结外侵犯部位数</th>
+					  <td>
+							<input type="checkbox" name="checkbox" value="1" id="checkbox3" />
+						  <label for="checkbox3">&ge;2</label>						</td>
+                          <td>1分</td>
+					</tr>
+					<tr>
+						<th>PS评分（ECOG）</th>
+					  <td>
+							<input type="checkbox" name="checkbox" value="1" id="checkbox4" />
+						  <label for="checkbox4">2，3，4</label>						</td>
+                          <td>1分</td>
+					</tr>
+					<tr>
+						<th>LDH</th>
+					  <td>
+							<input type="checkbox" name="checkbox" value="1" id="checkbox5" />
+						  <label for="checkbox5">升高</label>						</td>
+                          <td>1分</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td colspan="2"><span><em class="num">0</em> 分</span></td>
+					</tr>
+				</tbody>
+			</table>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            	<thead>
+					<tr>
+						<th>结果解读</th>
+						<th colspan="4">一个不良因素1分，评分0~5分，分为4个危险度。</th>
+					</tr>
+                </thead>
+            	<tbody>
+                	<tr>
+                    	<th>评分</th>
+                    	<th>危险度</th>
+                    	<th>%CR</th>
+                    	<th>5年CR-DFS</th>
+                    	<th>5年OS</th>
+                    </tr>
+                    <tr>
+                    	<td>0~1</td>
+                    	<td>低危</td>
+                    	<td>87%</td>
+                    	<td>70%</td>
+                    	<td>73%</td>
+                    </tr>
+                    <tr>
+                    	<td>2</td>
+                    	<td>低中危</td>
+                    	<td>67%</td>
+                    	<td>50%</td>
+                    	<td>51%</td>
+                    </tr>
+                    <tr>
+                    	<td>3</td>
+                    	<td>中高危</td>
+                    	<td>55%</td>
+                    	<td>49%</td>
+                    	<td>43%</td>
+                    </tr>
+                    <tr>
+                    	<td>4~5</td>
+                    	<td>高危</td>
+                    	<td>44%</td>
+                    	<td>40%</td>
+                    	<td>26%</td>
+                    </tr>
+                </tbody>
+            </table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>相关解释</th>
+						<td><p>PS评分（活动状态评分，ECOG）： <br />
+						  0分：活动能力完全正常，与起病前活动能力无任何差异； <br />
+						  1分：能自由走动及从事轻体力活动，包括一般家务或办公室工作，但不能从事较重的体力活动； <br />
+						  2分：能自由走动及生活自理，但已丧失工作能力，日间不少于一半时间可以起床活动； <br />
+						  3分：生活仅能部分自理，日间一半以上时间卧床或坐轮椅； <br />
+					    4分：卧床不起，生活不能自理。 </p></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>王吉耀主编. 《内科学》（八年制）[M]. 人民卫生出版社.2005</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	var n = 0;
+	$('input:checkbox').click(function(){
+		var v = parseFloat( $(this).val() );
+		if($(this).is(':checked')){
+			n=n+v;
+		}else{
+			n=n-v;
+		}
+		$('.num').text(n);
+	});
+});
+</script>
+</body>
+</html>

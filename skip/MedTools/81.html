@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>非酒精性脂肪肝NAS积分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>非酒精性脂肪肝NAS积分</h1>
+  </div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+			<thead>
+				<tr>
+					<th rowspan="2">项目</th>
+					<th colspan="4">评分</th>
+				</tr>
+				<tr>
+				  <th>0</th>
+			      <th>1</th>
+			      <th>2</th>
+			      <th>3</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>肝细胞脂肪变</th>
+					<td>
+					<input type="radio" name="radio1" value="0" id="checkbox1"  />
+					<label for="checkbox1">&lt;5%</label>					</td>
+					<td>
+					<input type="radio" name="radio1" value="1" id="checkbox2"  />
+					<label for="checkbox2">5%～33%</label>					</td>
+					<td>
+					<input type="radio" name="radio1" value="2" id="checkbox3"  />
+					<label for="checkbox3">34%～66%</label>
+					</td>
+				  <td>
+					<input type="radio" name="radio1" value="3" id="checkbox4"  />
+					<label for="checkbox4">&gt;66%</label>					</td>
+				</tr>
+				<tr>
+					<th>小叶内炎症（20倍镜计数坏死灶)</th>
+					<td>
+					<input type="radio" name="radio2" value="0" id="checkbox5" />
+					<label for="checkbox5">无</label>					</td>
+					<td>
+					<input type="radio" name="radio2" value="1" id="checkbox6" />
+					<label for="checkbox6">&lt;2个</label>					</td>
+					<td>
+					<input type="radio" name="radio2" value="2" id="checkbox7" />
+					<label for="checkbox7">2～4个</label>
+					</td>
+				  <td>
+					<input type="radio" name="radio2" value="3" id="checkbox8" />
+					<label for="checkbox8">&gt;4个</label>					</td>
+				</tr>
+				<tr>
+					<th>肝细胞气球样变</th>
+					<td>
+					<input type="radio" name="radio3" value="0" id="checkbox9" />
+					<label for="checkbox9">无</label>
+					</td>
+					<td>
+					<input type="radio" name="radio3" value="1" id="checkbox10" />
+					<label for="checkbox10">少见</label>
+					</td>
+					<td>
+					<input type="radio" name="radio3" value="2" id="checkbox11" />
+					<label for="checkbox11">多见</label>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<th class="count">评分</th>
+					<td colspan="5"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">3</span>个必选项未选）</td>
+				</tr>
+			</tbody>
+		</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>NAS为半定量评分系统而非诊断程序，NAS&lt;3分可排除NASH，NAS&gt;4分则可诊断非酒精性脂肪肝(NASH)，介于两者之间者为非酒精性脂肪肝(NASH)可能。规定不伴有小叶内炎症、气球样变和纤维化但肝脂肪变&gt;33%者为非酒精性单纯性脂肪肝(NAFL)，脂肪变达不到此程度者仅称为肝细胞脂肪变。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>非酒精性脂肪性肝病诊疗指南（2010年修订版）. 中华医学会肝病学分会脂肪肝和酒精性肝病学组.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 3-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>

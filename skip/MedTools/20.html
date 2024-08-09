@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>肺泡-动脉氧压差</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>吸入氧浓度FiO<sub>2</sub>：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <th>PaCO<sub>2</sub>：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>mmHg</td>
+      </tr>
+      <tr>
+        <th>PaO<sub>2</sub>：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td>mmHg</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>A-a gradient, P<sub>(A-a)</sub>O<sub>2</sub></td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>P<sub>(A-a)</sub>O<sub>2</sub>=(760-47)*FiO<sub>2</sub>-(PaCO<sub>2</sub>/0.8)-PaO<sub>2</sub></td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>正常值=(年龄 / 4) + 4。一般在15～20mmHg，随年龄增大，一般不超过30mmHg</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>（注：室内空气FiO<sub>2</sub>为&nbsp;21%），升高表示V/Q失调（如COPD、肺间质病、肺血管疾病）、弥散障碍（肺间质病或其他引起肺部炎症/纤维化的疾病）或右向左分流（如动静脉畸形、肝肺综合征、肺不张等）。肺泡-动脉氧压差正常的缺氧表示通气不足 (如COPD、中枢神经系统疾病、神经肌肉疾病等)或吸入氧浓度低(如高原)</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>Mellemgaard K. The alveolar-arterial oxygen difference: its size and components in normal man. Acta Physiol Scand. 1966 May;67(1):10-20.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>P<sub>(A-a)</sub>O<sub>2</sub>=<em id="end"> </em>mmHg</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算结果
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); // FiO2
+	var num2 = parseFloat(document.getElementById("num2").value); // PaCO2
+	var num3 = parseFloat(document.getElementById("num3").value); // PaO2
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的FiO2");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的PaCO2");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的PaO2");
+	}else{
+		var end = (7.60-0.47)*num1-(num2/0.8)-num3;
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>左心室收缩/舒张末期容积指数</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="sex"><span class="radio man checked">男</span><span class="radio">女</span></td>
+			</tr>
+			<tr>
+				<th>左心室收缩末期容积：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>ml</td>
+			</tr>
+			<tr>
+				<th>左心室舒张末期容积：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>ml</td>
+			</tr>
+			<tr>
+				<th>身高：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>体重：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>公式英文名称：</th>
+            </tr>
+            <tr>
+            	<td>LVESVI & LVEDVI</td>
+            </tr>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>左心室收缩末期容积指数＝左心室收缩末期容积/体表面积<br />左心室舒张末期容积指数＝左心室舒张末期容积/体表面积<br />男性：体表面积＝0.00607×身高＋0.0127×体重－0.0698<br />女性：体表面积＝0.00586×身高＋0.0126×体重－0.0461</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>左心室收缩末期容积指数＜49ml/m<sup>2</sup>，左心室舒张末期容积指数＜97ml/m<sup>2</sup></td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+           	<tr>
+            	<td>2007我国指南标准，将LVEF＞45%定义为左心室收缩功能正常/轻度异常的界值。在确定左心室功能正常/轻度异常时还需补充测量左心室容积，左心室舒张末期容积指数（LVEDVI）和左心室收缩末期容积指数（LVESVI）分别不能超过97ml/m<sup>2</sup>和49ml/m<sup>2</sup>。左心室收缩末期容积指数（LVESVI）达45ml/m2的冠心病患者，其病死率增加3倍。</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>射血分数正常的心力衰竭诊治的中国专家共识(2010年8月19日于大连第二届中国心力衰竭论坛). 中国医刊, 2010, 45(11)</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>左心室收缩末期容积指数：<span id="end"></span>ml/m<sup>2</sup></p>
+        <p>左心室舒张末期容积指数：<span id="end2"></span>ml/m<sup>2</sup></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的左心室收缩末期容积");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的左心室舒张末期容积");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的身高");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的体重");
+	}else{
+		if($(".man").hasClass("checked")){
+			var end = num1/(0.00607*num3+0.0127*num4-0.0698);
+			var end2 = num2/(0.00607*num3+0.0127*num4-0.0698);
+		}else{
+			var end = num1/(0.00586*num3+0.0126*num4-0.0461);
+			var end2 = num2/(0.00586*num3+0.0126*num4-0.0461);
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+		$("#end2").text(end2.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

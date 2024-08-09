@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>内脏牵拉反应</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>内脏牵拉反应</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                    <th>级别</th>
+                    <th>内容</th>
+                </tr>
+                <tr>
+                    <td>0 级</td>
+                    <td>病人安静，无痛及不适感，无恶心及呕吐</td>
+                </tr>
+                <tr>
+                    <td>1 级</td>
+                    <td>轻度不适，恶心，无牵拉痛、呕吐</td>
+                </tr> 
+                <tr> 
+                    <td>2 级</td>
+                    <td>诉恶心，轻度牵拉痛，无呕吐</td>
+                </tr>
+                <tr>
+                    <td>3 级</td>
+                    <td>牵拉痛明显，有恶心、呕吐、鼓肠</td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore();
+        $('.num').text(n);
+    }
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

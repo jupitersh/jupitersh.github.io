@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>骨质疏松症风险一分钟测试题（国际骨质疏松症基金会,IOF）</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>骨质疏松症风险一分钟测试题（国际骨质疏松症基金会,IOF）</h1>
+  </div>
+	<div class="mainContainer">
+		<form action="" method="post">
+			<table border="0" cellpadding="0" cellspacing="0" class="countTab2">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>内容</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox1" />
+						  <label for="checkbox1">您是否曾经因为轻微的碰撞或者跌倒就会伤到自己的骨骼？</label>						</td>
+					</tr>
+					<tr>
+						<th>2</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox2" />
+					      <label for="checkbox2">您的父母有没有过轻微碰撞或跌倒就发生髋部骨折的情况？</label>						</td>
+					</tr>
+					<tr>
+						<th>3</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox3" />
+						  <label for="checkbox3">您经常连续3个月以上服用“可的松、强的松”等激素类药品吗？</label>						</td>
+					</tr>
+					<tr>
+						<th>4</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox4" />
+						  <label for="checkbox4">您身高是否比年轻时降低了(超过3cm)？</label>						</td>
+					</tr>
+					<tr>
+						<th>5</th>
+					  <td>
+							<input type="checkbox" name="checkbox" id="checkbox5" />
+						  <label for="checkbox5">您经常大量饮酒吗？</label>						</td>
+					</tr>
+					<tr>
+						<th>6</th>
+					    <td>
+							<input type="checkbox" name="checkbox" id="checkbox6" />
+						  <label for="checkbox6">您每天吸烟超过20支吗？</label>						</td>
+					</tr>
+					<tr>
+						<th>7</th>
+					    <td>
+							<input type="checkbox" name="checkbox" id="checkbox7" />
+						  <label for="checkbox7">您经常患腹泻吗？（由于消化道疾病或者肠炎而引起）</label>						</td>
+					</tr>
+					<tr>
+						<th>8</th>
+					    <td>
+							<input type="checkbox" name="checkbox" id="checkbox8" />
+						  <label for="checkbox8">女士回答：您是否在45岁之前就绝经了？</label>						</td>
+					</tr>
+					<tr>
+						<th>9</th>
+					    <td>
+							<input type="checkbox" name="checkbox" id="checkbox9" />
+						  <label for="checkbox9">女士回答：您是否曾经有过连续12个月以上没有月经（除了怀孕期间）？</label>						</td>
+					</tr>
+					<tr>
+						<th>10</th>
+					    <td>
+							<input type="checkbox" name="checkbox" id="checkbox10" />
+						  <label for="checkbox10">男士回答：您是否患有阳萎或者缺乏性欲这些症状？</label>						</td>
+					</tr>
+					<tr>
+						<th class="count">评分</th>
+						<td><span>您已选择 <em class="num">0</em> 项</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="0" cellpadding="0" cellspacing="0" class="countTabResult">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>只要其中有一题回答结果为“是”，即为阳性。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>中华医学会骨质疏松和骨矿盐疾病分会.原发性骨质疏松症诊治指南.2011年3月.</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input:checkbox').click(function(){
+		var n=$('input:checkbox:checked').length;
+		$('.num').text(n);
+	});
+});
+</script>
+</body>
+</html>

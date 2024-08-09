@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>漏斗胸指数</title>
+<link rel="stylesheet" media="screen" href="Pub/css/public.css" />
+<link rel="stylesheet" media="screen" href="Pub/css/layout.css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<th>漏斗胸凹陷部的纵径a：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>漏斗胸凹陷部的横径b：</th>
+				<td class="text_wrap"><input type="text" value="" id="num2" class="text num2"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>漏斗胸凹陷部的深度c：</th>
+				<td class="text_wrap"><input type="text" value="" id="num3" class="text num3"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>胸骨长度A：</th>
+				<td class="text_wrap"><input type="text" value="" id="num4" class="text num4"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>胸廓的横径B：</th>
+				<td class="text_wrap"><input type="text" value="" id="num5" class="text num5"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<th>胸骨角至椎体的最短距离C：</th>
+				<td class="text_wrap"><input type="text" value="" id="num6" class="text num6"></td>
+				<td>cm</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <table cellspacing="0" cellpadding="0" class="countTab">
+    	<caption>公式解析</caption>
+        <tbody>
+            <tr>
+            	<th>计算公式：</th>
+            </tr>
+            <tr>
+            	<td>漏斗胸指数F<sub>2</sub>I=a×b×c/(A×B×C)</td>
+            </tr>
+            <tr>
+            	<th>结果正常值范围：</th>
+            </tr>
+            <tr>
+            	<td>＞0.30为重度凹陷；<br />0.21~0.30为中度凹陷；<br />＜0.2为轻度凹陷</td>
+            </tr>
+            <tr>
+            	<th>说明：</th>
+            </tr>
+           	<tr>
+            	<td>F<sub>2</sub>I＞0.21具有手术指征</td>
+            </tr>
+            <tr>
+            	<th>参考文献：</th>
+            </tr>
+            <tr>
+            	<td>陈孝平主编. 《外科学》（八年制）[M]. 人民卫生出版社.2010年主编. 《儿科学》（八年制）[M]. 人民卫生出版社.2005年</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>漏斗胸指数：<span id="end"></span></p>
+        <div><input type="button" value="关闭" id="close" class="closeBtn"></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){	
+	var num1 = parseFloat(document.getElementById("num1").value);
+	var num2 = parseFloat(document.getElementById("num2").value);
+	var num3 = parseFloat(document.getElementById("num3").value);
+	var num4 = parseFloat(document.getElementById("num4").value);
+	var num5 = parseFloat(document.getElementById("num5").value);
+	var num6 = parseFloat(document.getElementById("num6").value);
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的漏斗胸凹陷部的纵径");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的漏斗胸凹陷部的横径");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的漏斗胸凹陷部的深度");
+	}else if(isNaN(num4) || num4 == ""){
+		alert("请填写正确的胸骨长度");
+	}else if(isNaN(num5) || num5 == ""){
+		alert("请填写正确的胸廓的横径");
+	}else if(isNaN(num6) || num6 == ""){
+		alert("请填写正确的胸骨角至椎体的最短距离");
+	}else{
+		var end = num1*num2*num3/(num4*num5*num6);
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		$("#textPop").fadeOut(200);
+	});
+});
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

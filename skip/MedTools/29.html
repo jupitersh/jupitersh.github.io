@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>肺顺应性</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+  <div class="form">
+    <table cellspacing="0" cellpadding="0" class="countFormTab">
+      <tr>
+        <th>潮气容积<br />
+          V<sub>T</sub>：</th>
+        <td class="text_wrap"><input type="number" value="" id="num1" class="text num1"></td>
+        <td>ml</td>
+      </tr>
+      <tr>
+        <th>吸气平台压<br />
+          P<sub>plat</sub>：</th>
+        <td><input type="number" value="" id="num2" class="text num2"></td>
+        <td>cmH<sub>2</sub>O</td>
+      </tr>
+      <tr>
+        <th>呼气末正压 <br />
+          PEEP：</th>
+        <td><input type="number" value="" id="num3" class="text num3"></td>
+        <td>cmH<sub>2</sub>O</td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+      </tr>
+    </table>
+  </div>
+  <table cellspacing="0" cellpadding="0" class="countTab">
+    <caption>
+    公式解析
+    </caption>
+    <tbody>
+      <tr>
+        <th>公式英文名称</th>
+      </tr>
+      <tr>
+        <td>>Lung Compliance,Cdyn</td>
+      </tr>
+      <tr>
+        <th>计算公式</th>
+      </tr>
+      <tr>
+        <td>肺顺应性=V<sub>T</sub>/(P<sub>plat</sub>-PEEP)</td>
+      </tr>
+      <tr>
+        <th>结果正常值范围</th>
+      </tr>
+      <tr>
+        <td>50～100 ml/cmH<sub>2</sub>O</td>
+      </tr>
+      <tr>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>肺顺应性对小气道疾病的早期诊断比较灵敏，肺顺应性降低常见于肺炎、肺水肿、肺不张、气胸和腹腔内压增高。</td>
+      </tr>
+      <tr>
+        <th>参考文献</th>
+      </tr>
+      <tr>
+        <td>李剑，吴东主编. 协和内科住院医师手册[M]. 中国协和医科大学出版社.2008年</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="textPop">
+    <h4>计算结果为：</h4>
+    <p>Cdyn=<em id="end"> </em>ml/cmH<sub>2</sub>O</p>
+    <div>
+      <input type="button" value="关闭" id="close" class="closeBtn">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //VT
+	var num2 = parseFloat(document.getElementById("num2").value); //Pplat
+	var num3 = parseFloat(document.getElementById("num3").value); //PEEP
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的潮气容积VT！");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的吸气平台压Pplat！");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的呼气末正压PEEP！");
+	}else{
+		var end = num1/(num2-num3);
+		$("#textPop").fadeIn(200);
+		$("#end").text(end.toFixed(2));
+	}
+}
+$(function(){
+	$('#close').click(function(){
+		//$("#textPop").css("display","none");
+		$("#textPop").fadeOut(200);
+	});
+});
+</script> 
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

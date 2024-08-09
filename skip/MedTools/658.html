@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>POSSUM 评分系统</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>POSSUM 评分系统</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="table1 countTab2">
+            <tbody>
+                <tr>
+                    <th rowspan="2">项目</th>
+                    <th colspan="5">生理学分数</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                		<td>年龄（岁）</td>
+                    <td>
+                        <input type="radio" name="radio1" value="1" id="checkbox0" />
+                        <label for="checkbox0">≤ 60</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio1" value="2" id="checkbox1" />
+                        <label for="checkbox1">61-70</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio1" value="4" id="checkbox2" />
+                        <label for="checkbox2">≥ 71</label>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                		<td>心脏体征及胸片所见</td>
+                    <td>
+                        <input type="radio" name="radio2" value="1" id="checkbox4" />
+                        <label for="checkbox4">无衰竭</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio2" value="2" id="checkbox5" />
+                        <label for="checkbox5">服用强心药、利尿药及降压药</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio2" value="4" id="checkbox6" />
+                        <label for="checkbox6">周围水肿，口服华法林，临界心脏增大</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio2" value="8" id="checkbox7" />
+                        <label for="checkbox7">颈静脉压升高，心脏增大</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>呼吸系统及胸片所见</td>
+                    <td>
+                        <input type="radio" name="radio3" value="1" id="checkbox8" />
+                        <label for="checkbox8">无气促</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio3" value="2" id="checkbox9" />
+                        <label for="checkbox9">运动时气促轻度</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio3" value="4" id="checkbox10" />
+                        <label for="checkbox10">限制性呼吸困难中度</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio3" value="8" id="checkbox11" />
+                        <label for="checkbox11">休息时呼吸困难，肺纤维化或肺实变</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>收缩压（mmHg）</td>
+                    <td>
+                        <input type="radio" name="radio4" value="1" id="checkbox12" />
+                        <label for="checkbox12">110-130</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio4" value="2" id="checkbox13" />
+                        <label for="checkbox13">100-109 或 131-170</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio4" value="4" id="checkbox14" />
+                        <label for="checkbox14">90-99 或 ≥ 171</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio4" value="8" id="checkbox15" />
+                        <label for="checkbox15">＜ 89</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>脉搏 / 分</td>
+                    <td>
+                        <input type="radio" name="radio5" value="1" id="checkbox16" />
+                        <label for="checkbox16">50-80</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio5" value="2" id="checkbox17" />
+                        <label for="checkbox17">81-140 或 40-49</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio5" value="4" id="checkbox18" />
+                        <label for="checkbox18">101-120</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio5" value="8" id="checkbox19" />
+                        <label for="checkbox19">＞ 121 ≤ 39</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>Glasgow 昏迷指数</td>
+                    <td>
+                        <input type="radio" name="radio6" value="1" id="checkbox20" />
+                        <label for="checkbox20">15</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio6" value="2" id="checkbox21" />
+                        <label for="checkbox21">12-14</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio6" value="4" id="checkbox22" />
+                        <label for="checkbox22">9-11</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio6" value="8" id="checkbox23" />
+                        <label for="checkbox23">≤ 8</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>血红蛋白（g/L）</td>
+                    <td>
+                        <input type="radio" name="radio7" value="1" id="checkbox24" />
+                        <label for="checkbox24">130-160</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio7" value="2" id="checkbox25" />
+                        <label for="checkbox25">115-129 或 161-170</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio7" value="4" id="checkbox26" />
+                        <label for="checkbox26">101-114 或 171-180</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio7" value="8" id="checkbox27" />
+                        <label for="checkbox27">≤ 9.9 或 ＞18.1</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>白细胞计数（×1012/L）</td>
+                    <td>
+                        <input type="radio" name="radio8" value="1" id="checkbox28" />
+                        <label for="checkbox28">4-10</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio8" value="2" id="checkbox29" />
+                        <label for="checkbox29">3.1-4.0 或 10.1-20.0</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio8" value="4" id="checkbox30" />
+                        <label for="checkbox30">≤ 3.0 或 ≥ 20.1</label>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                		<td>尿素氮（mmol/L）</td>
+                    <td>
+                        <input type="radio" name="radio9" value="1" id="checkbox32" />
+                        <label for="checkbox32">≤ 7.5</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio9" value="2" id="checkbox33" />
+                        <label for="checkbox33">7.6-10.1</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio9" value="4" id="checkbox34" />
+                        <label for="checkbox34">10.1-15.0</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio9" value="8" id="checkbox35" />
+                        <label for="checkbox35">≥ 15.1</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>血清钠（mmol/L）</td>
+                    <td>
+                        <input type="radio" name="radio10" value="1" id="checkbox36" />
+                        <label for="checkbox36">＞136</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio10" value="2" id="checkbox37" />
+                        <label for="checkbox37">131-135</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio10" value="4" id="checkbox38" />
+                        <label for="checkbox38">126-130</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio10" value="8" id="checkbox39" />
+                        <label for="checkbox39">≤ 125</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>血清钾（mmol/L）</td>
+                    <td>
+                        <input type="radio" name="radio11" value="1" id="checkbox40" />
+                        <label for="checkbox40">3.5-5.0</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio11" value="2" id="checkbox41" />
+                        <label for="checkbox41">3.2-3.4 或 5.1-5.3</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio11" value="4" id="checkbox42" />
+                        <label for="checkbox42">2.9-3.1 或 5.4-5.9</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio11" value="8" id="checkbox43" />
+                        <label for="checkbox43">≤ 2.8 或 ≥ 6.0</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>心电图</td>
+                    <td>
+                        <input type="radio" name="radio12" value="1" id="checkbox44" />
+                        <label for="checkbox44">正常</label>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio12" value="4" id="checkbox46" />
+                        <label for="checkbox46">心房颤动（心率 60-90 次/分）</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio12" value="8" id="checkbox47" />
+                        <label for="checkbox47">异常心律，早搏 ≥ 5，Q 波或 ST/T 波异常</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="count">生理学分数</th>
+                    <td colspan="4"><span><em class="num1">0</em> 分</span> （您已选择 <span id="num2">0</span> 个必选项，还有 <span id="num3" style="color:red;">12</span> 个必选项未选）</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table2 countTab2">
+            <tbody>
+                <tr>
+                    <th rowspan="2">项目</th>
+                    <th colspan="5">手术严重度分数</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                		<td>手术大小分级</td>
+                    <td>
+                        <input type="radio" name="radio13" value="1" id="checkbox48" />
+                        <label for="checkbox48">一级（小手术）</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio13" value="2" id="checkbox49" />
+                        <label for="checkbox49">二级（中手术）</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio13" value="4" id="checkbox50" />
+                        <label for="checkbox50">三级（大手术）</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio13" value="8" id="checkbox51" />
+                        <label for="checkbox51">四级（超大手术）</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>手术次数（次数）</td>
+                    <td>
+                        <input type="radio" name="radio14" value="1" id="checkbox52" />
+                        <label for="checkbox52">1</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio14" value="2" id="checkbox53" />
+                        <label for="checkbox53">2</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio14" value="4" id="checkbox54" />
+                        <label for="checkbox54">＞2</label>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                		<td>总失血量（ml）</td>
+                    <td>
+                        <input type="radio" name="radio15" value="1" id="checkbox55" />
+                        <label for="checkbox55">≤ 100</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio15" value="2" id="checkbox56" />
+                        <label for="checkbox56">101-500</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio15" value="4" id="checkbox57" />
+                        <label for="checkbox57">501-999</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio15" value="8" id="checkbox58" />
+                        <label for="checkbox58">≥ 1000</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>创口污染</td>
+                    <td>
+                        <input type="radio" name="radio16" value="1" id="checkbox59" />
+                        <label for="checkbox59">无</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio16" value="2" id="checkbox60" />
+                        <label for="checkbox60">切口伤（刺伤）</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio16" value="4" id="checkbox61" />
+                        <label for="checkbox61">少量污染或组织坏死</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio16" value="8" id="checkbox62" />
+                        <label for="checkbox62">大量污染或组织坏死</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>恶性程度</td>
+                    <td>
+                        <input type="radio" name="radio17" value="1" id="checkbox63" />
+                        <label for="checkbox63">无</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio17" value="2" id="checkbox64" />
+                        <label for="checkbox64">仅原发灶</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio17" value="4" id="checkbox65" />
+                        <label for="checkbox65">淋巴结转移</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio17" value="8" id="checkbox66" />
+                        <label for="checkbox66">远处转移</label>
+                    </td>
+                </tr>
+                <tr>
+                		<td>手术时机</td>
+                    <td>
+                        <input type="radio" name="radio18" value="1" id="checkbox67" />
+                        <label for="checkbox67">择期手术</label>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio18" value="4" id="checkbox69" />
+                        <label for="checkbox69">发病至手术时间 ＜ 48h</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="radio18" value="8" id="checkbox70" />
+                        <label for="checkbox70">发病至手术时间 ＜ 6h</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="count">手术严重度分数</th>
+                    <td colspan="4"><span><em class="num2">0</em> 分</span> （您已选择 <span id="num4">0</span> 个必选项，还有 <span id="num5" style="color:red;">6</span> 个必选项未选）</td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+            <tr>
+                <th class="count">死亡率（R1）预测</th>
+                <td><span><em class="num3">0</em></span> </td>
+            </tr>
+            <tr>
+                <th class="count">并发症率（R2）预测</th>
+                <td><span><em class="num4">0</em></span> </td>
+            </tr>
+        </table>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+						<tr>
+								<th>结果解读</th>
+										<td>
+												POSSUM 评分系统首由 Copeland 等建立，通过多变量分析对 35 个影响术后可能的不良因素进行检测，最终选出 12 个术前独立性预后因素，按其程度分为1、2、4、8 分，以 8 分为最严重，为了使预测更为精确，加上 6 项手术因素，经前瞻性 6 个月的试行，证实这一评分系统对普外科手术结果较为准确。
+												</br><br/>
+												死亡率（R1）预测：lnR1/(1-R1)= -7.04+(0.13× 生理学评分)+(0.16× 手术严重度评分)
+												</br><br/>
+												并发症率（R2）预测：lnR2/(1-R2)= -5.91+(0.16×生理学评分)+(0.19×手术严重度评分)
+										</td>
+						</tr>
+						<tr>
+								<th>相关解释</th>
+								<td>
+										POSSUM 是计数死亡率和发病率的生理学和手术严重性评分（Physiological and Operative Severity Score for the enUmeration of Mortality and Morbidity）的简称，由 Copeland 等于 1991 年设计，包括 12 项生理因素及 6 项手术严重因素，主要适用于普通外科、血管外科及心血管外科，随后 Copeland 等对 POSSUM 进行改良，设计出了适用于骨科的 POSSUM 评分系统。POSSUM 中应用了指数分析方法，并没有提到该方法应用的理由，因为指数分析方法不是标准的统计方法，不能被人们普遍接受。许多学者认为它过高估计了术后死亡率，特别是低危人群的死亡率。因此有必要针对该群体进行改良，以提高 POSSUM 评分方法的实用性。尽管 POSSUM 评分方法的优点之一是能较准确地预测并发症率，但后来许多学者对 POSSUM 预测并发症率争议很大，因为术后并发症的范围相当广泛，并且不同疾病的手术并发症不同，判断起来主观因素很大，不易统一，因此有学者主张应该在预测结果中尽量回避这个问题。
+										</br><br/>
+										1996 年，Whiteley 等在实际运用 POSSUM 评分系统时发现，POSSUM 评分系统对于患者的术后死亡率估计过高，特别是对于危险率较低的手术中差别更为明显。因此他们对 POSSUM 评分系统中的预测病死率的等式进行了修改，形成了一个新的等式系统，即 Portsmouth 预测等式，统称为 P-POSSUM 评分系统：
+										</br><br/>
+										1)应用于普外手术的患者：LnR/(1-R)= -9.065+(0.1692× 生理学评分总分)+(0.1550× 手术严重性评分总分)
+										</br><br/>
+										2)用于主动脉血管瘤破裂手术的患者(RAAA-POSSUM)：LnR/(1-R)= -4.9795+(0.0913× 生理学评分总分)+(0.0958× 手术严重性评分总分)
+										</br> <br/>
+										3)用于大动脉手术的患者(V-POSSUM)：LnR/(1-R)= -8.0616+(0.1552× 生理学评分总分)+(0.1238× 手术严重性评分总分)
+										</br><br/>
+										4)如仅用生理学评分：
+										</br>
+										RAAA-POSSUM：LnR/(1-R)= -2.7569+(0.0968× 生理学评分总分)；
+										</br>
+										V-POSSUM：LR/(1-R)= -6.0386+(0.1539× 生理学评分总分)。
+								</td>
+						</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n1=allScore1();
+        var n2=allScore2();
+        var n3=end1();
+        var n4=end2();
+        $('.num1').text(n1);
+        $('.num2').text(n2);
+        $('.num3').text(n3);
+        $('.num4').text(n4);
+    }
+    
+    function allScore1()
+    {
+        var allScore=0;
+        $('.table1 :radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    function allScore2()
+    {
+        var allScore=0;
+        $('.table2 :radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    
+    function end1(){
+			var num1 = parseInt($('.num1').text());
+			var num2 = parseInt($('.num2').text());
+			//lnR1/(1-R1)= -7.04+(0.13× 生理学评分)+(0.16× 手术严重度评分)
+			var end = 1/(Math.exp(-(-7.04+0.13*num1)+(0.16*num2))+1);
+			return end.toFixed(4);
+		}
+		
+    function end2(){
+			var num1 = parseInt($('.num1').text());
+			var num2 = parseInt($('.num2').text());
+			//lnR1/(1-R1)= -5.91+(0.16×生理学评分)+(0.19×手术严重度评分)
+			var end = 1/(Math.exp(-(-5.91+0.16*num1)+(0.19*num2))+1);
+			return end.toFixed(4);
+		}
+    
+    var n = 0;
+    $('input').click(function(){  
+        shuchu();
+        shuchu2();
+        shuchu3();
+    });
+    
+    function shuchu2(){
+			var num2 = $('.table1 :radio:checked').length;
+			var num3 = 12-num2;
+			$('#num2').text(num2);
+			$('#num3').text(num3);
+		}
+    
+    function shuchu3(){
+			var num4 = $('.table2 :radio:checked').length;
+			var num5 = 6-num4;
+			$('#num4').text(num4);
+			$('#num5').text(num5);
+		}
+});
+</script>
+</body>
+</html>

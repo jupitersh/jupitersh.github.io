@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>内生肌酐清除率（Cockcroft-Gault公式）</title>
+<link href="Pub/css/public.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+</head>
+
+<body>
+<div class="wrap">
+	<div class="form">
+		<table>
+			<tr>
+				<td colspan="3" class="sex danwei">
+					<div style="float:left;"><span class="radio man checked">男</span><span class="radio woman">女</span></div>
+					<div style="float:right; width:140px;"><span class="radio su checked">常用</span><span class="radio si">国际</span></div>
+				</td>
+			</tr>
+			<tr>
+				<th>年龄：</th>
+				<td class="text_wrap"><input type="text" value="" id="num1" class="text num1"></td>
+				<td>岁</td>
+			</tr>
+			<tr>
+				<th>体重：</th>
+				<td><input type="text" value="" id="num2" class="text num2"></td>
+				<td>kg</td>
+			</tr>
+			<tr>
+				<th>血肌酐浓度：</th>
+				<td><input type="text" value="" id="num3" class="text num3"></td>
+				<td><span class="s1">mg/dl</span><span class="s2">μmol/L</span></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="计算结果" id="btn" class="btn" onClick="count();"></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="button" value="清除数据" id="reset" class="reset" onClick="hide();"></td>
+			</tr>
+		</table>
+    </div>
+    <div class="line"></div>
+    <div class="introduction">
+    	<p>公式英文名称：Creatinine Clearance Estimate by Cockcroft-Gault Equation,CCrE</p>
+        <p>计算公式：CCrE（女性*0.85）=(140-年龄)*体重*1.23/血肌酐浓度（国际单位,SI）</p>
+		<p>结果正常值范围：80～120 mL/(min*1.73m<sup>2</sup>)</p>
+        <p>说明：<br />CCr常用来对肾功能进行分期以指导治疗，如慢性肾功能衰竭分级时结合CCr将病程分为四期，指导治疗。</p>
+        <p>参考文献：<br />Cockcroft DW, Gault MH. Prediction of creatinine clearance from serum creatinine. Nephron. 1976;16(1):31-42.</p>
+    </div>
+    
+    <div id="textPop">
+    	<h4>计算结果为：</h4>
+        <p>CCrE=<em id="end"> </em>mL/(min*1.73m<sup>2</sup>)</p>
+        <div><a href="#" class="btn_close"><img src="Pub/images/btn_close.png" /></a></div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+// 计算公式
+function count(){
+	var num1 = parseFloat(document.getElementById("num1").value); //年龄
+	var num2 = parseFloat(document.getElementById("num2").value); //体重
+	var num3 = parseFloat(document.getElementById("num3").value); //SCr
+	if(isNaN(num1) || num1 == ""){
+		alert("请填写正确的年龄");
+	}else if(isNaN(num2) || num2 == ""){
+		alert("请填写正确的体重");
+	}else if(isNaN(num3) || num3 == ""){
+		alert("请填写正确的血肌酐浓度");
+	}else{
+		if($(".man").hasClass("checked") && $(".si").hasClass("checked")){
+			var end = (140-num1)*num2*1.23/num3;
+		}else if($(".man").hasClass("checked") && !($(".si").hasClass("checked"))){
+			var end = (140-num1)*num2*1.23/(num3*88.402);
+		}else if($(".woman").hasClass("checked") && $(".si").hasClass("checked")){
+			var end = 0.85*((140-num1)*num2*1.23/num3);
+		}else if($(".woman").hasClass("checked") && !($(".si").hasClass("checked"))){
+			var end = 0.85*((140-num1)*num2*1.23/(num3*88.402));
+		}
+		$("#textPop").css("display","block");
+		$("#end").text(end.toFixed(2));
+	}
+}
+</script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</body>
+</html>

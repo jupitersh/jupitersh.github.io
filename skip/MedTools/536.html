@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>阻力指数和收缩期/舒张期比值</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.mainContainer p {width:95%; margin:0 auto 15px;}
+#yz,#jisuan {padding:5px; border:1px solid #ccc;}
+#yz {width:50px;}
+#jisuan {margin-left:8px; background:#eee; cursor:pointer;}
+</style>
+</head>
+
+<body>
+<div id="Layout">
+    <div class="titleBar">
+    	<h1>阻力指数和收缩期/舒张期比值</h1>
+    </div>
+	<div class="mainContainer">
+    	<p>请输入孕周：<input type="text" id="yz"> 周<input type="button" id="jisuan" value="计算" /></p>
+		<table class="countTab2">
+        	<thead>
+        		<th colspan="6">百分位</th>
+        	</thead>
+            <tbody>
+            	<tr>
+            		<th colspan="2">5</th>
+            		<th colspan="2">50</th>
+            		<th colspan="2">95</th>
+            	</tr>
+            	<tr>
+            		<th>阻力指数</th>
+            		<th>收缩期/舒张期比</th>
+            		<th>阻力指数</th>
+            		<th>收缩期/舒张期比</th>
+            		<th>阻力指数</th>
+            		<th>收缩期/舒张期比</th>
+            	</tr>
+                <tr>
+                    <td><span><em class="num1">0</em></span></td>
+                    <td><span><em class="num2">0</em></span></td>
+                    <td><span><em class="num3">0</em></span></td>
+                    <td><span><em class="num4">0</em></span></td>
+                    <td><span><em class="num5">0</em></span></td>
+                    <td><span><em class="num6">0</em></span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="countTabResult">
+            <tbody>
+                <tr>
+                    <th>结果解读</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>相关解释</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>参考来源</th>
+                    <td>郎景和 主译.《威廉姆斯产科学》（第20版）[M].世界图书出版公司.2001年</td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script> 
+<script type="text/javascript">
+$(function(){
+	function shuchu(n1,n2,n3,n4,n5,n6){
+		$('.num1').text(n1);
+		$('.num2').text(n2);
+		$('.num3').text(n3);
+		$('.num4').text(n4);
+		$('.num5').text(n5);
+		$('.num6').text(n6);
+	}
+	$('#jisuan').click(function(){
+		var yz = parseInt( $('#yz').val() );
+		var n1;
+		var n2;
+		var n3;
+		var n4;
+		var n5;
+		var n6;
+		if( isNaN(yz) || yz<16 || yz>42 ){
+			alert('请输入16~42的数字');
+		}
+		switch (yz){
+			case 16:
+				n1=0.7;
+				n2=3.39;
+				n3=8080;
+				n4=5.12;
+				n5=0.9;
+				n6=10.5;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 17:
+				n1=0.69;
+				n2=3.27;
+				n3=0.79;
+				n4=4.86;
+				n5=0.89;
+				n6=9.46;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 18:
+				n1=0.68;
+				n2=3.16;
+				n3=0.78;
+				n4=4.63;
+				n5=0.88;
+				n6=8.61;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 19:
+				n1=0.67;
+				n2=3.06;
+				n3=0.77;
+				n4=4.41;
+				n5=0.87;
+				n6=7.9;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 20:
+				n1=0.66;
+				n2=2.97;
+				n3=0.76;
+				n4=4.22;
+				n5=0.86;
+				n6=7.3;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 21:
+				n1=0.65;
+				n2=2.88;
+				n3=0.75;
+				n4=4.04;
+				n5=0.85;
+				n6=6.78;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 22:
+				n1=0.64;
+				n2=2.79;
+				n3=0.74;
+				n4=3.88;
+				n5=0.84;
+				n6=6.33;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 23:
+				n1=0.63;
+				n2=2.71;
+				n3=0.73;
+				n4=3.73;
+				n5=0.83;
+				n6=5.94;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 24:
+				n1=0.62;
+				n2=2.64;
+				n3=0.72;
+				n4=3.59;
+				n5=0.82;
+				n6=5.59;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 25:
+				n1=0.61;
+				n2=2.57;
+				n3=0.71;
+				n4=3.46;
+				n5=0.81;
+				n6=5.28;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 26:
+				n1=0.6;
+				n2=2.5;
+				n3=0.7;
+				n4=3.34;
+				n5=0.8;
+				n6=5.01;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 27:
+				n1=0.59;
+				n2=2.44;
+				n3=0.69;
+				n4=3.22;
+				n5=0.79;
+				n6=4.76;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 28:
+				n1=0.58;
+				n2=2.38;
+				n3=0.68;
+				n4=3.12;
+				n5=0.78;
+				n6=4.53;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 29:
+				n1=0.57;
+				n2=2.32;
+				n3=0.67;
+				n4=3.02;
+				n5=0.77;
+				n6=4.33;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 30:
+				n1=0.56;
+				n2=2.26;
+				n3=0.66;
+				n4=2.93;
+				n5=0.76;
+				n6=4.14;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 31:
+				n1=0.55;
+				n2=2.21;
+				n3=0.65;
+				n4=2.84;
+				n5=0.75;
+				n6=3.97;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 32:
+				n1=0.54;
+				n2=2.16;
+				n3=0.64;
+				n4=2.76;
+				n5=0.74;
+				n6=3.81;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 33:
+				n1=0.53;
+				n2=2.11;
+				n3=0.63;
+				n4=2.68;
+				n5=0.73;
+				n6=3.66;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 34:
+				n1=0.52;
+				n2=2.07;
+				n3=0.62;
+				n4=2.61;
+				n5=0.72;
+				n6=3.53;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 35:
+				n1=0.51;
+				n2=2.03;
+				n3=0.61;
+				n4=2.54;
+				n5=0.71;
+				n6=3.4;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 36:
+				n1=0.5;
+				n2=1.98;
+				n3=0.6;
+				n4=2.47;
+				n5=0.7;
+				n6=3.29;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 37:
+				n1=0.49;
+				n2=1.94;
+				n3=0.59;
+				n4=2.41;
+				n5=0.69;
+				n6=3.18;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 38:
+				n1=0.48;
+				n2=1.9;
+				n3=0.58;
+				n4=2.35;
+				n5=0.68;
+				n6=3.08;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 39:
+				n1=0.47;
+				n2=1.87;
+				n3=0.57;
+				n4=2.3;
+				n5=0.67;
+				n6=2.98;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 40:
+				n1=0.46;
+				n2=1.83;
+				n3=0.56;
+				n4=2.24;
+				n5=0.66;
+				n6=2.89;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 41:
+				n1=0.45;
+				n2=1.8;
+				n3=0.55;
+				n4=2.19;
+				n5=0.65;
+				n6=2.81;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+			case 42:
+				n1=0.44;
+				n2=1.76;
+				n3=0.54;
+				n4=2.14;
+				n5=0.64;
+				n6=2.73;
+				shuchu(n1,n2,n3,n4,n5,n6);
+			break;
+		}
+	});
+});
+</script>
+</body>
+</html>

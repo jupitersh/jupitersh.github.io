@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<title>改良马氏评分</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+</head>
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>改良马氏评分</h1>
+  </div>
+	<div class="mainContainer">
+		<table class="countTab2">
+            <tbody>
+                <tr>
+                		<th>分类</th>
+                    <th>描述可看到的咽喉构造</th>
+                </tr>
+                <tr>
+                		<td>Ⅰ</td>
+                    <td>看到软腭、咽腭弓、悬雍垂</td>
+                </tr>
+                <tr>
+                		<td>Ⅱ</td>
+                    <td>看到软腭、咽腭弓、部分悬雍垂</td>
+                </tr> 
+                <tr>
+                		<td>Ⅲ</td>
+                    <td>只看到悬雍垂根部、软腭</td>
+                </tr>
+                <tr>
+                		<td>Ⅳ</td>
+                    <td>软腭也看不到，只能看到硬腭</td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    function shuchu( ){
+        var n=allScore();
+        $('.num').text(n);
+    }
+    function allScore()
+    {
+        var allScore=0;
+        $(':radio:checked').each(function(){
+            var v = parseInt( $(this).val() );
+            var n=0;
+            n=v;  
+            allScore = allScore+n;
+        });
+        return allScore;
+    }
+    var n = 0;
+    $('input').click(function(){  
+        shuchu( );
+    });
+});
+</script>
+</body>
+</html>

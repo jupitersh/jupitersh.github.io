@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=deivce-width,initial-scale=1,maximum-scale=1,user-scalable=0;" />
+<title>宫颈成熟度评分(Bishop 评分)</title>
+<link href="Pub/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="Pub/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Layout">
+	<div class="titleBar">
+		<h1>宫颈成熟度评分(Bishop 评分)</h1>
+	</div>
+	<div class="mainContainer">
+		<form action="" method="post">
+		  <table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+          		<thead>
+                	<tr>
+                		<th rowspan="2">指标</th>
+                		<th colspan="4">分数</th>
+           	        </tr>
+                    <tr>
+                        <th>0</th>
+                    	<th>1</th>
+                    	<th>2</th>
+                    	<th>3</th>
+                    </tr>
+                </thead>
+				<tbody>
+                	<tr>
+                        <td>宫口开大（cm）</td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="0" id="radio1" />
+                        	<label for="radio1">未开</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="1" id="radio2" />
+                        	<label for="radio2">1-2</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="2" id="radio3" />
+                        	<label for="radio3">3-4</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio1" value="3" id="radio4" />
+                        	<label for="radio4">&ge;5</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>宫颈管消退（%）（未消退为2~3cm）</td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="0" id="radio5" />
+                        	<label for="radio5">0-30</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="1" id="radio6" />
+                        	<label for="radio6">40-50</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="2" id="radio7" />
+                        	<label for="radio7">60-70</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio2" value="3" id="radio8" />
+                        	<label for="radio8">&gt;80</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>先露位置（坐骨棘水平=0）</td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="0" id="radio9" />
+                        	<label for="radio9">-3</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="1" id="radio10" />
+                        	<label for="radio10">-2</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="2" id="radio11" />
+                        	<label for="radio11">-1~0</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio3" value="3" id="radio12" />
+                        	<label for="radio12">+1~+2</label>
+                        </td>
+                    </tr>
+                	<tr>
+                        <td>宫颈硬度</td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="0" id="radio13" />
+                        	<label for="radio13">硬</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="1" id="radio14" />
+                        	<label for="radio14">中</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio4" value="2" id="radio15" />
+                        	<label for="radio15">软</label>
+                        </td>
+                        <td></td>
+                    </tr>
+                	<tr>
+                        <td>宫口位置</td>
+                        <td>
+                        	<input type="radio"  name="radio5" value="0" id="radio16" />
+                        	<label for="radio16">后</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio5" value="1" id="radio17" />
+                        	<label for="radio17">中</label>
+                        </td>
+                        <td>
+                        	<input type="radio"  name="radio5" value="2" id="radio18" />
+                        	<label for="radio18">前</label>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+						<th class="count">总分</th>
+                        <td colspan="4"><span><em class="num">0</em> 分</span> （您已选择<span id="num2">0</span>个必选项，还有<span id="num3" style="color:red;">5</span>个必选项未选）</td>
+                    </tr>
+				</tbody>
+			</table>
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" class="countTab2">
+				<tbody>
+					<tr>
+						<th>结果解读</th>
+						<td>评分&le;4分提示官颈不成熟，需促宫颈成熟。评分&ge;7分提示宫颈成熟。</td>
+					</tr>
+					<tr>
+						<th>相关解释</th>
+						<td>国际上采用Bishop评分判断宫颈成熟度，以估计引产的成功率。评分越高，宫颈越成熟，引产成功率越高。0~3分引产不易成功，4~6分成功率仅50%，7~8分成功率80%，评分≥8分者，引产成功率与阴道分娩自然临产结果相似。</td>
+					</tr>
+					<tr>
+						<th>参考来源</th>
+						<td>丰有吉，沈铿主编.妇产科学（八年制）[M].人民卫生出版社.2005.</td>
+					</tr>
+			  </tbody>
+		  </table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Pub/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="Pub/js/base.js"></script>
+<script type="text/javascript">
+$(function(){
+	function shuchu( ){
+		var n=allScore();
+		$('.num').text(n);
+	}
+	
+	function allScore()
+	{
+		var allScore=0;
+		$(':radio:checked').each(function(){
+			var v = parseInt( $(this).val() );
+			var n=0;
+			n=v;  
+			allScore = allScore+n;
+		});
+		return allScore;
+	}
+	
+	var n = 0;
+	$('input').click(function(){  
+		shuchu( );
+		shuchu2();
+	});
+	
+	function shuchu2(){
+		var num2 = $(':radio:checked').length;
+		var num3 = 5-num2;
+		$('#num2').text(num2);
+		$('#num3').text(num3);
+	}
+});
+</script>
+</body>
+</html>
